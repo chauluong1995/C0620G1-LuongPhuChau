@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm Sinh Viên</title>
+</head>
+<body>
+    <form>
+        <h1 style="color: red">Nhập điểm Sinh Viên</h1>
+        <label style="color: blue">Điểm Vật lý : </label>
+        <span style="margin-left:17px"></span><input name="Ly" type="text" id="ly"/><br><br>
+        <label style="color: blue">Điểm Hóa học : </label>
+        <span style="margin-left:2px"></span><input name="Hoa" type="text" id="hoa"/><br><br>
+        <label style="color: blue">Điểm Sinh học : </label>
+        <input name="Sinh" type="text" id="sinh"/><br><br>
+        <button type="button" onclick="tinhdiemsv()">Nhập điểm</button>
+        <p id="tongdiem"></p>
+    </form>
+    <script>
+        function tinhdiemsv() {
+            let ly=document.getElementById("ly");
+            let hoa=document.getElementById("hoa");
+            let sinh=document.getElementById("sinh");
+            let tongdiem= ly + hoa + sinh;
+            document.write("Tổng điểm : " + tongdiem);
+        }
+    </script>
+</body>
+</html>

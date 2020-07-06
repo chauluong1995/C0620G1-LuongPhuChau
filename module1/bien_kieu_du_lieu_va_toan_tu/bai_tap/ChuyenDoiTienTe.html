@@ -33,7 +33,7 @@
             let giatri = parseInt(document.getElementById("nhaptien").value);
             if ((tienA === "USD") && (tienB === "VietNam")) {
                 let result = giatri * 23000;
-                document.getElementById("thanhTien").innerText = "Result : " + result + " " + "VND";
+                document.getElementById("thanhTien").innerHTML = "Result : " + result + " " + "VND";
             }
             if ((tienA === "VietNam") && (tienB === "USD")){
                 result = giatri / 23000;

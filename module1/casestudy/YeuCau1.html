@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 1</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: red">Nhập thông tin khách hàng :</h1>
+        <label style="color: blue">Họ và Tên : </label>
+        <input style="color:orangered;margin-left:68px" type="text" name="fullname" value=""/><br><br>
+        <label style="color: blue">Số CMND : </label>
+        <input style="color: orangered;margin-left:67px" type="number" name="cmnd" value=""/><br><br>
+        <label style="color: blue"> Ngày,tháng,năm sinh : </label>
+        <input style="color: orangered" type="text" name="birthday" value=""/><br><br>
+        <label style="color: blue">Email : </label>
+        <input style="color: orangered;margin-left:98px" type="text" name="email" value=""/><br><br>
+        <label style="color: blue">Địa chỉ : </label>
+        <input style="color: orangered;margin-left:90px" type="text" name="address" value=""/><br><br>
+        <label style="color: blue">Loại Customer : </label>
+        <select style="color: orangered;margin-left:41px" name="CustomerType">
+            <option>Member</option>
+            <option>Silver</option>
+            <option>Gold</option>
+            <option>Platinum</option>
+            <option>Diamond</option>
+        </select><br><br>
+        <label style="color: blue">Giảm giá : </label>
+        <input style="color: orangered;margin-left:77px" type="text" name="discount" value="" id="discount"/><br><br>
+        <label style="color: blue">Số lượng đi kèm : </label>
+        <input style="color: orangered;margin-left:30px" type="text" name="quantityIncluded" value=""/><br><br>
+        <label style="color: blue">Số ngày thuê : </label>
+        <input style="color: orangered;margin-left:53px" type="text" name="rentdays" value="" id="rentdays"/><br><br>
+        <label style="color: blue">Loại dịch vụ : </label>
+        <select style="color: orangered;margin-left:56px" name="servicetype" id="servicetype">
+            <option>Villa</option>
+            <option>House</option>
+            <option>Room</option>
+        </select><br><br>
+        <label style="color:blue">Loại phòng thuê : </label>
+        <select style="color: orangered;margin-left:32px" name="roomtype">
+            <option>Normal</option>
+            <option>Business</option>
+            <option>Vip</option>
+        </select><br><br>
+        <input style="color:deeppink" type="button" name="xacnhan" value="Xác Nhận" onclick="thanhTien()"/><br><br>
+        <p style="color: red" id="totalpay"></p>
+    </form>
+    <script>
+        function thanhTien() {
+            let rentDays=parseInt(document.getElementById("rentdays").value);
+            let disCount=parseInt(document.getElementById("discount").value);
+            let serviceType=document.getElementById("servicetype").value;
+            if (serviceType === "Villa"){
+                let totalPay = 500 * rentDays * (1 - disCount/100);
+                document.getElementById("totalpay").innerHTML = "Số tiền phải trả là : " + totalPay + " " + "USD";
+            }
+            if (serviceType === "House"){
+                let totalPay = 300 * rentDays * (1 - disCount/100);
+                document.getElementById("totalpay").innerHTML = "Số tiền phải trả là : " + totalPay + " " + "USD";
+            }
+            if (serviceType === "Room"){
+                let totalPay = 100 * rentDays * (1 - disCount/100);
+                document.getElementById("totalpay").innerHTML = "Số tiền phải trả là : " + totalPay + " " + "USD";
+            }
+        }
+    </script>
+</body>
+</html>

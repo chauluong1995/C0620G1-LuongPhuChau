@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Diện Tích Hình Tròn</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: blue">Tính diện tích hình tròn : </h1>
+        <label style="color:deeppink">Nhập bán kính : </label>
+        <span style="margin-left:27px"></span><input type="text" name="bankinh" value="" id="bankinh"/><br><br>
+        <input type="button" name="tinhdientich" value="Tính diện tích" style="color:chocolate" onclick="tinhDienTich()"/><br><br>
+        <label style="color: #d61b06">Diện tích hình tròn : </label>
+        <input type="text" name="dientich" value="" id="dientichhinhtron"/>
+    </form>
+    <script>
+        function tinhDienTich() {
+            let bankinhhinhtron=parseInt(document.getElementById("bankinh").value);
+            let pi=3.1415;
+            let dientich= bankinhhinhtron * bankinhhinhtron * pi;
+            document.getElementById("dientichhinhtron").value =dientich;
+        }
+    </script>
+</body>
+</html>

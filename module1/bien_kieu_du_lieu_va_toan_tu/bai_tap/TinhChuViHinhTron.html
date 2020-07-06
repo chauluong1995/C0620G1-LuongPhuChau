@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Chu Vi Hình Tròn</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: blue">Tính chu vi hình tròn : </h1>
+        <label style="color:deeppink">Nhập bán kính : </label>
+        <span style="margin-left:10px"></span><input type="text" name="bankinh" value="" id="bankinh"/><br><br>
+        <input type="button" name="tinhchuvi" value="Tính Chu Vi" style="color:chocolate" onclick="tinhChuVi()"/><br><br>
+        <label style="color: #d61b06">Chu vi hình tròn : </label>
+        <input type="text" name="chuvihinhtron" value="" id="chuVi"/>
+    </form>
+    <script>
+        function tinhChuVi() {
+        let bankinhhinhtron=parseInt(document.getElementById("bankinh").value);
+        let pi=3.1415;
+        let chuViHinhTron= bankinhhinhtron * 2 * pi;
+        document.getElementById("chuVi").value =chuViHinhTron;
+        }
+    </script>
+</body>
+</html>

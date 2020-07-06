@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm Sinh Viên</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: red">Nhập điểm Sinh Viên</h1>
+        <label style="color: blue">Điểm Vật lý : </label>
+        <span style="margin-left:17px"></span><input name="Ly" type="text" id="ly"/><br><br>
+        <label style="color: blue">Điểm Hóa học : </label>
+        <span style="margin-left:2px"></span><input name="Hoa" type="text" id="hoa"/><br><br>
+        <label style="color: blue">Điểm Sinh học : </label>
+        <input name="Sinh" type="text" id="sinh"/><br><br>
+        <button type="button" onclick="tinhdiemsv()">Nhập điểm</button><br><br>
+        <label style="color: red">Tổng điểm : </label>
+        <span style="margin-left:43px"></span><input type="text" id="tong3mon" value=""/><br><br>
+        <label style="color: red">Điểm Trung Bình : </label>
+        <input type="text" id="TrungBinh" value=""/><br><br>
+    </form>
+    <script>
+        function tinhdiemsv() {
+            let diemly= parseInt(document.getElementById("ly").value);
+            let diemhoa=parseInt(document.getElementById("hoa").value);
+            let diemsinh=parseInt(document.getElementById("sinh").value);
+            let tongdiem= diemly + diemhoa + diemsinh;
+            document.getElementById("tong3mon").value = tongdiem;
+            let diemTrungBinh= tongdiem / 3;
+            document.getElementById("TrungBinh").value = diemTrungBinh;
+        }
+    </script>
+</body>
+</html>

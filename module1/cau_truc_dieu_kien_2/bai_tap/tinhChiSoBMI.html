@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng của cơ thể</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: red">Tính chỉ số BMI</h1>
+        <label style="color: blue">Nhập cân nặng (kg) : </label>
+        <input type="text" name="weight" value="" id="weighT"><br><br>
+        <label style="color: blue">Nhập chiều cao (m) : </label>
+        <input type="text" name="height" value="" id="heighT"><br><br>
+        <input type="button" value="Tính chỉ số" style="color: red;background:violet" onclick="tinhBMI()"><br><br>
+        <p style="color: indigo" id="xuatketqua"></p>
+    </form>
+    <script>
+        function tinhBMI() {
+            let weight=parseInt(document.getElementById("weighT").value);
+            let height=parseFloat(document.getElementById("heighT").value);
+            let bmi= weight / (height*height);
+            if (bmi < 18.5)
+                document.getElementById("xuatketqua").innerHTML= "BMI của bạn là :" + " " + bmi + " . " + "Phân loại : Underweight";
+            else if (bmi < 25.0)
+                document.getElementById("xuatketqua").innerHTML= "BMI của bạn là :" + " " + bmi + " . " + "Phân loại : Normal";
+            else if (bmi < 30.0)
+                document.getElementById("xuatketqua").innerHTML= "BMI của bạn là :" + " " + bmi + " . " + "Phân loại : Overweight";
+            else
+                document.getElementById("xuatketqua").innerHTML= "BMI của bạn là :" + " " + bmi + " . " + "Phân loại : Obese";
+
+        }
+    </script>
+</body>
+</html>

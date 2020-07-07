@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu lệnh Witch-Case</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: red">Số ngày trong 1 tháng :</h1>
+        <label style="color: blue">Nhập tháng : </label>
+        <input type="text" name="month" value="" id="montH">
+        <input type="button" value="Tính số ngày" id="tinhsongay" style="color: blue;background:orangered" onclick="tinhSoNgay()"><br>
+        <p style="color: deeppink" id="hienThi"></p>
+    </form>
+    <script>
+        function tinhSoNgay() {
+            let thang=parseInt(document.getElementById("montH").value);
+            switch (thang) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    document.getElementById("hienThi").innerHTML = "Tháng" + " " + thang + " " + "có 31 ngày";
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    document.getElementById("hienThi").innerHTML = "Tháng" + " " + thang + " " + "có 30 ngày";
+                    break;
+                case 2:
+                    document.getElementById("hienThi").innerHTML = "Tháng" + " " + thang + " " + "có 28 hoặc 29 ngày";
+            }
+        }
+    </script>
+</body>
+</html>

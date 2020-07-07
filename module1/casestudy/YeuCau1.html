@@ -5,65 +5,39 @@
     <title>Yêu Cầu 1</title>
 </head>
 <body>
-    <form method="post">
-        <h1 style="color: red">Nhập thông tin khách hàng :</h1>
-        <label style="color: blue">Họ và Tên : </label>
-        <input style="color:orangered;margin-left:68px" type="text" name="fullname" value=""/><br><br>
-        <label style="color: blue">Số CMND : </label>
-        <input style="color: orangered;margin-left:67px" type="number" name="cmnd" value=""/><br><br>
-        <label style="color: blue"> Ngày,tháng,năm sinh : </label>
-        <input style="color: orangered" type="text" name="birthday" value=""/><br><br>
-        <label style="color: blue">Email : </label>
-        <input style="color: orangered;margin-left:98px" type="text" name="email" value=""/><br><br>
-        <label style="color: blue">Địa chỉ : </label>
-        <input style="color: orangered;margin-left:90px" type="text" name="address" value=""/><br><br>
-        <label style="color: blue">Loại Customer : </label>
-        <select style="color: orangered;margin-left:41px" name="CustomerType">
-            <option>Member</option>
-            <option>Silver</option>
-            <option>Gold</option>
-            <option>Platinum</option>
-            <option>Diamond</option>
-        </select><br><br>
-        <label style="color: blue">Giảm giá : </label>
-        <input style="color: orangered;margin-left:77px" type="text" name="discount" value="" id="discount"/><br><br>
-        <label style="color: blue">Số lượng đi kèm : </label>
-        <input style="color: orangered;margin-left:30px" type="text" name="quantityIncluded" value=""/><br><br>
-        <label style="color: blue">Số ngày thuê : </label>
-        <input style="color: orangered;margin-left:53px" type="text" name="rentdays" value="" id="rentdays"/><br><br>
-        <label style="color: blue">Loại dịch vụ : </label>
-        <select style="color: orangered;margin-left:56px" name="servicetype" id="servicetype">
-            <option>Villa</option>
-            <option>House</option>
-            <option>Room</option>
-        </select><br><br>
-        <label style="color:blue">Loại phòng thuê : </label>
-        <select style="color: orangered;margin-left:32px" name="roomtype">
-            <option>Normal</option>
-            <option>Business</option>
-            <option>Vip</option>
-        </select><br><br>
-        <input style="color:deeppink" type="button" name="xacnhan" value="Xác Nhận" onclick="thanhTien()"/><br><br>
-        <p style="color: red" id="totalpay"></p>
-    </form>
     <script>
-        function thanhTien() {
-            let rentDays=parseInt(document.getElementById("rentdays").value);
-            let disCount=parseInt(document.getElementById("discount").value);
-            let serviceType=document.getElementById("servicetype").value;
-            if (serviceType === "Villa"){
-                let totalPay = 500 * rentDays * (1 - disCount/100);
-                document.getElementById("totalpay").innerHTML = "Số tiền phải trả là : " + totalPay + " " + "USD";
-            }
-            if (serviceType === "House"){
-                let totalPay = 300 * rentDays * (1 - disCount/100);
-                document.getElementById("totalpay").innerHTML = "Số tiền phải trả là : " + totalPay + " " + "USD";
-            }
-            if (serviceType === "Room"){
-                let totalPay = 100 * rentDays * (1 - disCount/100);
-                document.getElementById("totalpay").innerHTML = "Số tiền phải trả là : " + totalPay + " " + "USD";
-            }
+        let fullName=prompt("Nhập tên");
+        let idCard=prompt("Nhập CMND");
+        let dateOfBirth=prompt("Nhập ngày sinh");
+        let email=prompt("Nhập Email");
+        let address=prompt("Nhập địa chỉ");
+        let customer=prompt("Nhập loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
+        let disCount=prompt("Phần trăm giảm giá:\nGiá trị từ 1- 100");
+        let quantityIncluded=prompt("Số lượng đi kèm");
+        let rentDays=prompt("Nhập số ngày thuê");
+        let typeOfService=prompt("Nhập loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");
+        let kindOfRoom=prompt("Nhập loại phòng:\nVip, Business,  Normal");
+        let monNey;
+        if (typeOfService==="Villa"){
+            monNey=500;
+        }else if (typeOfService==="House"){
+            monNey=300;
+        }else {
+            monNey=100;
         }
+        alert("1.Tên khách hàng: "+fullName+"" +
+            "\n"+"2.Số CMND: "+idCard+"" +
+            "\n"+"3.Ngày sinh: "+dateOfBirth+"" +
+            "\n"+"4.Email: "+email+ "" +
+            "\n"+ "5.Địa chỉ: "+address+"" +
+            "\n"+ "6.Loại Customer: "+customer+"" +
+            "\n"+"7.Phần trăm giảm giá: "+disCount+"%"+
+            "\n"+"8.Số lượng đi kèm: "+quantityIncluded+"" +
+            "\n"+ "9.Số ngày thuê: "+rentDays+"" +
+            "\n"+"10.Loại dịch vụ: "+typeOfService+"" +
+            "\n"+ "11.Loại phòng: "+kindOfRoom+"" +
+            "\n"+"12.Số tiền phải trả là: "+
+            (parseInt(monNey)*parseInt(rentDays)*(1-(parseInt(disCount)/100)))+"$")
     </script>
 </body>
 </html>

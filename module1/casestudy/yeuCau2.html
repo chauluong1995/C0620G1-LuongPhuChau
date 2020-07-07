@@ -8,15 +8,110 @@
     <script>
         let fullName="Lâm Thanh Phong";
         let idCard="123456789";
-        let dateOfBirth="30/02/2003";
+        let dateOfBirth="03/20/2003";
         let email="abc@codegym.com";
-        let address="";
-        let customer=prompt("Nhập loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
-        let disCount=prompt("Phần trăm giảm giá:\nGiá trị từ 1- 100");
-        let quantityIncluded=prompt("Số lượng đi kèm");
-        let rentDays=prompt("Nhập số ngày thuê");
-        let typeOfService=prompt("Nhập loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");
-        let kindOfRoom=prompt("Nhập loại phòng:\nVip, Business,  Normal");
+        let address="Đà Lạt";
+        let customer="Diamond";
+        let disCount="50";
+        let quantityIncluded="500";
+        let rentDays="10";
+        let typeOfService="Villa";
+        let kindOfRoom="Vip";
+        if (typeOfService==="Villa"){
+            monNey=500;
+        }else if (typeOfService==="House"){
+            monNey=300;
+        }else {
+            monNey=100;
+        }
+        let totalPay=(parseInt(monNey)*parseInt(rentDays)*(1-(parseInt(disCount)/100)))+"$";
+        menu();
+        function menu() {
+            let choose=prompt("Nhập thao tác muốn thực hiện:\n1.show\n2.edit");
+            switch (choose) {
+                case "1":
+                    show();
+                    break;
+                case "2":
+                    edit();
+                    break;
+                default:
+                    alert("Failed");
+                    break;
+            }
+            menu();
+        }
+        function show() {
+            alert("1.Tên khách hàng: "+fullName+"" +
+                "\n"+"2.Số CMND: "+idCard+"" +
+                "\n"+"3.Ngày sinh: "+dateOfBirth+"" +
+                "\n"+"4.Email: "+email+ "" +
+                "\n"+ "5.Địa chỉ: "+address+"" +
+                "\n"+ "6.Loại Customer: "+customer+"" +
+                "\n"+"7.Phần trăm giảm giá: "+disCount+"%"+
+                "\n"+"8.Số lượng đi kèm: "+quantityIncluded+"" +
+                "\n"+ "9.Số ngày thuê: "+rentDays+"" +
+                "\n"+"10.Loại dịch vụ: "+typeOfService+"" +
+                "\n"+ "11.Loại phòng: "+kindOfRoom+"" +
+                "\n"+"12.Số tiền phải trả là: "+totalPay+"");
+            menu();
+        }
+        function edit() {
+            let choose=prompt("1.Tên khách hàng: "+fullName+"" +
+                "\n"+"2.Số CMND: "+idCard+"" +
+                "\n"+"3.Ngày sinh: "+dateOfBirth+"" +
+                "\n"+"4.Email: "+email+ "" +
+                "\n"+ "5.Địa chỉ: "+address+"" +
+                "\n"+ "6.Loại Customer: "+customer+"" +
+                "\n"+"7.Phần trăm giảm giá: "+disCount+"%"+
+                "\n"+"8.Số lượng đi kèm: "+quantityIncluded+"" +
+                "\n"+ "9.Số ngày thuê: "+rentDays+"" +
+                "\n"+"10.Loại dịch vụ: "+typeOfService+"" +
+                "\n"+ "11.Loại phòng: "+kindOfRoom+"");
+            switch (choose){
+                case "1":
+                    fullName=prompt("Nhập lại tên:");
+                    break;
+                case "2":
+                    idCard=prompt("Nhập lại CMND:");
+                    break;
+                case "3":
+                    dateOfBirth=prompt("Nhập lại ngày sinh:\nTheo định dạng : tháng/ngày/năm");
+                    break;
+                case "4":
+                    email=prompt("Nhập lại Email:");
+                    break;
+                case "5":
+                    address=prompt("Nhập lại địa chỉ:");
+                    break;
+                case "6":
+                    customer=prompt("Nhập lại loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
+                    break;
+                case "7":
+                    disCount=prompt("Nhập lại phần trăm giảm giá:\nGiá trị từ 1- 100");
+                    break;
+                case "8":
+                    quantityIncluded=prompt("Nhập lại số lượng đi kèm:");
+                    break;
+                case "9":
+                    rentDays=prompt("Nhập lại số ngày thuê:");
+                    break;
+                case "10":
+                    typeOfService=prompt("Nhập lại loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");
+                    break;
+                case "11":
+                    kindOfRoom=prompt("Nhập lại loại phòng:\nVip, Business,  Normal");
+                    break;
+                default:
+                    alert("Failed");
+                    break;
+            }
+            show()
+        }
+        let currentYear = new Date().getFullYear();
+        let birthday = new Date(dateOfBirth).getFullYear();
+        let ageCustomer = currentYear - birthday;
+        
     </script>
 </body>
 </html>

@@ -6,24 +6,24 @@
 </head>
 <body>
     <script>
-        let fullName=prompt("Nhập tên");
-        let idCard=prompt("Nhập CMND");
+        let fullName=prompt("Nhập tên:");
+        let idCard=prompt("Nhập CMND:");
         let dateOfBirth=prompt("Nhập ngày sinh:\nTheo định dạng: tháng/ngày/năm");
-        let email=prompt("Nhập Email");
-        let address=prompt("Nhập địa chỉ");
+        let email=prompt("Nhập Email:");
+        let address=prompt("Nhập địa chỉ:\nNhập Thành phố:");
         let customer=prompt("Nhập loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
         let disCount=prompt("Phần trăm giảm giá:\nGiá trị từ 1- 100");
-        let quantityIncluded=prompt("Số lượng đi kèm");
-        let rentDays=prompt("Nhập số ngày thuê");
+        let quantityIncluded=prompt("Số lượng đi kèm:");
+        let rentDays=prompt("Nhập số ngày thuê:");
         let typeOfService=prompt("Nhập loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");
         let kindOfRoom=prompt("Nhập loại phòng:\nVip, Business,  Normal");
-        let monNey;
+        let monneyForServiceType;
         if (typeOfService==="Villa"){
-            monNey=500;
+            monneyForServiceType=500;
         }else if (typeOfService==="House"){
-            monNey=300;
+            monneyForServiceType=300;
         }else {
-            monNey=100;
+            monneyForServiceType=100;
         }
         alert("1.Tên khách hàng: "+fullName+"" +
             "\n"+"2.Số CMND: "+idCard+"" +
@@ -37,7 +37,7 @@
             "\n"+"10.Loại dịch vụ: "+typeOfService+"" +
             "\n"+ "11.Loại phòng: "+kindOfRoom+"" +
             "\n"+"12.Số tiền phải trả là: "+
-            (parseInt(monNey)*parseInt(rentDays)*(1-(parseInt(disCount)/100)))+"$")
+            (parseInt(monneyForServiceType)*parseInt(rentDays)*(1-(parseInt(disCount)/100)))+"$")
     </script>
 </body>
 </html>

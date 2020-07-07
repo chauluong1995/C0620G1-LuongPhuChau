@@ -12,19 +12,20 @@
         let email="abc@codegym.com";
         let address="Đà Lạt";
         let customer="Diamond";
-        let disCount="50";
+        let disCountPercent="50";
         let quantityIncluded="500";
         let rentDays="10";
         let typeOfService="Villa";
         let kindOfRoom="Vip";
         if (typeOfService==="Villa"){
-            monNey=500;
+            monneyForServiceType=500;
         }else if (typeOfService==="House"){
-            monNey=300;
+            monneyForServiceType=300;
         }else {
-            monNey=100;
+            monneyForServiceType=100;
         }
-        let totalPay=(parseInt(monNey)*parseInt(rentDays)*(1-(parseInt(disCount)/100)))+"$";
+        let totalDisCount = 0;
+        let totalPay;
         menu();
         function menu() {
             let choose=prompt("Nhập thao tác muốn thực hiện:\n1.show\n2.edit");
@@ -42,13 +43,51 @@
             menu();
         }
         function show() {
+            let currentYear = new Date().getFullYear();
+            let birthday = new Date(dateOfBirth).getFullYear();
+            let ageCustomer = currentYear - birthday;
+            let disCountForRentDays = 0;
+                if (rentDays>=7)
+                    disCountForRentDays = 30;
+                else if (rentDays>=5)
+                    disCountForRentDays = 20;
+                else if (rentDays>=2)
+                    disCountForRentDays = 10;
+            let disCountForCustomer = 0;
+                switch (customer) {
+                    case "Diamond":
+                        disCountForCustomer = 15;
+                        break;
+                    case "Platinum":
+                        disCountForCustomer = 10;
+                        break;
+                    case "Gold":
+                        disCountForCustomer = 5;
+                        break;
+                    case "Silve":
+                        disCountForCustomer = 2;
+                        break;
+                }
+            let disCountForAdressAndAge = 0;
+                if (address==="Đà Nẵng")
+                    if (ageCustomer >= 30 )
+                        disCountForAdressAndAge = 22;
+                    else if (ageCustomer >= 20 )
+                        disCountForAdressAndAge = 21;
+                    else disCountForAdressAndAge = 20;
+                if (address==="Huế")
+                    disCountForAdressAndAge = 10;
+                if (address==="Quảng Nam")
+                    disCountForAdressAndAge = 5;
+            totalDisCount = disCountForRentDays + disCountForCustomer + disCountForAdressAndAge;
+            totalPay=(parseInt(monneyForServiceType)*parseInt(rentDays)*(1-(parseInt(disCountPercent)/100)) - totalDisCount)+"$";
             alert("1.Tên khách hàng: "+fullName+"" +
                 "\n"+"2.Số CMND: "+idCard+"" +
                 "\n"+"3.Ngày sinh: "+dateOfBirth+"" +
                 "\n"+"4.Email: "+email+ "" +
                 "\n"+ "5.Địa chỉ: "+address+"" +
                 "\n"+ "6.Loại Customer: "+customer+"" +
-                "\n"+"7.Phần trăm giảm giá: "+disCount+"%"+
+                "\n"+"7.Phần trăm giảm giá: "+disCountPercent+"%"+
                 "\n"+"8.Số lượng đi kèm: "+quantityIncluded+"" +
                 "\n"+ "9.Số ngày thuê: "+rentDays+"" +
                 "\n"+"10.Loại dịch vụ: "+typeOfService+"" +
@@ -63,7 +102,7 @@
                 "\n"+"4.Email: "+email+ "" +
                 "\n"+ "5.Địa chỉ: "+address+"" +
                 "\n"+ "6.Loại Customer: "+customer+"" +
-                "\n"+"7.Phần trăm giảm giá: "+disCount+"%"+
+                "\n"+"7.Phần trăm giảm giá: "+disCountPercent+"%"+
                 "\n"+"8.Số lượng đi kèm: "+quantityIncluded+"" +
                 "\n"+ "9.Số ngày thuê: "+rentDays+"" +
                 "\n"+"10.Loại dịch vụ: "+typeOfService+"" +
@@ -82,13 +121,13 @@
                     email=prompt("Nhập lại Email:");
                     break;
                 case "5":
-                    address=prompt("Nhập lại địa chỉ:");
+                    address=prompt("Nhập lại địa chỉ:\nNhập Thành phố:");
                     break;
                 case "6":
                     customer=prompt("Nhập lại loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
                     break;
                 case "7":
-                    disCount=prompt("Nhập lại phần trăm giảm giá:\nGiá trị từ 1- 100");
+                    disCountPercent=prompt("Nhập lại phần trăm giảm giá:\nGiá trị từ 1- 100");
                     break;
                 case "8":
                     quantityIncluded=prompt("Nhập lại số lượng đi kèm:");
@@ -108,10 +147,6 @@
             }
             show()
         }
-        let currentYear = new Date().getFullYear();
-        let birthday = new Date(dateOfBirth).getFullYear();
-        let ageCustomer = currentYear - birthday;
-        
     </script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+    <form method="post">
+        <h1 style="color: red">Chuyển đổi nhiệt độ :</h1>
+        <label style="color: blue"><strong>Nhập nhiệt độ : </strong></label>
+        <input type="text" id="nhapnhietdo">
+        <select style="color: orchid; background: blue" id="loaiNhietDo">
+            <option value="doC">Độ C</option>
+            <option value="doF">Độ F</option>
+        </select><br><br>
+        <input type="button" name="chuyenDoi" value="Chuyển đổi" onclick="chuyenNhietDo()" style="background: orchid;color: blueviolet"><br><br>
+        <h2 style="color: seagreen" id="xuatKetQua"></h2>
+    </form>
+    <script>
+        function chuyenNhietDo(){
+            let nhietDoNhapVao = parseInt(document.getElementById("nhapnhietdo").value);
+            let nhietDoXuatRa;
+            let loaiNhietDo = document.getElementById("loaiNhietDo").value;
+            switch (loaiNhietDo) {
+                case "doC":
+                    nhietDoXuatRa = nhietDoNhapVao * 1.8 + 32;
+                    document.getElementById("xuatKetQua").innerHTML = "Kết quả sau khi chuyển đổi là : " + nhietDoXuatRa + " độ F";
+                    break;
+                case "doF":
+                    nhietDoXuatRa = (nhietDoNhapVao - 32) * 5 / 9;
+                    document.getElementById("xuatKetQua").innerHTML = "Kết quả sau khi chuyển đổi là : " + nhietDoXuatRa + " độ C";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

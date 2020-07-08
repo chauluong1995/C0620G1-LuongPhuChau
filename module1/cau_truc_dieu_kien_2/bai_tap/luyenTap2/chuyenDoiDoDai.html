@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi độ dài</title>
+</head>
+<body>
+<form method="post">
+    <h1 style="color: red">Chuyển đổi độ dài :</h1>
+    <label style="color: blue"><strong>Nhập độ dài : </strong></label>
+    <input type="text" id="nhapdodai">
+    <select style="color: orchid; background: blue" id="loaidodai">
+        <option value="met">Mét</option>
+        <option value="feet">Feet</option>
+    </select><br><br>
+    <input type="button" name="chuyenDoi" value="Chuyển đổi" onclick="chuyenDoDai()" style="background: orchid;color: blueviolet"><br><br>
+    <h2 style="color: seagreen" id="xuatKetQua"></h2>
+</form>
+<script>
+    function chuyenDoDai(){
+        let doDaiNhapVao = parseInt(document.getElementById("nhapdodai").value);
+        let doDaiXuatRa;
+        let loaiDodai = document.getElementById("loaidodai").value;
+        switch (loaiDodai) {
+            case "met":
+                doDaiXuatRa = doDaiNhapVao * 3.2808;
+                document.getElementById("xuatKetQua").innerHTML = "Kết quả sau khi chuyển đổi là : " + doDaiXuatRa + " feet";
+                break;
+            case "feet":
+                doDaiXuatRa = doDaiNhapVao / 3.2808;
+                document.getElementById("xuatKetQua").innerHTML = "Kết quả sau khi chuyển đổi là : " + doDaiXuatRa + " mét";
+                break;
+        }
+    }
+</script>
+</body>
+</html>

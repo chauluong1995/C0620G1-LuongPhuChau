@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải Phương Trình Bậc Nhất</title>
+</head>
+<body>
+    <h1 style="color: red">Giải phương trình bậc nhất</h1>
+    <h2 style="color: blue">Phương trình bậc nhất có dạng ax + b = 0</h2>
+    <label style="color: deeppink">Nhập số a :</label>
+    <input type="text" id="nhapsoA" style="color: orangered"><br><br>
+    <label style="color: deeppink">Nhập số b :</label>
+    <input type="text" id="nhapsoB" style="color: orangered"><br><br>
+    <input type="button" style="color: midnightblue;background: aqua" value="Giải phương trình" onclick="giaiPhuongTrinh()">
+    <h3 style="color: indigo" id="xuatketqua"></h3>
+    <script>
+        function giaiPhuongTrinh() {
+            let soA=parseInt(document.getElementById("nhapsoA").value);
+            let soB=parseInt(document.getElementById("nhapsoB").value);
+            let nghiemPhuongTrinh;
+            if (soA===0 && soB===0)
+                document.getElementById("xuatketqua").innerHTML="Phương trình vô số nghiệm";
+            if (soA===0 && soB !== 0)
+                document.getElementById("xuatketqua").innerHTML="Phương trình vô nghiệm";
+            if (soA !== 0){
+                nghiemPhuongTrinh = (- soB) / soA;
+                document.getElementById("xuatketqua").innerHTML="Phương trình có 1 nghiệm là : " + nghiemPhuongTrinh;
+            }
+        }
+    </script>
+</body>
+</html>

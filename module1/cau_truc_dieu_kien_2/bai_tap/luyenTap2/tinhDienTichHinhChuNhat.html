@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích hình chữ nhật</title>
+</head>
+<body>
+<h1 style="color: blue" id="xuatketqua"></h1>
+<script>
+    let chieuRong = parseInt(prompt("Nhập độ dài chiều rộng hình chữ nhật : (Đơn vị : mét)"));
+    let chieuDai = parseInt(prompt("Nhập độ dài chiều dài hình chữ nhật : (Đơn vị : mét)"));
+    let dienTichHinhChuNhat;
+    if (chieuRong>0&&chieuDai>0){
+        dienTichHinhChuNhat = chieuRong * chieuDai;
+        document.getElementById("xuatketqua").innerHTML="Diện tích hình chữ nhật là : " + dienTichHinhChuNhat + " mét vuông";
+    }
+    else document.getElementById("xuatketqua").innerHTML="Hình chữ nhật như vậy không tồn tại !!!  =))";
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích hình vuông</title>
+</head>
+<body>
+    <h1 style="color: blue" id="xuatketqua"></h1>
+    <script>
+        let canh = parseInt(prompt("Nhập độ dài cạnh a của hình vuông : (Đơn vị : mét)"));
+        let dienTichHinhVuong;
+        if (canh<0)
+            document.getElementById("xuatketqua").innerHTML="Độ dài cạnh hình vuông không thể là số âm ! =))";
+        if (canh===0)
+            document.getElementById("xuatketqua").innerHTML="Hình vuông như vậy không tồn tại !!!";
+        if (canh>0) {
+            dienTichHinhVuong=canh*canh;
+            document.getElementById("xuatketqua").innerHTML="Diện tích hình vuông là : " + dienTichHinhVuong + " mét vuông";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại</title>
+</head>
+<body>
+    <h1 style="color: red" id="xuatKetQua"></h1>
+    <script>
+        let phutGoiNoiMang=parseInt(prompt("Nhập số phút gọi Nội mạng : "));
+        let phutGoiNgoaiMang=parseInt(prompt("Nhập số phút gọi Ngoại mạng : "));
+        let cuocNoiMang = 2000;
+        let cuocNgoaiMang = 3000;
+        if (phutGoiNoiMang >= 120)
+            cuocNoiMang = 1000;
+        else if (phutGoiNoiMang >= 60)
+                cuocNoiMang = 1500;
+        if (phutGoiNgoaiMang >= 120)
+            cuocNgoaiMang = 2000;
+        else if (phutGoiNgoaiMang >= 60)
+                cuocNgoaiMang = 2500;
+        let totalPay;
+            totalPay = cuocNoiMang*phutGoiNoiMang + cuocNgoaiMang*phutGoiNgoaiMang;
+        document.getElementById("xuatKetQua").innerHTML= "Số tiền phải trả là : " + totalPay + " VND";
+    </script>
+</body>
+</html>

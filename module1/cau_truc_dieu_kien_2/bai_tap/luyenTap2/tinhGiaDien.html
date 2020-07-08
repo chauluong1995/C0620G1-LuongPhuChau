@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Giá Điện</title>
+</head>
+<body>
+    <h1 style="color: red" id="xuatketqua"></h1>
+    <script>
+        let chuSoDien = parseFloat(prompt("Nhập số điện : (Đơn vị : kWh)"));
+        let giaDienBacMot=1500;
+        let giaDienBacHai=1700;
+        let giaDienBacBa=2000;
+        let tienBacMot = 0;
+        let tienBacHai = 0;
+        let tienBacBa = 0;
+        let totalPay;
+        if (chuSoDien>=101) {
+            tienBacBa = (chuSoDien - 100) * giaDienBacBa;
+            tienBacHai = 50 * giaDienBacHai;
+            tienBacMot = 50 * giaDienBacMot;
+        }
+        else if (chuSoDien>=51) {
+            tienBacHai = (chuSoDien - 50) * giaDienBacHai;
+            tienBacMot = 50 * giaDienBacMot;
+        }
+        else tienBacMot = chuSoDien * giaDienBacMot;
+        totalPay = tienBacBa+tienBacHai+tienBacMot;
+        document.getElementById("xuatketqua").innerHTML="Số tiền điện phải trả là : " + totalPay + " VND";
+    </script>
+</body>
+</html>

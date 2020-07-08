@@ -30,20 +30,20 @@
         function chuyenTien() {
             let tienA=document.getElementById("loaiTienA").value;
             let tienB=document.getElementById("loaiTienB").value;
-            let giatri = parseInt(document.getElementById("nhaptien").value);
+            let giaTri = parseInt(document.getElementById("nhaptien").value);
             if ((tienA === "USD") && (tienB === "VietNam")) {
-                let result = giatri * 23000;
+                let result = giaTri * 23000;
                 document.getElementById("thanhTien").innerHTML = "Result : " + result + " " + "VND";
             }
             if ((tienA === "VietNam") && (tienB === "USD")){
-                result = giatri / 23000;
+                result = giaTri / 23000;
                 document.getElementById("thanhTien").innerHTML = "Result : " + result + " " + "USD";
             }
             if ((tienA === "USD") && (tienB === "USD")){
-                document.getElementById("thanhTien").innerHTML = "Result : " + giatri + " " + "USD";
+                document.getElementById("thanhTien").innerHTML = "Result : " + giaTri + " " + "USD";
             }
             if ((tienA === "VietNam") && (tienB === "VietNam")){
-                document.getElementById("thanhTien").innerHTML = "Result : " + giatri + " " + "VND";
+                document.getElementById("thanhTien").innerHTML = "Result : " + giaTri + " " + "VND";
             }
         }
     </script>

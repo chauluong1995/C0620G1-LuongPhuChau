@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Vui</title>
+</head>
+<body>
+<label style="color: red">GOOD</label>
+<input type="radio" id="good" onclick="changeCheck('good');">
+<label style="color: red">FAST</label>
+<input type="radio" id="cheap" onclick="changeCheck('cheap');">
+<label style="color: red">CHEAP</label>
+<input type="radio" id="fast" onclick="changeCheck('fast');">
+<script>
+    function changeCheck(name) {
+        let goodObj = document.getElementById("good");
+        let cheapObj = document.getElementById("cheap");
+        let fastObj = document.getElementById("fast");
+        switch (name) {
+            case "good":
+                if (goodObj.checked&&cheapObj.checked){
+                    fastObj.checked=false;
+                }
+                break;
+            case "cheap":
+                if (cheapObj.checked&&fastObj.checked){
+                    goodObj.checked=false;
+                }
+                break;
+            case "fast":
+                if (goodObj.checked&&fastObj.checked){
+                    cheapObj.checked=false;
+                }
+                break;
+        }
+    }
+</script>
+</body>
+</html>

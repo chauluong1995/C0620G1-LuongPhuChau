@@ -6,14 +6,14 @@
 </head>
 <body>
 <script>
-    let u, v;
-    u = prompt("Nhập số a");
-    v = prompt("Nhập số b");
-    let w = u % v;
-    if (w > 0) {
+    let number1, number2;
+    number1 = prompt("Nhập số a");
+    number2 = prompt("Nhập số b");
+    let soDu = number1 % number2;
+    if (soDu > 0) {
         alert("a không chia hết cho b")
     }
-    else if (w < 0) {
+    else if (soDu < 0) {
         alert("a không chia hết cho b")
     }
     else alert("a chia hết cho b")

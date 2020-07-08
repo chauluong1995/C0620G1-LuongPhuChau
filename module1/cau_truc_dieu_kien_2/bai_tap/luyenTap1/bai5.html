@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <h1 id="xuatKetQua" style="color: red"></h1>
+    <script>
+        let diemBaiKiemTra=parseInt(prompt("Nhập điểm bài kiểm tra theo thang điểm 10 : "));
+        let diemThiGiuaKy=parseInt(prompt("Nhập điểm bài thi giữa kỳ theo thang điểm 10 : "));
+        let diemThiCuoiKy=parseInt(prompt("Nhập điểm bài thi cuối kỳ theo thang điểm 10 : "));
+        let diemTrungBinh=(diemBaiKiemTra+diemThiGiuaKy*2+diemThiCuoiKy*3)/6;
+        if (diemTrungBinh >= 8)
+            document.getElementById("xuatKetQua").innerHTML="Học sinh này xếp hạng A";
+        else if (diemTrungBinh >= 6.5)
+            document.getElementById("xuatKetQua").innerHTML="Học sinh này xếp hạng B";
+        else if (diemTrungBinh >= 5)
+            document.getElementById("xuatKetQua").innerHTML="Học sinh này xếp hạng C";
+        else if (diemTrungBinh >= 3.5)
+            document.getElementById("xuatKetQua").innerHTML="Học sinh này xếp hạng D";
+        else document.getElementById("xuatKetQua").innerHTML="Học sinh này xếp hạng E";
+    </script>
+</body>
+</html>

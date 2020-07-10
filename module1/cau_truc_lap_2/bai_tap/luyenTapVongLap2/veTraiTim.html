@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ  trái tim</title>
+</head>
+<body>
+<script>
+    document.write("<table height='333px' width='333px'>");
+        for(let dong=1;dong<=7;dong++){
+            document.write("<tr>");
+            for(let cot=1;cot<=7;cot++){
+                document.write("<td>");
+                if(dong==1&&(cot==1||cot==7||cot==4)||
+                    dong==5&&(cot==1||cot==7)||
+                    dong==6&&(cot<=2||cot>=6)||
+                    dong==7&&(cot<=3||cot>=5)){
+                    document.write(" ")
+                }else {
+                    document.write("*");
+                }
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+    document.write("</table>");
+</script>
+</body>
+</html>

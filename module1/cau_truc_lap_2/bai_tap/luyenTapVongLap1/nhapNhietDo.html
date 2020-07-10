@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h1 style="color: red" id="chucMungDaThoat"></h1>
+<script>
+    let nhietDoNhapVao = parseFloat(prompt("Nhập nhiệt độ vào đây :"));
+    while (nhietDoNhapVao < 20 || nhietDoNhapVao > 100) {
+        if (nhietDoNhapVao > 100) {
+            alert("Đề nghị bạn giảm nhiệt độ");
+        }
+        if (nhietDoNhapVao < 20) {
+            alert("Đề nghị bạn tăng nhiệt độ");
+        }
+        nhietDoNhapVao = parseFloat(prompt("Nhập nhiệt độ vào đây :"));
+    }
+    document.getElementById("chucMungDaThoat").innerHTML="Chúc mừng bạn đã thoát khỏi vòng lặp vô tận";
+</script>
+</body>
+</html>

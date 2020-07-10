@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In Hình Chữ Nhật</title>
+</head>
+<body>
+<script>
+    for (let hang = 6; hang >= 0; hang--) {
+        for (let cot = 0; cot <= 21; cot++) {
+            if (cot > 0 && cot < 21 && hang > 0 && hang < 6) {
+                document.write("&nbsp;&nbsp;");
+            } else {
+                document.write("*");
+            }
+        }
+        document.write("<br>")
+    }
+</script>
+</body>
+</html>

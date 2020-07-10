@@ -7,7 +7,7 @@
 <body>
     <h1 style="color: red" id="xuatketqua"></h1>
     <script>
-        let soNhapVao = prompt("Nhập 1 số bất kỳ : (số nguyên)");
+        let soNhapVao =parseFloat(prompt("Nhập 1 số bất kỳ : (số nguyên)"));
         if (soNhapVao>0 && soNhapVao<120)
             document.getElementById("xuatketqua").innerHTML="Đó là số tuổi của 1 người";
         else document.getElementById("xuatketqua").innerHTML="Đó không phải tuổi của 1 người";

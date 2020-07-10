@@ -17,9 +17,9 @@
 <h3 style="color: indigo" id="xuatketqua"></h3>
 <script>
     function giaiPhuongTrinh() {
-        let soA=parseInt(document.getElementById("nhapsoA").value);
-        let soB=parseInt(document.getElementById("nhapsoB").value);
-        let soC=parseInt(document.getElementById("nhapsoC").value);
+        let soA=parseFloat(document.getElementById("nhapsoA").value);
+        let soB=parseFloat(document.getElementById("nhapsoB").value);
+        let soC=parseFloat(document.getElementById("nhapsoC").value);
         let nghiemKep;
         let nghiemMot;
         let nghiemHai;
@@ -27,11 +27,11 @@
             delta = soB*soB - 4*soA*soC;
         if (delta<0)
             document.getElementById("xuatketqua").innerHTML="Phương trình vô nghiệm";
-        if (delta===0){
+        else if (delta==0){
             nghiemKep = ( - soB ) / ( 2 * soA );
             document.getElementById("xuatketqua").innerHTML="Phương trình có nghiệm kép : x1 = x2 = " + nghiemKep;
         }
-        if (delta>0){
+        else {
             nghiemMot = ((-soB) + Math.sqrt(delta)) / (2*soA);
             nghiemHai = ((-soB) - Math.sqrt(delta)) / (2*soA);
             document.getElementById("xuatketqua").innerHTML="Phương trình có 2 nghiệm phân biệt là : x1 = " + nghiemMot + " và x2 = " + nghiemHai;

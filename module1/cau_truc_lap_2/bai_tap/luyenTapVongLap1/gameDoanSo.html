@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Đoán Số</title>
+</head>
+<body>
+<h1 id="xuatKetQua" style="color: red"></h1>
+<input type="button" id="play" value="Play" style="background: blue;color: red;width:50px;height:50px" onclick="game()">
+<script>
+    function game() {
+        let min = parseInt(prompt("Nhập khoảng muốn đoán:" + "\n" + "1.Giá trị nhỏ nhất"));
+        let max = parseInt(prompt("Nhập khoảng muốn đoán:" + "\n" + "2.Giá trị lớn nhất"));
+        let soNgauNhien = parseInt(Math.random() * (max - min) + min);
+        let check = false;
+        let count = 0;
+        for (count; count < 3; count++) {
+                let soDuocChon = parseInt(prompt("Nhập số muốn chọn:"));
+                if (soNgauNhien === soDuocChon) {
+                    check = true;
+                    break;
+                }
+                else if (soDuocChon > soNgauNhien) {
+                    alert("Số bạn đã chọn lớn hơn số cần đoán");
+                }
+                else alert("Số bạn đã chọn nhỏ hơn số cần đoán");
+        }
+        if (check)
+            document.getElementById("xuatKetQua").innerHTML = "Chúc mừng bạn đã đoán đúng !!! Hơi bị siêu đấy =))";
+        else document.getElementById("xuatKetQua").innerHTML = "Xin lỗi bạn đã hết lượt đoán !!! HaHaHa !!! =))" + "<br>" + "Chọn khoảng khác đi bạn";
+    }
+</script>
+</body>
+</html>

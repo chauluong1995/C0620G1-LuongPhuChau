@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên tố</title>
+</head>
+<body>
+<script>
+    let numbers = parseInt(prompt("Nhập số lượng số nguyên tố cần hiển thị :"));
+    let count = 0;
+    function kiemTraSoNguyenTo(n) {
+        if (n < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    for (let soCanKiemTra = 2; ; soCanKiemTra++) {
+        if (kiemTraSoNguyenTo(soCanKiemTra)) {
+            document.write(soCanKiemTra+'\t');
+            count++;
+        }
+        if (count == numbers) {
+            break;
+        }
+    }
+</script>
+</body>
+</html>

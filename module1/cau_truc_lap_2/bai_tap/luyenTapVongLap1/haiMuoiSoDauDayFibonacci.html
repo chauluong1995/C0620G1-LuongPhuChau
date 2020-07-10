@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dãy Fibonacci</title>
+</head>
+<body>
+<script>
+    let fibo1=1;
+    let fibo2=1;
+    let fiboN=0;
+    document.write(fibo1 + "\n");
+    document.write(fibo2 + "\n");
+    for (let i = 2 ; i < 20 ; i++) {
+        fiboN = fibo1 + fibo2;
+        fibo1 = fibo2;
+        fibo2 = fiboN;
+        document.write(fiboN + "\n");
+    }
+</script>
+</body>
+</html>

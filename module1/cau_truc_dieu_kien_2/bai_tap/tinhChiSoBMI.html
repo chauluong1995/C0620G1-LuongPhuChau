@@ -16,7 +16,7 @@
     </form>
     <script>
         function tinhBMI() {
-            let weight=parseInt(document.getElementById("weighT").value);
+            let weight=parseFloat(document.getElementById("weighT").value);
             let height=parseFloat(document.getElementById("heighT").value);
             let bmi= weight / (height*height);
             if (bmi < 18.5)

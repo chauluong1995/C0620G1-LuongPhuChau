@@ -7,9 +7,9 @@
 <body>
     <h1 id="xuatKetQua" style="color: red"></h1>
     <script>
-        let diemBaiKiemTra=parseInt(prompt("Nhập điểm bài kiểm tra theo thang điểm 10 : "));
-        let diemThiGiuaKy=parseInt(prompt("Nhập điểm bài thi giữa kỳ theo thang điểm 10 : "));
-        let diemThiCuoiKy=parseInt(prompt("Nhập điểm bài thi cuối kỳ theo thang điểm 10 : "));
+        let diemBaiKiemTra=parseFloat(prompt("Nhập điểm bài kiểm tra theo thang điểm 10 : "));
+        let diemThiGiuaKy=parseFloat(prompt("Nhập điểm bài thi giữa kỳ theo thang điểm 10 : "));
+        let diemThiCuoiKy=parseFloat(prompt("Nhập điểm bài thi cuối kỳ theo thang điểm 10 : "));
         let diemTrungBinh=(diemBaiKiemTra+diemThiGiuaKy*2+diemThiCuoiKy*3)/6;
         if (diemTrungBinh >= 8)
             document.getElementById("xuatKetQua").innerHTML="Học sinh này xếp hạng A";

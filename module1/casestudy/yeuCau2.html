@@ -17,15 +17,6 @@
         let rentDays="10";
         let typeOfService="Villa";
         let kindOfRoom="Vip";
-        if (typeOfService==="Villa"){
-            monneyForServiceType=500;
-        }else if (typeOfService==="House"){
-            monneyForServiceType=300;
-        }else {
-            monneyForServiceType=100;
-        }
-        let totalDisCount = 0;
-        let totalPay;
         menu();
         function menu() {
             let choose=prompt("Nhập thao tác muốn thực hiện:\n1.show\n2.edit");
@@ -43,6 +34,15 @@
             menu();
         }
         function show() {
+            if (typeOfService==="Villa"){
+                monneyForServiceType=500;
+            }else if (typeOfService==="House"){
+                monneyForServiceType=300;
+            }else {
+                monneyForServiceType=100;
+            }
+            let totalDisCount = 0;
+            let totalPay;
             let currentYear = new Date().getFullYear();
             let birthday = new Date(dateOfBirth).getFullYear();
             let ageCustomer = currentYear - birthday;
@@ -80,7 +80,7 @@
                 if (address==="Quảng Nam")
                     disCountForAdressAndAge = 5;
             totalDisCount = disCountForRentDays + disCountForCustomer + disCountForAdressAndAge;
-            totalPay=(parseInt(monneyForServiceType)*parseInt(rentDays)*(1-(parseInt(disCountPercent)/100)) - totalDisCount)+"$";
+            totalPay=(monneyForServiceType*parseFloat(rentDays)*(1-(parseFloat(disCountPercent)/100)) - totalDisCount)+"$";
             alert("1.Tên khách hàng: "+fullName+"" +
                 "\n"+"2.Số CMND: "+idCard+"" +
                 "\n"+"3.Ngày sinh: "+dateOfBirth+"" +
@@ -121,13 +121,13 @@
                     email=prompt("Nhập lại Email:");
                     break;
                 case "5":
-                    address=prompt("Nhập lại địa chỉ:\nNhập Thành phố:");
+                    address=prompt("Nhập lại địa chỉ:\nTên Thành phố:");
                     break;
                 case "6":
                     customer=prompt("Nhập lại loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
                     break;
                 case "7":
-                    disCountPercent=prompt("Nhập lại phần trăm giảm giá:\nGiá trị từ 1- 100");
+                    disCountPercent=prompt("Nhập lại phần trăm giảm giá:\n1.Giá trị từ 1- 100\n2.Đơn vị (%)");
                     break;
                 case "8":
                     quantityIncluded=prompt("Nhập lại số lượng đi kèm:");

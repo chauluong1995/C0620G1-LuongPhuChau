@@ -7,22 +7,22 @@
 <body>
     <h1 style="color: red" id="xuatKetQua"></h1>
     <script>
-        let doanhSoBanHang=parseInt(prompt("Nhập doanh số bán hàng : (đơn vị triệu VND)"));
+        let doanhSoBanHang=parseFloat(prompt("Nhập doanh số bán hàng : (đơn vị triệu VND)"));
         let hoaHong;
         if (doanhSoBanHang >= 50){
-            hoaHong=doanhSoBanHang/10;
+            hoaHong=doanhSoBanHang*10/100;
             document.getElementById("xuatKetQua").innerHTML="Hoa hồng bạn nhận được là : " + hoaHong + " triệu VND";
         }
         else if (doanhSoBanHang >= 20) {
-            hoaHong = doanhSoBanHang / 20;
+            hoaHong = doanhSoBanHang*5/100;
             document.getElementById("xuatKetQua").innerHTML = "Hoa hồng bạn nhận được là : " + hoaHong + " triệu VND";
         }
         else if (doanhSoBanHang >= 10){
-            hoaHong = doanhSoBanHang / 40;
+            hoaHong = doanhSoBanHang*3/100;
             document.getElementById("xuatKetQua").innerHTML="Hoa hồng bạn nhận được là : " + hoaHong + " triệu VND";
         }
         else if (doanhSoBanHang >= 5){
-            hoaHong = doanhSoBanHang / 80;
+            hoaHong = doanhSoBanHang*2/100;
             document.getElementById("xuatKetQua").innerHTML="Hoa hồng bạn nhận được là : " + hoaHong + " triệu VND";
         }
         else document.getElementById("xuatKetQua").innerHTML="Vì doanh số thấp nên bạn không nhận được hoa hồng"

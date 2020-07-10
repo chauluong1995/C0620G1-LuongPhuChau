@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In tam giác vuông</title>
+</head>
+<body>
+<script>
+    let hang;
+    let cot;
+
+    // Tam giác 1 :
+    for (hang=0; hang<5; hang++){
+        for (cot=0; cot<=hang; cot++){
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+    // Tam giác 2 :
+    for (hang=5; hang>0; hang--){
+        for (cot=0; cot<hang; cot++){
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+    // Tam giác 3 :
+    for(hang=4;hang>=0;hang--){
+        for(cot=0;cot<=hang;cot++){
+            document.write("&nbsp;&nbsp;");
+        }
+        for(cot=4;cot>=hang;cot--){
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+    // Tam giác 4 :
+    for(hang=0;hang<=4;hang++){
+        for(cot=0;cot<=hang;cot++){
+            document.write("&nbsp;&nbsp;");
+        }
+        for(cot=4;cot>=hang;cot--){
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

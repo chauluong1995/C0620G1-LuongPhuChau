@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa 1 số nguyên dương</title>
+</head>
+<body>
+<h1 id="xuatKetQua" style="color: red"></h1>
+<script>
+    let soMuonTinh = parseInt(prompt("Nhập số nguyên dương muốn tính giai thừa"));
+    let result = 1;
+    for (let i = 1; i <= soMuonTinh; i++) {
+        result = result * i;
+    }
+    document.getElementById("xuatKetQua").innerHTML = "Giai thừa của " + soMuonTinh + " bằng " + result;
+</script>
+</body>
+</html>

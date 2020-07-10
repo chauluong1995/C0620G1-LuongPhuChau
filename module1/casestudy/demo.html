@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+    <script>
+        let check = true;
+        do{
+            check=true;
+            let email = prompt("Nhập email");
+            let count =0;
+            for (let i=0;i<email.length;i++){
+                if (email[i]==="@"&&"."){
+                    count++;
+                    check = false;
+                }
+            }
+            if (count>1){
+                check = true;
+            }
+        } while (check)
+    </script>
+</body>
+</html>

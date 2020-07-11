@@ -129,24 +129,25 @@
                 break;
             case "3":
                 do {
-                    dateOfBirth = prompt("Nhập lại ngày sinh:\nTheo định dạng : tháng/ngày/năm\n Ví dụ : 12/31/2001");
-                    let phanCach = dateOfBirth.indexOf("/");
-                    let phanCach2 = dateOfBirth.lastIndexOf("/");
-                    let test = dateOfBirth.indexOf("+");
-                    if (test > -1 || (phanCach != 2) || (phanCach2 != 5) || (phanCach2 + 5 > dateOfBirth.length))
+                    dateOfBirth = prompt("Nhập lại ngày sinh:\nTheo định dạng : tháng/ngày/năm\n Ví dụ : 01/31/2001");
+                    let cutMonth = dateOfBirth.slice(0,2);
+                    let cutDate = dateOfBirth.slice(3,5);
+                    let testMonth = dateOfBirth.indexOf("/");
+                    //let testDate = dateOfBirth.lastIndexOf("/");
+                    let test = new Date(dateOfBirth);
+                    if (test =="Invalid Date" || (cutDate == "30") && (cutMonth == "02")
+                                              || (cutDate == "31") && (cutMonth == "02")
+                                              || (cutDate == "31") && (cutMonth == "04")
+                                              || (cutDate == "31") && (cutMonth == "06")
+                                              || (cutDate == "31") && (cutMonth == "09")
+                                              || (cutDate == "31") && (cutMonth == "11")
+                                              || testMonth < 2 ) {
+                                            //|| testDate < 2 ) {
                         alert("Ngày tháng năm sinh không hợp lệ !");
-                    else {
-                        let catDateOfBirth1 = dateOfBirth.slice(0, 2);
-                        let catDateOfBirth2 = dateOfBirth.slice(3, 5);
-                        let catDateOfBirth3 = dateOfBirth.slice(6);
-                        if (catDateOfBirth1 <= 0 || catDateOfBirth1 > 12 || catDateOfBirth2 <= 0 || catDateOfBirth2 > 31 || catDateOfBirth3 < 1900 || catDateOfBirth3 >2020) {
-                            alert("Ngày tháng năm sinh không hợp lệ !");
-                            continue;
-                        }
-                        break;
+                        continue;
                     }
+                    break;
                 } while (1);
-                let dateChuan = new Date(dateOfBirth);
                 break;
             case "4":
                 let check4 = true;

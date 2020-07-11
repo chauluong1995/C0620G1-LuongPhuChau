@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <script>
+        do {
+            let dateOfBirth = prompt("Nhập lại ngày sinh:\nTheo định dạng : tháng/ngày/năm\n Ví dụ : 01/31/2001");
+            let cutMonth = dateOfBirth.slice(0,2);
+            let cutDate = dateOfBirth.slice(3,5);
+            let testMonth = dateOfBirth.indexOf("/");
+            //let testDate = dateOfBirth.lastIndexOf("/");
+            let test = new Date(dateOfBirth);
+            if (test =="Invalid Date" || (cutDate == "30") && (cutMonth == "02")
+                                      || (cutDate == "31") && (cutMonth == "02")
+                                      || (cutDate == "31") && (cutMonth == "04")
+                                      || (cutDate == "31") && (cutMonth == "06")
+                                      || (cutDate == "31") && (cutMonth == "09")
+                                      || (cutDate == "31") && (cutMonth == "11")
+                                      || testMonth < 2 ) {
+                                    //|| testDate < 2 ) {
+                alert("Ngu ! Hahaha !");
+                continue;
+            }
+            break;
+        } while (1);
+        alert("Khôn rồi đó !");
+    </script>
+</body>
+</html>

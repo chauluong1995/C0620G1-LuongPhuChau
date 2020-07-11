@@ -12,12 +12,9 @@
     let tienLai = 0;
     let i = 1;
     let tongTien = soTienBanDau * laiXuatHangThang / 100 + soTienBanDau;
-    if (soThangChovay == 1) {
-    } else {
-        do {
-            tongTien = tongTien * laiXuatHangThang / 100 + tongTien;
-            i++;
-        } while (i < soThangChovay);
+    while (i < soThangChovay){
+        tongTien = tongTien * laiXuatHangThang / 100 + tongTien;
+        i++;
     }
     tienLai = tongTien - soTienBanDau;
     alert("Số tiền lãi của ngân hàng là : " + tienLai);

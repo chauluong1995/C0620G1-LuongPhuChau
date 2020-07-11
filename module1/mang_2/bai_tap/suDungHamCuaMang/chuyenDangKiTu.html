@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let chuoi = prompt("Nhập vào 1 chuỗi chữ cái:");
+        let chuHoa = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let chuThuong = "abcdefghijklmnopqrstuvwxyz";
+        let result = [];
+        for (let i=0;i<chuoi.length;i++){
+            if (chuHoa.indexOf(chuoi[i]) !== -1){
+                result.push(chuoi[i].toLocaleLowerCase());
+            }
+            else if (chuThuong.indexOf(chuoi[i] !== -1)){
+                result.push(chuoi[i].toLocaleUpperCase());
+            }
+            else result.push(chuoi[i]);
+        }
+        document.write(result.join(""));
+    </script>
+</body>
+</html>

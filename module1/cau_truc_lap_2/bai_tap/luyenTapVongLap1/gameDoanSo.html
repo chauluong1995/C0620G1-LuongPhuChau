@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1 id="xuatKetQua" style="color: red"></h1>
+<h1 id="xuatKetQua2" style="color: black"></h1>
 <input type="button" id="play" value="Play" style="background: blue;color: red;width:50px;height:50px" onclick="game()">
 <script>
     function game() {
@@ -27,7 +28,7 @@
         }
         if (check)
             document.getElementById("xuatKetQua").innerHTML = "Chúc mừng bạn đã đoán đúng !!! Hơi bị siêu đấy =))";
-        else document.getElementById("xuatKetQua").innerHTML = "Xin lỗi bạn đã hết lượt đoán !!! HaHaHa !!! =))" + "<br>" + "Chọn khoảng khác đi bạn";
+        else document.getElementById("xuatKetQua2").innerHTML = "Xin lỗi bạn đã hết lượt đoán !!! HaHaHa !!! =))" + "<br>" + "Số bạn đen quá!" + "<br>" + "Chọn khoảng khác đi bạn";
     }
 </script>
 </body>

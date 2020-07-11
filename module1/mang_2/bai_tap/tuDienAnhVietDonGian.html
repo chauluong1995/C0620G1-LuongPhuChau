@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển Anh Việt đơn giản</title>
+</head>
+<body>
+    <h1 id="xuatKetQua" style="color: red"></h1>
+    <script>
+        let word = prompt("Nhập từ cần tìm:");
+        let english = ["school","class","student","teacher","laptop"];
+        let tiengViet = ["Trường học","Lớp","Học sinh","Giáo viên","Máy tính xách tay"];
+        for (let i=0;i<english.length;i++) {
+            if (word == english[i]){
+                document.getElementById("xuatKetQua").innerHTML = "Nghĩa tiếng Việt của từ đó là : " + tiengViet[i];
+                break;
+            }
+            else document.getElementById("xuatKetQua").innerHTML = "Không có kết quả cho từ này !!!" + "<br>" + "Xin lỗi bạn vì bộ nhớ của tui có hạn !!!"
+        }
+    </script>
+</body>
+</html>

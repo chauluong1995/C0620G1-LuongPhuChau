@@ -118,7 +118,7 @@
             let testSoThuc = disCountPercent.indexOf(".");
             let testDauPhay = disCountPercent.indexOf(",");
             let testDauCong = disCountPercent.indexOf("+");
-            if (testDisCountPercent || disCountPercent > 0 || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
+            if (testDisCountPercent || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
                 alert("Số liệu giảm giá của bạn không hợp lý !")
             }
             else check7 = false;
@@ -133,7 +133,7 @@
             let testSoThuc = quantityIncluded.indexOf(".");
             let testDauPhay = quantityIncluded.indexOf(",");
             let testDauCong = quantityIncluded.indexOf("+");
-            if (testQuantityIncluded || quantityIncluded > 0 || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
+            if (testQuantityIncluded || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
                 alert("Số lượng đi kèm của bạn không hợp lý !")
             }
             else check8 = false;
@@ -148,7 +148,7 @@
             let testSoThuc = rentDays.indexOf(".");
             let testDauPhay = rentDays.indexOf(",");
             let testDauCong = rentDays.indexOf("+");
-            if (testRentDays || rentDays > 0 || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
+            if (testRentDays || rentDays == 0 || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
                 alert("Số ngày thuê của bạn không hợp lý !")
             }
             else check9 = false;
@@ -206,7 +206,7 @@
             if (address === "Quảng Nam")
                 disCountForAdressAndAge = 5;
             totalDisCount = disCountForRentDays + disCountForCustomer + disCountForAdressAndAge;
-            totalPay = (monneyForServiceType * parseFloat(rentDays) * (1 - (parseFloat(disCountPercent) / 100)) - totalDisCount) + "$";
+            totalPay = (monneyForServiceType * parseInt(rentDays) * (1 - (parseInt(disCountPercent) / 100)) - totalDisCount) + "$";
             alert("1.Tên khách hàng: " + fullName + "" +
                 "\n" + "2.Số CMND: " + idCard + "" +
                 "\n" + "3.Ngày sinh: " + dateOfBirth + "" +

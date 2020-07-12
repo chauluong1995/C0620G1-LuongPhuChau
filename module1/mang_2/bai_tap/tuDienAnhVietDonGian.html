@@ -12,7 +12,7 @@
         let tiengViet = ["Trường học","Lớp","Học sinh","Giáo viên","Máy tính xách tay"];
         for (let i=0;i<english.length;i++) {
             if (word == english[i]){
-                document.getElementById("xuatKetQua").innerHTML = "Nghĩa tiếng Việt của từ đó là : " + tiengViet[i];
+                document.getElementById("xuatKetQua").innerHTML = "Nghĩa tiếng Việt của từ đó là : " + tiengViet[i] + " . Từ đó ở vị trí thứ : " + i;
                 break;
             }
             else document.getElementById("xuatKetQua").innerHTML = "Không có kết quả cho từ này !!!" + "<br>" + "Xin lỗi bạn vì bộ nhớ của tui có hạn !!!"

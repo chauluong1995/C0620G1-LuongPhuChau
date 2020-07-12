@@ -80,7 +80,7 @@
                 if (address==="Quảng Nam")
                     disCountForAdressAndAge = 5;
             totalDisCount = disCountForRentDays + disCountForCustomer + disCountForAdressAndAge;
-            totalPay=(monneyForServiceType*parseFloat(rentDays)*(1-(parseFloat(disCountPercent)/100)) - totalDisCount)+"$";
+            totalPay=(monneyForServiceType*parseInt(rentDays)*(1-(parseInt(disCountPercent)/100)) - totalDisCount)+"$";
             alert("1.Tên khách hàng: "+fullName+"" +
                 "\n"+"2.Số CMND: "+idCard+"" +
                 "\n"+"3.Ngày sinh: "+dateOfBirth+"" +

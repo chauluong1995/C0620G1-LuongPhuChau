@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<script>
+    let mangA = [];
+    let mangB = [];
+    let mangC = new Array(20);
+    for (let i=0;i<10;i++) {
+        let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ vào mảng A :"));
+        mangA.push(nhapSo);
+    }
+    for (let i=0;i<10;i++) {
+        let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ vào mảng B :"));
+        mangB.push(nhapSo);
+    }
+    mangC = mangA.concat(mangB);
+    document.getElementById("xuatKetQua").innerHTML="Các phần tử của mảng C là : " + mangC.join();
+</script>
+</body>
+</html>

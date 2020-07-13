@@ -5,42 +5,111 @@
     <title>Cờ Caro</title>
 </head>
 <body>
-<h3>Caro Game Simple</h3>
-<p id="carogame "></p>
-<input type="button" value="Player 2" onclick="changeValue()">
+<h1 style="color: red">Caro Game Simple</h1>
+<h2 style="color: darkred" id="xuatKetQua"></h2>
+<p id="carogame"></p>
 <script>
-    let b = document.getElementById("carogame ");
+    let b = document.getElementById("carogame");
 
     let board = [];
     let data = "";
-    for (let i = 0; i < 5; i++) {
-        board[i] = new Array(".", ".", ".", ".", ".");
+    for (let i = 0; i < 10; i++) {
+        board[i] = new Array(".", ".", ".", ".",".",".",".",".",".",".");
     }
 
-    for (let i = 0; i < 5; i++) {
-        data += "<br/>";
-        for (let j = 0; j < 5; j++) {
-            data += board[i][j] + "&nbsp;&nbsp;";
+    for (let i = 0; i < 10; i++) {
+        data += "<br/><br/>";
+        for (let j = 0; j < 10; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
         }
     }
 
-    data +="<br/><br/><input type='button' value='Player 1' onclick='changeValue()'>";
+    data = data + "<br/><br/><br/><input style='background: blue;color: orangered' type='button' value='Player 1' onclick='changeValueX()'>";
     b.innerHTML = data;
-    function changeValue() {
+
+
+    function changeValueX() {
+        data = "";
         do {
             let positionX = prompt("X: ");
             let positionY = prompt("Y: ");
-            data = "";
-            board[positionX][positionY] = "x";
-            for (let i = 0; i < 5; i++) {
-                data += "<br/>";
-                for (let j = 0; j < 5; j++) {
-                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            if (board[positionX][positionY] !== "O" && board[positionX][positionY] !== "X") {
+                board[positionX][positionY] = "X";
+                break;
+            }
+            alert("Vị trí đó đã được đánh dấu");
+        } while (1);
+        for (let i = 0; i < 10; i++) {
+            data += "<br/><br/>";
+            for (let j = 0; j < 10; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data = data + "<br/><br/><br/><input style='background:gold;color:fuchsia' type='button' value='Player 2' onclick='changeValueO()'>";
+        b.innerHTML = "<hr/>" + data;
+        if (check()){
+            document.getElementById("xuatKetQua").innerHTML = "Chúc mừng Player 1 đã chiến thắng" + "<br>" + "<br>" + "Đề nghị Player 2 nghỉ chơi đi ! HaHaHa !";
+        }
+    }
+
+
+    function changeValueO() {
+        data = "";
+        do {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            if (board[positionX][positionY] !== "O" && board[positionX][positionY] !== "X") {
+                board[positionX][positionY] = "O";
+                break;
+            }
+            alert("Vị trí đó đã được đánh dấu");
+        } while (1);
+        for (let i = 0; i < 10; i++) {
+            data += "<br/><br/>";
+            for (let j = 0; j < 10; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data = data + "<br/><br/><br/><input style='background: blue;color: orangered' type='button' value='Player 1' onclick='changeValueX()'>";
+        b.innerHTML = "<hr/>" + data;
+        if (check()){
+            document.getElementById("xuatKetQua").innerHTML="Chúc mừng Player 2 đã chiến thắng" + "<br>" + "<br>" +"Đề nghị Player 1 nghỉ chơi đi ! HaHaHa !";
+
+        }
+    }
+
+
+    function check() {
+        for (let i = 0; i <= 9; i++) {
+            for (let j = 0; j <= 9; j++) {
+                if (board[i][j] === "X" && board[i][j + 1] === "X" && board[i][j + 2] === "X") {
+                    return true;
+                }
+                if (board[i][j] === "X" && board[i + 1][j] === "X" && board[i + 2][j] === "X") {
+                    return true;
+                }
+                if (board[i][j] === "X" && board[i + 1][j + 1] === "X" && board[i + 2][j + 2] === "X") {
+                    return true;
+                }
+                if (board[i][j+2] === "X" && board[i + 1][j + 1] === "X" && board[i + 2][j] === "X") {
+                    return true;
+                }
+                if (board[i][j] === "O" && board[i][j + 1] === "O" && board[i][j + 2] === "O") {
+                    return true;
+                }
+                if (board[i][j] === "O" && board[i + 1][j] === "O" && board[i + 2][j] === "O") {
+                    return true;
+                }
+                if (board[i][j] === "O" && board[i + 1][j + 1] === "O" && board[i + 2][j + 2] === "O") {
+                    return true;
+                }
+
+                if (board[i][j+2] === "O" && board[i + 1][j + 1] === "O" && board[i + 2][j] === "O") {
+                    return true;
                 }
             }
-            data += "<br/><br/><input type='button' value='Player 1' onclick='changeValue()'>";
-            b.innerHTML = "<hr/>" + data;
-        } while (0);
+        }
+        return false;
     }
 </script>
 </body>

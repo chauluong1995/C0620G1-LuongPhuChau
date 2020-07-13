@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let i = 0;
+        let mangHaiChieu = [["a","b","c","d","e"],[1,3,5,7,9]];
+        for (let mangCon in mangHaiChieu){
+            document.write("Mảng con " + mangCon + "<br>");
+            for (let phanTu in mangHaiChieu[mangCon]){
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + mangHaiChieu[mangCon][phanTu] + "<br>");
+            }
+        }
+    </script>
+</body>
+</html>

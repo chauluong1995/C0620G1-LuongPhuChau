@@ -53,20 +53,14 @@
             let testDauCong = dateOfBirth.indexOf("+");
             let test = new Date(dateOfBirth);
             if (test =="Invalid Date" || (cutDate == "30") &&  (cutMonth == "02")
-                || (cutDate == "31") && ((cutMonth == "02")
-                    ||  (cutMonth == "04")
-                    ||  (cutMonth == "06")
-                    ||  (cutMonth == "09")
-                    ||  (cutMonth == "11"))
-                || testMonth < 2
-                || testDate < 2
-                || isNaN(cutMonth) == true
-                || isNaN(cutDate) == true
-                || isNaN(cutYear) == true
-                || cutMonth <= 0
-                || testDauCong > -1
-                || cutYear <= 1890
-                || cutYear > new Date().getFullYear() ) {
+                                      || (cutDate == "31") && ((cutMonth == "02")
+                                                           ||  (cutMonth == "04")
+                                                           ||  (cutMonth == "06")
+                                                           ||  (cutMonth == "09")
+                                                           ||  (cutMonth == "11"))
+                                      || testMonth < 2 || testDate < 2
+                                      || isNaN(cutMonth) == true || isNaN(cutDate) == true || isNaN(cutYear) == true
+                                      || cutMonth <= 0 || testDauCong > -1 || cutYear <= 1890 || cutYear > new Date().getFullYear() ) {
                 alert("Ngày tháng năm sinh không hợp lệ !");
                 continue;
             }

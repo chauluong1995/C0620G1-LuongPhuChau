@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<script>
+    let mangNhapVao = new Array();
+    for (let i=0;i<10;i++){
+        let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
+        mangNhapVao.push(nhapSo);
+    }
+    mangNhapVao.sort(function (a,b){return b - a});
+    document.getElementById("xuatKetQua").innerHTML="Vị trí các phần tử của mảng sau khi sắp xếp theo thứ tự giảm dần là : " + mangNhapVao.join(";");
+</script>
+</body>
+</html>

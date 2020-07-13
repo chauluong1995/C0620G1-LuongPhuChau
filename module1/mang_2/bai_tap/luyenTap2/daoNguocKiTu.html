@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<script>
+    let mangNhapVao = new Array();
+    for (let i=0;i<5;i++) {
+        let nhapKiTu = prompt("Nhập kí tự bất kỳ:");
+        mangNhapVao.push(nhapKiTu);
+    }
+    let ketQua = mangNhapVao.join();
+    let mangDaoNguoc = mangNhapVao.reverse().join("");
+    document.getElementById("xuatKetQua").innerHTML= "Mảng được nhập vào : " + ketQua + "<br>" + "Mảng sau khi đảo ngược : " + mangDaoNguoc;
+</script>
+</body>
+</html>

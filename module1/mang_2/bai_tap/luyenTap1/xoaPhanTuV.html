@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<script>
+    let mangNhapVao = new Array();
+    let i;
+    for (i=0;i<10;i++){
+        let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
+        mangNhapVao.push(nhapSo);
+    }
+    let soNguyenV = parseInt(prompt("Nhập số nguyên V :"));
+    for (i=0;i<mangNhapVao.length;i++){
+        if (mangNhapVao[i] == soNguyenV ){
+            mangNhapVao.splice(i,1);
+            break;
+        }
+    }
+    mangNhapVao[mangNhapVao.length] = 0;
+    document.getElementById("xuatKetQua").innerHTML="Mảng hiện tại có các phần tử là : " + mangNhapVao;
+</script>
+</body>
+</html>

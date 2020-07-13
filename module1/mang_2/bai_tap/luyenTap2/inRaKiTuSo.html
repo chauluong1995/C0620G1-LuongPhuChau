@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<script>
+    let mangNhapVao = new Array();
+    let i=0;
+    let count = 0;
+    let testKiTuSo;
+    for (i;i<5;i++) {
+        let nhapKiTu = prompt("Nhập kí tự bất kỳ:");
+        mangNhapVao.push(nhapKiTu);
+    }
+    for (i;i<mangNhapVao.length;i++) {
+        testKiTuSo = isNaN(mangNhapVao[i]);
+        console.log(testKiTuSo);
+    }
+</script>
+</body>
+</html>

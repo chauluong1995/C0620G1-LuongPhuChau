@@ -5,10 +5,27 @@
     <title>Ứng dụng vui Faking Textarea on Typing</title>
 </head>
 <body>
+<form name="hienThi">
     <h1 style="margin-left:105px">Type anything slowly</h1>
-    <textarea style="width:500px;height:250px" id="xuatKetQua"></textarea>
-    <script>
-
-    </script>
+    <textarea style="width:500px;height:250px" name="xuatKetQua" onkeydown="typeTextarea()"></textarea>
+</form>
+<script>
+    let defaultShow = new Array("","M","á","y"," ","t","í","n","h"," ","c","ủ","a"," ","b","ạ","n"," ","đ","ã"," ","b","ị"," ","h","a","c","k"," ","!") , result = "";
+    function typeTextarea() {
+        let j = document.hienThi.xuatKetQua.value.length;
+        if (j > 0) {
+            for (let i = 0; i <= j; i++) {
+                result = result + defaultShow[i];
+                if (i == 30) {
+                    document.hienThi.xuatKetQua.value = "";
+                    result = "";
+                }
+                document.hienThi.xuatKetQua.value = result;
+            }
+        }
+        result = "";
+        setTimeout("typeTextarea()", 1);
+    }
+</script>
 </body>
 </html>

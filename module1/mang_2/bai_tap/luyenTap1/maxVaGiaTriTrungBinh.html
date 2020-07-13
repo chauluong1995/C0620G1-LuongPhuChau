@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <h1 style="color: red" id="xuatKetQua"></h1>
+    <script>
+        let mangNhapVao = new Array();
+        for (let i=0;i<5;i++){
+            let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
+            mangNhapVao.push(nhapSo);
+        }
+        let max = mangNhapVao[0];
+        let tongGiaTri = 0;
+        let giaTriTrungBinh= 0;
+        for (let i=0;i<mangNhapVao.length;i++) {
+            tongGiaTri = tongGiaTri + mangNhapVao[i];
+            if (mangNhapVao[i] > max) {
+                max = mangNhapVao[i];
+            }
+        }
+        giaTriTrungBinh = tongGiaTri / 5;
+        document.getElementById("xuatKetQua").innerHTML="Giá trị Max trong mảng là : " + max + " . Giá trị trung bình cộng của các phần tử trong mảng là : " + giaTriTrungBinh;
+    </script>
+</body>
+</html>

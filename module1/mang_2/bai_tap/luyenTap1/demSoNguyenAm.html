@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<script>
+    let mangNhapVao = new Array();
+    let mangKetQua = new Array();
+    let dem = 0;
+    for (let i=0;i<5;i++){
+        let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
+        mangNhapVao.push(nhapSo);
+    }
+    for (let ketQua of mangNhapVao){
+        if ( ketQua < 0 ){
+            mangKetQua.push(ketQua);
+            dem = dem + 1;
+        }
+    }
+    document.getElementById("xuatKetQua").innerHTML="Trong mảng có " + dem + " số nguyên âm . " + dem + " số nguyên âm trong mảng là : " + mangKetQua.join(";");
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <h1 style="color: red" id="xuatKetQua"></h1>
+    <script>
+        let mangNhapVao = new Array();
+        let mangKetQua = new Array();
+        for (let i=0;i<5;i++){
+            let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
+            mangNhapVao.push(nhapSo);
+        }
+        for (let ketQua of mangNhapVao){
+            if (ketQua>=10){
+                mangKetQua.push(ketQua);
+            }
+        }
+        document.getElementById("xuatKetQua").innerHTML="Các số nguyên lớn hơn hoặc bằng 10 là : " + mangKetQua.join(",");
+    </script>
+</body>
+</html>

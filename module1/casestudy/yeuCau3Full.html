@@ -112,18 +112,7 @@
         switch (choose) {
             case "1":
                 fullName = prompt("Nhập lại tên:");
-                let tenPhu = "";
-                fullName = fullName.toLowerCase();
-                for (let i=0 ; i < fullName.length ; i++){
-                    if (fullName.charAt(i) === " " && fullName.charAt(i+1) === " ")
-                        continue;
-                    if ( i===0 || fullName.charAt(i-1) === " "){
-                        tenPhu += fullName.charAt(i).toUpperCase();
-                        continue;
-                    }
-                    tenPhu += fullName.charAt(i);
-                }
-                fullName = tenPhu;
+                fullName = chuanHoaDuLieu(fullName);
                 break;
             case "2":
                 let check2 = true;
@@ -186,33 +175,11 @@
                 break;
             case "5":
                 address = prompt("Nhập lại địa chỉ:\nTên Thành phố:");
-                let tenPhu5 = "";
-                address = address.toLowerCase();
-                for (let i=0 ; i < address.length ; i++){
-                    if (address.charAt(i) === " " && address.charAt(i+1) === " ")
-                        continue;
-                    if ( i===0 || address.charAt(i-1) === " "){
-                        tenPhu5 += address.charAt(i).toUpperCase();
-                        continue;
-                    }
-                    tenPhu5 += address.charAt(i);
-                }
-                address = tenPhu5;
+                address = chuanHoaDuLieu(address);
                 break;
             case "6":
                 customer = prompt("Nhập lại loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
-                let tenPhu6 = "";
-                customer = customer.toLowerCase();
-                for (let i=0 ; i < customer.length ; i++){
-                    if (customer.charAt(i) === " " && customer.charAt(i+1) === " ")
-                        continue;
-                    if ( i===0 || customer.charAt(i-1) === " "){
-                        tenPhu6 += customer.charAt(i).toUpperCase();
-                        continue;
-                    }
-                    tenPhu6 += customer.charAt(i);
-                }
-                customer = tenPhu6;
+                customer = chuanHoaDuLieu(customer);
                 break;
             case "7":
                 let check7 = true;
@@ -261,15 +228,33 @@
                 break;
             case "10":
                 typeOfService = prompt("Nhập lại loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");
+                typeOfService = chuanHoaDuLieu(typeOfService);
                 break;
             case "11":
                 kindOfRoom = prompt("Nhập lại loại phòng:\nVip, Business,  Normal");
+                kindOfRoom = chuanHoaDuLieu(kindOfRoom);
                 break;
             default:
                 alert("Failed");
                 break;
         }
         show()
+    }
+
+
+    function chuanHoaDuLieu(nhapDuLieu) {
+        let duLieuChuan = "";
+        nhapDuLieu = nhapDuLieu.toLowerCase();
+        for (let i = 0; i < nhapDuLieu.length; i++) {
+            if (nhapDuLieu.charAt(i) === " " && nhapDuLieu.charAt(i + 1) === " ")
+                continue;
+            if (i === 0 || nhapDuLieu.charAt(i - 1) === " ") {
+                duLieuChuan += nhapDuLieu.charAt(i).toUpperCase();
+                continue;
+            }
+            duLieuChuan += nhapDuLieu.charAt(i);
+        }
+        return duLieuChuan;
     }
 </script>
 </body>

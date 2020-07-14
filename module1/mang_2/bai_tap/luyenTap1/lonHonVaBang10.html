@@ -18,7 +18,10 @@
                 mangKetQua.push(ketQua);
             }
         }
-        document.getElementById("xuatKetQua").innerHTML="Các số nguyên lớn hơn hoặc bằng 10 là : " + mangKetQua.join(",");
+        if (mangKetQua.length == 0){
+            document.getElementById("xuatKetQua").innerHTML="Không có số nguyên nào lớn hơn hoặc bằng 10";
+        }
+        else document.getElementById("xuatKetQua").innerHTML="Các số nguyên lớn hơn hoặc bằng 10 là : " + mangKetQua.join(",");
     </script>
 </body>
 </html>

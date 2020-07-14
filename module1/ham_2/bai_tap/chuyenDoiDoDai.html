@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi độ dài</title>
+</head>
+<body>
+    <h1 style="color: red">Chuyển đổi độ dài :</h1>
+    <label style="color: blue"><strong>Chuyển từ mét sang feet :</strong></label>
+    <input type="text" id="meter"/><input style="margin-left:15px" type="button" value="Chuyển đổi" onclick="meterToFeet()"/>
+    <h3 style="color: maroon" id="result1"></h3>
+    <br>
+    <label style="color: blue"><strong>Chuyển từ feet sang mét :</strong></label>
+    <input type="text" id="feet"/><input style="margin-left:15px" type="button" value="Chuyển đổi" onclick="feetToMeter()"/>
+    <h3 style="color: maroon" id="result2"></h3>
+    <script>
+        let meter , feet;
+        function feetToMeter(){
+            feet = parseFloat(document.getElementById("feet").value);
+            meter = 0.305 * feet;
+            document.getElementById("result2").innerHTML="Kết quả sau khi chuyển đổi là : " + meter + " mét.";
+        }
+        function meterToFeet(){
+            meter = parseFloat(document.getElementById("meter").value);
+            feet = 3.279 * meter;
+            document.getElementById("result1").innerHTML="Kết quả sau khi chuyển đổi là : " + feet + " feet.";
+        }
+    </script>
+</body>
+</html>

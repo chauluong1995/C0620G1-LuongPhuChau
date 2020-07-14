@@ -9,9 +9,6 @@
     let numbers = parseInt(prompt("Nhập số lượng số nguyên tố cần hiển thị :"));
     let count = 0;
     function kiemTraSoNguyenTo(n) {
-        if (n < 2) {
-            return false;
-        }
         for (let i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<h1 style="color: red" id="xuatKetQua"></h1>
+<h1 style="color: red" id="xuatKetQua2"></h1>
+<script>
+    let nhapChuoiBatKy = prompt("Nhập chuỗi kí tự bất kỳ:");
+    let count = 0;
+    let i = 0;
+    for (i;i<nhapChuoiBatKy.length;i++) {
+        if (i==0 || nhapChuoiBatKy[i] == " " ){
+            count = count +1;
+        }
+    }
+    document.getElementById("xuatKetQua").innerHTML="Chuỗi bạn đã nhập là : " + nhapChuoiBatKy;
+    document.getElementById("xuatKetQua2").innerHTML="Trong chuỗi đó có " + count + " từ";
+</script>
+</body>
+</html>

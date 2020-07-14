@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+    <script>
+        //let result = new Array();
+        function isPrime(number) {
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        for (let soCanKiemTra = 2; soCanKiemTra < 10000 ; soCanKiemTra++) {
+            if (isPrime(soCanKiemTra)) {
+                document.write(soCanKiemTra + "\t");
+                //result.push(soCanKiemTra);
+            }
+        }
+        //document.write(result.join("_"));
+    </script>
+</body>
+</html>

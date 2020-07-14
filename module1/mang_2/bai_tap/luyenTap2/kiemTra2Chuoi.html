@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let nhapChuoiBatKy1 = prompt("Nhập chuỗi kí tự bất kỳ 1 :");
+        let nhapChuoiBatKy2 = prompt("Nhập chuỗi kí tự bất kỳ 2 :");
+        let mang1 = nhapChuoiBatKy1.split(" ");
+        let mang2 = nhapChuoiBatKy2.split(" ");
+        let check = true;
+        let message="";
+        if (mang1.length != mang2.length)
+            message="Hai mảng đó không giống nhau.";
+        else {
+            for (let i=0;i<mang1.length;i++){
+                if (mang1[i] == mang2[i]){
+                    continue;
+                }
+                check = false;
+                break;
+            }
+            if (check){
+                message="Hai mảng đó giống nhau.";
+            }
+            else {
+                message="Hai mảng đó không giống nhau.";
+            }
+        }
+        alert(message);
+    </script>
+</body>
+</html>

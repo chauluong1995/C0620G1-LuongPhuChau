@@ -14,13 +14,16 @@
         let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
         mangNhapVao.push(nhapSo);
     }
-    for (let ketQua of mangNhapVao){
-        if ( ketQua < 0 ){
-            mangKetQua.push(ketQua);
+    for (let soAm of mangNhapVao){
+        if ( soAm < 0 ){
+            mangKetQua.push(soAm);
             dem = dem + 1;
         }
     }
-    document.getElementById("xuatKetQua").innerHTML="Trong mảng có " + dem + " số nguyên âm . " + dem + " số nguyên âm trong mảng là : " + mangKetQua.join(";");
+    if (mangKetQua.length == 0 ){
+        document.getElementById("xuatKetQua").innerHTML="Trong mảng không có số nguyên âm nào";
+    }
+    else document.getElementById("xuatKetQua").innerHTML="Trong mảng có " + dem + " số nguyên âm . " + dem + " số nguyên âm trong mảng là : " + mangKetQua.join(";");
 </script>
 </body>
 </html>

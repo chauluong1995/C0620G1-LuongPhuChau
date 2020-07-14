@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let mangNhapVao = new Array(5);
+        for (let i=0;i<mangNhapVao.length;i++) {
+            let nhapKiTu = prompt("Nhập kí tự bất kỳ:");
+            mangNhapVao[i] = nhapKiTu;
+        }
+        for (let i=0;i<mangNhapVao.length;i++){
+            if (mangNhapVao[i] === "-") {
+                mangNhapVao[i] = "_";
+            }
+        }
+        document.write(mangNhapVao.join(" "));
+    </script>
+</body>
+</html>

@@ -9,6 +9,7 @@
 <script>
     let mangNhapVao = new Array();
     let i;
+    let check = true;
     for (i=0;i<10;i++){
         let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
         mangNhapVao.push(nhapSo);
@@ -16,11 +17,17 @@
     let soNguyenV = parseInt(prompt("Nhập số nguyên V :"));
     for (i=0;i<mangNhapVao.length;i++){
         if (mangNhapVao[i] == soNguyenV ){
-            mangNhapVao.splice(i,1);
-            break;
+            for (let j=i;j<mangNhapVao.length;j++){
+                mangNhapVao[j]=mangNhapVao[j+1]
+            }
+            mangNhapVao[mangNhapVao.length-1] = 0;
+            i--;
+            check = false;
         }
     }
-    mangNhapVao[mangNhapVao.length] = 0;
+    if (check){
+        alert("Không có số nguyên V trong mảng.");
+    }
     document.getElementById("xuatKetQua").innerHTML="Mảng hiện tại có các phần tử là : " + mangNhapVao;
 </script>
 </body>

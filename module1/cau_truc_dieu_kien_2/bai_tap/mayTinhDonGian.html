@@ -5,37 +5,37 @@
     <title>Máy Tính Đơn Giản</title>
 </head>
 <body>
-    <h1 style="color: red">Máy tính đơn giản</h1>
-    <form method="post">
-        <fieldset style="width:210px">
-            <input type="text" id="windown" name="windown"value="" style="width: 205px; height: 75px; font-size: 20px"><br><br>
-            <input type="button" value="1" onclick="nhap(this.value)" style="width: 40px; height: 40px;color: blue">
-            <input type="button" value="2" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="3" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="+" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br><br>
-            <input type="button" value="4" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue">
-            <input type="button" value="5" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="6" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="-" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br><br>
-            <input type="button" value="7" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue">
-            <input type="button" value="8" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="9" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="*" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br><br>
-            <input type="reset" value="C" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue">
-            <input type="button" value="0" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="=" onclick="bang()" style="width: 40px; height: 40px;color: blue;margin-left:10px">
-            <input type="button" value="/" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br>
-        </fieldset>
-    </form>
-    <script>
-        function nhap(giaTri) {
-            document.getElementById("windown").value += giaTri;
-        }
-        function bang() {
-            let string = document.getElementById("windown").value;
-            total=eval(string);
-            document.getElementById("windown").value =doiSo;
-        }
-    </script>
+<h1 style="color: red">Máy tính đơn giản</h1>
+<form method="post">
+    <fieldset style="width:210px">
+        <input type="text" id="windown" name="windown"value="" style="width: 205px; height: 75px; font-size: 20px"><br><br>
+        <input type="button" value="1" onclick="nhap(this.value)" style="width: 40px; height: 40px;color: blue">
+        <input type="button" value="2" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="3" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="+" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br><br>
+        <input type="button" value="4" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue">
+        <input type="button" value="5" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="6" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="-" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br><br>
+        <input type="button" value="7" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue">
+        <input type="button" value="8" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="9" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="*" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br><br>
+        <input type="reset" value="C" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue">
+        <input type="button" value="0" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="=" onclick="bang()" style="width: 40px; height: 40px;color: blue;margin-left:10px">
+        <input type="button" value="/" onclick="nhap(this.value)"style="width: 40px; height: 40px;color: blue;margin-left:10px"><br>
+    </fieldset>
+</form>
+<script>
+    function nhap(giaTri) {
+        document.getElementById("windown").value += giaTri;
+    }
+    function bang() {
+        let string = document.getElementById("windown").value;
+        let result = eval(string);
+        document.getElementById("windown").value =result;
+    }
+</script>
 </body>
 </html>

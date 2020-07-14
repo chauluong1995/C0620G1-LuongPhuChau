@@ -32,12 +32,12 @@
             let tienB=document.getElementById("loaiTienB").value;
             let giaTri = parseInt(document.getElementById("nhaptien").value);
             if ((tienA === "USD") && (tienB === "VietNam")) {
-                let result = giaTri * 23000;
+                var result = giaTri * 23000;
                 document.getElementById("thanhTien").innerHTML = "Result : " + result + " " + "VND";
             }
             if ((tienA === "VietNam") && (tienB === "USD")){
-                total = giaTri / 23000;
-                document.getElementById("thanhTien").innerHTML = "Result : " + doiSo + " " + "USD";
+                result = giaTri / 23000;
+                document.getElementById("thanhTien").innerHTML = "Result : " + result + " " + "USD";
             }
             if ((tienA === "USD") && (tienB === "USD")){
                 document.getElementById("thanhTien").innerHTML = "Result : " + giaTri + " " + "USD";

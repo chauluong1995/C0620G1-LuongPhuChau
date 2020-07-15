@@ -12,7 +12,7 @@
             mangNhapVao.push(nhapKiTu);
         }
         let kiTu = prompt("Nhập 1 kí tự bất kỳ để kiểm tra :");
-        alert(kiemTraKiTuTrongMang(kiTu,mangNhapVao));
+        document.write(kiemTraKiTuTrongMang(kiTu,mangNhapVao));
 
         function kiemTraKiTuTrongMang(kiTuCanTim,mang) {
             let count = 0;
@@ -22,7 +22,7 @@
                 }
             }
             if (count>0){
-                return "Số lần xuất hiện của " + kiTuCanTim + " trong mảng là : " + count;
+                return "Số lần xuất hiện của " + kiTuCanTim + " trong mảng " + mang + " là : " + count + " lần.";
             }
             else return -1;
         }

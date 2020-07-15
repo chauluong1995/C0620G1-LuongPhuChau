@@ -12,7 +12,17 @@
         let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
         mangNhapVao.push(nhapSo);
     }
-    mangNhapVao.sort(function (a,b){return b - a});
+    // mangNhapVao.sort(function (a,b){return b - a});
+    let bienTam;
+    for (let i=0;i<mangNhapVao.length;i++){
+        for (let j=i+1;j<mangNhapVao.length;j++){
+            if (mangNhapVao[j]>mangNhapVao[i]){
+                bienTam = mangNhapVao[i];
+                mangNhapVao[i] = mangNhapVao[j];
+                mangNhapVao[j] = bienTam;
+            }
+        }
+    }
     document.getElementById("xuatKetQua").innerHTML="Vị trí các phần tử của mảng sau khi sắp xếp theo thứ tự giảm dần là : " + mangNhapVao.join("_");
 </script>
 </body>

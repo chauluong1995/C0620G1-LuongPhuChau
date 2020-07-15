@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let number1 = parseInt(prompt("Nhập số nguyên thứ nhất :"));
+        let number2 = parseInt(prompt("Nhập số nguyên thứ hai :"));
+        let number3 = parseInt(prompt("Nhập số nguyên thứ ba :"));
+        alert(kiemTraMin(number1,number2,number3));
+        function kiemTraMin(n1,n2,n3) {
+            if (n1<n2)
+                if (n1<n3)
+                    return "Số nhỏ nhất trong 3 số " + n1 + " , " + n2 + " , " + n3 + " là : " + n1;
+                else return "Số nhỏ nhất trong 3 số " + n1 + " , " + n2 + " , " + n3 + " là : " + n3;
+            else
+            if (n2<n3)
+                return "Số nhỏ nhất trong 3 số " + n1 + " , " + n2 + " , " + n3 + " là : " + n2;
+            else return "Số nhỏ nhất trong 3 số " + n1 + " , " + n2 + " , " + n3 + " là : " + n3;
+        }
+    </script>
+</body>
+</html>

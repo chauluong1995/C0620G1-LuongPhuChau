@@ -5,14 +5,13 @@
     <title>Bài 2</title>
 </head>
 <body>
-    <input type="button" onclick="nhanDoiSo()" value="Gọi hàm nhận đối số">
-    <h1 style="color: red" id="result"></h1>
+<script>
+    let doiSo = parseFloat(prompt("Nhập vào 1 số bất kỳ"));
+    function nhanDoiSo(n) {
+        let result = n + 1;
+        return "Sau khi gọi hàm đối số trở thành : " + result;
+    }
+    alert(nhanDoiSo(doiSo));
+</script>
 </body>
-    <script>
-        let doiSo = parseFloat(prompt("Nhập vào 1 số bất kỳ"));
-        function nhanDoiSo() {
-            doiSo = doiSo + 1;
-            document.getElementById("result").innerHTML="Sau khi gọi hàm đối số trở thành : " + doiSo;
-        }
-    </script>
 </html>

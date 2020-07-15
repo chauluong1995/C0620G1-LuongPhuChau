@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let banKinh;
+        do {
+            banKinh = parseFloat(prompt("Nhập bán kính : (đơn vị mét)"));
+            if (isNaN(banKinh) || banKinh <= 0){
+                alert("Bán kính phải là 1 số và số đó lớn hơn 0");
+            }
+            else break;
+        } while (1);
+        document.write("1. Bán kính hình tròn là : " + banKinh + "<br>");
+        document.write(tinhThongSoHinhTron(banKinh));
+
+        function tinhThongSoHinhTron(r) {
+            let pi = Math.PI;
+            let chuVi = r*2*pi;
+            let dienTich = r*r*pi;
+            return "2. Chu vi hình tròn là : " + chuVi + " mét ." + "<br>" + "3. Diện tích hình tròn là : " + dienTich + " mét vuông ."
+        }
+    </script>
+</body>
+</html>

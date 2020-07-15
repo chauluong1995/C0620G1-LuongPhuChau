@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+    <script>
+        let mangNhapVao = new Array();
+        for (let i=0;i<5;i++){
+            let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ:"));
+            mangNhapVao.push(nhapSo);
+        }
+        document.write("Mảng ban đầu nhập vào là : " + mangNhapVao + "<br>");
+        document.write(daoNguocMang(mangNhapVao));
+        function daoNguocMang(mang) {
+            let first = 0;
+            let last = mang.length - 1;
+            while (first < last) {
+                let bienTam = mang[first];
+                mang[first] = mang[last];
+                mang[last] = bienTam;
+                first++;
+                last--;
+            }
+            return "Mảng sau khi đảo ngược là : " + mang;
+        }
+    </script>
+</body>
+</html>

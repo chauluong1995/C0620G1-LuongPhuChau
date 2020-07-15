@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+    <script>
+        let mangNhapVao = new Array();
+        for (let i=0;i<5;i++){
+            let nhapKiTu = prompt("Nhập kí tự bất kỳ vào mảng :");
+            mangNhapVao.push(nhapKiTu);
+        }
+        let kiTu = prompt("Nhập 1 kí tự bất kỳ để kiểm tra :");
+        alert(kiemTraKiTuTrongMang(kiTu,mangNhapVao));
+
+        function kiemTraKiTuTrongMang(kiTuCanTim,mang) {
+            let count = 0;
+            for (let i=0;i<mang.length;i++){
+                if (mang[i] === kiTuCanTim){
+                    count++;
+                }
+            }
+            if (count>0){
+                return "Số lần xuất hiện của " + kiTuCanTim + " trong mảng là : " + count;
+            }
+            else return -1;
+        }
+    </script>
+</body>
+</html>

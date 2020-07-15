@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let soNhapVao;
+        do {
+            soNhapVao = Number(prompt("Nhập số muốn tính giai thừa :"));
+            if (!Number.isInteger(soNhapVao) || soNhapVao < 0){
+                alert("Số bạn muôn tính giai thừa phải là 1 số nguyên không âm");
+            }
+            else break;
+        } while (1);
+        document.write(tinhGiaiThua(soNhapVao));
+        function tinhGiaiThua(n) {
+            let ketQua = 1;
+            for (let i = 1; i <= n; i++) {
+                ketQua = ketQua * i;
+            }
+            return "Giai thừa của " + n + " là : " + ketQua;
+        }
+    </script>
+</body>
+</html>

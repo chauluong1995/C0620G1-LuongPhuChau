@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let soNhapVao = Number(prompt("Nhập số bất kỳ :"));
+        alert(testSoNguyenDuong(soNhapVao));
+        function testSoNguyenDuong(n) {
+            if (!Number.isInteger(n) || n <= 0){
+                return false;
+            }
+            else return true;
+        }
+    </script>
+</body>
+</html>

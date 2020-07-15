@@ -6,8 +6,7 @@
 </head>
 <body>
     <script>
-        //let result = new Array();
-        function isPrime(number) {
+        function testSoNguyenTo(number) {
             for (let i = 2; i <= Math.sqrt(number); i++) {
                 if (number % i == 0) {
                     return false;
@@ -15,13 +14,12 @@
             }
             return true;
         }
+        document.write("Các số nguyên tố nhỏ hơn 10000 là : " + "<br>");
         for (let soCanKiemTra = 2; soCanKiemTra < 10000 ; soCanKiemTra++) {
-            if (isPrime(soCanKiemTra)) {
-                document.write(soCanKiemTra + "\t");
-                //result.push(soCanKiemTra);
+            if (testSoNguyenTo(soCanKiemTra)) {
+                document.write(soCanKiemTra + "<br>");
             }
         }
-        //document.write(result.join("_"));
     </script>
 </body>
 </html>

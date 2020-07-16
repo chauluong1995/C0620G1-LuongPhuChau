@@ -7,7 +7,7 @@
 <body>
     <script>
         let nhapSoLuongCustomer;
-        let arrNameCustomers = ["Nguyen A","Nguyen B","Nguyen C","Nguyen D","Nguyen E","Nguyen F","Nguyen G","Nguyen H","Nguyen K","Nguyen L"];
+        let arrNameCustomers = ["Châu Phú","Đin Quang","Khánh Nguyễn","Lành Nguyễn","Mai Hồ","Tín Võ","Vũ Nguyễn","Danh Nguyễn","Cường Hồ","Duy Nguyễn"];
         menu();
 
 
@@ -24,11 +24,7 @@
                 case "3" :
                     addNewCustomer();
                     break;
-                default:
-                    alert("Failed");
-                    break;
             }
-            menu();
         }
 
 
@@ -91,10 +87,10 @@
 
 
 
-        function sapXep(n) {
+        function sapXep(mangCanSapXep) {
             let mangTam=[];
-            for (let i=0;i<n.length;i++){
-                mangTam.push((i+1) + ". " + n[i] + "\n");
+            for (let i=0;i<mangCanSapXep.length;i++){
+                mangTam.push((i+1) + ". " + mangCanSapXep[i] + "\n");
             }
             return mangTam.join("");
         }

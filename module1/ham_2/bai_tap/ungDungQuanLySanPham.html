@@ -5,12 +5,75 @@
     <title>Ứng dụng quản lý sản phẩm</title>
 </head>
 <body>
+    <h1 style="color: blue">Thêm sản phẩm : </h1>
+    <input type="text" id="add" style="width:300px;height:30px"/><br><br>
+    <input type="button" style="width:50px;height:30px;color: blue" value="Add" onclick="addSanPham()"/>
+    <h1 style="color: red">Danh sách sản phẩm :</h1>
+    <form id="hienThi"></form>
     <script>
-        let danhSachSanPham = new Array ("Lamborghini","Bugatti","McLaRen","Ferrari","Porsche");
-        show();
-        function show() {
-
+        let cell;
+        let danhSachSanPham = new Array ("VinFast","Lamborghini","Bugatti","McLaRen","Ferrari","Porsche","BMW");
+        hienThi();
+        function hienThi() {
+            cell = "<table border='1' cellspacing='0' cellpadding='3'>";
+            cell = cell + "<tr>";
+                cell = cell + "<th style='width:50px;height:50px;text-align: center;color: indigo'>" + "STT" + "</th>";
+                cell = cell + "<th style='width:500px;height:50px;color: red' id='tenSanPham'>" + "Tên hãng xe" + "</th>";
+                cell = cell + "<th style='width:100px;height:50px;color: blue'>Sửa</th>";
+                cell = cell + "<th style='width:100px;height:50px;color: darkred'>Xóa</th>";
+            cell = cell + "</tr>";
+            for (let i=0;i<danhSachSanPham.length;i++){
+                cell = cell + "<tr>";
+                cell = cell + "<td style='width:50px;height:50px;text-align: center;color: indigo'>" + (i+1) + "</td>";
+                cell = cell + "<td style='width:500px;height:50px;color: red;' id='tenSanPham'>" + danhSachSanPham[i] + "</td>";
+                cell = cell + "<td><input style='width:100px;height:50px;color: blue' type='button' value='Edit' onclick='editSanPham("+i+")'></td>";
+                cell = cell + "<td><input style='width:100px;height:50px;color: darkred' type='button' value='Delete' onclick='deleteSanPham("+i+")'></td>";
+                cell = cell + "</tr>";
+            }
+            cell = cell + "</table>";
+            document.getElementById("hienThi").innerHTML=cell;
         }
+
+        function addSanPham() {
+            let newName = document.getElementById("add").value;
+            if (newName == null || newName == ""){
+                alert("Bạn chưa điền tên sản phẩm !");
+                return false;
+            }
+            let xacNhanThem = confirm("Bạn có chắc muốn thêm sản phẩm này không ?");
+            if (xacNhanThem){
+                danhSachSanPham.push(newName);
+                document.getElementById("add").value = "";
+            }
+            else return false;
+            hienThi();
+        }
+
+
+        function editSanPham(n) {
+            let newName = prompt("Nhập tên thay thế của sản phẩm :");
+            if (newName == null || newName == ""){
+                alert("Bạn chưa điền tên sản phẩm !");
+                return false;
+            }
+            let xacNhanSua = confirm("Bạn có chắc muốn sửa sản phẩm này không ?");
+            if (xacNhanSua){
+                danhSachSanPham[n] = newName;
+            }
+            else return false;
+            hienThi();
+        }
+
+
+        function deleteSanPham(n) {
+            let xacNhanXoa = confirm("Bạn có chắc muốn xóa sản phẩm này không ?");
+            if (xacNhanXoa){
+                danhSachSanPham.splice(n,1);
+            }
+            else return false;
+            hienThi();
+        }
+
     </script>
 </body>
 </html>

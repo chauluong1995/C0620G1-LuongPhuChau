@@ -7,13 +7,17 @@
 <body>
     <script>
         let nhapTu = prompt("Nhập từ cần kiểm tra :");
-
-        let mang = [nhapTu.split("")];
-
-        document.write(testDoiXung(mang));
-
-        function testDoiXung(n) {
-
+        document.write(testDoiXung(nhapTu));
+        function testDoiXung(tuCanKiemTra) {
+            let i = 0;
+            let j = tuCanKiemTra.length-1;
+            if (i>=j){
+                return "Đó là từ đối xứng !";
+            }
+            if (tuCanKiemTra[i] != tuCanKiemTra[j]) {
+                return "Đó không phải từ đối xứng !";
+            }
+            else return testDoiXung(tuCanKiemTra.slice(1,j));
         }
     </script>
 </body>

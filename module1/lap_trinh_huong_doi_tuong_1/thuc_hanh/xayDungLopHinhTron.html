@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp Hình Tròn</title>
+</head>
+<body>
+    <script>
+        let Circle = function(radius) {
+            this.radius = radius;
+            this.getRadius = function() {
+                return radius;
+            };
+            this.getArea = function() {
+                return Math.PI * radius * radius;
+            };
+        };
+        let circle = new Circle(10);
+        let radius = circle.getRadius();
+        let area = circle.getArea();
+        document.write("Bán kính hình tròn là : " + radius + "<br>" + "Diện tích hình tròn là : " + area);
+    </script>
+</body>
+</html>

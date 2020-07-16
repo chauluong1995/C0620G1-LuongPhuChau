@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 5</title>
+</head>
+<body>
+    <script>
+        let thongTinCanNhap = ["Tên","CMND","Ngày , tháng , năm sinh","Email", "Địa chỉ", "Loại Customer", "Phần trăm giảm giá","Số lượng đi kèm",
+            "Số ngày thuê", "Loại dịch vụ","Loại phòng"];
+
+        let arrListCustomers = [];
+        let arrCustomers = [];
+        let nameVaCMND = "";
+        let soThuTu = 1;
+
+        displayMainMenu();
+
+
+
+        function displayMainMenu() {
+            let choose = prompt("Nhập thao tác muốn thực hiện:\n 1. Add New Customer\n 2. Display Information Customer" +
+                "\n 3. Edit Information Customer\n 4. Delete Customer\n 5. Exit");
+            switch (choose) {
+                case "1":
+                    addNewCustomer();
+                    displayMainMenu();
+                    break;
+                case "2":
+                    alert(displayCustomer());
+                    displayMainMenu();
+                    break;
+                case "3":
+                    editInformationCustomer();
+                    displayMainMenu();
+                    break;
+                case "4":
+                    deleteCustomer();
+                    displayMainMenu();
+                    break;
+                case "5":
+                    break;
+                default:
+                    alert("Failed");
+                    break;
+            }
+        }
+
+
+
+        function addNewCustomer() {
+             nameVaCMND += soThuTu + " .";
+             let nhapThongTin;
+             let thongTin = "";
+             for (let i=0;i<thongTinCanNhap.length;i++){
+                 nhapThongTin = prompt("Nhập " + thongTinCanNhap[i] + " : ");
+                 thongTin += thongTinCanNhap[i] +' : ' + nhapThongTin;
+                 arrCustomers.push(thongTin);
+                 thongTin = "";
+                 if (thongTinCanNhap[i]==="Tên" || thongTinCanNhap[i] === "CMND"){
+                     nameVaCMND += thongTinCanNhap[i] + " : " + nhapThongTin + "\n";
+                 }
+             }
+             arrListCustomers.push(arrCustomers.join("\n"));
+             arrCustomers=[];
+             soThuTu++;
+        }
+
+        
+
+        function displayCustomer() {
+            let choose = parseInt(prompt(nameVaCMND + soThuTu + " . Back"));
+            if (choose === soThuTu) {
+                displayMainMenu();
+            }
+            return (arrListCustomers[choose-1]);
+
+        }
+        
+
+
+        function editInformationCustomer() {
+            let choose = parseInt(prompt(nameVaCMND + soThuTu + " . Back"));
+            if (choose === soThuTu) {
+                displayMainMenu();
+            }
+            else {
+                for (let i=0,soThuTu2 = 1;i<arrListCustomers[choose-1].length;i++,soThuTu2++){
+                    alert(soThuTu2 + " . " + arrListCustomers[choose-1][i]);
+                }
+                if (choose2 = arrListCustomers[choose-1][soThuTu-1]){
+                    let edit = prompt("Nhập lại " + arrListCustomers[choose-1][soThuTu-1] + " :");
+                    arrListCustomers[choose-1][i] = edit;
+                    edit = "";
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -21,38 +21,40 @@
             };
             this.setDay = function(day) {
                 this.day  = day;
-                return this.day;
             };
             this.setMonth = function(month) {
                 this.month  = month;
-                return this.month;
             };
             this.setYear = function(year) {
                 this.year  = year;
-                return this.year;
             };
             this.setDate = function (day,month,year) {
                 this.day  = day;
                 this.month  = month;
                 this.year  = year;
-                return this.day.month.year;
+            };
+            this.toString = function () {
+                return this.day + "/" + this.month + "/" + this.year;
             }
         };
 
-        let date = new MyDate(29,2,2000);
-
+        let date = new MyDate(9,9,2009);
         let day = date.getDay();
         let month = date.getMonth();
         let year = date.getYear();
         alert(day + "/" + month + "/" + year);
 
-        day = date.setDay(10);
-        month = date.setMonth(10);
-        year = date.setYear(2010);
-        alert(day + "/" + month + "/" + year);
+        date.setDay(10);
+        date.setMonth(10);
+        date.setYear(2010);
+        alert(date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
 
-        let newDay = date.setDate(10/10/2000);
-        alert(newDay);
+        date.setDate(11,11,2011);
+        alert(date.getDay() + "--" + date.getMonth() + "--" + date.getYear());
+
+        date.setDate(12,12,2012);
+        document.write(date.toString(date.getDay() + date.getMonth() + date.getYear()));
+
     </script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả Hình chữ nhật</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1500px" height="660px" style="border:1px solid #d3d3d3;"></canvas>
+    <script>
+        class Rectangle {
+            constructor(length, width) {
+                this.length = length;
+                this.width = width;
+            }
+            tinhDienTich(){
+                return this.length*this.width;
+            }
+            tinhChuVi(){
+                return (this.length+this.width)*2;
+            }
+            createRectangle() {
+                let ctx = document.getElementById("myCanvas").getContext("2d");
+                let width = Math.random() * window.innerWidth;
+                let length = Math.random() * window.innerHeight;
+                let rectangle = new Rectangle(width, length);
+                ctx.fillRect(10, 10, rectangle.width, rectangle.length);
+                document.write("Diện tích hình chữ nhật là : " + rectangle.tinhDienTich() + "<br>");
+                document.write("Chu vi hình chữ nhật là : " + rectangle.tinhChuVi());
+            }
+        }
+        let rectangle = new Rectangle();
+        rectangle.createRectangle();
+    </script>
+</body>
+</html>

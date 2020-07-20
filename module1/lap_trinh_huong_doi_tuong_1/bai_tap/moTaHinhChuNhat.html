@@ -23,6 +23,7 @@
                 let width = Math.random() * window.innerWidth;
                 let length = Math.random() * window.innerHeight;
                 let rectangle = new Rectangle(width, length);
+                ctx.fillStyle = "red";
                 ctx.fillRect(10, 10, rectangle.width, rectangle.length);
                 document.write("Diện tích hình chữ nhật là : " + rectangle.tinhDienTich() + "<br>");
                 document.write("Chu vi hình chữ nhật là : " + rectangle.tinhChuVi());

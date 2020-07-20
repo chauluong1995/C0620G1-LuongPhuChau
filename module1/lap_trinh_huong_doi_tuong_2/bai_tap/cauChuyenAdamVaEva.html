@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam và Eva</title>
+</head>
+<body>
+    <script>
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+            decrease() {
+                this.weight--;
+            }
+            isEmpty() {
+                if (this.weight <= 0) {
+                    return false;
+                }
+                return true;
+            }
+            getWeight(){
+                return this.weight;
+            }
+        }
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            human(apple){
+                this.apple=apple;
+            }
+            isMale(){
+                if(this.gender=="Male"){
+                    return true;
+                }
+                return false;
+            }
+            setGender(gender){
+                this.gender=gender;
+            }
+            checkApple(){
+                if (this.apple.isEmpty()===true){
+                    return this.apple.weight;
+                }return "Táo không còn 1 miếng !"
+            }
+            eat(){
+                if(this.apple.isEmpty()===true) {
+                    this.apple.decrease();
+                    this.weight++;
+                }else {
+                    document.write("Hết rồi còn mô ăn nữa !");
+                }
+            }
+            say(message){
+                return message;
+            }
+            getName(){
+                return this.name;
+            }
+            setName(name){
+                this.name=name;
+            }
+            getWeight(){
+                return this.weight;
+            }
+            setWeight(weight){
+                this.weight=weight;
+            }
+        }
+        let adam = new Human("Adam","Male",60);
+        let eva = new Human("Adam","FeMale",45);
+        let apple = new Apple();
+        adam.human(apple);
+        eva.human(apple);
+
+        let message = prompt("Nhập vài câu trò chuyện nào :");
+        document.write("Cân nặng của Adam trước khi ăn : " + adam.getWeight() + " kg." + "<br>");
+        adam.eat();
+        document.write("Adam said : " + adam.say(message) + "<br>");
+        document.write("Cân nặng của Adam sau khi cắn 1 miếng : " + adam.getWeight() + " kg." + "<br><br>");
+
+        document.write("Cân nặng của Eva trước khi ăn : " + eva.getWeight() + " kg." + "<br>");
+        eva.eat();
+        message = prompt("Nhập vài câu trò chuyện nào :");
+        document.write("Eva said : " + eva.say(message) + "<br>");
+        document.write("Cân nặng của Eva sau khi cắn 1 miếng : " + eva.getWeight() + " kg." + "<br>");
+    </script>
+</body>
+</html>

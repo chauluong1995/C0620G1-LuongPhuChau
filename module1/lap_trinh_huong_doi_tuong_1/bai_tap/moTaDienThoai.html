@@ -5,8 +5,69 @@
     <title>Mô tả Điện Thoại</title>
 </head>
 <body>
-    <script>
-
-    </script>
+<script>
+    class Mobile {
+        constructor(battery, name) {
+            this.battery = battery;
+            this.name = name;
+            this.arrayTyping = [];
+            this.arraySent = [];
+            this.arrayReceived = [];
+            this.turnOn = false;
+        }
+        turnOnMobile() {
+            return this.turnOn = true;
+        }
+        turnOffMobile(){
+            return this.turnOn = false;
+        }
+        checkBattery() {
+            return this.battery;
+        }
+        typingMessage() {
+            if (this.turnOnMobile()) {
+                let message = prompt("Nhập tin nhắn muốn gửi :");
+                this.arrayTyping.push(message);
+                this.arraySent.push(message);
+                this.battery--;
+                return message;
+            }
+        }
+        sendMessage(message, mobile) {
+            if (this.turnOnMobile()) {
+                mobile.arrayReceived.push(message);
+                alert("Nội dung tin nhắn đã gửi : " + mobile.arrayReceived + "\n");
+                this.battery--;
+            }
+        }
+        showSentMessage() {
+            if (this.turnOnMobile()) {
+                document.write("Nội dung tin nhắn đã gửi : " + this.arraySent + "<br>");
+                this.battery--;
+            }
+        }
+        showReceivedMessage() {
+            if (this.turnOnMobile()) {
+                document.write("Nội dung tin nhắn đã nhận : " + this.arrayReceived + "<br>");
+                this.battery--;
+            }
+        }
+        chargerBattery() {
+            if (this.battery < 100) {
+                return this.battery++;
+            } else {
+                let message = "Pin đầy !";
+                return message;
+            }
+        }
+    }
+    let nokia = new Mobile(98, "nokia");
+    let iphone = new Mobile(96, "iphone");
+    nokia.sendMessage(nokia.typingMessage(), iphone);
+    nokia.showSentMessage();
+    document.write("Pin Nokia hiện tại là : " + nokia.checkBattery() + "<br><br>");
+    iphone.showReceivedMessage();
+    document.write("Pin Iphone hiện tại là : " + iphone.checkBattery() + "<br>");
+</script>
 </body>
 </html>

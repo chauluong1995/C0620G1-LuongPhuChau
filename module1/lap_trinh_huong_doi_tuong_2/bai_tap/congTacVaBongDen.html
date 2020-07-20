@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Công tắc và bóng đèn</title>
+</head>
+<body>
+<img src="tat.jpg" id="image"><br><br>
+<input type="button" onclick="connect()" style="color: darkviolet" value="Connect to Lamp"><br><br>
+<input type="button" onclick="turnOn()" style="color: red" value="Turn On">
+<input type="button" onclick="turnOff()" style="color: blue" value="Turn Off">
+<script>
+        class SwichButton{
+            constructor(status,lamp) {
+                this.status=status;
+                this.lamp="";
+            }
+            connectToLamp(lamp){
+                this.lamp=lamp;
+            }
+            getStatus(){
+                return this.status;
+            }
+            switchOff(){
+                this.status=false;
+                this.lamp.tunOff();
+            }
+            switchOn(){
+                this.status=true;
+                this.lamp.tunOn();
+            }
+        }
+        class ElectricLamp {
+            constructor(status) {
+                this.status = status;
+            }
+            getStatus(){
+                return this.status;
+            }
+            tunOn() {
+                this.status ="tat.jpg"
+            }
+
+            tunOff() {
+                this.status ="sang.jpg"
+            }
+        }
+        let bongDen = new ElectricLamp("tat.jpg");
+        let congTac = new SwichButton(false);
+        function connect() {
+            congTac.connectToLamp(bongDen);
+            alert("Đã kết nối với bóng đèn")
+        }
+        function turnOn() {
+            congTac.switchOff();
+            document.getElementById("image").src = bongDen.getStatus();
+        }
+        function turnOff() {
+            congTac.switchOn();
+            document.getElementById("image").src=bongDen.getStatus();
+        }
+</script>
+</body>
+</html>

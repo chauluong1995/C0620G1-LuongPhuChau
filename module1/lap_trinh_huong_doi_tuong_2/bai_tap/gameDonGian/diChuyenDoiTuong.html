@@ -7,37 +7,54 @@
 <body>
 <div id="game"></div>
 <script>
-    function Hero(image, top, left, size){
-        this.image = image;
-        this.top = top;
-        this.left = left;
-        this.size = size;
-
-        this.getHeroElement = function(){
+    class Hero{
+        constructor(image, top, left, size) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+        }
+        getHeroElement(){
             return '<img width="'+ this.size + '"' +
                 ' height="'+ this.size + '"' +
                 ' src="' + this.image +'"' +
                 ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
-        };
-
-        this.moveRight = function(){
-            this.left += 50;
-            console.log('ok: ' + this.left);
-        };
-        this.moveLeft = function(){
-            this.left -= 50;
-            console.log('ok: ' + this.left);
+        }
+        moveRight(){
+            this.left += 11;
+        }
+        moveDown(){
+            this.top += 11;
+        }
+        movLeft(){
+            this.left -= 11;
+        }
+        moveTop(){
+            this.top -= 11;
         }
     }
-
-    let hero = new Hero('Songoku.jpg', 20, 30, 200);
-
+    let hero = new Hero('Songoku.jpg', 0, 0, 555);
     function start(){
         if(hero.left < window.innerWidth - hero.size){
-           hero.moveRight();
+            hero.moveRight();
+        }else if (hero.top<window.innerHeight-hero.size){
+            hero.moveDown();
+        }else{
+            return start1();
         }
         document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(start, 111)
+        setTimeout(start,11);
+    }
+    function start1(){
+        if(hero.left >= 0){
+            hero.movLeft();
+        }else if (hero.top>=0){
+            hero.moveTop();
+        }else {
+            return start();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start1,11);
     }
     start();
 </script>

@@ -7,14 +7,15 @@
 <body>
 <h1 style="color: red" id="xuatKetQua"></h1>
 <script>
-    let nhapChuoiBatKy = prompt("Nhập chuỗi kí tự bất kỳ:");
-    let count = 0;
-    let i = 0;
-    for (i;i<nhapChuoiBatKy.length;i++) {
-        if (i===0 && nhapChuoiBatKy[0] !== " " || nhapChuoiBatKy[i] === " " && nhapChuoiBatKy[i-1] !== " " )
-            count = count +1;
+    let nhapChuoiBatKy = prompt("Nhập chuỗi kí tự bất kỳ :");
+    let  arrStr = nhapChuoiBatKy.split(" ");
+    for(let i=0;i<arrStr.length;i++){
+        if(arrStr[i]==''){
+            arrStr.splice(i,1);
+            i--;
+        }
     }
-    document.getElementById("xuatKetQua").innerHTML="Trong chuỗi đó có " + count + " từ";
+    document.getElementById("xuatKetQua").innerHTML="Trong chuỗi đó có " + arrStr.length + " từ";
 </script>
 </body>
 </html>

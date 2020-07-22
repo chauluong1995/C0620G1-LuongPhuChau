@@ -6,45 +6,7 @@
 </head>
 <body>
     <script>
-        function breakingRecords(scores) {
-            let demLon = 0;
-            let demNho = 0;
-            let hight = scores[0];
-            let low = scores [0];
-            for(let i=1;i<scores.length;i++){
-                if(scores[i]>hight){
-                    demLon++;
-                    hight=scores[i];
-                }
-                if(scores[i]<low){
-                    demNho++;
-                    low=scores[i];
-                }
-            }
-            let ar = [demLon,demNho];
-            return ar.join(" ");
-        }
-        let ar = [10,12,11,22,22];
-        let a = breakingRecords(ar);
-        alert(a);
 
-
-
-        function countApplesAndOranges(s, t, a, b, apples, oranges) {
-            let demTao=0;
-            let demCam=0;
-            for(let i=0;i<apples.length;i++){
-                if(a+apples[i]>=s){
-                    demTao++;
-                }
-            }
-            for(let i=0;i<oranges.length;i++){
-                if(b+oranges[i]<=t){
-                    demCam++;
-                }
-            }
-            console.log(demTao+"\n"+demCam);
-        }
     </script>
 </body>
 </html>

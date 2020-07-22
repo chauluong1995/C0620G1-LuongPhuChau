@@ -171,13 +171,13 @@
 
     function addNewCustomer(newCustomer) {
         listCustomer[j] = new Array();
-        newCustomer.setName(prompt("Nhập tên:"));
+        newCustomer.setName(prompt("Nhập tên :"));
         listCustomer[j].push(newCustomer.getName());
-        newCustomer.setIdCard(prompt("Nhập CMND:"));
+        newCustomer.setIdCard(prompt("Nhập CMND :"));
         listCustomer[j].push(newCustomer.getIdCard());
         let birthday;
         do {
-            birthday = prompt("Nhập ngày , tháng , năm sinh:\nTheo định dạng : tháng/ngày/năm\n Ví dụ : 01/31/2001");
+            birthday = prompt("Nhập ngày , tháng , năm sinh :\nTheo định dạng : tháng/ngày/năm\n Ví dụ : 01/31/2001");
             let cutMonth = birthday.slice(3,5); // lấy 2 số của tháng
             let cutDate = birthday.slice(0,2);
             let cutYear = birthday.slice(6);
@@ -205,7 +205,7 @@
         let check4 = true;
         let email;
         do {
-            email = prompt("Nhập lại Email:");
+            email = prompt("Nhập Email :");
             let aCong = email.indexOf("@");
             let dauCham = email.lastIndexOf(".");
             if ((aCong < 1) || (dauCham < aCong + 4) || (dauCham + 4 > email.length)) {
@@ -216,20 +216,22 @@
         } while (check4);
         newCustomer.setEmail(email);
         listCustomer[j].push(newCustomer.getEmail());
-        newCustomer.setAddress(prompt("Nhập địa chỉ:\nTên Thành phố:"));
+        newCustomer.setAddress(prompt("Nhập địa chỉ :\nTên Thành phố :"));
         listCustomer[j].push(newCustomer.getAddress());
-        newCustomer.setTypeCustomer(prompt("Nhập loại Customer:\nDiamond, Platinum, Gold, Silver, Member"));
+        newCustomer.setTypeCustomer(prompt("Nhập loại Customer :\nDiamond, Platinum, Gold, Silver, Member"));
         listCustomer[j].push(newCustomer.getTypeCustomer());
-        newCustomer.setDisCount(prompt("Nhập phần trăm giảm giá:\n1.Giá trị từ 1- 100\n2.Đơn vị (%)"));
+        newCustomer.setDisCount(prompt("Nhập phần trăm giảm giá :\n1.Giá trị từ 1- 100\n2.Đơn vị (%)"));
         listCustomer[j].push(newCustomer.getDisCount());
-        newCustomer.setQuantityIncluded(prompt("Nhập số lượng đi kèm:"));
+        newCustomer.setQuantityIncluded(prompt("Nhập số lượng đi kèm :"));
         listCustomer[j].push(newCustomer.getQuantityIncluded());
-        newCustomer.setRentDays(prompt("Nhập số ngày thuê:"));
+        newCustomer.setRentDays(prompt("Nhập số ngày thuê :"));
         listCustomer[j].push(newCustomer.getRentDays());
-        newCustomer.setTypeOfService(prompt("Nhập loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày"));
+        newCustomer.setTypeOfService(prompt("Nhập loại dịch vụ :\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày"));
         listCustomer[j].push(newCustomer.getTypeOfService());
-        newCustomer.setKindOfRoom(prompt("Nhập loại phòng:\nVip, Business,  Normal"));
+        newCustomer.setKindOfRoom(prompt("Nhập loại phòng :\nVip, Business,  Normal"));
         listCustomer[j].push(newCustomer.getKindOfRoom());
+        alert(displayInformation(j));
+        j++;
     }
 
 
@@ -237,7 +239,7 @@
     function displayInformation(j) {
         info = "";
         for (let i=0;i < thongTinCanNhap.length ;i++){
-            info += (i+1) + ' . ' + listCustomer[j][i] + '\n';
+            info += (i+1) + ". " + thongTinCanNhap[i] + ' : ' + listCustomer[j][i] + '\n';
         }
         return info;
     }
@@ -251,10 +253,10 @@
             nameVaCMND += soThuTu + '. ';
             for (let i=0;i<2;i++){
                 if (thongTinCanNhap[i] === 'Tên') {
-                    nameVaCMND += listCustomer[phanTu][i]  + '\n';
+                    nameVaCMND += "Tên : " + listCustomer[phanTu][i]  + '\n';
                     continue;
                 }
-                nameVaCMND += "  " + listCustomer[phanTu][i] + '\n';
+                nameVaCMND += "  " + "CMND : " + listCustomer[phanTu][i] + '\n';
             }
             soThuTu++;
         }
@@ -291,8 +293,8 @@
             editInformationCustomer();
         }
         else {
-            let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi');
-            listCustomer[customer - 1][choose - 1] = thongTinCanNhap[choose - 1] + ': ' + edit;
+            let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi :');
+            listCustomer[customer - 1][choose - 1] = edit;
             alert(displayInformation(customer-1));
         }
         displayMainMenu();
@@ -327,19 +329,19 @@
 
 
 
-    function displayTotalPayOfCustomer() {
-        let choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
-        if (choose <=0 || isNaN(choose) || choose > soThuTu){
-            alert("Lựa chọn của bạn không tồn tại !");
-            return  displayTotalPayOfCustomer();
-        }
-        else if (choose === soThuTu) {
-            return  displayTotalPayOfCustomer();
-        }
-        else {
-            return listCustomer[choose].tinhTien();
-        }
-    }
+    // function displayTotalPayOfCustomer() {
+    //     let choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
+    //     if (choose <=0 || isNaN(choose) || choose > soThuTu){
+    //         alert("Lựa chọn của bạn không tồn tại !");
+    //         return  displayTotalPayOfCustomer();
+    //     }
+    //     else if (choose === soThuTu) {
+    //         return  displayTotalPayOfCustomer();
+    //     }
+    //     else {
+    //         return listCustomer[choose].tinhTien();
+    //     }
+    // }
 </script>
 </body>
 </html>

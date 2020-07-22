@@ -116,8 +116,8 @@
                 editInformationCustomer();
             }
             else {
-                let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi');
-                listCustomers[customer - 1][choose - 1] = thongTinCanNhap[choose - 1] + ': ' + edit;
+                let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi :');
+                listCustomers[customer - 1][choose - 1] = thongTinCanNhap[choose - 1] + ' : ' + edit;
                 alert(displayInformation(customer-1));
             }
             displayMainMenu();

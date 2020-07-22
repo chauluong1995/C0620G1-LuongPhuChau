@@ -62,7 +62,7 @@
         function displayInformation(j) {
             info = "";
             for (let i=0;i < thongTinCanNhap.length ;i++){
-                info += (i+1) + ': ' + listCustomers[j][i] + '\n';
+                info += (i+1) + ' . ' + listCustomers[j][i] + '\n';
             }
             return info;
         }
@@ -92,10 +92,10 @@
             let choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
             if (choose <=0 || isNaN(choose) || choose > soThuTu){
                 alert("Lựa chọn của bạn không tồn tại !");
-                displayCustomer();
+                return  displayCustomer();
             }
             else if (choose === soThuTu) {
-                displayMainMenu();
+                return displayMainMenu();
             }
             else {
                 customer = choose;

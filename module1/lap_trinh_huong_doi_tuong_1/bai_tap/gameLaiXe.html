@@ -5,9 +5,35 @@
     <title>Game Lái Xe</title>
 </head>
 <body>
-<canvas id="myCanvas" width="1500px" height="700px" style="border:1px solid red;"></canvas>
+<canvas id="canvas" width="1350px" height="600px" style="border: 1px solid black"></canvas>
 <script>
-    let car = document.getElementById("myCanvas").getContext("2d");
+    let canvas=document.getElementById('canvas');
+    let draw=canvas.getContext('2d');
+    let img=new Image();
+    img.src='lambor.jpg';
+    class Oto{
+        constructor(x,y,width, height) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.seconds=11;
+        }
+        setSeconds(b){
+            this.seconds=b;
+        }
+        setSpeed(){
+        }
+        setX(number){
+            this.x+=number;
+        }
+        moveDraw(){
+            draw.clearRect(0,0,canvas.width,canvas.height);
+            draw.drawImage(img,this.x,this.y, this.width, this.height);
+        }
+    }
+    let superCar = new Oto(0,0,555, 555);
+    setInterval(function(){superCar.moveDraw();superCar.setX(2)},superCar.seconds);
 </script>
 </body>
 </html>

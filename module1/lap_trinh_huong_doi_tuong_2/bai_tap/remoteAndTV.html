@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote và TV</title>
+</head>
+<body>
+    <script>
+        class Television{
+            constructor(channel,sound) {
+                this.status = "Off";
+                this.channel = channel;
+                this.sound = sound;
+            }
+            changeChannel(channel){
+                if (this.status === "Off"){
+                    alert("TV chưa bật nhé !")
+                }else this.channel = channel;
+            }
+            changeSound(number){
+                if (this.status === "Off") {
+                    alert("TV chưa bật nhé !")
+                }
+                else this.sound = number;
+            }
+            turnOnOff(){
+                if (this.status === "Off"){
+                    this.status = "On";
+                }else this.status = "Off";
+            }
+            checkStatus(status){
+                document.write("Trạng thái hiện tại của TV là : " + this.status + "<br><br>");
+            }
+            checkSound(sound){
+                document.write("Âm lượng hiện tại của TV là : " + this.sound + "<br><br>");
+            }
+            checkChannel(channel){
+                document.write("Kênh hiện tại TV đang phát là : " + this.channel + "<br><br>");
+            }
+        }
+        class Remote{
+            constructor(id) {
+                this.id = id;
+            }
+            changeChannel(channel){
+                if (this.id.status === "Off"){
+                    alert("TV chưa bật nhé !")
+                }else this.id.channel = channel;
+            }
+            changeSound(number){
+                if (this.id.status === "Off") {
+                    alert("TV chưa bật nhé !")
+                }
+                else this.id.sound = number;
+            }
+            turnOnOff(){
+                if (this.id.status === "Off"){
+                    this.id.status = "On";
+                }else this.id.status = "Off";
+            }
+        }
+        let tivi = new Television(5,35);
+        let remote = new Remote(tivi);
+        tivi.checkStatus();
+        tivi.turnOnOff();
+        tivi.checkStatus();
+        tivi.checkChannel();
+        tivi.checkSound();
+        tivi.changeChannel(7);
+        tivi.checkChannel();
+        remote.changeChannel(3);
+        tivi.checkChannel();
+        remote.changeSound(37);
+        tivi.checkSound();
+        remote.turnOnOff();
+        tivi.checkStatus();
+    </script>
+</body>
+</html>

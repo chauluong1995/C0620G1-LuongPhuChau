@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12</title>
+</head>
+<body>
+    <script>
+        let nhapSoDong;
+        let nhapSoCot;
+        let phanTuMaTran;
+        let maTran = new Array();
+        do {
+            nhapSoDong = parseInt(prompt("Nhập số dòng trong ma trận :"));
+            nhapSoCot = parseInt(prompt("Nhập số cột trong ma trận :"));
+            if (nhapSoCot <= 5 && nhapSoDong <= 5 && nhapSoCot > 0 && nhapSoDong > 0){
+                break;
+            }
+            alert("Đề nghị số dòng và cột phải lớn hơn 0 và nhỏ hơn 5");
+        }while (1);
+        for (let i=0;i<nhapSoCot;i++){
+            maTran[i] = new Array();
+            for (let j=0;j<nhapSoDong;j++){
+                phanTuMaTran = parseInt(prompt("Nhập phần tử của ma trận :"));
+                maTran[i].push(phanTuMaTran);
+            }
+        }
+        document.write(maTran[0] + "<br>");
+        document.write(maTran[1] + "<br>");
+        document.write(maTran[2] + "<br>");
+        let tich = 1;
+        for (let i=0;i<nhapSoCot;i++){
+            if (maTran[i][0]%3===0 && maTran[i][0] !== 0){
+                tich = tich * maTran[i][0];
+            }
+            if (tich===1){
+                document.write("Trên dòng đầu tiên không có phần tử nào chia hết cho 3" + "<br>")
+            }
+        }
+        document.write("Tích các phần tử trên dòng đầu tiên của ma trận và chia hết cho 3 là : " + tich + "<br>");
+        let mangPhanTuMax = new Array();
+        let max;
+        for (let j=0;i<nhapSoDong;j++){
+            max = maTran[0][j];
+            for (let i=0;j<nhapSoCot;i++){
+                if (maTran[i][j]>max){
+                    max = maTran[i][j];
+                }
+            }
+            mangPhanTuMax.push(max);
+        }
+        document.write("Mảng chứa các phần tử lớn nhất trên 1 dòng của ma trận là : " + mangPhanTuMax.join());
+    </script>
+</body>
+</html>

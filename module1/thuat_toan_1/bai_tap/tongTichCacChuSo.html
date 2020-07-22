@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        let nhapSo = prompt("Nhập số nguyên bất kỳ :");
+        let bienTam = nhapSo.split("");
+        let sum = 0;
+        let tich = 1;
+        for (let i=0;i<bienTam.length;i++){
+            sum = sum + parseInt(bienTam[i]);
+            tich = tich * parseInt(bienTam[i]);
+        }
+        document.write("Tổng các chữ số trong số nguyên đó là : " + sum + "<br>");
+        document.write("Tích các chữ số trong số nguyên đó là : " + tich + "<br>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let month = parseInt(prompt("Nhập tháng bất kỳ :"));
+        let year = parseInt(prompt("Nhập năm của tháng vừa nhập :"));
+        if (month===2){
+            if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0){
+                document.write("Năm " + year + " là năm nhuận nên tháng 2 có 29 ngày.");
+            }else document.write("Năm " + year + " là năm không nhuận nên tháng 2 có 28 ngày.");
+        }
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                document.write("Tháng " + month + "/" + year + " có 31 ngày");
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                document.write("Tháng " + month + "/" + year + " có 30 ngày");
+                break;
+        }
+    </script>
+</body>
+</html>

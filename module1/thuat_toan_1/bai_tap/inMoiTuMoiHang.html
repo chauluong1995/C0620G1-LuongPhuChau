@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10a</title>
+</head>
+<body>
+    <script>
+        let nhapChuoi = prompt("Nhập chuỗi bất kỳ :");
+        document.write("Chuỗi bạn vừa nhập là : " + nhapChuoi + "<br>");
+        let chuoiTam = nhapChuoi.split(" ");
+        for(let i=0;i<chuoiTam.length;i++){
+            if(chuoiTam[i]==''){
+                chuoiTam.splice(i,1);
+                i--;
+            }
+        }
+        document.write("In mỗi từ trên mỗi dòng :" + "<br>" + chuoiTam.join("<br>"));
+    </script>
+</body>
+</html>

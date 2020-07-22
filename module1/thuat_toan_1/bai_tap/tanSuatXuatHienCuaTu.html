@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10</title>
+</head>
+<body>
+    <script>
+        let nhapChuoiBatKy = prompt("Nhập chuỗi kí tự bất kỳ :");
+        document.write("Chuỗi bạn vừa nhập là : " + nhapChuoiBatKy + "<br>");
+        let  arrStr = nhapChuoiBatKy.split(" ");
+        for(let i=0;i<arrStr.length;i++){
+            if(arrStr[i]==''){
+                arrStr.splice(i,1);
+                i--;
+            }
+        }
+        let dem = 0;
+        for (let i=0;i<arrStr.length;i++){
+            dem = 1;
+            for (let j=i+1;j<arrStr.length;j++){
+                if (arrStr[j] === arrStr[i]){
+                    dem++;
+                    arrStr.splice(j,1);
+                    j--;
+                }
+            }
+            document.write("Từ " + arrStr[i] + " xuất hiện : " + dem + " lần." + "<br>");
+        }
+    </script>
+</body>
+</html>

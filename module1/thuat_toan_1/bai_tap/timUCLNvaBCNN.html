@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let numberFirst;
+        let numberSecond;
+        do{
+            numberFirst = parseInt(prompt("Nhập số thứ nhất :"));
+            numberSecond = parseInt(prompt("Nhập số thứ hai :"));
+            if (numberFirst>0 && numberSecond>0){
+                break;
+            }
+            else alert("Cả 2 số đó phải lớn hơn 0");
+        }while (1);
+        function timUCLN(num1,num2) {
+            while (num1 !== num2){
+                if (num1 > num2){
+                    num1 = num1-num2;
+                }else num2 = num2-num1
+            }
+            return num1;
+        }
+        document.write("Ước chung lớn nhất của 2 số " + numberFirst + " và " + numberSecond + " là : " + timUCLN(numberFirst,numberSecond) + "<br>");
+        document.write("Bội chung nhỏ nhất của 2 số " + numberFirst + " và " + numberSecond + " là : " + (numberFirst*numberSecond)/timUCLN(numberFirst,numberSecond));
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ :"));
+        let tichSoLe = 1;
+        let tichSoChan = 1;
+        for (let i=1,j=2;i<=nhapSo,j<=nhapSo;i+=2,j+=2){
+            tichSoLe = tichSoLe * i;
+            tichSoChan = tichSoChan * j;
+        }
+        document.write("Tính các số lẻ từ 1 đến " + nhapSo + " là : " + tichSoLe + "<br>");
+        document.write("Tính các số chẵn từ 2 đến " + nhapSo + " là : " + tichSoChan);
+    </script>
+</body>
+</html>

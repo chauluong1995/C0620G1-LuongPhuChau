@@ -6,6 +6,10 @@
 </head>
 <body>
 <script>
+    let regexEmail = /^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
+    //let regexBirthday = /^((0[1-9])|([1-2][0-9])|(3[0-1]))\/(([0][1-9])|1[0-2])\/(19[0-9]{2}|20[0-1][0-9]|2020)$/;
+    //let regexMaNV =/^MNV-[0-9]{4}$/;
+    let regexCMND = /^[\d]{8}$/;
     let thongTinCanNhap = ["Tên","CMND","Ngày , tháng , năm sinh","Email", "Địa chỉ", "Loại Customer", "Phần trăm giảm giá","Số lượng đi kèm",
         "Số ngày thuê", "Loại dịch vụ","Loại phòng"];
     let listCustomer = new Array();
@@ -120,7 +124,6 @@
             case "1":
                 let newCustomer = new Customer();
                 addNewCustomer(newCustomer);
-                displayMainMenu();
                 break;
             case "2":
                 alert(displayCustomer());
@@ -128,7 +131,6 @@
                 break;
             case "3":
                 displayTotalPayOfCustomer();
-                displayMainMenu();
                 break;
             case "4":
                 editInformationCustomer();
@@ -179,18 +181,14 @@
         } while (1);
         newCustomer.setBirthDay(birthday);
         listCustomer[j].push(newCustomer.getBirthDay());
-        let check4 = true;
         let email;
         do {
             email = prompt("Nhập Email :");
-            let aCong = email.indexOf("@");
-            let dauCham = email.lastIndexOf(".");
-            if ((aCong < 1) || (dauCham < aCong + 4) || (dauCham + 4 > email.length)) {
-                // aCong < n thì trước @ là n kí tự
-                // dauCham < aCong+n' thì trước dấu chấm là n'-1 kí tự
-                alert("Email của bạn không hợp lệ !");
-            } else check4 = false;
-        } while (check4);
+            if (regexEmail.test(email)){
+                break;
+            }
+            else alert("Email của bạn không hợp lệ !");
+        } while (1);
         newCustomer.setEmail(email);
         listCustomer[j].push(newCustomer.getEmail());
         newCustomer.setAddress(prompt("Nhập địa chỉ :\nTên Thành phố :"));
@@ -210,6 +208,7 @@
         listCustomer[j].push(newCustomer);
         alert(displayInformation(j));
         j++;
+        displayMainMenu();
     }
 
 
@@ -265,10 +264,10 @@
         let choose = parseInt(prompt(displayCustomer() + (thongTinCanNhap.length + 1) + '. Back'));
         if (choose <= 0 || choose > (thongTinCanNhap+2) || isNaN(choose)){
             alert("Lựa chọn của bạn không tồn tại !");
-            editInformationCustomer();
+            return  editInformationCustomer();
         }
         else if ( choose === (thongTinCanNhap.length + 1)){
-            editInformationCustomer();
+            return editInformationCustomer();
         }
         else {
             let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi :');
@@ -284,10 +283,10 @@
         let choose = parseInt(prompt(nameAndCMND() + soThuTu + " . Back"));
         if (choose <=0 || isNaN(choose) || choose > soThuTu){
             alert("Lựa chọn của bạn không tồn tại !");
-            deleteCustomer();
+            return deleteCustomer();
         }
         else if (choose === soThuTu) {
-            displayMainMenu();
+            return displayMainMenu();
         }
         else {
             customer = choose;
@@ -299,7 +298,7 @@
                 case "2":
                     break;
                 default :
-                    deleteCustomer();
+                    return deleteCustomer();
             }
         }
         displayMainMenu();
@@ -319,12 +318,8 @@
         else {
             alert("Tổng tiền phải trả là : " + listCustomer[choose-1][listCustomer[choose-1].length-1].tinhTien());
         }
+        displayMainMenu();
     }
-
-
-    let regexEmail = /\S[a-zA-Z0-9]+@\S[a-zA-Z]+\.\S[a-zA-Z]+/;
-    let regexBirthday = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
-    let regexCMND = /^[\d]{8}$/;
 </script>
 </body>
 </html>

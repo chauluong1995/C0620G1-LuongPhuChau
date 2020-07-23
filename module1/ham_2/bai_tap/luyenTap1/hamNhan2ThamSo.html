@@ -6,18 +6,18 @@
 </head>
 <body>
     <script>
-        let thamSo1 = parseFloat(prompt("Nhập số thứ nhất :"));
-        let thamSo2 = parseFloat(prompt("Nhập số thứ hai :"));
-        function nhanThamSo(a,b) {
-            if (a>b){
+        let doiSo1 = parseFloat(prompt("Nhập số thứ nhất :"));
+        let doiSo2 = parseFloat(prompt("Nhập số thứ hai :"));
+        alert(nhanDoiSo(doiSo1,doiSo2));
+        function nhanDoiSo(num1,num2) {
+            if (num1>num2){
                 return "Số thứ nhất lớn hơn số thứ hai.";
             }
             else {
-                let tong =  a + b;
-                return "Tổng của 2 số đó là : " + tong;
+                let tong =  num1 + num2;
+                return "Tổng của 2 đối số nhận vào " + num1 + " và " + num2 + " là : " + tong;
             }
         }
-        alert(nhanThamSo(thamSo1,thamSo2));
     </script>
 </body>
 </html>

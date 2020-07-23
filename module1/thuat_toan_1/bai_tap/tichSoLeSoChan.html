@@ -9,12 +9,17 @@
         let nhapSo = parseInt(prompt("Nhập số nguyên bất kỳ :"));
         let tichSoLe = 1;
         let tichSoChan = 1;
-        for (let i=1,j=2;i<=nhapSo,j<=nhapSo;i+=2,j+=2){
-            tichSoLe = tichSoLe * i;
-            tichSoChan = tichSoChan * j;
+        if (nhapSo % 2 === 0){
+            for (let j=2;j<=nhapSo;j+=2){
+                tichSoChan = tichSoChan * j;
+            }
+            document.write("Tính các số chẵn từ 2 đến " + nhapSo + " là : " + tichSoChan);
+        }else {
+            for (let i=1;i<=nhapSo;i+=2){
+                tichSoLe = tichSoLe * i;
+            }
+            document.write("Tính các số lẻ từ 1 đến " + nhapSo + " là : " + tichSoLe);
         }
-        document.write("Tính các số lẻ từ 1 đến " + nhapSo + " là : " + tichSoLe + "<br>");
-        document.write("Tính các số chẵn từ 2 đến " + nhapSo + " là : " + tichSoChan);
     </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        // Chương trình tính : S = 15 - 1 + 1/2 - 1/3! +....+ ((-1)^n)/n! ;
+        let nhapSo = parseInt(prompt("Nhập số n bất kỳ :"));
+        let tongS = 15;
+        let giaiThua = 1;
+        for (let i=1;i<=nhapSo;i++){
+            giaiThua = 1;
+            for (let j=1;j<=i;j++){
+                giaiThua = giaiThua * j;
+            }
+            tongS = tongS + Math.pow((-1),i)/giaiThua;
+        }
+        document.write("Tổng S = 15 - 1 + 1/2 - 1/3! +....+ ((-1)^n)/n! với n = " + nhapSo + " là : " + tongS);
+    </script>
+</body>
+</html>

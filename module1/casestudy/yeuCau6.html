@@ -30,95 +30,72 @@
             this.typeOfService = typeOfService;
             this.kindOfRoom = kindOfRoom;
         }
-
         setName(name) {
             this.name = name;
         }
-
         setIdCard(idCard) {
             this.idCard = idCard;
         }
-
         setBirthDay(birthday) {
             this.birthDay = birthday;
         }
-
         setEmail(email) {
             this.email = email;
         }
-
         setAddress(address) {
             this.address = address;
         }
-
         setTypeCustomer(typeCustomer) {
             this.typeCustomer = typeCustomer;
         }
-
         setDisCount(discount) {
             this.disCount = discount;
         }
-
         setQuantityIncluded(quantityIncluded) {
             this.quantityIncluded = quantityIncluded;
         }
-
         setRentDays(rentDays) {
             this.rentDays = rentDays;
         }
-
         setTypeOfService(typeOfService) {
             this.typeOfService = typeOfService;
         }
-
         setKindOfRoom(kindOfRoom) {
             this.kindOfRoom = kindOfRoom;
         }
-
         getName() {
             return this.name;
         }
-
         getIdCard() {
             return this.idCard;
         }
-
         getBirthDay() {
             return this.birthDay;
         }
-
         getEmail() {
             return this.email;
         }
-
         getAddress() {
             return this.address;
         }
-
         getTypeCustomer() {
             return this.typeCustomer;
         }
-
         getDisCount() {
             return this.disCount;
         }
-
         getQuantityIncluded() {
             return this.quantityIncluded;
         }
-
         getRentDays() {
             return this.rentDays;
         }
-
         getTypeOfService() {
             return this.typeOfService;
         }
-
         getKindOfRoom() {
             return this.kindOfRoom;
         }
-
         tinhTien() {
             if (this.typeOfService === "Villa") {
                 return 500 * parseInt(this.rentDays) * (1 - (parseInt(this.disCount) / 100)) + " $.";
@@ -230,6 +207,7 @@
         listCustomer[j].push(newCustomer.getTypeOfService());
         newCustomer.setKindOfRoom(prompt("Nhập loại phòng :\nVip, Business,  Normal"));
         listCustomer[j].push(newCustomer.getKindOfRoom());
+        listCustomer[j].push(newCustomer);
         alert(displayInformation(j));
         j++;
     }
@@ -329,19 +307,19 @@
 
 
 
-    // function displayTotalPayOfCustomer() {
-    //     let choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
-    //     if (choose <=0 || isNaN(choose) || choose > soThuTu){
-    //         alert("Lựa chọn của bạn không tồn tại !");
-    //         return  displayTotalPayOfCustomer();
-    //     }
-    //     else if (choose === soThuTu) {
-    //         return  displayTotalPayOfCustomer();
-    //     }
-    //     else {
-    //         return listCustomer[choose].tinhTien();
-    //     }
-    // }
+    function displayTotalPayOfCustomer() {
+        let choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
+        if (choose <=0 || isNaN(choose) || choose > soThuTu){
+            alert("Lựa chọn của bạn không tồn tại !");
+            return  displayTotalPayOfCustomer();
+        }
+        else if (choose === soThuTu) {
+            return  displayTotalPayOfCustomer();
+        }
+        else {
+            alert("Tổng tiền phải trả là : " + listCustomer[choose-1][listCustomer.length-1].tinhTien());
+        }
+    }
 </script>
 </body>
 </html>

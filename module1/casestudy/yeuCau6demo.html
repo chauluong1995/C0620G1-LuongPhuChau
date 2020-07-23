@@ -317,9 +317,14 @@
             return  displayTotalPayOfCustomer();
         }
         else {
-            alert("Tổng tiền phải trả là : " + listCustomer[choose-1][listCustomer.length-1].tinhTien());
+            alert("Tổng tiền phải trả là : " + listCustomer[choose-1][listCustomer[choose-1].length-1].tinhTien());
         }
     }
+
+
+    let regexEmail = /\S[a-zA-Z0-9]+@\S[a-zA-Z]+\.\S[a-zA-Z]+/;
+    let regexBirthday = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+    let regexCMND = /^[\d]{8}$/;
 </script>
 </body>
 </html>

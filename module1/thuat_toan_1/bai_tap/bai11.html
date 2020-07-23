@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11</title>
+</head>
+<body>
+    <script>
+        // Câu a : Nhập mảng gồm các phần tử kiểu nguyên int :
+        let doDaiMang;
+        do {
+            doDaiMang = Number(prompt("Nhập độ dài của mảng :"));
+            if (!Number.isInteger(doDaiMang) || doDaiMang <= 0){
+                alert("Độ dài mảng phải là nhập số nguyên lớn hơn 0 !");
+            }
+            else break;
+        }while (1);
+        let  mangSoKieuNguyen = new Array();
+        let phanTu;
+        for (let i=0;i<doDaiMang;i++){
+            do {
+                phanTu = Number(prompt("Nhập phần tử của mảng :"));
+                if (!Number.isInteger(phanTu)){
+                    alert("Phần tử của mảng phải là số nguyên !");
+                }
+                else break;
+            }while (1);
+            mangSoKieuNguyen.push(phanTu);
+        }
+        document.write("Câu a . Mảng đã nhập là : [" + mangSoKieuNguyen + "] ." + "<br>");
+
+        // Câu b : Tính tổng số dương lẻ của mảng :
+        let tongSoDuongLe = 0;
+        for (let i=0;i<doDaiMang;i++){
+            if (mangSoKieuNguyen[i] % 2 !==  0 && mangSoKieuNguyen[i] > 0){
+                tongSoDuongLe += mangSoKieuNguyen[i];
+            }
+        }
+        document.write("Câu b . Tổng số dương lẻ của mảng đã nhập là : " + tongSoDuongLe + " . <br>");
+
+        // Câu c : Tính tổng các số nguyên tố ở vị trí chẵn :
+        let tongSoNguyenToViTriChan = 0;
+        for (let i=0;i<doDaiMang;i=i+2){
+            if (testSoNguyenTo(mangSoKieuNguyen[i])){
+                tongSoNguyenToViTriChan = tongSoNguyenToViTriChan + mangSoKieuNguyen[i];
+            }
+        }
+        document.write("Câu c . Tổng số nguyên tố ở vị trí chẵn của mảng đã nhập là : " + tongSoNguyenToViTriChan + " . <br>");
+
+        function testSoNguyenTo(number) {
+            if (number>=2){
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            } else return false;
+        }
+
+        // Câu d : Nhập phần tử k, tìm xem k có xuất hiện trong mảng hay không . Nếu có chỉ ra phần tử ở vị trí đầu tiên :
+        let phanTuCanTim = parseInt(prompt("Nhập phần tử cần tìm :"));
+        let check = true;
+        for (let i=0;i<doDaiMang;i++){
+            if (mangSoKieuNguyen[i] === phanTuCanTim){
+                document.write("Câu d . Phần tử cần tìm là " + phanTuCanTim + " xuất hiện đầu tiên ở vị trí " + i + " trong mảng đã nhập" + " . <br>");
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            document.write("Câu d . Phần tử cần tìm là " + phanTuCanTim + " không có trong mảng đã nhập" + " . <br>");
+        }
+
+        // Câu e : Sắp sếp mảng đã nhập theo thứ tự tăng dần :
+        //mangSoKieuNguyen.sort(function (a,b){return a - b});
+        let bienTam;
+        for (let i=0;i<doDaiMang;i++){
+            for (let j=i+1;j<doDaiMang;j++){
+                if (mangSoKieuNguyen[j]<mangSoKieuNguyen[i]){
+                    bienTam = mangSoKieuNguyen[i];
+                    mangSoKieuNguyen[i] = mangSoKieuNguyen[j];
+                    mangSoKieuNguyen[j] = bienTam;
+                }
+            }
+        }
+        document.write("Câu e . Mảng đã nhập sau khi sắp xếp theo thứ tự tăng dần là : [" + mangSoKieuNguyen + "]" + " . <br>");
+
+        // Câu f : Chèn phần tử bất kỳ vào mảng đã nhập sao cho mảng đã nhập vẫn đảm bảo tăng dần và xuất lại mảng :
+        let phanTuCanChen = parseInt(prompt("Nhập phần tử cần chèn vào mảng :"));
+        let check2 = true;
+        for (let i=0;i<doDaiMang;i++){
+            if (phanTuCanChen < mangSoKieuNguyen[i]){
+                mangSoKieuNguyen.splice(i,0,phanTuCanChen);
+                check2 = false;
+                break;
+            }
+        }
+        if (check2){
+            mangSoKieuNguyen.push(phanTuCanChen);
+        }
+        document.write("Câu f . Mảng đã nhập sau khi chèn phần tử " + phanTuCanChen + " là : [" + mangSoKieuNguyen + "]" + " . <br>");
+    </script>
+</body>
+</html>

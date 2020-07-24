@@ -152,7 +152,15 @@
         listCustomer[j] = new Array();
         newCustomer.setName(prompt("Nhập tên :"));
         listCustomer[j].push(newCustomer.getName());
-        newCustomer.setIdCard(prompt("Nhập CMND :"));
+        let cmnd = "";
+        do {
+            cmnd = prompt("Nhập CMND :");
+            if (regexCMND.test(cmnd)){
+                break;
+            }
+            else alert("Định dạng CMND sai !"+"\n"+"CMND phải có 8 số !");
+        }while (1);
+        newCustomer.setIdCard(cmnd);
         listCustomer[j].push(newCustomer.getIdCard());
         let birthday;
         do {
@@ -186,8 +194,7 @@
             email = prompt("Nhập Email :");
             if (regexEmail.test(email)){
                 break;
-            }
-            else alert("Email của bạn không hợp lệ !");
+            }else alert("Email của bạn không hợp lệ !");
         } while (1);
         newCustomer.setEmail(email);
         listCustomer[j].push(newCustomer.getEmail());
@@ -195,11 +202,32 @@
         listCustomer[j].push(newCustomer.getAddress());
         newCustomer.setTypeCustomer(prompt("Nhập loại Customer :\nDiamond, Platinum, Gold, Silver, Member"));
         listCustomer[j].push(newCustomer.getTypeCustomer());
-        newCustomer.setDisCount(prompt("Nhập phần trăm giảm giá :\n1.Giá trị từ 1- 100\n2.Đơn vị (%)"));
+        let discount = 0;
+        do {
+            discount = prompt("Nhập phần trăm giảm giá :\n1.Giá trị từ 0 - 100\n2.Đơn vị (%)");
+            if (!isNaN(discount) && discount >= 0 && discount <= 100 && discount !== ""){
+                break;
+            }else alert("Số liệu giảm giá của bạn không hợp lý !");
+        }while (1);
+        newCustomer.setDisCount(discount);
         listCustomer[j].push(newCustomer.getDisCount());
-        newCustomer.setQuantityIncluded(prompt("Nhập số lượng đi kèm :"));
+        let quantityIncluded = 0;
+        do {
+            quantityIncluded = Number(prompt("Nhập số người đi kèm :"));
+            if (Number.isInteger(quantityIncluded) && quantityIncluded >= 0){
+                break;
+            }else alert("Số người đi kèm của bạn không hợp lý !");
+        }while (1);
+        newCustomer.setQuantityIncluded(quantityIncluded);
         listCustomer[j].push(newCustomer.getQuantityIncluded());
-        newCustomer.setRentDays(prompt("Nhập số ngày thuê :"));
+        let rentDays = 0;
+        do {
+            rentDays = Number(prompt("Nhập số ngày thuê :"));
+            if (Number.isInteger(rentDays) && rentDays >= 0){
+                break;
+            }else alert("Số ngày thuê của bạn không hợp lý !");
+        }while (1);
+        newCustomer.setRentDays(rentDays);
         listCustomer[j].push(newCustomer.getRentDays());
         newCustomer.setTypeOfService(prompt("Nhập loại dịch vụ :\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày"));
         listCustomer[j].push(newCustomer.getTypeOfService());
@@ -272,6 +300,12 @@
         else {
             let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi :');
             listCustomer[customer - 1][choose - 1] = edit;
+            if ((choose-1) == 6){
+
+            }
+            if ((choose-1) == 6){
+
+            }
             alert(displayInformation(customer-1));
         }
         displayMainMenu();

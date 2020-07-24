@@ -184,14 +184,14 @@
             case "7":
                 let check7 = true;
                 do {
-                    disCountPercent = prompt("Nhập lại phần trăm giảm giá:\n1.Giá trị từ 1- 100\n2.Đơn vị (%)");
+                    disCountPercent = prompt("Nhập lại phần trăm giảm giá:\n1.Giá trị từ 0 - 100\n2.Đơn vị (%)");
                     let testDisCountPercent = isNaN(disCountPercent);
                     let testSoAm = disCountPercent.indexOf("-");
                     let testSoThuc = disCountPercent.indexOf(".");
                     let testDauPhay = disCountPercent.indexOf(",");
                     let testDauCong = disCountPercent.indexOf("+");
                     if (testDisCountPercent || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
-                        alert("Số liệu giảm giá của bạn không hợp lý !")
+                        alert("Số liệu giảm giá của bạn không hợp lý !");
                     }
                     else check7 = false;
                 } while (check7);

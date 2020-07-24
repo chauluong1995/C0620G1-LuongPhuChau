@@ -8,6 +8,7 @@
     <script>
         let regexEmail = /^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
         let regexCMND = /^[\d]{8}$/;
+
         class Customer {
             constructor(name, idCard, dateOfBirth, email, address, typeCustomer, disCount, quantityIncluded, rentDays, typeOfService, kindOfRoom) {
                 this.name = name;
@@ -127,7 +128,8 @@
                 '3. Display total pay of customer \n' +
                 '4. Edit Information Customer.\n' +
                 '5. Delete Customer.\n' +
-                '6. Exit.\n');
+                '6. Menu Employee.\n' +
+                '7. Exit.\n');
             switch (choose) {
                 case '1':
                     addNewCustomer(listCustomers);
@@ -151,6 +153,9 @@
                     displayMainMenu();
                     break;
                 case '6':
+                    menuEmployee();
+                    break;
+                case '7':
                     break;
                 default:
                     alert('Yêu cầu không có trong menu !');
@@ -388,6 +393,172 @@
         //     let regex = /^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
         //     return regex.test(email);
         // }
+
+
+
+        class Employee extends Customer{
+            constructor(name, idCard, dateOfBirth, email, phoneNumber, level, position, salary) {
+                super(name, idCard, dateOfBirth, email);
+                this.phoneNumber = phoneNumber;
+                this.level = level;
+                this.position = position;
+                this.salary = salary;
+            }
+            setPhoneNumber(phoneNumber){
+                this.phoneNumber = phoneNumber;
+            }
+            setLevel(level){
+                this.level = level;
+            }
+            setPosition(position){
+                this.position = position;
+            }
+            setSalary(salary){
+                this.salary = salary;
+            }
+            getPhoneNumber(){
+                return  this.phoneNumber;
+            }
+            getLevel() {
+                return this.level;
+            }
+            getPosition(){
+                return  this.position;
+            }
+            getSalary(){
+                if (this.getPosition() === "Manager") {
+                    this.salary = 500;
+                } else if (this.getPosition() === "Sale") {
+                    this.salary = 300;
+                } else if (this.getPosition() === "Marketing") {
+                    this.salary = 200;
+                }
+                return this.salary;
+            }
+            getInformation() {
+                return '1. Tên : ' + this.name + '\n2. Số CMND : ' + this.idCard + '\n3. Ngày tháng năm sinh : ' + this.dateOfBirth +
+                       '\n4. Email : ' + this.email + '\n5. Số điện thoại : ' + this.phoneNumber + '\n6. Trình độ : ' + this.level +
+                       '\n7. Chức vụ : ' + this.position + '\n8. Lương : ' + this.salary;
+            }
+        }
+
+
+
+        let listEmployee = new Array();
+        let index = 0;
+        let regexPhoneNumber = /^[\d]{10}$/;
+        menuEmployee();
+
+
+
+        function menuEmployee() {
+            let choose = prompt('Nhập thao tác muốn thực hiện :\n' +
+                                '1. Add New Employee.\n' +
+                                '2. Display Information Employee.\n' +
+                                '3. Tính tiền phòng.\n' +
+                                '4. Exit.\n');
+            switch (choose) {
+                case '1':
+                    addNewEmployee(listEmployee);
+                    index++;
+                    menuEmployee();
+                    break;
+                case '2':
+                    alert(displayEmployee(listEmployee));
+                    menuEmployee();
+                    break;
+                case '3':
+                    tinhTienPhong(listEmployee);
+                    menuEmployee();
+                    break;
+                case '4':
+                    return displayMainMenu(); // chưa exit đc
+                default:
+                    alert('Yêu cầu không có trong menu !');
+                    menuEmployee();
+                    break;
+            }
+        }
+
+
+
+        function addNewEmployee(array) {
+            let name = prompt('Nhập Tên :');
+            let idCard = "";
+            do {
+                idCard = prompt("Nhập CMND :");
+                if (regexCMND.test(idCard)) {
+                    break;
+                } else alert("Định dạng CMND sai !" + "\n" + "CMND phải có 8 số !");
+            } while (1);
+            let dateOfBirth;
+            do {
+                dateOfBirth = prompt("Nhập ngày , tháng , năm sinh theo định dạng : DD/MM/YYYY");
+                if (checkBirth(dateOfBirth)) {
+                    break;
+                } else alert("Ngày , tháng , năm sinh không hợp lệ !");
+            } while (1);
+            let email;
+            do {
+                email = prompt("Nhập email :");
+                if (regexEmail.test(email)) {
+                    break;
+                } else alert("Email của bạn không hợp lệ !");
+            } while (1);
+            let phoneNumber = "";
+            do {
+                phoneNumber = prompt("Nhập số điện thoại :");
+                if (regexPhoneNumber.test(phoneNumber)) {
+                    break;
+                } else alert("Định dạng số điện thoại sai !" + "\n" + "Số điện thoại phải có 10 số !");
+            } while (1);
+            let level;
+            let checkTrinhDo = true;
+            do {
+                let chooseLevel = prompt("Nhập trình độ của bạn : \n1. Trung Cấp \n2. Cao đẳng \n3. Đại học \n4. Sau Đại học " +
+                                         "\nVí dụ : Trình độ đại học thì chọn 3");
+                switch (chooseLevel) {
+                    case "1":
+                        level = "Trung cấp";
+                        break;
+                    case "2":
+                        level = "Cao đẳng";
+                        break;
+                    case "3":
+                        level = "Đại học";
+                        break;
+                    case "4":
+                        level = "Sau Đại học";
+                        break;
+                    default :
+                        alert("Trình độ bạn chọn không có !");
+                        checkTrinhDo = false;
+                }
+            }while (!checkTrinhDo);
+            let position = prompt("Nhập chức vụ của bạn : \nManager , Sale , Marketing");
+            let objectEmployee = new Employee (name, idCard, dateOfBirth, email, phoneNumber, level, position);
+            array.push(objectEmployee);
+            alert(objectEmployee.getInformation());
+        }
+
+
+
+        function chooseNameAndIdCardEmployee(array) {
+            let nameAndIdcard = nameAndIdCard(array);
+            let chooseName = Number(prompt('Chọn người bạn muốn thực hiện thao tác : \n' + nameAndIdcard + soThuTu + '. Back'));
+            if (chooseName === soThuTu) {
+                return menuEmployee();
+            } else {
+                return chooseName;
+            }
+        }
+
+
+
+        function displayEmployee(array) {
+            let chooseName = chooseNameAndIdCardEmployee(array);
+            return information(array[chooseName - 1]);
+        }
     </script>
 </body>
 </html>

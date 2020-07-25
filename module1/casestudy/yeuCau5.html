@@ -11,9 +11,11 @@
 
         let listCustomers = new Array();
         let customer;
-        let j =0;
+        let j = 0;
         let soThuTu;
         let info;
+
+
 
         displayMainMenu();
 
@@ -25,16 +27,25 @@
             switch (choose) {
                 case "1":
                     addNewCustomer();
+                    displayMainMenu();
                     break;
                 case "2":
-                    alert(displayCustomer());
+                    if (listCustomers.length>0){
+                        alert(displayCustomer());
+                    }else alert("Có gì đâu mà hiển thị !");
                     displayMainMenu();
                     break;
                 case "3":
-                    editInformationCustomer();
+                    if (listCustomers.length>0){
+                        editInformationCustomer();
+                    }else alert("Có gì đâu mà sửa !");
+                    displayMainMenu();
                     break;
                 case "4":
-                    deleteCustomer();
+                    if (listCustomers.length>0){
+                        deleteCustomer();
+                    }else alert("Có gì đâu mà xóa !");
+                    displayMainMenu();
                     break;
                 case "5":
                     break;
@@ -54,7 +65,7 @@
              }
              alert(listCustomers[j].join("\n"));
              j++;
-             displayMainMenu();
+
         }
 
 
@@ -69,85 +80,83 @@
 
 
 
-        function nameAndCMND() {
-            let nameVaCMND = "";
-            soThuTu = 1;
-            for (let phanTu=0;phanTu<listCustomers.length;phanTu++){
-                nameVaCMND += soThuTu + '. ';
-                for (let i=0;i<2;i++){
-                    if (thongTinCanNhap[i] === 'Tên') {
-                        nameVaCMND += listCustomers[phanTu][i]  + '\n';
-                        continue;
-                    }
-                    nameVaCMND += "  " + listCustomers[phanTu][i] + '\n';
-                }
-                soThuTu++;
-            }
-            return nameVaCMND;
-        }
+        // function nameAndCMND() {
+        //     let nameVaCMND = "";
+        //     soThuTu = 1;
+        //     for (let phanTu=0;phanTu<listCustomers.length;phanTu++){
+        //         nameVaCMND += soThuTu + '. ';
+        //         for (let i=0;i<2;i++){
+        //             if (thongTinCanNhap[i] === 'Tên') {
+        //                 nameVaCMND += listCustomers[phanTu][i]  + '\n';
+        //                 continue;
+        //             }
+        //             nameVaCMND += "  " + listCustomers[phanTu][i] + '\n';
+        //         }
+        //         soThuTu++;
+        //     }
+        //     return nameVaCMND;
+        // }
 
 
 
         function displayCustomer() {
-            let choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
-            if (choose <=0 || isNaN(choose) || choose > soThuTu){
-                alert("Lựa chọn của bạn không tồn tại !");
-                return  displayCustomer();
+            let nameAndIdCard = "";
+            for (let i=0;i<listCustomers.length;i++){
+                nameAndIdCard += (i+1) + " . " + listCustomers[i][0] + "\n     " + listCustomers[i][1];
             }
-            else if (choose === soThuTu) {
-                return displayMainMenu();
-            }
-            else {
-                customer = choose;
-                return displayInformation(customer-1);
-            }
+            let choose = parseInt(prompt(nameAndIdCard));
+            // let choose;
+            // do {
+            //     choose = parseInt(prompt(nameAndCMND() + soThuTu + '. Back'));
+            //     if (choose === soThuTu) {
+            //         return displayMainMenu();
+            //     }
+            //     else if (choose > 0 && choose < soThuTu){
+            //         break;
+            //     }else alert("Lựa chọn của bạn không tồn tại !");
+            // }while (1);
+            // return displayInformation(choose-1);
         }
 
 
 
 
         function editInformationCustomer() {
-            let choose = parseInt(prompt(displayCustomer() + (thongTinCanNhap.length + 1) + '. Back'));
-            if (choose <= 0 || choose > (thongTinCanNhap+2) || isNaN(choose)){
-                alert("Lựa chọn của bạn không tồn tại !");
-                editInformationCustomer();
-            }
-            else if ( choose === (thongTinCanNhap.length + 1)){
-                editInformationCustomer();
-            }
-            else {
-                let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi :');
-                listCustomers[customer - 1][choose - 1] = thongTinCanNhap[choose - 1] + ' : ' + edit;
-                alert(displayInformation(customer-1));
-            }
-            displayMainMenu();
+            let choose;
+            do {
+                choose = parseInt(prompt(displayCustomer() + (thongTinCanNhap.length + 1) + '. Back'));
+                if ( choose === (thongTinCanNhap.length + 1)){
+                    return editInformationCustomer();
+                }
+                else if (choose > 0 && choose < (thongTinCanNhap+2)){
+                    break;
+                }else alert("Lựa chọn của bạn không tồn tại !");
+            }while (1);
+            let edit = prompt("Nhập " + thongTinCanNhap[choose - 1] + ' muốn thay đổi :');
+            listCustomers[customer - 1][choose - 1] = thongTinCanNhap[choose - 1] + ' : ' + edit;
+            return alert(displayInformation(customer-1));
         }
 
 
 
         function deleteCustomer () {
-            let choose = parseInt(prompt(nameAndCMND() + soThuTu + " . Back"));
-            if (choose <=0 || isNaN(choose) || choose > soThuTu){
-                alert("Lựa chọn của bạn không tồn tại !");
-                deleteCustomer();
-            }
-            else if (choose === soThuTu) {
-                displayMainMenu();
-            }
-            else {
-                customer = choose;
-                let confirm = prompt("Bạn có thực sự muốn xóa Customer này hay không ?" + "\n" + "1. Yes" + "\n" + "2. No");
+            let choose;
+            do{
+                choose = parseInt(prompt(nameAndCMND() + soThuTu + " . Back"));
+                if (choose === soThuTu) {
+                    return displayMainMenu();
+                }
+                else if (choose > 0 && choose < soThuTu){
+                    break;
+                }else alert("Lựa chọn của bạn không tồn tại !");
+            }while (1);
+            let confirm = prompt("Bạn có thực sự muốn xóa Customer này hay không ?" + "\n" + "1. Yes" + "\n" + "2. No");
                 switch (confirm) {
                     case "1":
-                        listCustomers.splice((choose-1),1);
-                        break;
+                        return listCustomers.splice((choose-1),1);
                     case "2":
                         break;
-                    default :
-                        deleteCustomer();
                 }
-            }
-            displayMainMenu();
         }
     </script>
 </body>

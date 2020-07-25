@@ -27,7 +27,6 @@
         fullName = chuanHoaDuLieu(fullName);
 
 
-        let check2 = true;
         do {
             var idCard = prompt("Nhập CMND:");
             let testCMND = isNaN(idCard);
@@ -37,8 +36,8 @@
             if (testCMND || idCard == 0 || test2 > -1 || test3 > -1 || test4 > -1 || idCard.length !== 8 ) {
                 alert("Định dạng CMND sai !"+"\n"+"CMND phải có 8 số !");
             }
-            else check2 = false;
-        } while (check2);
+            else break;
+        } while (1);
 
 
         do {
@@ -67,7 +66,6 @@
         } while (1);
 
 
-        let check4 = true;
         do {
             var email = prompt("Nhập Email:");
             let aCong = email.indexOf("@");
@@ -77,8 +75,8 @@
                 // dauCham < aCong+n' thì trước dấu chấm là n'-1 kí tự
                 alert("Email của bạn không hợp lệ !");
             }
-            else check4 = false;
-        }while (check4);
+            else break;
+        }while (1);
 
 
         let address = prompt("Nhập địa chỉ:\nTên Thành phố:");
@@ -89,7 +87,6 @@
         customer = chuanHoaDuLieu(customer);
 
 
-        let check7 = true;
         do {
             var disCountPercent = prompt("Nhập phần trăm giảm giá:\n1.Giá trị từ 0 - 100\n2.Đơn vị (%)");
             let testDisCountPercent = isNaN(disCountPercent);
@@ -100,11 +97,10 @@
             if (testDisCountPercent || disCountPercent > 100 || disCountPercent < 0){
                 alert("Số liệu giảm giá của bạn không hợp lý !")
             }
-            else check7 = false;
-        } while (check7);
+            else break;
+        } while (1);
 
 
-        let check8 = true;
         do {
             var quantityIncluded = prompt("Nhập số lượng đi kèm:");
             let testQuantityIncluded = isNaN(quantityIncluded);
@@ -115,11 +111,10 @@
             if (testQuantityIncluded || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
                 alert("Số lượng đi kèm của bạn không hợp lý !")
             }
-            else check8 = false;
-        } while (check8);
+            else break;
+        } while (1);
 
 
-        let check9 = true;
         do {
             var rentDays = prompt("Nhập số ngày thuê:");
             let testRentDays = isNaN(rentDays);
@@ -130,8 +125,8 @@
             if (testRentDays || rentDays == 0 || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
                 alert("Số ngày thuê của bạn không hợp lý !")
             }
-            else check9 = false;
-        } while (check9);
+            else break;
+        } while (1);
 
 
         let typeOfService = prompt("Nhập loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");

@@ -332,6 +332,7 @@
             let informationCustomer = information(array[chooseName - 1]);
             let check = true;
             do {
+                check = true; // nếu xảy ra trường hợp default thì check = false nên phải set lại ;
                 let chooseEdit = prompt('Chọn thông tin muốn sửa :\n' + informationCustomer + '\n12. Back');
                 switch (chooseEdit) {
                     case '1':
@@ -445,7 +446,7 @@
                 case "2":
                     break;
                 default :
-                    return deleteCustomer();
+                    return deleteCustomer(array);
             }
         }
 
@@ -483,8 +484,8 @@
                     break;
                 case '3':
                     if (listEmployee.length>0){
-                        displayTotalPay();
-                    }else alert("Chưa có nhân viên để tính tiền !");
+                        displayTotalPayOfEmployee(listCustomers);
+                    }else alert("Chưa có nhân viên lấy ai tính tiền !");
                     menuEmployee();
                     break;
                 case '4':
@@ -546,6 +547,7 @@
             let level;
             let checkTrinhDo = true;
             do {
+                checkTrinhDo = true; // nếu xảy ra trường hợp default thì checkTrinhDo = false nên phải set lại ;
                 let chooseLevel = prompt("Nhập trình độ của bạn : \n1. Trung Cấp \n2. Cao đẳng \n3. Đại học \n4. Sau Đại học " +
                                          "\nVí dụ : Trình độ đại học thì chọn 3");
                 switch (chooseLevel) {
@@ -583,12 +585,17 @@
 
         function chooseNameAndIdCardEmployee(array) {
             let nameAndIdcard = nameAndIdCard(array);
-            let chooseName = Number(prompt('Chọn người bạn muốn thực hiện thao tác : \n' + nameAndIdcard + soThuTu + '. Back'));
-            if (chooseName === soThuTu) {
-                return menuEmployee();
-            } else {
-                return chooseName;
-            }
+            let chooseName;
+            do{
+                chooseName = Number(prompt('Chọn người bạn muốn thực hiện thao tác : \n' + nameAndIdcard + soThuTu + '. Back'));
+                if (chooseName === soThuTu) {
+                    return menuEmployee();
+                }
+                else if (chooseName > 0 && chooseName < soThuTu){
+                    break;
+                }else alert("Lựa chọn của bạn không hợp lệ !");
+            }while (1);
+            return chooseName;
         }
 
 
@@ -596,6 +603,18 @@
         function displayEmployee(array) {
             let chooseName = chooseNameAndIdCardEmployee(array);
             return alert(information(array[chooseName - 1]));
+        }
+
+
+
+        function displayTotalPayOfEmployee(array) {
+            if (array.length===0){
+                alert("Chưa có thông tin khách hàng lấy gì tính tiền !");
+            }else {
+                let chooseName=chooseNameAndIdCardEmployee(array);
+                let totalPay = array[chooseName - 1].totalPay();
+                return alert('Số tiền Customer đó phải trả là : ' + totalPay + " $." );
+            }
         }
 
 

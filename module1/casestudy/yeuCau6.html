@@ -281,7 +281,7 @@
             let objectCustomer = new Customer(name, idCard, dateOfBirth, email, address, typeCustomer, disCount, quantityIncluded, rentDays,
                 typeOfService, kindOfRoom);
             array.push(objectCustomer);
-            alert(objectCustomer.getInformation());
+            return alert(objectCustomer.getInformation());
         }
 
 
@@ -303,15 +303,12 @@
             let chooseName;
             do{
                 chooseName = Number(prompt('Chọn người bạn muốn thực hiện thao tác : \n' + nameAndIdcard + soThuTu + '. Back'));
-                if (chooseName === soThuTu) {
-                    return displayMainMenu();
-                }
-                else if (chooseName > 0 && chooseName < soThuTu){
-                    break;
+                if (chooseName > 0 && chooseName <= soThuTu){
+                    return chooseName;
                 }else alert("Lựa chọn của bạn không hợp lệ !");
             }while (1);
-            return chooseName;
         }
+
 
 
         function information(array) {
@@ -322,131 +319,145 @@
 
         function displayCustomer(array) {
             let chooseName = chooseNameAndIdCard(array);
-            return alert(information(array[chooseName - 1]));
+            if (chooseName === soThuTu){
+                return displayMainMenu();
+            }
+            else {
+                return alert(information(array[chooseName - 1]));
+            }
         }
 
 
 
         function editCustomer(array) {
             let chooseName = chooseNameAndIdCard(array);
-            let informationCustomer = information(array[chooseName - 1]);
-            let check = true;
-            do {
-                check = true; // nếu xảy ra trường hợp default thì check = false nên phải set lại ;
-                let chooseEdit = prompt('Chọn thông tin muốn sửa :\n' + informationCustomer + '\n12. Back');
-                switch (chooseEdit) {
-                    case '1':
-                        let name = prompt('Nhập lại tên :');
-                        array[chooseName - 1].setName(name);
-                        break;
-                    case '2':
-                        let idCard = "";
-                        do {
-                            idCard = prompt("Nhập lại CMND :");
-                            if (regexCMND.test(idCard)){
-                                break;
-                            }
-                            else alert("Định dạng CMND sai !"+"\n"+"CMND phải có 8 số !");
-                        }while (1);
-                        array[chooseName - 1].setIdCard(idCard);
-                        break;
-                    case '3':
-                        let dateOfBirth;
-                        do {
-                            dateOfBirth = prompt("Nhập lại ngày , tháng , năm sinh theo định dạng : DD/MM/YYYY");
-                            if (checkBirth(dateOfBirth)) {
-                                break;
-                            }else alert("Ngày , tháng , năm sinh không hợp lệ !");
-                        } while (1);
-                        array[chooseName - 1].setDateOfBirth(dateOfBirth);
-                        break;
-                    case '4':
-                        let email;
-                        do {
-                            email = prompt("Nhập lại email :");
-                            if (regexEmail.test(email)) {
-                                break;
-                            }else alert("Email của bạn không hợp lệ !");
-                        } while (1);
-                        array[chooseName - 1].setEmail(email);
-                        break;
-                    case '5':
-                        let address = prompt("Nhập lại địa chỉ :");
-                        array[chooseName - 1].setAddress(address);
-                        break;
-                    case '6':
-                        let typeCustomer = prompt("Nhập lại loại customer :\nDiamond, Platinum, Gold, Silver, Member");
-                        array[chooseName - 1].setTypeCustomer(typeCustomer);
-                        break;
-                    case '7':
-                        let disCount;
-                        do {
-                            disCount = prompt("Nhập lại phần trăm giảm giá :\n1.Giá trị từ 0 - 100\n2.Đơn vị (%)");
-                            if (!isNaN(disCount) && disCount >= 0 && disCount <= 100 && disCount !== ""){
-                                break;
-                            }else alert("Số liệu giảm giá của bạn không hợp lý !");
-                        }while (1);
-                        array[chooseName - 1].setDisCount(disCount);
-                        break;
-                    case '8':
-                        let quantityIncluded;
-                        do {
-                            quantityIncluded = Number(prompt("Nhập lại số người đi kèm :"));
-                            if (Number.isInteger(quantityIncluded) && quantityIncluded >= 0){
-                                break;
-                            }else alert("Số người đi kèm của bạn không hợp lý !");
-                        }while (1);
-                        array[chooseName - 1].setQuantityIncluded(quantityIncluded);
-                        break;
-                    case '9':
-                        let rentDays;
-                        do {
-                            rentDays = Number(prompt("Nhập lại số ngày thuê :"));
-                            if (Number.isInteger(rentDays) && rentDays > 0){
-                                break;
-                            }else alert("Số ngày thuê của bạn không hợp lý !");
-                        }while (1);
-                        array[chooseName - 1].setRentDays(rentDays);
-                        break;
-                    case '10':
-                        let typeOfService;
-                        do {
-                            typeOfService = prompt("Nhập lại loại dịch vụ :\nVilla : 500$ / 1 ngày \nHouse : 300$ / 1 ngày\nRoom : 100$ / 1 ngày");
-                            if (typeOfService === "Villa" || typeOfService === "House" || typeOfService === "Room"){
-                                break;
-                            }else alert("Bạn phải nhập đúng 1 trong 3 loại dịch vụ trên !")
-                        }while (1);
-                        array[chooseName - 1].setTypeOfService(typeOfService);
-                        break;
-                    case '11':
-                        let kindOfRoom = prompt("Nhập lại loại phòng :\nVip , Business , Normal");
-                        array[chooseName - 1].setKindOfRoom(kindOfRoom);
-                        break;
-                    case '12':
-                        editCustomer(array);
-                        break;
-                    default:
-                        alert('Lựa chọn của bạn không có trong thông tin !');
-                        check = false;
-                        break;
-                }
-            } while (!check);
-            alert(information(array[chooseName - 1]));
+            if (chooseName === soThuTu){
+                return displayMainMenu();
+            }
+            else {
+                let informationCustomer = information(array[chooseName - 1]);
+                let check = true;
+                do {
+                    check = true; // nếu xảy ra trường hợp default thì check = false nên phải set lại ;
+                    let chooseEdit = prompt('Chọn thông tin muốn sửa :\n' + informationCustomer + '\n12. Back');
+                    switch (chooseEdit) {
+                        case '1':
+                            let name = prompt('Nhập lại tên :');
+                            array[chooseName - 1].setName(name);
+                            break;
+                        case '2':
+                            let idCard = "";
+                            do {
+                                idCard = prompt("Nhập lại CMND :");
+                                if (regexCMND.test(idCard)){
+                                    break;
+                                }
+                                else alert("Định dạng CMND sai !"+"\n"+"CMND phải có 8 số !");
+                            }while (1);
+                            array[chooseName - 1].setIdCard(idCard);
+                            break;
+                        case '3':
+                            let dateOfBirth;
+                            do {
+                                dateOfBirth = prompt("Nhập lại ngày , tháng , năm sinh theo định dạng : DD/MM/YYYY");
+                                if (checkBirth(dateOfBirth)) {
+                                    break;
+                                }else alert("Ngày , tháng , năm sinh không hợp lệ !");
+                            } while (1);
+                            array[chooseName - 1].setDateOfBirth(dateOfBirth);
+                            break;
+                        case '4':
+                            let email;
+                            do {
+                                email = prompt("Nhập lại email :");
+                                if (regexEmail.test(email)) {
+                                    break;
+                                }else alert("Email của bạn không hợp lệ !");
+                            } while (1);
+                            array[chooseName - 1].setEmail(email);
+                            break;
+                        case '5':
+                            let address = prompt("Nhập lại địa chỉ :");
+                            array[chooseName - 1].setAddress(address);
+                            break;
+                        case '6':
+                            let typeCustomer = prompt("Nhập lại loại customer :\nDiamond, Platinum, Gold, Silver, Member");
+                            array[chooseName - 1].setTypeCustomer(typeCustomer);
+                            break;
+                        case '7':
+                            let disCount;
+                            do {
+                                disCount = prompt("Nhập lại phần trăm giảm giá :\n1.Giá trị từ 0 - 100\n2.Đơn vị (%)");
+                                if (!isNaN(disCount) && disCount >= 0 && disCount <= 100 && disCount !== ""){
+                                    break;
+                                }else alert("Số liệu giảm giá của bạn không hợp lý !");
+                            }while (1);
+                            array[chooseName - 1].setDisCount(disCount);
+                            break;
+                        case '8':
+                            let quantityIncluded;
+                            do {
+                                quantityIncluded = Number(prompt("Nhập lại số người đi kèm :"));
+                                if (Number.isInteger(quantityIncluded) && quantityIncluded >= 0){
+                                    break;
+                                }else alert("Số người đi kèm của bạn không hợp lý !");
+                            }while (1);
+                            array[chooseName - 1].setQuantityIncluded(quantityIncluded);
+                            break;
+                        case '9':
+                            let rentDays;
+                            do {
+                                rentDays = Number(prompt("Nhập lại số ngày thuê :"));
+                                if (Number.isInteger(rentDays) && rentDays > 0){
+                                    break;
+                                }else alert("Số ngày thuê của bạn không hợp lý !");
+                            }while (1);
+                            array[chooseName - 1].setRentDays(rentDays);
+                            break;
+                        case '10':
+                            let typeOfService;
+                            do {
+                                typeOfService = prompt("Nhập lại loại dịch vụ :\nVilla : 500$ / 1 ngày \nHouse : 300$ / 1 ngày\nRoom : 100$ / 1 ngày");
+                                if (typeOfService === "Villa" || typeOfService === "House" || typeOfService === "Room"){
+                                    break;
+                                }else alert("Bạn phải nhập đúng 1 trong 3 loại dịch vụ trên !")
+                            }while (1);
+                            array[chooseName - 1].setTypeOfService(typeOfService);
+                            break;
+                        case '11':
+                            let kindOfRoom = prompt("Nhập lại loại phòng :\nVip , Business , Normal");
+                            array[chooseName - 1].setKindOfRoom(kindOfRoom);
+                            break;
+                        case '12':
+                            editCustomer(array);
+                            break;
+                        default:
+                            alert('Lựa chọn của bạn không có trong thông tin !');
+                            check = false;
+                            break;
+                    }
+                } while (!check);
+                return alert(information(array[chooseName - 1]));
+            }
         }
 
 
 
         function deleteCustomer(array) {
             let chooseName = chooseNameAndIdCard(array);
-            let confirm = prompt("Bạn có thực sự muốn xóa Customer này hay không ?" + "\n" + "1. Yes" + "\n" + "2. No");
-            switch (confirm) {
-                case "1":
-                    array.splice((chooseName - 1), 1);
-                    break;
-                case "2":
-                    break;
-                default :
-                    return deleteCustomer(array);
+            if (chooseName === soThuTu){
+                return displayMainMenu();
+            }
+            else {
+                let confirm = prompt("Bạn có thực sự muốn xóa Customer này hay không ?" + "\n" + "1. Yes" + "\n" + "2. No");
+                switch (confirm) {
+                    case "1":
+                        return array.splice((chooseName - 1),1);
+                    case "2":
+                        break;
+                    default :
+                        return deleteCustomer(array);
+                }
             }
         }
 
@@ -454,11 +465,16 @@
 
         function displayTotalPay(array) {
             if (array.length===0){
-                alert("Chưa có thông tin khách hàng lấy gì tính tiền !");
+                return alert("Chưa có thông tin khách hàng lấy gì tính tiền !");
             }else {
                 let chooseName=chooseNameAndIdCard(array);
-                let totalPay = array[chooseName - 1].totalPay();
-                return alert('Số tiền Customer đó phải trả là : ' + totalPay + " $." );
+                if (chooseName === soThuTu){
+                    return displayMainMenu();
+                }
+                else {
+                    let totalPay = array[chooseName - 1].totalPay();
+                    return alert('Số tiền Customer đó phải trả là : ' + totalPay + " $." );
+                }
             }
         }
 
@@ -578,7 +594,7 @@
             let objectEmployee = new Employee(name, idCard, dateOfBirth, email, phoneNumber, level, position);
             let salary = objectEmployee.getSalary();
             array.push(objectEmployee);
-            alert(objectEmployee.getInformation());
+            return alert(objectEmployee.getInformation());
         }
 
 
@@ -588,32 +604,36 @@
             let chooseName;
             do{
                 chooseName = Number(prompt('Chọn người bạn muốn thực hiện thao tác : \n' + nameAndIdcard + soThuTu + '. Back'));
-                if (chooseName === soThuTu) {
-                    return menuEmployee();
-                }
-                else if (chooseName > 0 && chooseName < soThuTu){
-                    break;
+                if (chooseName > 0 && chooseName <= soThuTu){
+                    return chooseName;
                 }else alert("Lựa chọn của bạn không hợp lệ !");
             }while (1);
-            return chooseName;
         }
 
 
 
         function displayEmployee(array) {
             let chooseName = chooseNameAndIdCardEmployee(array);
-            return alert(information(array[chooseName - 1]));
+            if (chooseName === soThuTu) {
+                return menuEmployee();
+            }else {
+                return alert(information(array[chooseName - 1]));
+            }
         }
 
 
 
         function displayTotalPayOfEmployee(array) {
             if (array.length===0){
-                alert("Chưa có thông tin khách hàng lấy gì tính tiền !");
+                return alert("Chưa có thông tin khách hàng lấy gì tính tiền !");
             }else {
                 let chooseName=chooseNameAndIdCardEmployee(array);
-                let totalPay = array[chooseName - 1].totalPay();
-                return alert('Số tiền Customer đó phải trả là : ' + totalPay + " $." );
+                if (chooseName === soThuTu) {
+                    return menuEmployee();
+                }else {
+                    let totalPay = array[chooseName - 1].totalPay();
+                    return alert('Số tiền Customer đó phải trả là : ' + totalPay + " $." );
+                }
             }
         }
 

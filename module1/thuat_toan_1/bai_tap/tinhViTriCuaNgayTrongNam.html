@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính vị trí của ngày trong năm</title>
+</head>
+<body>
+    <script>
+        let date;
+        let check = true;
+        do {
+            date = prompt("Nhập ngày , tháng , năm cần tính :" + '\nTheo định dạng : DD/MM/YYYY');
+            if (date === null){
+                check = false;
+                alert("Bạn đã nhấn nút Hủy nên sẽ thoát chương trình ! Bye bye !");
+                break;
+            }
+            if (kiemTraNgayThang(date)){
+                alert("Ngày tháng bạn nhập không hợp lệ !");
+            }else break;
+        }while (1);
+
+        if (check){
+            tinhViTri(date);
+        }
+
+        function kiemTraNgayThang(ngayThangNam) {
+            let regexDate =/^((0[1-9])|([1-2][0-9])|(3[0-1]))\/(([0][1-9])|1[0-2])\/(19[0-9]{2}|20[0-1][0-9]|2020)$/;
+            let year = parseInt(ngayThangNam.slice(6));
+            let month = ngayThangNam.slice(3,5);
+            let day = ngayThangNam.slice(0,2);
+            let check = true;
+            if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0){
+                check = false;
+            }
+            if ( !regexDate.test(ngayThangNam) || (check && month == '02' && day == '29') || (month == '02' && day == '30') || (month == '02' && day == '31')
+                || (month == '04' && day == '31') || (month == '06' && day == '31') || (month == '09' && day == '31') || (month == '11' && day == '31') )
+            {
+                return true;
+            }else return false;
+        }
+
+        function tinhViTri(ngayThangNam) {
+            let year = parseInt(ngayThangNam.slice(6));
+            let month = parseInt(ngayThangNam.slice(3,5));
+            let day = parseInt(ngayThangNam.slice(0,2));
+            let soNgay = [31,0,31,30,31,30,31,31,30,31,30,31];
+            let viTri = 0;
+            for (let i=1;i<month;i++){
+                viTri += soNgay[i-1];
+            }
+            viTri += day;
+            if (month > 2){
+                if (year % 400 === 0 || year % 4 === 0 && year % 100 !== 0){
+                    viTri += 29;
+                }else viTri +=28;
+            }
+            return document.write("Ngày " + ngayThangNam + ' là ngày thứ ' + viTri + ' trong năm ' + year);
+        }
+    </script>
+</body>
+</html>

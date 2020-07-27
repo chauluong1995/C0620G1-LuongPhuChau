@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số Hoàn Hảo</title>
+</head>
+<body>
+    <script>
+        // let nhapSo;
+        // do {
+        //     nhapSo = Number(prompt("Nhập số nguyên dương bất kỳ :"));
+        //     if (!Number.isInteger(nhapSo) || nhapSo<=0) {
+        //         alert("Đề nghị nhập số nguyên dương !");
+        //     } else break;
+        // } while (1);
+        // let sum = 0;
+        // for (let i=1;i<nhapSo;i++){
+        //     if (nhapSo % i === 0){
+        //         sum += i;
+        //     }
+        // }
+        // if (sum === nhapSo){
+        //     document.write("Số " + nhapSo + " bạn nhập là số hoàn hảo !" + "<br>");
+        // }else document.write("Số " + nhapSo + " bạn nhập không phải số hoàn hảo !" + "<br>");
+
+        // let soLuong = parseInt(prompt("Nhập số lượng số hoàn hảo cần hiển thị :"));
+        // let soHoanHao = 1;
+        // let count = 0;
+        // do {
+        //     if (testSoHoanHao(soHoanHao)){
+        //         document.write(soHoanHao + "<br>");
+        //         count++;
+        //     }
+        //     soHoanHao++;
+        //     if (count === 4){
+        //         break;
+        //     }
+        // }while (1);
+
+        let nhapSo = Number(prompt("Nhập số nguyên dương bất kỳ :"));
+
+        if (testSoHoanHao(nhapSo)){
+            alert(true);
+        }else alert(false);
+
+        function testSoHoanHao(soCanTest) {
+            if (!Number.isInteger(soCanTest) || soCanTest<=0) {
+                return false;
+            } else {
+                let sum = 0;
+                for (let i=1;i<soCanTest;i++){
+                    if (soCanTest % i === 0){
+                        sum += i;
+                    }
+                }
+                if (sum === soCanTest) {
+                    return true;
+                }else return false;
+            }
+        }
+    </script>
+</body>
+</html>

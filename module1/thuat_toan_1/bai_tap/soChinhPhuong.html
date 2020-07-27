@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số Chính Phương</title>
+</head>
+<body>
+    <script>
+        // let nhapSo;
+        // do {
+        //         nhapSo = Number(prompt("Nhập số tự nhiên bất kỳ :"));
+        //         if (!Number.isInteger(nhapSo) || nhapSo<0) {
+        //             alert("Đề nghị nhập số tự nhiên !");
+        //         } else break;
+        //     } while (1);
+        // let canBacHai = Math.sqrt(nhapSo);
+        // if (!Number.isInteger(canBacHai)){
+        //     document.write("Số " + nhapSo + " bạn nhập không phải số chính phương !");
+        // }else document.write("Số " + nhapSo + " bạn nhập là số chính phương ! Vì nó là bình phương của số " + canBacHai);
+
+        let nhapSo = Number(prompt("Nhập số tự nhiên bất kỳ :"));
+
+        if (testSoChinhPhuong(nhapSo)){
+            alert(true);
+        }else alert(false);
+
+        function testSoChinhPhuong(soCanKiemTra) {
+            if (!Number.isInteger(soCanKiemTra) || soCanKiemTra<0) {
+                return false;
+            } else {
+                let canBacHai = Math.sqrt(soCanKiemTra);
+                if (!Number.isInteger(canBacHai)){
+                    return false;
+                }else return true;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập Mảng</title>
+</head>
+<body>
+    <script>
+        let array = new Array();
+        let total = 0;
+        let count = 0;
+        let check = false;
+        let result = 0;
+        let arrLength;
+        do {
+            arrLength = Number(prompt("Nhập số lượng phần tử của mảng :"));
+            if (!Number.isInteger(arrLength) || arrLength <= 0 || arrLength > 50) {
+                alert("Số lượng phần tử của mảng phải là số nguyên lớn hơn 0 và nhỏ hơn hoặc bằng 50 !");
+            } else break;
+        } while (1);
+        let element;
+        for (let i = 0; i < arrLength; i++) {
+            do {
+                element = Number(prompt("Nhập phần tử thứ " + (i+1) + " của mảng :"));
+                if (!Number.isInteger(element)) {
+                    alert("Phần tử của mảng phải là số nguyên !");
+                } else break;
+            } while (1);
+            array.push(element);
+            if (element % 3 === 0) {
+                total += element;
+                count++;
+                check = true;
+            }
+        }
+        document.write("Mảng vừa nhập là : [" + array + "]" + "<br>");
+        if (check){
+            result = total / count;
+            document.write("Trung bình cộng các phần tử trong mảng vừa nhập chia hết cho 3 là : " + result);
+        }else document.write("Trong mảng vừa nhập không có phần tử nào chia hết cho 3 !");
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let soCanKiemTra = Number(prompt("Nhập số cần kiểm tra có thuộc dãy Fibonacci hay không ?"));
+
+        alert(isFibonacci(soCanKiemTra));
+
+        function isFibonacci(soCanKiemTra) {
+            if (soCanKiemTra === 0){
+                return true;
+            }else {
+                let fibo1 = 1;
+                let fibo2 = 1;
+                let fiboN = 0;
+                while (fibo1 <= soCanKiemTra) {
+                    fiboN = fibo1 + fibo2;
+                    fibo1 = fibo2;
+                    fibo2 = fiboN;
+                    if (fibo1 === soCanKiemTra){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

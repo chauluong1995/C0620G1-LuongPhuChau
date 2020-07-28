@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm Max và vị trí xuất hiện cuối cùng</title>
+</head>
+<body>
+    <script>
+        let arrayScore1 = [10, 5, 2, 8, -1, 6, 8];
+        let arrayScore2 = [2, 4, 0, 5, 1];
+        let arrayScore3 = [8, 6, 2, 8, 1, 1, 4];
+
+        findMaxScore(arrayScore1);
+        findMaxScore(arrayScore2);
+        findMaxScore(arrayScore3);
+
+        // function findMaxScore(mang) {
+        //     let doDaiMang = mang.length;
+        //     let max = mang[0];
+        //     let index = 0;
+        //     for (let i=0;i<doDaiMang;i++){
+        //         if (mang[i]>=max){
+        //             max = mang[i];
+        //             index = i;
+        //         }
+        //     }
+        //     return document.write("Điểm số cao nhất được tìm thấy là " + max + " và nó ở vị trí " + index + " trong mảng." + "<br>");
+        // }
+
+        function findMaxScore(mang) {
+            let doDaiMang = mang.length;
+            let max = mang[0];
+            for (let i=0;i<doDaiMang;i++){
+                if (mang[i]>max){
+                    max = mang[i];
+                }
+            }
+            let index = mang.lastIndexOf(max);
+            return document.write("Điểm số cao nhất được tìm thấy là " + max + " và vị trí xuất hiện cuối cùng của nó trong mảng là " + index + "<br>");
+        }
+    </script>
+</body>
+</html>

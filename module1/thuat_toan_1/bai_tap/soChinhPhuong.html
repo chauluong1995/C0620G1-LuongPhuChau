@@ -25,14 +25,18 @@
         }else alert(false);
 
         function testSoChinhPhuong(soCanKiemTra) {
-            if (!Number.isInteger(soCanKiemTra) || soCanKiemTra<0) {
-                return false;
-            } else {
-                let canBacHai = Math.sqrt(soCanKiemTra);
-                if (!Number.isInteger(canBacHai)){
-                    return false;
-                }else return true;
-            }
+            // if (!Number.isInteger(soCanKiemTra) || soCanKiemTra<0) {
+            //     return false;
+            // } else {
+            //     let canBacHai = Math.sqrt(soCanKiemTra);
+            //     if (!Number.isInteger(canBacHai)){
+            //         return false;
+            //     }else return true;
+            // }
+            let canBacHai = Math.sqrt(soCanKiemTra);
+            if (canBacHai %  1 == 0){
+                return true;
+            }else return false;
         }
     </script>
 </body>

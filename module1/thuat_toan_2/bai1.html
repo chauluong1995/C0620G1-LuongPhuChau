@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let arrayScore = [55,66,33,11,22,99,100,44,88,77];
+
+        document.write("Điểm số cao nhất trong mảng là : " + findMax(arrayScore));
+
+        function findMax(array) {
+            let arrayLength = array.length;
+            let max = array[0];
+            for (let i=0; i<arrayLength;i++){
+                if (array[i]>max){
+                    max = array[i];
+                }
+            }
+            return max;
+        }
+    </script>
+</body>
+</html>

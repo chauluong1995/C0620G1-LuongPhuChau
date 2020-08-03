@@ -8,7 +8,6 @@ public class UngDungDocSo {
         int number, donVi, hangChuc, hangTram;
         System.out.print("Nhập số cần đọc : ");
         number = scanner.nextInt();
-        donVi = -1;
         hangChuc = -1;
         hangTram = 0;
         if (number == 0) {
@@ -31,31 +30,31 @@ public class UngDungDocSo {
             if (hangTram > 0) {
                 switch (hangTram) {
                     case 1:
-                        System.out.print("Một trăm ");
+                        System.out.print("Một Trăm ");
                         break;
                     case 2:
-                        System.out.print("Hai trăm ");
+                        System.out.print("Hai Trăm ");
                         break;
                     case 3:
-                        System.out.print("Ba trăm ");
+                        System.out.print("Ba Trăm ");
                         break;
                     case 4:
-                        System.out.print("Bốn trăm ");
+                        System.out.print("Bốn Trăm ");
                         break;
                     case 5:
-                        System.out.print("Năm trăm ");
+                        System.out.print("Năm Trăm ");
                         break;
                     case 6:
-                        System.out.print("Sáu trăm ");
+                        System.out.print("Sáu Trăm ");
                         break;
                     case 7:
-                        System.out.print("Bảy trăm ");
+                        System.out.print("Bảy Trăm ");
                         break;
                     case 8:
-                        System.out.print("Tám trăm ");
+                        System.out.print("Tám Trăm ");
                         break;
                     case 9:
-                        System.out.print("Chín trăm ");
+                        System.out.print("Chín Trăm ");
                         break;
                 }
             }
@@ -68,28 +67,28 @@ public class UngDungDocSo {
                         System.out.print("Mười ");
                         break;
                     case 2:
-                        System.out.print("Hai mươi ");
+                        System.out.print("Hai Mươi ");
                         break;
                     case 3:
-                        System.out.print("Ba mươi ");
+                        System.out.print("Ba Mươi ");
                         break;
                     case 4:
-                        System.out.print("Bốn mươi ");
+                        System.out.print("Bốn Mươi ");
                         break;
                     case 5:
-                        System.out.print("Năm mươi ");
+                        System.out.print("Năm Mươi ");
                         break;
                     case 6:
-                        System.out.print("Sáu mươi ");
+                        System.out.print("Sáu Mươi ");
                         break;
                     case 7:
-                        System.out.print("Bảy mươi ");
+                        System.out.print("Bảy Mươi ");
                         break;
                     case 8:
-                        System.out.print("Tám mươi ");
+                        System.out.print("Tám Mươi ");
                         break;
                     case 9:
-                        System.out.print("Chín mươi ");
+                        System.out.print("Chín Mươi ");
                         break;
                 }
             }

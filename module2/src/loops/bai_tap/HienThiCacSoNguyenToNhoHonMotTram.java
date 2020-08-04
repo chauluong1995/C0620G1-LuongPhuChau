@@ -1,6 +1,6 @@
 package loops.bai_tap;
 
-public class HienThiCacSoNguyenToNhoHon100 {
+public class HienThiCacSoNguyenToNhoHonMotTram {
     public static void main(String[] args) {
         int soCanKiemTra = 2, i;
         boolean check;

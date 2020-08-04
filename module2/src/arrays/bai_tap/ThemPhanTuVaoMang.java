@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class ThemPhanTuVaoMang {
     public static void main(String[] args) {
-        int[] mangSoNguyen = {11, 22, 33, 55, 66, 77, 88, 99, 0};
+        int[] mangSoNguyen = {11, 22, 33, 44, 55, 66, 77, 88, 99};
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập số cần chèn vào mảng : ");
         int soCanChen = scanner.nextInt();
         System.out.print("Nhập vị trí cần chèn vào mảng : ");
         int viTriCanChen = scanner.nextInt();
 
-        if (viTriCanChen < 0 ||  viTriCanChen > mangSoNguyen.length - 1){
+        if (viTriCanChen < 0 ||  viTriCanChen > mangSoNguyen.length - 1){ // Muốn chèn vào cuối thì bỏ -1 đi nhưng hơi sai logic !
             System.out.print("Rất tiếc vị trí cần chèn của bạn không hợp lệ !");
         }else {
             mangSoNguyen = insertElement(mangSoNguyen, soCanChen, viTriCanChen);

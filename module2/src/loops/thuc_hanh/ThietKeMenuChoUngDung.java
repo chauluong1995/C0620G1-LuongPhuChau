@@ -1,4 +1,4 @@
-package loops;
+package loops.thuc_hanh;
 import java.util.Scanner;
 public class ThietKeMenuChoUngDung {
     public static void main(String[] args) {

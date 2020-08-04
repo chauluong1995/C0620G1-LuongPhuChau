@@ -1,4 +1,4 @@
-package introduction_to_java;
+package introduction_to_java.thuc_hanh;
 import java.util.Date;
 public class HienThiThoiGianCuaHeThong {
     public static void main(String[] args) {

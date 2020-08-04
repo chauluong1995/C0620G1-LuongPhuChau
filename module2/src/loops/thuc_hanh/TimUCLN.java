@@ -1,4 +1,4 @@
-package loops;
+package loops.thuc_hanh;
 import java.util.Scanner;
 public class TimUCLN {
     public static void main(String[] args) {

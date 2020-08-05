@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class HienThiHaiMuoiSoNguyenToDauTien {
     public static void main(String[] args) {
-        int soLuongCanIn,bienDem=0,soCanKiemTra=2,i;
+        int soLuongCanIn;
+        int bienDem=0;
+        int soCanKiemTra=2;
+        int i;
         boolean check;
         Scanner scanner = new Scanner(System.in);
 

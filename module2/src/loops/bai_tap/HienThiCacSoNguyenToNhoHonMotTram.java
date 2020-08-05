@@ -12,7 +12,7 @@ public class HienThiCacSoNguyenToNhoHonMotTram {
             while (i <= Math.sqrt(soCanKiemTra)) {
                 if (soCanKiemTra % i == 0) {
                     check = false;
-                    break;
+                    break; // có thể đặt tên cho vòng lặp (label) rồi dùng break name; để thoát vòng lặp có tên đó !
                 }
                 i++;
             }

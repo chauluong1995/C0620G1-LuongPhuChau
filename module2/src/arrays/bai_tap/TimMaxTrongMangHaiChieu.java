@@ -21,11 +21,11 @@ public class TimMaxTrongMangHaiChieu {
             }else System.out.print("Số dòng của bạn không hợp lí ! ");
         } while (true);
 
-        int[][] maTran = new int[soCot][soDong];
+        double[][] maTran = new double[soCot][soDong];
         for (int i=0;i<soCot;i++){
             for (int j=0;j<soDong;j++){
                 System.out.print("Nhập phần tử của ma trận : ");
-                maTran[i][j] = scanner.nextInt();
+                maTran[i][j] = scanner.nextDouble();
             }
         }
 
@@ -37,11 +37,11 @@ public class TimMaxTrongMangHaiChieu {
             System.out.println();
         }
 
-        int max = maTran[0][0];
+        double max = maTran[0][0];
         viTriTrongCot = 0;
         viTriTrongDong = 0;
         for (int i=0;i<soCot;i++){
-            for (int j=0;j<soDong;j++){
+            for (int j=0;j<soDong;j++){ // Chính xác là j < số dòng của cột đang duyệt : j<maTran[i].length (Được sử dụng khi ma trận không vuông mà dạng lộn xộn) !
                 if (maTran[i][j]>max){
                     max = maTran[i][j];
                     viTriTrongCot = i;

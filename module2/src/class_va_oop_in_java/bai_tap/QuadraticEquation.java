@@ -9,8 +9,10 @@ public class QuadraticEquation {
     double root1;
     double root2;
 
-//    public QuadraticEquation(){
-//    }
+    public QuadraticEquation(){
+        // this ( 0, 0, 0 );
+        // this ( giá trị mặc định );
+    }
 
     public QuadraticEquation(double numberA, double numberB, double numberC) {
         this.numberA = numberA;

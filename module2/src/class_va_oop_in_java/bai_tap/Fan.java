@@ -20,8 +20,20 @@ public class Fan {
         this.color = color;
     }
 
-    public int getSpeed() {
-        return speed;
+//    public int getSpeed() {
+//        return speed;
+//    }
+
+    public int getSLOW() {
+        return SLOW;
+    }
+
+    public int getMEDIUM() {
+        return MEDIUM;
+    }
+
+    public int getFAST() {
+        return FAST;
     }
 
     public void setSpeed(int speed) {

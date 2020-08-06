@@ -3,8 +3,8 @@ package class_va_oop_in_java.thuc_hanh;
 public class Rectangle {
     double width, height;
 
-//    public Rectangle() {
-//    }
+    public Rectangle() {
+    }
 
     public Rectangle(double width, double height) {
         this.width = width;

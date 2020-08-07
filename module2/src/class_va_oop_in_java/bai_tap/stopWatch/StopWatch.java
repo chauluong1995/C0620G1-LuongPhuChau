@@ -1,4 +1,4 @@
-package class_va_oop_in_java.bai_tap;
+package class_va_oop_in_java.bai_tap.stopWatch;
 
 public class StopWatch {
     private long startTime;

@@ -37,14 +37,14 @@ public class QuadraticEquation {
     }
 
     public double getRoot1() {
-        if (this.delta >= 0) {
+//        if (this.delta >= 0) {
             return this.root1 = (-this.numberB + Math.sqrt(this.delta)) / (2 * this.numberA);
-        } else return this.root1 = 0;
+//        } else return this.root1 = 0;
     }
 
     public double getRoot2() {
-        if (this.delta >= 0) {
+//        if (this.delta >= 0) {
             return this.root2 = (-this.numberB - Math.sqrt(this.delta)) / (2 * this.numberA);
-        } else return this.root2 = 0;
+//        } else return this.root2 = 0;
     }
 }

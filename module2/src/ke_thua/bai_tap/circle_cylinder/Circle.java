@@ -32,6 +32,7 @@ public class Circle {
         return this.radius * this.radius * Math.PI;
     }
 
+    @Override
     public String toString() {
         return "color : " + this.color + " , radius : " + this.radius + " , area : " + this.getArea();
     }

@@ -10,11 +10,10 @@ public class Triangle extends Shape {
     public Triangle() {
     }
 
-    public Triangle(double side1, double side2, double side3, String color) {
+    public Triangle(double side1, double side2, double side3) {
         this.side1 = side1;
         this.side2 = side3;
         this.side3 = side3;
-        this.setColor(color);
     }
 
     public double getSide1() {

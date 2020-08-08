@@ -92,11 +92,11 @@ public class UngDungDocSo {
                         break;
                 }
             }
-            if (donVi > -1) {
+            if (donVi > 0) {
                 switch (donVi) {
-                    case 0:
-                        System.out.print("");
-                        break;
+//                    case 0:
+//                        System.out.print("");
+//                        break;
                     case 1:
                         if (hangChuc > 1) {
                             System.out.print("Mốt");

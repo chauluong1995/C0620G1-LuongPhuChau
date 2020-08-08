@@ -18,18 +18,18 @@ public class Square extends Rectangle {
 
     public void setSide(double side) {
         setWidth(side);
-        setLength(side);
+        this.setLength(side);
     }
 
-    @Override
-    public void setWidth(double width) {
-        setSide(width);
-    }
-
-    @Override
-    public void setLength(double length) {
-        setSide(length);
-    }
+//    @Override
+//    public void setWidth(double width) {
+//        setSide(width);
+//    }
+//
+//    @Override
+//    public void setLength(double length) {
+//        setSide(length);
+//    }
 
     @Override
     public String toString() {

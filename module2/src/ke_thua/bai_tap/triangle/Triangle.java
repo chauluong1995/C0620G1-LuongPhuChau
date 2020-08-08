@@ -44,15 +44,15 @@ public class Triangle extends Shape {
         return (this.side1 + this.side2 + this.side3);
     }
 
-    public String getArea() {
+    public double getArea() {
         double halfPerimeter = (this.side1 + this.side2 + this.side3) / 2;
         double area = Math.sqrt(halfPerimeter * (halfPerimeter - this.side1) * (halfPerimeter - this.side2) * (halfPerimeter - this.side3));
-        return " Area : " + area;
+        return area;
     }
 
     @Override
     public String toString() {
         return "has 3 side : " + this.side1 + " , " + this.side2 + " and " + this.side3
-                + " . Perimeter : " + this.getPerimeter() + " ." + this.getArea() + " . Color : " + this.getColor();
+                + " . Perimeter : " + this.getPerimeter() + " . Area : " + this.getArea() + " . Color : " + this.getColor();
     }
 }

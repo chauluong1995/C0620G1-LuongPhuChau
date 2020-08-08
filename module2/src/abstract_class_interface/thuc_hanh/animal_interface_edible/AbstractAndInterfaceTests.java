@@ -1,12 +1,12 @@
-package abstract_class_interface.thuc_hanh;
+package abstract_class_interface.thuc_hanh.animal_interface_edible;
 
-import abstract_class_interface.thuc_hanh.class_animal.Animal;
-import abstract_class_interface.thuc_hanh.class_animal.Chicken;
-import abstract_class_interface.thuc_hanh.class_animal.Tiger;
-import abstract_class_interface.thuc_hanh.class_fruit.Apple;
-import abstract_class_interface.thuc_hanh.class_fruit.Fruit;
-import abstract_class_interface.thuc_hanh.class_fruit.Orange;
-import abstract_class_interface.thuc_hanh.interface_edible.Edible;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.class_animal.Animal;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.class_animal.Chicken;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.class_animal.Tiger;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.class_fruit.Apple;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.class_fruit.Fruit;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.class_fruit.Orange;
+import abstract_class_interface.thuc_hanh.animal_interface_edible.interface_edible.Edible;
 
 public class AbstractAndInterfaceTests {
     public static void main(String[] args) {

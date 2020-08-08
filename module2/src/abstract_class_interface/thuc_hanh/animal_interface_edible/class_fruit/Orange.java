@@ -1,4 +1,4 @@
-package abstract_class_interface.thuc_hanh.class_fruit;
+package abstract_class_interface.thuc_hanh.animal_interface_edible.class_fruit;
 
 public class Orange extends Fruit {
     @Override

@@ -8,8 +8,8 @@ public class DemoTriangle {
         Triangle triangle_2 = new Triangle(10, 10, 10);
         triangle_2.setColor("yellow");
 
-        System.out.println("Triangle 1 " + triangle_1.toString());
-        System.out.println("Triangle 2 " + triangle_2.toString());
+        System.out.println("Triangle 1 " + triangle_1);
+        System.out.println("Triangle 2 " + triangle_2);
 
         Scanner scanner = new Scanner(System.in);
         double side1;
@@ -56,6 +56,6 @@ public class DemoTriangle {
         Triangle triangle_3 = new Triangle(side1, side2, side3);
         triangle_3.setColor(color);
 
-        System.out.print("Triangle 3 " + triangle_3.toString());
+        System.out.print("Triangle 3 " + triangle_3);
     }
 }

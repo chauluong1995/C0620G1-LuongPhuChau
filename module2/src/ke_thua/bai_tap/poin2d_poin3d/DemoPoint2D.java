@@ -7,11 +7,11 @@ public class DemoPoint2D {
         Point2D point2D_1 = new Point2D();
         Point2D point2D_2 = new Point2D(5, 5);
 
-        System.out.println("point2D_2 : " + point2D_2.toString());
-        System.out.println("point2D_1 : " + point2D_1.toString());
+        System.out.println("point2D_2 : " + point2D_2);
+        System.out.println("point2D_1 : " + point2D_1);
 
         point2D_1.setXY(10, 10);
-        System.out.println("point2D_1 : " + point2D_1.toString());
+        System.out.println("point2D_1 : " + point2D_1);
 
         System.out.println("point2D_1 : " + Arrays.toString(point2D_1.getXY()));
     }

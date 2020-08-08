@@ -13,8 +13,7 @@ public class MovablePoint extends Point {
     }
 
     public MovablePoint(float x, float y, float xSpeed, float ySpeed) {
-        this.setX(x);
-        this.setY(y);
+        super(x, y);
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
@@ -46,7 +45,7 @@ public class MovablePoint extends Point {
 
     @Override
     public String toString() {
-        return "( " + this.getX() + " , " + this.getY() + " ) , speed = ( " + this.xSpeed + " , " + this.ySpeed + " )";
+        return super.toString() + " , speed = ( " + this.xSpeed + " , " + this.ySpeed + " )";
     }
 
     public MovablePoint move() {

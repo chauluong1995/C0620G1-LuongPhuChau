@@ -1,5 +1,6 @@
 package abstract_class_interface.bai_tap.resizeable;
 
+import abstract_class_interface.bai_tap.colorable.Colorable;
 import ke_thua.thuc_hanh.Shape;
 
 public class Test {
@@ -11,7 +12,11 @@ public class Test {
 
         System.out.println("Before change :");
         for (int i = 0; i < shapes.length; i++) {
-            System.out.println((i + 1) + " : " + shapes[i].getArea());
+            if (shapes[i] instanceof Colorable) {
+                ResizeableSquare resizeableSquare = new ResizeableSquare();
+                System.out.print((i + 1) + " : " + shapes[i].getArea() + " and ");
+                resizeableSquare.howToColor();
+            } else System.out.println((i + 1) + " : " + shapes[i].getArea());
         }
 
         System.out.println("After change :");

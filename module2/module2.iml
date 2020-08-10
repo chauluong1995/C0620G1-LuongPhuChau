@@ -4,6 +4,8 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/automated_testing_tdd/thuc_hanh/absolute_number_calculator/test/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/src/automated_testing_tdd/thuc_hanh/absolute_number_calculator/test" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

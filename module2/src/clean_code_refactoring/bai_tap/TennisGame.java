@@ -1,16 +1,24 @@
 package clean_code_refactoring.bai_tap;
 
 public class TennisGame {
-    static final int maxScore = 3;
     static final int minScoreToWin = 4;
+    public static final int ZERO = 0;
+    public static final int FIFTEEN = 1;
+    public static final int THIRTY = 2;
+    public static final int FORTY = 3;
 
     public static String getScore(String player1Name, String player2Name, int scoreOfPlayer1, int scoreOfPlayer2) {
         String score = "";
 
+        // đối chiếu nếu điểm bằng nhau :
         if (scoreOfPlayer1 == scoreOfPlayer2) {
             score = compareScore(scoreOfPlayer1);
+
+            // so sánh với điểm tối thiểu để chiến thắng :
         } else if (scoreOfPlayer1 >= minScoreToWin || scoreOfPlayer2 >= minScoreToWin) {
             score = findWinner(scoreOfPlayer1, scoreOfPlayer2);
+
+            // tính điểm :
         } else {
             score += scoreCalculation(scoreOfPlayer1, scoreOfPlayer2);
         }
@@ -18,25 +26,18 @@ public class TennisGame {
     }
 
     public static String compareScore(int scoreOfPlayer) {
-        String compareScore;
         switch (scoreOfPlayer) {
-            case 0:
-                compareScore = "Love-All";
-                break;
-            case 1:
-                compareScore = "Fifteen-All";
-                break;
-            case 2:
-                compareScore = "Thirty-All";
-                break;
-            case 3:
-                compareScore = "Forty-All";
-                break;
+            case ZERO:
+                return "Love-All";
+            case FIFTEEN:
+                return "Fifteen-All";
+            case THIRTY:
+                return "Thirty-All";
+            case FORTY:
+                return "Forty-All";
             default:
-                compareScore = "Deuce";
-                break;
+                return "Deuce";
         }
-        return compareScore;
     }
 
     public static String findWinner(int scoreOfPlayer1, int scoreOfPlayer2) {
@@ -53,31 +54,22 @@ public class TennisGame {
     }
 
     public static String scoreCalculation(int scoreOfPlayer1, int scoreOfPlayer2) {
-        int tempScore;
-        String scoreCalculation = "";
-
-        for (int i = 1; i < maxScore; i++) {
-            if (i == 1) {
-                tempScore = scoreOfPlayer1;
-            } else {
-                scoreCalculation += "-";
-                tempScore = scoreOfPlayer2;
-            }
-            switch (tempScore) {
-                case 0:
-                    scoreCalculation += "Love";
-                    break;
-                case 1:
-                    scoreCalculation += "Fifteen";
-                    break;
-                case 2:
-                    scoreCalculation += "Thirty";
-                    break;
-                case 3:
-                    scoreCalculation += "Forty";
-                    break;
-            }
-        }
+        String scoreCalculation = scoreLabel(scoreOfPlayer1);
+        scoreCalculation += "-";
+        scoreCalculation += scoreLabel(scoreOfPlayer2);
         return scoreCalculation;
+    }
+
+    public static String scoreLabel(int scoreOfPlayer) {
+        switch (scoreOfPlayer) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            default:
+                return "Forty";
+        }
     }
 }

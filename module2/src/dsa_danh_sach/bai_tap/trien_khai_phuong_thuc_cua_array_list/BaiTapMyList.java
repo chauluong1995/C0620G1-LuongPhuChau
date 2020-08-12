@@ -5,18 +5,20 @@ import java.util.Arrays;
 public class BaiTapMyList<E> {
     private int size = 0;
     public static final int DEFAULT_CAPACITY = 10;
-    private E[] data = (E[]) new Object[DEFAULT_CAPACITY];
+    Object[] data = new Object[DEFAULT_CAPACITY];
+    //private E[] data = (E[]) new Object[DEFAULT_CAPACITY];
 
     public BaiTapMyList() {
     }
 
     public BaiTapMyList(int capacity) {
+        Object[] data = new Object[capacity];
         //E[] data = (E[]) new Object[capacity];
     }
 
     public void add(int index, E element) {
         if (size >= data.length) {
-            E[] newData = (E[]) (new Object[size * 2 + 1]);
+            Object[] newData = new Object[size * 2 + 1];
             newData = Arrays.copyOf(data, newData.length);
             data = newData;
         }
@@ -30,7 +32,7 @@ public class BaiTapMyList<E> {
     public E remove(int index) {
         checkIndex(index);
 
-        E element = data[index];
+        E element = (E) data[index];
         for (int j = index; j < size - 1; j++) {
             data[j] = data[j + 1];
         }
@@ -45,45 +47,45 @@ public class BaiTapMyList<E> {
 
     @Override
     public E[] clone() {
-        E[] e = (E[]) (new Object[size / 2]);
-        e = Arrays.copyOf(data, e.length);
-        data = e;
-        size = size/2;
-        return data;
+        E[] temp = (E[]) (new Object[size / 2]);
+        temp = (E[]) Arrays.copyOf(data, temp.length);
+        data = temp;
+        size = size / 2;
+        return (E[]) data;
     }
 
-    public boolean contains(E o) {
+    public boolean contains(E element) {
         for (int i = 0; i < size; i++) {
-            if (o.equals(data[i])) {
+            if (element.equals(data[i])) {
                 return true;
             }
         }
         return false;
     }
 
-    public int indexOf(E o) {
+    public int indexOf(E element) {
         for (int i = 0; i < size; i++) {
-            if (o.equals(data[i])) {
+            if (element.equals(data[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public boolean add(E e) {
+    public boolean add(E element) {
         if (size >= data.length) {
-            E[] newData = (E[]) (new Object[size + 1]);
+            Object[] newData = new Object[size + 1];
             newData = Arrays.copyOf(data, newData.length);
             data = newData;
         }
-        data[size] = e;
+        data[size] = element;
         size++;
         return true;
     }
 
     public void ensureCapacity(int minCapacity) {
         if (data.length < minCapacity) {
-            E[] newData = (E[]) (new Object[minCapacity]);
+            Object[] newData = new Object[minCapacity];
             newData = Arrays.copyOf(data, newData.length);
             data = newData;
         }
@@ -97,11 +99,11 @@ public class BaiTapMyList<E> {
 
     public E get(int index) {
         checkIndex(index);
-        return data[index];
+        return (E) data[index];
     }
 
     public void clear() {
-        data = (E[]) new Object[DEFAULT_CAPACITY];
+        data = new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 

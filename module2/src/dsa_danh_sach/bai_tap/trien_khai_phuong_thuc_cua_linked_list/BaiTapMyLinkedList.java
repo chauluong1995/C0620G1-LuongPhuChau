@@ -5,8 +5,12 @@ public class BaiTapMyLinkedList<E> {
     private Node tail;
     private int numNodes;
 
+    public BaiTapMyLinkedList() {
+    }
+
     public BaiTapMyLinkedList(E element) {
-        head = new Node(element);
+        head = tail = new Node(element);
+        numNodes++;
     }
 
     static class Node {
@@ -22,7 +26,7 @@ public class BaiTapMyLinkedList<E> {
         }
     }
 
-    public void add(int index, E element) {
+    public void add(E element, int index) {
         if (index == 0) {
             addFirst(element);
         } else if (index >= numNodes) {
@@ -44,19 +48,42 @@ public class BaiTapMyLinkedList<E> {
         newNode.next = head;
         head = newNode;
         numNodes++;
-        if (tail == null) {
-            tail = head;
-        }
     }
 
     public void addLast(E element) {
         Node newNode = new Node(element);
-        if (tail == null) {
-            tail = head = newNode;
-        } else {
-            tail.next = newNode;
-            tail = tail.next;
-        }
+        tail.next = newNode;
+        tail = newNode;
         numNodes++;
+    }
+
+    public E remove(int index) {
+        if (numNodes == 0 || index < 0 || index > numNodes) {
+            return null;
+        } else {
+            Node temp = head;
+            if (index == 0) {
+                head = head.next;
+                numNodes--;
+                return (E) temp.data;
+            } else {
+                for (int i = 0; i < index - 2; i++) {
+                    temp = temp.next;
+                }
+                Node current = temp.next;
+                temp.next = current.next;
+                numNodes--;
+                return (E) current.data;
+            }
+        }
+    }
+
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
     }
 }

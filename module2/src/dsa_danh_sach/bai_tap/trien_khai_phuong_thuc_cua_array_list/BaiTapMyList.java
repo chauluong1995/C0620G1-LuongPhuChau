@@ -5,37 +5,30 @@ import java.util.Arrays;
 public class BaiTapMyList<E> {
     private int size = 0;
     public static final int DEFAULT_CAPACITY = 10;
-    Object[] data = new Object[DEFAULT_CAPACITY];
-    //private E[] data = (E[]) new Object[DEFAULT_CAPACITY];
+    Object[] data;
 
     public BaiTapMyList() {
+        data = new Object[DEFAULT_CAPACITY];
     }
 
     public BaiTapMyList(int capacity) {
-        Object[] data = new Object[capacity];
+        data = new Object[capacity];
         //E[] data = (E[]) new Object[capacity];
     }
 
     public void add(int index, E element) {
         if (size >= data.length) {
-            Object[] newData = new Object[size * 2 + 1];
-            newData = Arrays.copyOf(data, newData.length);
-            data = newData;
+            data = Arrays.copyOf(data, data.length + 1);
         }
-        for (int i = size - 1; i >= index; i--) {
-            data[i + 1] = data[i];
-        }
+        if (size - index >= 0) System.arraycopy(data, index, data, index + 1, size - index);
         data[index] = element;
         size++;
     }
 
     public E remove(int index) {
         checkIndex(index);
-
         E element = (E) data[index];
-        for (int j = index; j < size - 1; j++) {
-            data[j] = data[j + 1];
-        }
+        if (size - 1 - index >= 0) System.arraycopy(data, index + 1, data, index, size - 1 - index);
         data[size - 1] = null;
         size--;
         return element;
@@ -46,12 +39,9 @@ public class BaiTapMyList<E> {
     }
 
     @Override
-    public E[] clone() {
-        E[] temp = (E[]) (new Object[size / 2]);
-        temp = (E[]) Arrays.copyOf(data, temp.length);
-        data = temp;
+    public E clone() {
         size = size / 2;
-        return (E[]) data;
+        return (E) data;
     }
 
     public boolean contains(E element) {
@@ -74,9 +64,7 @@ public class BaiTapMyList<E> {
 
     public boolean add(E element) {
         if (size >= data.length) {
-            Object[] newData = new Object[size + 1];
-            newData = Arrays.copyOf(data, newData.length);
-            data = newData;
+            data = Arrays.copyOf(data, data.length + 1);
         }
         data[size] = element;
         size++;
@@ -85,9 +73,7 @@ public class BaiTapMyList<E> {
 
     public void ensureCapacity(int minCapacity) {
         if (data.length < minCapacity) {
-            Object[] newData = new Object[minCapacity];
-            newData = Arrays.copyOf(data, newData.length);
-            data = newData;
+            data = Arrays.copyOf(data, minCapacity);
         }
     }
 

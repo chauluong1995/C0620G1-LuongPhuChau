@@ -28,7 +28,7 @@ public class BaiTapMyListTest {
         System.out.println("phần tử 1997 không có nên " + baiTapMyList.contains(1997));
 
         System.out.print("Vị trí của phần tử 1995 là : " + baiTapMyList.indexOf(1995) + " còn ");
-        System.out.println("phần tử 1997 không có trong list nên là : " + baiTapMyList.indexOf(1997));
+        System.out.println("phần tử 1996 không có trong list nên là : " + baiTapMyList.indexOf(1996));
 
         baiTapMyList.ensureCapacity(25);
 

@@ -9,7 +9,8 @@ public class BaiTapMyLinkedList<E> {
     }
 
     public BaiTapMyLinkedList(E element) {
-        head = tail = new Node(element);
+        head = new Node(element);
+        tail = head;
         numNodes++;
     }
 

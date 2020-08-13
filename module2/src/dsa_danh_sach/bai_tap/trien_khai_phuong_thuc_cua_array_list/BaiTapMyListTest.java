@@ -13,9 +13,9 @@ public class BaiTapMyListTest {
         System.out.println("List hiện tại là : " + baiTapMyList);
         System.out.println("Số lượng phần tử trong list là : " + baiTapMyList.size());
 
-        baiTapMyList.add(4, 2001);
+        baiTapMyList.add(1, 2001);
         System.out.print(baiTapMyList + " và số cần xóa là : ");
-        System.out.print(baiTapMyList.remove(4) + " , sau khi xóa : ");
+        System.out.print(baiTapMyList.remove(1) + " , sau khi xóa : ");
         System.out.println(baiTapMyList);
 
         baiTapMyList.add(2020);
@@ -28,9 +28,7 @@ public class BaiTapMyListTest {
         System.out.println("phần tử 1997 không có nên " + baiTapMyList.contains(1997));
 
         System.out.print("Vị trí của phần tử 1995 là : " + baiTapMyList.indexOf(1995) + " còn ");
-        System.out.println("phần tử 1996 không có trong list nên là : " + baiTapMyList.indexOf(1996));
-
-        baiTapMyList.ensureCapacity(25);
+        System.out.println("phần tử 1999 không có trong list nên là : " + baiTapMyList.indexOf(1999));
 
         System.out.println("Phần tử tại vị trí thứ 2 là : " + baiTapMyList.get(2));
 

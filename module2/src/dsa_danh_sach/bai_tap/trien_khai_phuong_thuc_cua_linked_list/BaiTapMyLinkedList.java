@@ -1,5 +1,7 @@
 package dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_linked_list;
 
+import dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_array_list.BaiTapMyList;
+
 public class BaiTapMyLinkedList<E> {
     private Node head;
     private Node tail;
@@ -136,6 +138,26 @@ public class BaiTapMyLinkedList<E> {
             return (E) temp.data;
         }
     }
+
+    public int size() {
+        return numNodes;
+    }
+
+    public BaiTapMyLinkedList<E> clone() {
+        BaiTapMyLinkedList<E> baiTapMyLinkedList = new BaiTapMyLinkedList<>();
+        Node temp = head;
+        baiTapMyLinkedList.addFirst((E) temp.data);
+        temp = temp.next;
+        while (temp != null) {
+            baiTapMyLinkedList.addLast((E) temp.data);
+            temp = temp.next;
+        }
+        return baiTapMyLinkedList;
+    }
+
+//    public boolean contains(E element){
+//
+//    }
 
     public void printList() {
         Node temp = head;

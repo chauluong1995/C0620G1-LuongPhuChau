@@ -17,9 +17,8 @@ public class BaiTapMyList<E> {
     }
 
     public void add(int index, E element) {
-        // size >= data.length
-        if (size == data.length) {
-            ensureCapacity(5);
+        if (size >= data.length) {
+            ensureCapacity(data.length / 2);
         }
         if (size - index >= 0) System.arraycopy(data, index, data, index + 1, size - index);
         data[index] = element;
@@ -39,19 +38,21 @@ public class BaiTapMyList<E> {
         return this.size;
     }
 
-    @Override
-    public E clone() {
-        size = size / 2;
-        return (E) data;
+    public BaiTapMyList<E> clone() {
+        BaiTapMyList<E> baiTapMyList_2 = new BaiTapMyList<>();
+        baiTapMyList_2.data = Arrays.copyOf(this.data, this.size);
+        baiTapMyList_2.size = this.size;
+        return baiTapMyList_2;
     }
 
     public boolean contains(E element) {
-        for (int i = 0; i < size; i++) {
-            if (element.equals(data[i])) {
-                return true;
-            }
-        }
-        return false;
+        return indexOf(element) >= 0;
+//        for (int i = 0; i < size; i++) {
+//            if (element.equals(data[i])) {
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     public int indexOf(E element) {
@@ -65,7 +66,7 @@ public class BaiTapMyList<E> {
 
     public boolean add(E element) {
         if (size >= data.length) {
-            data = Arrays.copyOf(data, data.length + 1);
+            ensureCapacity(data.length / 2);
         }
         data[size] = element;
         size++;
@@ -73,9 +74,7 @@ public class BaiTapMyList<E> {
     }
 
     public void ensureCapacity(int minCapacity) {
-        if (data.length < minCapacity) {
-            data = Arrays.copyOf(data, data.length + minCapacity);
-        }
+        data = Arrays.copyOf(data, data.length + minCapacity);
     }
 
     private void checkIndex(int index) {
@@ -90,7 +89,10 @@ public class BaiTapMyList<E> {
     }
 
     public void clear() {
-        data = new Object[DEFAULT_CAPACITY];
+        //data = new Object[DEFAULT_CAPACITY];
+        for (int i = 0; i < size; i++) {
+            data[i] = null;
+        }
         size = 0;
     }
 

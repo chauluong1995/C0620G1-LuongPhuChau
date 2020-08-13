@@ -20,5 +20,6 @@ public class BaiTapMyLinkedListTest {
         baiTapMyLinkedList.printList();
 
         System.out.println(baiTapMyLinkedList.get(1));
+        System.out.println(baiTapMyLinkedList.size());
     }
 }

@@ -19,7 +19,16 @@ public class BaiTapMyLinkedListTest {
         System.out.println(baiTapMyLinkedList.remove(sinhVien_3));
         baiTapMyLinkedList.printList();
 
+        System.out.println(baiTapMyLinkedList.remove(1));
+        baiTapMyLinkedList.printList();
+
         System.out.println(baiTapMyLinkedList.get(1));
         System.out.println(baiTapMyLinkedList.size());
+
+        System.out.println(baiTapMyLinkedList.contains(sinhVien_1));
+
+        baiTapMyLinkedList.clone().printList();
+
+        System.out.println(baiTapMyLinkedList.IndexOf(sinhVien_5));
     }
 }

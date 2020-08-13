@@ -17,8 +17,9 @@ public class BaiTapMyList<E> {
     }
 
     public void add(int index, E element) {
-        if (size >= data.length) {
-            data = Arrays.copyOf(data, data.length + 1);
+        // size >= data.length
+        if (size == data.length) {
+            ensureCapacity(5);
         }
         if (size - index >= 0) System.arraycopy(data, index, data, index + 1, size - index);
         data[index] = element;
@@ -73,7 +74,7 @@ public class BaiTapMyList<E> {
 
     public void ensureCapacity(int minCapacity) {
         if (data.length < minCapacity) {
-            data = Arrays.copyOf(data, minCapacity);
+            data = Arrays.copyOf(data, data.length + minCapacity);
         }
     }
 

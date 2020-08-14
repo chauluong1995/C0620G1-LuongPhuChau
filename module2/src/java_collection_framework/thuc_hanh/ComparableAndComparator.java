@@ -32,7 +32,7 @@ public class ComparableAndComparator {
         });
 
         System.out.println("Sắp xếp theo tuổi :");
-        for (StudentComp st : lists){
+        for (StudentComp st : lists) {
             System.out.println(st.toString());
         }
 //        AgeComparator ageComparator = new AgeComparator();

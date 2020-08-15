@@ -8,7 +8,7 @@ public class DemoQuanLySanPham {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Thêm sản phẩm\n2. Sửa thông tin sản phẩm\n3. Xóa sản phẩm" +
-                    "\n4. Hiển thị danh sách sản phẩm\n5. Tìm kiếm sản phẩm\n6. Sắp xếp sản phẩm\n7. Thoát");
+                    "\n4. Hiển thị danh sách sản phẩm\n5. Tìm kiếm sản phẩm\n6. Sắp xếp sản phẩm theo giá\n7. Thoát");
             System.out.print("Chọn thao tác muốn thực hiện : ");
             String nhapLuaChon = scanner.nextLine();
             if (QuanLySanPham.kiemTraNhapSoNguyen(nhapLuaChon)) {
@@ -28,28 +28,30 @@ public class DemoQuanLySanPham {
                             scanner.nextLine();
                             break;
                         case 4:
-                            System.out.println(QuanLySanPham.hienThi());
+                            System.out.print(QuanLySanPham.hienThi());
                             scanner.nextLine();
                             break;
                         case 5:
-                            System.out.print("Nhập tên sản phẩm bạn muốn tìm : ");
-                            String tenMuonTim = scanner.nextLine();
-                            System.out.println("Thông tin sản phẩm bạn muốn tìm là : [ " + QuanLySanPham.timKiem(tenMuonTim) + " ]");
+//                            System.out.print("Nhập tên sản phẩm bạn muốn tìm : ");
+//                            String tenMuonTim = scanner.nextLine();
+//                            System.out.print(QuanLySanPham.timKiem(tenMuonTim));
+                            System.out.print(QuanLySanPham.timKiem());
                             scanner.nextLine();
                             break;
                         case 6:
-                            System.out.println(QuanLySanPham.sapXep());
+                            QuanLySanPham.sapXep();
+                            scanner.nextLine();
                             break;
                         case 7:
                             System.exit(0);
                             //return;
                     }
                 } else {
-                    System.out.println("Lựa chọn không tồn tại !");
+                    System.out.print("Lựa chọn không tồn tại !");
                     scanner.nextLine();
                 }
             } else {
-                System.out.println("Lựa chọn không hợp lệ !");
+                System.out.print("Lựa chọn không hợp lệ !");
                 scanner.nextLine();
             }
         } while (true);

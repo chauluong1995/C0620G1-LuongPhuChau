@@ -30,6 +30,6 @@ public class SanPham {
 
     @Override
     public String toString() {
-        return "Tên : " + tenSanPham + " + giá : " + giaSanPham;
+        return "Tên " + tenSanPham + " + giá " + giaSanPham;
     }
 }

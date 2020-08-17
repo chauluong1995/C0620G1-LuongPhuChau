@@ -79,10 +79,9 @@ public class MyBST<E extends Comparable<E>> {
 
     public boolean searchMyBST(E value, TreeNodeOptional<E> root) {
         if (root == null) return false;
-        if (root.element.equals(value)) return true;
-        else if (leftBrowser(value, root)) return searchMyBST(value, root.left);
+        if (leftBrowser(value, root)) return searchMyBST(value, root.left);
         else if (rightBrowser(value, root)) return searchMyBST(value, root.right);
-        else return false;
+        else return true;
     }
 
     public int getSize() {

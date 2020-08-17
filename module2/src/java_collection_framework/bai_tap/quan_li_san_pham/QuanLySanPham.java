@@ -62,9 +62,8 @@ public class QuanLySanPham {
             System.out.print("Nhập id sản phẩm bạn muốn sửa : ");
             String nhap = scanner.nextLine();
             if (kiemTraID(nhap) > -1) {
-                SanPham sanPham = listSanPham.get(kiemTraID(nhap));
-                sanPham.setTenSanPham(tenSanPham());
-                sanPham.setGiaSanPham(giaSanPham());
+                listSanPham.get(kiemTraID(nhap)).setTenSanPham(tenSanPham());
+                listSanPham.get(kiemTraID(nhap)).setGiaSanPham(giaSanPham());
                 System.out.print("Sửa thông tin sản phẩm thành công !");
             } else System.out.print("Id không hợp lệ ! Hiện tại danh sách có " + listSanPham.size() + " sản phẩm !");
 //            System.out.print("Nhập tên sản phẩm bạn muốn sửa : ");

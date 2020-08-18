@@ -39,9 +39,12 @@ public class MyBST<E extends Comparable<E>> {
     }
 
     public void remove(E value) {
-        if (root == null) return;
-        else root = deleteNode(root, value);
-        size--;
+        if (root == null) System.out.println("BST is empty !");
+        else if (search(value)) {
+            root = deleteNode(root, value);
+            size--;
+            System.out.println("Delete complete !");
+        } else System.out.println("Not found !");
     }
 
     public TreeNodeOptional<E> deleteNode(TreeNodeOptional<E> root, E value) {

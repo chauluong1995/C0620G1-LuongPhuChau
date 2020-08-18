@@ -1,5 +1,8 @@
 package java_collection_framework.bai_tap.optional_my_bst;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class TestMyBST {
     public static void main(String[] args) {
         MyBST<String> stringMyBST = new MyBST<>();
@@ -20,7 +23,7 @@ public class TestMyBST {
         System.out.println();
         System.out.println(myBST.size);
 
-        myBST.remove(27);
+        myBST.remove(1995);
         myBST.inorder();
         System.out.println();
         System.out.println(myBST.size);

@@ -24,12 +24,19 @@ public class ComparableAndComparator {
             System.out.println(st.toString());
         }
 
-        lists.sort(new Comparator<>() {
+        Collections.sort(lists, new Comparator<StudentComp>() {
             @Override
             public int compare(StudentComp o1, StudentComp o2) {
                 return o1.getAge().compareTo(o2.getAge());
             }
         });
+//        lists.sort(new Comparator<>() {
+//            @Override
+//            public int compare(StudentComp o1, StudentComp o2) {
+//                //return o1.getAge() - o2.getAge();
+//                return o1.getAge().compareTo(o2.getAge());
+//            }
+//        });
 
         System.out.println("Sắp xếp theo tuổi :");
         for (StudentComp st : lists) {

@@ -3,6 +3,8 @@ package java_collection_framework.bai_tap.optional_my_bst;
 public class TestMyBST {
     public static void main(String[] args) {
         MyBST<String> stringMyBST = new MyBST<>();
+        stringMyBST.inorder();
+
         MyBST<Integer> myBST = new MyBST<>(27);
         myBST.insert(5);
         myBST.insert(1995);
@@ -11,7 +13,6 @@ public class TestMyBST {
         myBST.insert(15);
         myBST.insert(2003);
 
-        stringMyBST.inorder();
         myBST.preorder();
         System.out.println();
 
@@ -28,7 +29,6 @@ public class TestMyBST {
         System.out.println("Size = " + myBST.size);
 
         System.out.println(myBST.search(1995));
-        System.out.println();
 
         myBST.printLevelOrder();
     }

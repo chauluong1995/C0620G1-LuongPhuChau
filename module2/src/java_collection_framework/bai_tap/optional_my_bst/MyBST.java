@@ -25,9 +25,7 @@ public class MyBST<E extends Comparable<E>> {
         } else { // Chưa có thì thêm vào
             if (value.compareTo(browserForInsert(value).element) < 0) {
                 browserForInsert(value).left = new TreeNodeOptional<>(value);
-            } else if (value.compareTo(browserForInsert(value).element) > 0) {
-                browserForInsert(value).right = new TreeNodeOptional<>(value);
-            }
+            } else browserForInsert(value).right = new TreeNodeOptional<>(value);
             size++;
         }
     }

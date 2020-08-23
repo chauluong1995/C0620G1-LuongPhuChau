@@ -1,16 +1,18 @@
 package io_binary_file_serialization.bai_tap;
 
-public class NhiPhanSanPham {
+import java.io.Serializable;
+
+public class NhiPhanSanPham implements Serializable {
     private String tenSanPham;
-    private float giaSanPham;
-    private int maSanPham;
+    private String giaSanPham;
+    private String maSanPham;
     private String hangSanXuat;
     private String moTaKhac;
 
     public NhiPhanSanPham() {
     }
 
-    public NhiPhanSanPham(int maSanPham, String tenSanPham, String hangSanXuat, float giaSanPham, String moTaKhac) {
+    public NhiPhanSanPham(String maSanPham, String tenSanPham, String hangSanXuat, String giaSanPham, String moTaKhac) {
         this.tenSanPham = tenSanPham;
         this.giaSanPham = giaSanPham;
         this.maSanPham = maSanPham;
@@ -26,19 +28,19 @@ public class NhiPhanSanPham {
         this.tenSanPham = tenSanPham;
     }
 
-    public float getGiaSanPham() {
+    public String getGiaSanPham() {
         return giaSanPham;
     }
 
-    public void setGiaSanPham(float giaSanPham) {
+    public void setGiaSanPham(String giaSanPham) {
         this.giaSanPham = giaSanPham;
     }
 
-    public int getMaSanPham() {
+    public String getMaSanPham() {
         return maSanPham;
     }
 
-    public void setMaSanPham(int maSanPham) {
+    public void setMaSanPham(String maSanPham) {
         this.maSanPham = maSanPham;
     }
 
@@ -60,7 +62,7 @@ public class NhiPhanSanPham {
 
     @Override
     public String toString() {
-        return "Sản phẩm : maSanPham " + maSanPham + " , tenSanPham " + tenSanPham + " , hangSanXuat "
-                + hangSanXuat + " , giaSanPham " + giaSanPham + " , moTaKhac " + moTaKhac;
+        return "Sản phẩm = Mã : " + maSanPham + " , tên : " + tenSanPham + " , hãng sản xuất : "
+                + hangSanXuat + " , giá : " + giaSanPham + " , mô tả khác : " + moTaKhac;
     }
 }

@@ -37,13 +37,13 @@ public class FileNhiPhanQuanLySanPham {
 
     public static void hienThi() throws Exception {
         docFileNhiPhan();
-        if (bienDemSanPham == 0) {
-            System.out.println("Hiện tại không có thông tin sản phẩm để hiển thị !");
-        } else {
+//        if (bienDemSanPham == 0) {
+//            System.out.println("Hiện tại không có thông tin sản phẩm để hiển thị !");
+//        } else {
             for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
                 System.out.println(entry.getValue().toString());
             }
-        }
+        //}
     }
 
     public static void timKiem() throws Exception {
@@ -79,15 +79,18 @@ public class FileNhiPhanQuanLySanPham {
     }
 
     public static void docFileNhiPhan() throws Exception {
-        int bienDemDoc = 0;
+        //int bienDemDoc = 0;
         FileInputStream fileInput = new FileInputStream(PATH);
         try {
             ObjectInputStream input = new ObjectInputStream(fileInput);
             NhiPhanSanPham sanPham;
-            while (bienDemDoc != bienDemSanPham) {
-                sanPham = (NhiPhanSanPham) input.readObject();
+            while ((sanPham = (NhiPhanSanPham) input.readObject()) != null) {
                 danhSach.put(sanPham.getMaSanPham(), sanPham);
-                bienDemDoc++;
+                if (input.read() == -1){
+                    break;
+                }
+
+                //bienDemDoc++;
             }
             input.close();
         } catch (Exception e) {

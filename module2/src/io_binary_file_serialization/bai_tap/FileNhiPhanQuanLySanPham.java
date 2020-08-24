@@ -1,17 +1,16 @@
 package io_binary_file_serialization.bai_tap;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class FileNhiPhanQuanLySanPham {
     public static Scanner scanner = new Scanner(System.in);
     public static HashMap<String, NhiPhanSanPham> danhSach = new HashMap<>();
     public static final String PATH = "E:\\C0620G1\\module2\\src\\io_binary_file_serialization\\bai_tap\\demo.bin";
-    public static int bienDemSanPham = 0;
 
     public static void them() throws Exception {
+        docFileNhiPhan();
+
         System.out.print("Nhập mã sản phẩm : ");
         String maSanPham = scanner.nextLine();
 
@@ -32,36 +31,27 @@ public class FileNhiPhanQuanLySanPham {
         danhSach.put(maSanPham, new NhiPhanSanPham(maSanPham, ten, hangSanXuat, gia, moTa));
         ghiVaoFileNhiPhan();
         danhSach.clear();
-        bienDemSanPham++;
     }
 
     public static void hienThi() throws Exception {
         docFileNhiPhan();
-//        if (bienDemSanPham == 0) {
-//            System.out.println("Hiện tại không có thông tin sản phẩm để hiển thị !");
-//        } else {
-            for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
-                System.out.println(entry.getValue().toString());
-            }
-        //}
+        for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
+            System.out.println(entry.getValue().toString());
+        }
     }
 
     public static void timKiem() throws Exception {
-        if (bienDemSanPham == 0) {
-            System.out.println("Hiện tại không có thông tin sản phẩm để tìm kiếm !");
-        } else {
-            System.out.print("Nhập tên sản phẩm bạn muốn tìm kiếm : ");
-            String ten = scanner.nextLine();
-            docFileNhiPhan();
-            boolean check = true;
-            for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
-                if (entry.getValue().getTenSanPham().equals(ten)) {
-                    check = false;
-                    System.out.println(entry.getValue().toString());
-                }
+        System.out.print("Nhập tên sản phẩm bạn muốn tìm kiếm : ");
+        String ten = scanner.nextLine();
+        docFileNhiPhan();
+        boolean check = true;
+        for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
+            if (entry.getValue().getTenSanPham().equals(ten)) {
+                check = false;
+                System.out.println(entry.getValue().toString());
             }
-            if (check) System.out.println("Sản phẩm này không tồn tại !");
         }
+        if (check) System.out.println("Sản phẩm này không tồn tại !");
     }
 
     public static void ghiVaoFileNhiPhan() throws Exception {
@@ -79,22 +69,16 @@ public class FileNhiPhanQuanLySanPham {
     }
 
     public static void docFileNhiPhan() throws Exception {
-        //int bienDemDoc = 0;
         FileInputStream fileInput = new FileInputStream(PATH);
         try {
             ObjectInputStream input = new ObjectInputStream(fileInput);
             NhiPhanSanPham sanPham;
             while ((sanPham = (NhiPhanSanPham) input.readObject()) != null) {
                 danhSach.put(sanPham.getMaSanPham(), sanPham);
-                if (input.read() == -1){
-                    break;
-                }
-
-                //bienDemDoc++;
+                //System.out.println(input.read());
             }
             input.close();
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

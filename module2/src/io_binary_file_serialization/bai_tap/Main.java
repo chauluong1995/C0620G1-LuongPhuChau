@@ -12,21 +12,18 @@ public class Main {
             switch (luaChon) {
                 case "1":
                     FileNhiPhanQuanLySanPham.them();
-                    scanner.nextLine();
                     break;
                 case "2":
                     FileNhiPhanQuanLySanPham.hienThi();
-                    scanner.nextLine();
                     break;
                 case "3":
                     FileNhiPhanQuanLySanPham.timKiem();
-                    scanner.nextLine();
                     break;
                 case "4":
                     System.exit(0);
                 default:
                     System.out.println("Lựa chọn không tồn tại !");
-                    scanner.nextLine();
+                    //scanner.nextLine();
             }
         } while (true);
     }

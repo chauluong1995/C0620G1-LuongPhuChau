@@ -5,7 +5,7 @@ import java.util.*;
 
 public class FileNhiPhanQuanLySanPham {
     public static Scanner scanner = new Scanner(System.in);
-    public static HashMap<String, NhiPhanSanPham> danhSach = new HashMap<>();
+    public static List<NhiPhanSanPham> danhSach = new ArrayList<>();
     public static final String PATH = "E:\\C0620G1\\module2\\src\\io_binary_file_serialization\\bai_tap\\demo.bin";
 
     public static void them() throws Exception {
@@ -28,15 +28,15 @@ public class FileNhiPhanQuanLySanPham {
 
         System.out.println("Thêm sản phẩm thành công !");
 
-        danhSach.put(maSanPham, new NhiPhanSanPham(maSanPham, ten, hangSanXuat, gia, moTa));
+        danhSach.add(new NhiPhanSanPham(maSanPham, ten, hangSanXuat, gia, moTa));
         ghiVaoFileNhiPhan();
         danhSach.clear();
     }
 
     public static void hienThi() throws Exception {
         docFileNhiPhan();
-        for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
-            System.out.println(entry.getValue().toString());
+        for (NhiPhanSanPham sanPham : danhSach) {
+            System.out.println(sanPham.toString());
         }
     }
 
@@ -45,10 +45,10 @@ public class FileNhiPhanQuanLySanPham {
         String ten = scanner.nextLine();
         docFileNhiPhan();
         boolean check = true;
-        for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
-            if (entry.getValue().getTenSanPham().equals(ten)) {
+        for (NhiPhanSanPham sanPham : danhSach) {
+            if (sanPham.getTenSanPham().equals(ten)) {
                 check = false;
-                System.out.println(entry.getValue().toString());
+                System.out.println(sanPham.toString());
             }
         }
         if (check) System.out.println("Sản phẩm này không tồn tại !");
@@ -58,9 +58,7 @@ public class FileNhiPhanQuanLySanPham {
         FileOutputStream fileOutput = new FileOutputStream(PATH);
         try {
             ObjectOutputStream output = new ObjectOutputStream(fileOutput);
-            for (Map.Entry<String, NhiPhanSanPham> entry : danhSach.entrySet()) {
-                output.writeObject(entry.getValue());
-            }
+            output.writeObject(danhSach);
             output.flush();
             output.close();
         } catch (Exception e) {
@@ -70,15 +68,14 @@ public class FileNhiPhanQuanLySanPham {
 
     public static void docFileNhiPhan() throws Exception {
         FileInputStream fileInput = new FileInputStream(PATH);
-        try {
-            ObjectInputStream input = new ObjectInputStream(fileInput);
-            NhiPhanSanPham sanPham;
-            while ((sanPham = (NhiPhanSanPham) input.readObject()) != null) {
-                danhSach.put(sanPham.getMaSanPham(), sanPham);
-                //System.out.println(input.read());
+        if (fileInput.available() > 0){
+            try {
+                ObjectInputStream input = new ObjectInputStream(fileInput);
+                danhSach = (List<NhiPhanSanPham>) input.readObject();
+                input.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            input.close();
-        } catch (Exception e) {
-        }
+        } else System.out.println("Hiện tại file đang trống !");
     }
 }

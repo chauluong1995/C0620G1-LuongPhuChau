@@ -3,13 +3,13 @@ package case_study.furama_resort.models;
 public class House extends Services {
     private String tieuChuanPhong;
     private String moTaTienNghiKhac;
-    private int soTang;
+    private String soTang;
 
     public House() {
     }
 
-    public House(String id, String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue,
-                 String tieuChuanPhong, String moTaTienNghiKhac, int soTang) {
+    public House(String id, String tenDichVu, String dienTichSuDung, String chiPhiThue, String soLuongNguoiToiDa, String kieuThue,
+                 String tieuChuanPhong, String moTaTienNghiKhac, String soTang) {
         super(id, tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
@@ -32,11 +32,11 @@ public class House extends Services {
         this.moTaTienNghiKhac = moTaTienNghiKhac;
     }
 
-    public int getSoTang() {
+    public String getSoTang() {
         return soTang;
     }
 
-    public void setSoTang(int soTang) {
+    public void setSoTang(String soTang) {
         this.soTang = soTang;
     }
 

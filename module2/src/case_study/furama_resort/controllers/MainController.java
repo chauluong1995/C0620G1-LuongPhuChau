@@ -2,10 +2,13 @@ package case_study.furama_resort.controllers;
 
 import java_collection_framework.bai_tap.quan_li_san_pham.QuanLySanPham;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainController {
     public static Scanner scanner = new Scanner(System.in);
+    public static List<String> thongTin = new ArrayList<>();
 
     public static void displayMainMenu() {
         int luaChon;
@@ -51,12 +54,14 @@ public class MainController {
                 luaChon = Integer.parseInt(nhapLuaChon);
                 switch (luaChon) {
                     case 1:
-
+                        addNewVilla();
                         break;
-//                    case 2:
-//                        break;
-//                    case 3:
-//                        break;
+                    case 2:
+                        addNewHouse();
+                        break;
+                    case 3:
+                        addNewRoom();
+                        break;
                     case 4:
                         displayMainMenu();
                         break;
@@ -69,5 +74,54 @@ public class MainController {
                 System.out.println("Lựa chọn không hợp lệ !");
             }
         } while (true);
+    }
+
+    public static void addNewInfoService() {
+        System.out.print("Nhập ID : ");
+        thongTin.add(scanner.nextLine());
+        System.out.print("Nhập tên dịch vụ : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập diện tích sử dụng : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập chi phí thuê : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập số lượng người tối đa : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập kiểu thuê : ");
+        thongTin.add(" " + scanner.nextLine());
+    }
+
+    public static void addNewVilla() {
+        addNewInfoService();
+        System.out.print("Nhập tiêu chuẩn phòng : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập mô tả tiện nghi khác : ");
+        thongTin.add("  " + scanner.nextLine());
+        System.out.print("Nhập diện tích hồ bơi : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập số tầng : ");
+        thongTin.add(" " + scanner.nextLine());
+        DocGhiFileCSV.ghiFile("Villa", thongTin);
+        thongTin.clear();
+    }
+
+    public static void addNewHouse(){
+        addNewInfoService();
+        System.out.print("Nhập tiêu chuẩn phòng : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập mô tả tiện nghi khác : ");
+        thongTin.add(" " + scanner.nextLine());
+        System.out.print("Nhập số tầng : ");
+        thongTin.add(" " + scanner.nextLine());
+        DocGhiFileCSV.ghiFile("House", thongTin);
+        thongTin.clear();
+    }
+
+    public static void addNewRoom(){
+        addNewInfoService();
+        System.out.print("Nhập dịch vụ miễn phí đi kèm : ");
+        thongTin.add(" " + scanner.nextLine());
+        DocGhiFileCSV.ghiFile("Room", thongTin);
+        thongTin.clear();
     }
 }

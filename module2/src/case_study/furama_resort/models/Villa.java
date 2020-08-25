@@ -3,14 +3,14 @@ package case_study.furama_resort.models;
 public class Villa extends Services {
     private String tieuChuanPhong;
     private String moTaTienNghiKhac;
-    private double dienTichHoBoi;
-    private int soTang;
+    private String dienTichHoBoi;
+    private String soTang;
 
     public Villa() {
     }
 
-    public Villa(String id, String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue,
-                 String tieuChuanPhong, String moTaTienNghiKhac, double dienTichHoBoi, int soTang) {
+    public Villa(String id, String tenDichVu, String dienTichSuDung, String chiPhiThue, String soLuongNguoiToiDa, String kieuThue,
+                 String tieuChuanPhong, String moTaTienNghiKhac, String dienTichHoBoi, String soTang) {
         super(id, tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoiToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
@@ -34,19 +34,19 @@ public class Villa extends Services {
         this.moTaTienNghiKhac = moTaTienNghi;
     }
 
-    public double getDienTichHoBoi() {
+    public String getDienTichHoBoi() {
         return dienTichHoBoi;
     }
 
-    public void setDienTichHoBoi(double dienTichHoBoi) {
+    public void setDienTichHoBoi(String dienTichHoBoi) {
         this.dienTichHoBoi = dienTichHoBoi;
     }
 
-    public int getSoTang() {
+    public String getSoTang() {
         return soTang;
     }
 
-    public void setSoTang(int soTang) {
+    public void setSoTang(String soTang) {
         this.soTang = soTang;
     }
 

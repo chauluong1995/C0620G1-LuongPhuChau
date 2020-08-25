@@ -3,15 +3,15 @@ package case_study.furama_resort.models;
 public abstract class Services {
     private String id;
     private String tenDichVu;
-    private double dienTichSuDung;
-    private double chiPhiThue;
-    private int soLuongNguoiToiDa;
+    private String dienTichSuDung;
+    private String chiPhiThue;
+    private String soLuongNguoiToiDa;
     private String kieuThue;
 
     public Services() {
     }
 
-    public Services(String id, String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoiToiDa, String kieuThue) {
+    public Services(String id, String tenDichVu, String dienTichSuDung, String chiPhiThue, String soLuongNguoiToiDa, String kieuThue) {
         this.id = id;
         this.tenDichVu = tenDichVu;
         this.dienTichSuDung = dienTichSuDung;
@@ -36,27 +36,27 @@ public abstract class Services {
         this.tenDichVu = tenDichVu;
     }
 
-    public double getDienTichSuDung() {
+    public String getDienTichSuDung() {
         return dienTichSuDung;
     }
 
-    public void setDienTichSuDung(double dienTichSuDung) {
+    public void setDienTichSuDung(String dienTichSuDung) {
         this.dienTichSuDung = dienTichSuDung;
     }
 
-    public double getChiPhiThue() {
+    public String getChiPhiThue() {
         return chiPhiThue;
     }
 
-    public void setChiPhiThue(double chiPhiThue) {
+    public void setChiPhiThue(String chiPhiThue) {
         this.chiPhiThue = chiPhiThue;
     }
 
-    public int getSoLuongNguoiToiDa() {
+    public String getSoLuongNguoiToiDa() {
         return soLuongNguoiToiDa;
     }
 
-    public void setSoLuongNguoiToiDa(int soLuongNguoiToiDa) {
+    public void setSoLuongNguoiToiDa(String soLuongNguoiToiDa) {
         this.soLuongNguoiToiDa = soLuongNguoiToiDa;
     }
 

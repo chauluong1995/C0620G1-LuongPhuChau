@@ -25,12 +25,12 @@ public class DocGhiFileCSV {
         FileWriter fileWriter;
         try {
             fileWriter = new FileWriter(path, true);
+            fileWriter.append(NEW_LINE_SEPARATOR);
             for (int i = 0; i < thongTin.size(); i++) {
                 fileWriter.append(thongTin.get(i));
                 if (i == thongTin.size() - 1) break;
                 fileWriter.append(COMMA_DELIMITER);
             }
-            fileWriter.append(NEW_LINE_SEPARATOR);
             fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();

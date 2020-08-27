@@ -52,12 +52,8 @@ public class Villa extends Services {
 
 
     @Override
-    public String showInfor() {
-        return "Villa : " +
-                super.toString() +
-                " , tieuChuanPhong " + tieuChuanPhong +
-                " , moTaTienNghiKhac " + moTaTienNghiKhac +
-                " , dienTichHoBoi " + dienTichHoBoi +
-                " , soTang " + soTang;
+    public void showInfor() {
+        System.out.println(super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
+                + moTaTienNghiKhac + " , diện tích hồ bơi : " + dienTichHoBoi + " , số tầng : " + soTang);
     }
 }

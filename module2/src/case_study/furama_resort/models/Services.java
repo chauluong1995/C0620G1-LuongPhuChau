@@ -68,11 +68,11 @@ public abstract class Services {
         this.kieuThue = kieuThue;
     }
 
-    public abstract String showInfor();
+    public abstract void showInfor();
 
     @Override
     public String toString() {
-        return "id " + id + " , tenDichVu " + tenDichVu + " , dienTichSuDung " + dienTichSuDung + " , chiPhiThue " + chiPhiThue +
-                " , soLuongNguoiToiDa " + soLuongNguoiToiDa + " , kieuThue " + kieuThue;
+        return " = ID : " + id + " , tên dịch vụ : " + tenDichVu + " , diện tích sử dụng : " + dienTichSuDung + " , chi phí thuê : " + chiPhiThue +
+                " , số lượng người tối đa : " + soLuongNguoiToiDa + " , kiểu thuê : " + kieuThue;
     }
 }

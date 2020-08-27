@@ -1,5 +1,10 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.models.House;
+import case_study.furama_resort.models.Room;
+import case_study.furama_resort.models.Villa;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,13 +13,18 @@ import java.util.regex.Pattern;
 
 public class MainController {
     public static Scanner scanner = new Scanner(System.in);
-    public static List<String> thongTin = new ArrayList<>();
+    public static List thongTin = new ArrayList<>();
+    public static int bienDem = 0;
 
     public static void main(String[] args) {
-        displayMainMenu();
+        try {
+            displayMainMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void displayMainMenu() {
+    public static void displayMainMenu() throws IOException {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Add New Services\n2. Show Services\n3. Add New Customer" +
@@ -49,7 +59,7 @@ public class MainController {
         } while (true);
     }
 
-    public static void addNewServices() {
+    public static void addNewServices() throws IOException {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Add New Villa\n2. Add New House\n3. Add New Room\n4. Back to Menu\n5. Exit");
@@ -89,34 +99,54 @@ public class MainController {
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
     }
 
-    public static void addNewVilla() {
+    public static void addNewVilla() throws IOException {
         thongTin.add(nhapID("VL"));
         thongTin.add(nhapTenDichVu("Villa"));
         addNewInfoService();
         System.out.print("Nhập tiêu chuẩn phòng : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
         System.out.print("Nhập mô tả tiện nghi khác : ");
-        thongTin.add(" " + scanner.nextLine());
+        thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
         thongTin.add(nhapDienTichHoBoi());
         thongTin.add(soTang());
         DocGhiFileCSV.ghiFile("Villa", thongTin);
         thongTin.clear();
     }
 
-    public static void addNewHouse() {
+//    public static void addNewVilla() throws IOException {
+//        String id = nhapID("VL");
+//        String tenDichVu = nhapTenDichVu("Villa");
+//        String dienTichSuDung= nhapDienTichSuDung();
+//        String chiPhiThue = nhapChiPhiThue();
+//        String soLuongNguoiToiDa = soLuongNguoiToiDa();
+//        System.out.print("Nhập kiểu thuê : ");
+//        String kieuThue = chuanHoaDuLieu(scanner.nextLine());
+//        System.out.print("Nhập tiêu chuẩn phòng : ");
+//        String tieuChuanPhong = chuanHoaDuLieu(scanner.nextLine());
+//        System.out.print("Nhập mô tả tiện nghi khác : ");
+//        String moTa = scanner.nextLine();
+//        String dienTichHoBoi = nhapDienTichHoBoi();
+//        String soTang = soTang();
+//        Villa villa = new Villa(id,tenDichVu,dienTichSuDung,chiPhiThue,soLuongNguoiToiDa,kieuThue,tieuChuanPhong,moTa,dienTichHoBoi,soTang);
+//        thongTin.add(villa);
+//        DocGhiFileCSV.ghiFile("Villa", thongTin);
+//        thongTin.clear();
+//    }
+
+    public static void addNewHouse() throws IOException {
         thongTin.add(nhapID("HO"));
         thongTin.add(nhapTenDichVu("House"));
         addNewInfoService();
         System.out.print("Nhập tiêu chuẩn phòng : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
         System.out.print("Nhập mô tả tiện nghi khác : ");
-        thongTin.add("  " + scanner.nextLine());
+        thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
         thongTin.add(soTang());
         DocGhiFileCSV.ghiFile("House", thongTin);
         thongTin.clear();
     }
 
-    public static void addNewRoom() {
+    public static void addNewRoom() throws IOException {
         thongTin.add(nhapID("RO"));
         thongTin.add(nhapTenDichVu("Room"));
         addNewInfoService();
@@ -125,7 +155,7 @@ public class MainController {
         thongTin.clear();
     }
 
-    public static void showServices() {
+    public static void showServices() throws IOException {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Show all Villa\n2. Show all House\n3. Show all Room\n4. Show All Name Villa Not Duplicate" +
@@ -167,31 +197,34 @@ public class MainController {
         } while (true);
     }
 
-    public static void showAllVilla() {
-        DocGhiFileCSV.docFile("Villa");
-        for (int i = 0; i < thongTin.size(); i++) {
-            if (i > 0) System.out.println("Villa " + i + " : " + thongTin.get(i));
-            else System.out.println(thongTin.get(i));
+    public static void showAllVilla() throws IOException {
+        List<Villa> list = DocGhiFileCSV.docFile("Villa");
+        for (Villa element : list) {
+            bienDem++;
+            System.out.print("Villa " + bienDem);
+            element.showInfor();
         }
-        thongTin.clear();
+        bienDem = 0;
     }
 
-    public static void showAllHouse() {
-        DocGhiFileCSV.docFile("House");
-        for (int i = 0; i < thongTin.size(); i++) {
-            if (i > 0) System.out.println("House " + i + " : " + thongTin.get(i));
-            else System.out.println(thongTin.get(i));
+    public static void showAllHouse() throws IOException {
+        List<House> list = DocGhiFileCSV.docFile("House");
+        for (House element : list) {
+            bienDem++;
+            System.out.print("House " + bienDem);
+            element.showInfor();
         }
-        thongTin.clear();
+        bienDem = 0;
     }
 
-    public static void showAllRoom() {
-        DocGhiFileCSV.docFile("Room");
-        for (int i = 0; i < thongTin.size(); i++) {
-            if (i > 0) System.out.println("Room " + i + " : " + thongTin.get(i));
-            else System.out.println(thongTin.get(i));
+    public static void showAllRoom() throws IOException {
+        List<Room> list = DocGhiFileCSV.docFile("Room");
+        for (Room element : list) {
+            bienDem++;
+            System.out.print("Room " + bienDem);
+            element.showInfor();
         }
-        thongTin.clear();
+        bienDem = 0;
     }
 
     public static void showAllNameVillaNotDuplicate() {

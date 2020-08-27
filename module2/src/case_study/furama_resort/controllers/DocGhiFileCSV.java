@@ -1,9 +1,15 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.models.House;
+import case_study.furama_resort.models.Room;
+import case_study.furama_resort.models.Services;
+import case_study.furama_resort.models.Villa;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DocGhiFileCSV {
@@ -20,9 +26,9 @@ public class DocGhiFileCSV {
         //ID , tên dịch vụ , diện tích sử dụng , chi phí thuê , số lượng người tối đa , kiểu thuê , dịch vụ miễn phí đi kèm
     }
 
-    public static void ghiFile(String tenFile, List<String> thongTin) {
+    public static void ghiFile(String tenFile, List<String> thongTin) throws IOException {
         kiemTraDichVu(tenFile);
-        FileWriter fileWriter;
+        FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(path, true);
             fileWriter.append(NEW_LINE_SEPARATOR);
@@ -31,24 +37,37 @@ public class DocGhiFileCSV {
                 if (i == thongTin.size() - 1) break;
                 fileWriter.append(COMMA_DELIMITER);
             }
-            fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            assert fileWriter != null;
+            fileWriter.close();
         }
     }
 
-    public static void docFile(String tenFile) {
+    public static List docFile(String tenFile) throws IOException {
+        List list = new ArrayList();
         kiemTraDichVu(tenFile);
-        BufferedReader br;
-        String line;
+        BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(path));
+            Services services = null;
+            String[] temp;
+            String line = br.readLine();
             while ((line = br.readLine()) != null) {
-                MainController.thongTin.add(line);
+                temp = line.split(",");
+                if (tenFile.equals("Villa")) services = new Villa(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],temp[8],temp[9]);
+                if (tenFile.equals("House")) services = new House(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],temp[8]);
+                if (tenFile.equals("Room")) services = new Room(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]);
+                list.add(services);
             }
-            br.close();
+            return list;
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            assert br != null;
+            br.close();
         }
+        return list;
     }
 }

@@ -41,8 +41,8 @@ public class House extends Services {
     }
 
     @Override
-    public String showInfor() {
-        return "House : " + super.toString() + " , tieuChuanPhong " + tieuChuanPhong + " , moTaTienNghiKhac "
-                + moTaTienNghiKhac + " , soTang " + soTang;
+    public void showInfor() {
+        System.out.println(super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
+                + moTaTienNghiKhac + " , số tầng : " + soTang);
     }
 }

@@ -98,9 +98,13 @@ public class Customer {
     }
 
     public String showInfo() {
-        if (dichVu == null){
-            return "Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "
+        if (dichVu == null) {
+            return " = Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "
                     + soDienThoai + " , email : " + email + " , loại khách : " + loaiKhach + " , địa chỉ : " + diaChi;
-        } else return "";
+        } else {
+            return " = Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "
+                    + soDienThoai + " , email : " + email + " , loại khách : " + loaiKhach + " , địa chỉ : " + diaChi
+                    + " dịch vụ " + dichVu.showInfor();
+        }
     }
 }

@@ -21,7 +21,7 @@ public class Room extends Services {
     }
 
     @Override
-    public void showInfor() {
-        System.out.println(super.toString() + " , dịch vụ miễn phí đi kèm : " + dichVuMienPhiDiKem);
+    public String showInfor() {
+        return super.toString() + " , dịch vụ miễn phí đi kèm : " + dichVuMienPhiDiKem;
     }
 }

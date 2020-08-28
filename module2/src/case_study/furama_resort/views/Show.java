@@ -1,6 +1,7 @@
 package case_study.furama_resort.views;
 
 import case_study.furama_resort.commons.DocGhiFileCSV;
+import case_study.furama_resort.models.Customer;
 import case_study.furama_resort.models.House;
 import case_study.furama_resort.models.Room;
 import case_study.furama_resort.models.Villa;
@@ -11,32 +12,38 @@ import java.util.List;
 public class Show {
     public static int bienDem = 0;
 
+//    public static void showAllVilla() throws IOException {
+//        List<Villa> list = DocGhiFileCSV.docFile("Villa");
+//        for (Villa element : list) {
+//            bienDem++;
+//            System.out.println("Villa " + bienDem + element.showInfor());
+//        }
+//        bienDem = 0;
+//    }
+
     public static void showAllVilla() throws IOException {
-        List<Villa> list = DocGhiFileCSV.docFile("Villa");
+        List<Villa> list = DocGhiFileCSV.docFileVilla();
         for (Villa element : list) {
             bienDem++;
-            System.out.print("Villa " + bienDem);
-            element.showInfor();
+            System.out.println("Villa " + bienDem + element.showInfor());
         }
         bienDem = 0;
     }
 
     public static void showAllHouse() throws IOException {
-        List<House> list = DocGhiFileCSV.docFile("House");
+        List<House> list = DocGhiFileCSV.docFileHouse();
         for (House element : list) {
             bienDem++;
-            System.out.print("House " + bienDem);
-            element.showInfor();
+            System.out.println("House " + bienDem + element.showInfor());
         }
         bienDem = 0;
     }
 
     public static void showAllRoom() throws IOException {
-        List<Room> list = DocGhiFileCSV.docFile("Room");
+        List<Room> list = DocGhiFileCSV.docFileRoom();
         for (Room element : list) {
             bienDem++;
-            System.out.print("Room " + bienDem);
-            element.showInfor();
+            System.out.println("Room " + bienDem + element.showInfor());
         }
         bienDem = 0;
     }
@@ -53,7 +60,12 @@ public class Show {
 
     }
 
-    public static void showInformationCustomers() {
-
+    public static void showInformationCustomers() throws IOException {
+        List<Customer> list = DocGhiFileCSV.docFileCustomer();
+        for (Customer element : list) {
+            bienDem++;
+            System.out.println("Customer " + bienDem + element.showInfo());
+        }
+        bienDem = 0;
     }
 }

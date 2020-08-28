@@ -50,10 +50,9 @@ public class Villa extends Services {
         this.soTang = soTang;
     }
 
-
     @Override
-    public void showInfor() {
-        System.out.println(super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
-                + moTaTienNghiKhac + " , diện tích hồ bơi : " + dienTichHoBoi + " , số tầng : " + soTang);
+    public String showInfor() {
+        return super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
+                + moTaTienNghiKhac + " , diện tích hồ bơi : " + dienTichHoBoi + " , số tầng : " + soTang;
     }
 }

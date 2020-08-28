@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Add {
     public static Scanner scanner = new Scanner(System.in);
-    public static List thongTin = new ArrayList<>();
+    public static List<String> thongTin = new ArrayList<>();
 
     public static void addNewInfoService() {
         thongTin.add(Regex.kiemTraDienTich("sử dụng"));
@@ -28,10 +28,52 @@ public class Add {
         thongTin.add(Regex.kiemTraDienTich("hồ bơi"));
         thongTin.add(Regex.kiemTraSoTang());
         DocGhiFileCSV.ghiFile("Villa", thongTin);
+        System.out.println("Thêm thành công !");
         thongTin.clear();
     }
 
-//    public static void addNewVilla() throws IOException {
+    public static void addNewHouse() throws IOException {
+        thongTin.add(Regex.kiemTraID("HO"));
+        thongTin.add(Regex.kiemTraTenDichVu("House"));
+        addNewInfoService();
+        System.out.print("Nhập tiêu chuẩn phòng : ");
+        thongTin.add(Regex.chuanHoaDuLieu(scanner.nextLine()));
+        System.out.print("Nhập mô tả tiện nghi khác : ");
+        thongTin.add(Regex.chuanHoaDuLieu(scanner.nextLine()));
+        thongTin.add(Regex.kiemTraSoTang());
+        DocGhiFileCSV.ghiFile("House", thongTin);
+        System.out.println("Thêm thành công !");
+        thongTin.clear();
+    }
+
+    public static void addNewRoom() throws IOException {
+        thongTin.add(Regex.kiemTraID("RO"));
+        thongTin.add(Regex.kiemTraTenDichVu("Room"));
+        addNewInfoService();
+        thongTin.add(Regex.kiemTraDichVuDiKem());
+        DocGhiFileCSV.ghiFile("Room", thongTin);
+        System.out.println("Thêm thành công !");
+        thongTin.clear();
+    }
+
+    public static void addNewCusTomer() throws IOException {
+        thongTin.add(Regex.kiemTraTen());
+        thongTin.add(Regex.kiemTraNgaySinh());
+        thongTin.add(Regex.kiemTraGioiTinh());
+        thongTin.add(Regex.kiemTraCMND());
+        System.out.print("Nhập số điện thoại : ");
+        thongTin.add(scanner.nextLine());
+        thongTin.add(Regex.kiemTraEmail());
+        System.out.print("Nhập loại khách : ");
+        thongTin.add(scanner.nextLine());
+        System.out.print("Nhập địa chỉ : ");
+        thongTin.add(scanner.nextLine());
+        DocGhiFileCSV.ghiFile("Customer", thongTin);
+        System.out.println("Thêm thành công !");
+        thongTin.clear();
+    }
+
+//        public static void addNewVilla() throws IOException {
 //        String id = nhapID("VL");
 //        String tenDichVu = nhapTenDichVu("Villa");
 //        String dienTichSuDung= nhapDienTichSuDung();
@@ -50,41 +92,4 @@ public class Add {
 //        DocGhiFileCSV.ghiFile("Villa", thongTin);
 //        thongTin.clear();
 //    }
-
-    public static void addNewHouse() throws IOException {
-        thongTin.add(Regex.kiemTraID("HO"));
-        thongTin.add(Regex.kiemTraTenDichVu("House"));
-        addNewInfoService();
-        System.out.print("Nhập tiêu chuẩn phòng : ");
-        thongTin.add(Regex.chuanHoaDuLieu(scanner.nextLine()));
-        System.out.print("Nhập mô tả tiện nghi khác : ");
-        thongTin.add(Regex.chuanHoaDuLieu(scanner.nextLine()));
-        thongTin.add(Regex.kiemTraSoTang());
-        DocGhiFileCSV.ghiFile("House", thongTin);
-        thongTin.clear();
-    }
-
-    public static void addNewRoom() throws IOException {
-        thongTin.add(Regex.kiemTraID("RO"));
-        thongTin.add(Regex.kiemTraTenDichVu("Room"));
-        addNewInfoService();
-        thongTin.add(Regex.kiemTraDichVuDiKem());
-        DocGhiFileCSV.ghiFile("Room", thongTin);
-        thongTin.clear();
-    }
-
-    public static void addNewCusTomer() {
-        thongTin.add(Regex.kiemTraTen());
-//        thongTin.add(Regex.kiemTraNgaySinh());
-//        thongTin.add(Regex.kiemTraGioiTinh());
-//        thongTin.add(Regex.kiemTraCMND());
-//        System.out.print("Nhập số điện thoại : ");
-//        thongTin.add(scanner.nextLine());
-//        thongTin.add(Regex.kiemTraEmail());
-//        System.out.print("Nhập loại khách : ");
-//        thongTin.add(scanner.nextLine());
-//        System.out.print("Nhập địa chỉ : ");
-//        thongTin.add(scanner.nextLine());
-        thongTin.clear();
-    }
 }

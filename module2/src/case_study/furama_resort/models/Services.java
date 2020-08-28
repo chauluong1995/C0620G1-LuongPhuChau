@@ -68,7 +68,7 @@ public abstract class Services {
         this.kieuThue = kieuThue;
     }
 
-    public abstract void showInfor();
+    public abstract String showInfor();
 
     @Override
     public String toString() {

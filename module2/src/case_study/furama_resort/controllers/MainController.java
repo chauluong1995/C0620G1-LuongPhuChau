@@ -1,5 +1,6 @@
 package case_study.furama_resort.controllers;
 
+import case_study.furama_resort.libs.NameException;
 import case_study.furama_resort.models.House;
 import case_study.furama_resort.models.Room;
 import case_study.furama_resort.models.Villa;
@@ -40,10 +41,12 @@ public class MainController {
                     case 2:
                         showServices();
                         break;
-//                    case 3:
-//                        break;
-//                    case 4:
-//                        break;
+                    case 3:
+                        addNewCusTomer();
+                        break;
+                    case 4:
+                        showInformationCustomers();
+                        break;
 //                    case 5:
 //                        break;
 //                    case 6:
@@ -92,23 +95,23 @@ public class MainController {
     }
 
     public static void addNewInfoService() {
-        thongTin.add(nhapDienTichSuDung());
-        thongTin.add(nhapChiPhiThue());
-        thongTin.add(soLuongNguoiToiDa());
+        thongTin.add(kiemTraDienTich("sử dụng"));
+        thongTin.add(kiemTraChiPhiThue());
+        thongTin.add(kiemTraSoLuongNguoiToiDa());
         System.out.print("Nhập kiểu thuê : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
     }
 
     public static void addNewVilla() throws IOException {
-        thongTin.add(nhapID("VL"));
-        thongTin.add(nhapTenDichVu("Villa"));
+        thongTin.add(kiemTraID("VL"));
+        thongTin.add(kiemTraTenDichVu("Villa"));
         addNewInfoService();
         System.out.print("Nhập tiêu chuẩn phòng : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
         System.out.print("Nhập mô tả tiện nghi khác : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
-        thongTin.add(nhapDienTichHoBoi());
-        thongTin.add(soTang());
+        thongTin.add(kiemTraDienTich("hồ bơi"));
+        thongTin.add(kiemTraSoTang());
         DocGhiFileCSV.ghiFile("Villa", thongTin);
         thongTin.clear();
     }
@@ -134,23 +137,23 @@ public class MainController {
 //    }
 
     public static void addNewHouse() throws IOException {
-        thongTin.add(nhapID("HO"));
-        thongTin.add(nhapTenDichVu("House"));
+        thongTin.add(kiemTraID("HO"));
+        thongTin.add(kiemTraTenDichVu("House"));
         addNewInfoService();
         System.out.print("Nhập tiêu chuẩn phòng : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
         System.out.print("Nhập mô tả tiện nghi khác : ");
         thongTin.add(chuanHoaDuLieu(scanner.nextLine()));
-        thongTin.add(soTang());
+        thongTin.add(kiemTraSoTang());
         DocGhiFileCSV.ghiFile("House", thongTin);
         thongTin.clear();
     }
 
     public static void addNewRoom() throws IOException {
-        thongTin.add(nhapID("RO"));
-        thongTin.add(nhapTenDichVu("Room"));
+        thongTin.add(kiemTraID("RO"));
+        thongTin.add(kiemTraTenDichVu("Room"));
         addNewInfoService();
-        thongTin.add(dichVuDiKem());
+        thongTin.add(kiemTraDichVuDiKem());
         DocGhiFileCSV.ghiFile("Room", thongTin);
         thongTin.clear();
     }
@@ -239,15 +242,14 @@ public class MainController {
 
     }
 
-    public static String nhapID(String loaiDichVu) {
+    public static String kiemTraID(String loaiDichVu) {
         final String ID_REGEX = "^SV" + loaiDichVu + "-\\d{4}$";
         String id;
-        Matcher matcher;
         do {
             Pattern pattern = Pattern.compile(ID_REGEX);
             System.out.print("Nhập id : ");
             id = scanner.nextLine();
-            matcher = pattern.matcher(id);
+            Matcher matcher = pattern.matcher(id);
             if (matcher.matches()) break;
             else {
                 System.out.println("ID không hợp lệ ! Định dạng ID hợp lệ : SVXX-YYYY\nVới YYYY là các số từ 0-9\nVà XX là :" +
@@ -259,7 +261,7 @@ public class MainController {
         return id;
     }
 
-    public static String nhapTenDichVu(String tenDungCuaDichVu) {
+    public static String kiemTraTenDichVu(String tenDungCuaDichVu) {
         String nhapTen;
         do {
             System.out.print("Nhập tên dịch vụ : ");
@@ -271,29 +273,29 @@ public class MainController {
         return nhapTen;
     }
 
-    public static String nhapDienTichSuDung() {
-        String dienTichSuDung;
+//    public static String kiemTraDienTichSuDung() {
+//        String dienTichSuDung;
+//        do {
+//            System.out.print("Nhập diện tích sử dụng : ");
+//            dienTichSuDung = scanner.nextLine();
+//            if (kiemTraNhapSoThuc(dienTichSuDung) && Float.parseFloat(dienTichSuDung) > 30) break;
+//            else System.out.println("Diện tích sử dụng phải là số thực lớn hơn 30 !");
+//        } while (true);
+//        return dienTichSuDung;
+//    }
+
+    public static String kiemTraDienTich(String loaiDienTich) {
+        String dienTich;
         do {
-            System.out.print("Nhập diện tích sử dụng : ");
-            dienTichSuDung = scanner.nextLine();
-            if (kiemTraNhapSoThuc(dienTichSuDung) && Float.parseFloat(dienTichSuDung) > 30) break;
-            else System.out.println("Diện tích sử dụng phải là số thực lớn hơn 30 !");
+            System.out.print("Nhập diện tích " + loaiDienTich + " : ");
+            dienTich = scanner.nextLine();
+            if (kiemTraNhapSoThuc(dienTich) && Float.parseFloat(dienTich) > 30) break;
+            else System.out.println("Diện tích" + loaiDienTich + " phải là số thực lớn hơn 30 !");
         } while (true);
-        return dienTichSuDung;
+        return dienTich;
     }
 
-    public static String nhapDienTichHoBoi() {
-        String dienTichHoBoi;
-        do {
-            System.out.print("Nhập diện tích hồ bơi : ");
-            dienTichHoBoi = scanner.nextLine();
-            if (kiemTraNhapSoThuc(dienTichHoBoi) && Float.parseFloat(dienTichHoBoi) > 30) break;
-            else System.out.println("Diện tích hồ bơi phải là số thực lớn hơn 30 !");
-        } while (true);
-        return dienTichHoBoi;
-    }
-
-    public static String nhapChiPhiThue() {
+    public static String kiemTraChiPhiThue() {
         String chiPhiThue;
         do {
             System.out.print("Nhập chi phí thuê : ");
@@ -304,7 +306,7 @@ public class MainController {
         return chiPhiThue;
     }
 
-    public static String soLuongNguoiToiDa() {
+    public static String kiemTraSoLuongNguoiToiDa() {
         String soLuongNguoiToiDa;
         do {
             System.out.print("Nhập số lượng người tối đa : ");
@@ -316,7 +318,7 @@ public class MainController {
         return soLuongNguoiToiDa;
     }
 
-    public static String dichVuDiKem() {
+    public static String kiemTraDichVuDiKem() {
         String dichVuDiKem;
         do {
             System.out.print("Nhập dịch vụ miễn phí đi kèm : ");
@@ -327,7 +329,7 @@ public class MainController {
         return dichVuDiKem;
     }
 
-    public static String soTang() {
+    public static String kiemTraSoTang() {
         String soTang;
         do {
             System.out.print("Nhập số tầng : ");
@@ -349,6 +351,78 @@ public class MainController {
     }
 
     public static boolean kiemTraNhapSoThuc(String nhap) {
-        return nhap.matches("\\d+(\\.\\d+)?");
+        return nhap.matches("\\d+([.]\\d+)?");
+    }
+
+    public static void addNewCusTomer() {
+        thongTin.add(kiemTraTen());
+    }
+
+    public static void showInformationCustomers() {
+
+    }
+
+    public static String kiemTraTen() {
+        String ten;
+        do {
+            try {
+                System.out.print("Nhập họ và tên : ");
+                System.out.flush();
+                ten = scanner.nextLine();
+                if (ten.matches("^[A-Z]([a-z]+)?(\\s[A-Z]([a-z]+)?)?")) break;
+                else throw new NameException();
+            } catch (NameException e){
+                System.err.println("Lỗi : Tên khách hàng phải in hoa ký tự đầu tiên của mỗi từ và không có khoảng trắng dư thừa !");
+                System.err.flush();
+            }
+        } while (true);
+        return ten;
+    }
+
+    public static String kiemTraEmail() {
+        String email;
+        do {
+            System.out.print("Nhập email : ");
+            email = scanner.nextLine();
+            if (email.matches("^\\w+[@]\\w{3,7}[.]\\w{2,3}$")) break;
+            else System.out.println("Email phải đúng định dạng abc@abc.abc !");
+        } while (true);
+        return email;
+    }
+
+    public static String kiemTraGioiTinh() {
+        String gioiTinh;
+        do {
+            System.out.print("Nhập giới tính : ");
+            gioiTinh = scanner.nextLine();
+            gioiTinh = gioiTinh.toLowerCase();
+            gioiTinh = Character.toUpperCase(gioiTinh.charAt(0)) + gioiTinh.substring(1);
+            if (gioiTinh.equals("Male") || gioiTinh.equals("Female") || gioiTinh.equals("Unknow")) break;
+            else System.out.println("Giới tính bạn nhập không hợp lệ !");
+        } while (true);
+        return gioiTinh;
+    }
+
+    public static String kiemTraCMND() {
+        String cmnd;
+        do {
+            System.out.print("Nhập số chứng minh nhân dân : ");
+            cmnd = scanner.nextLine();
+            if (cmnd.matches("^(\\d{3}\\s){2}\\d{3}$")) break;
+            else System.out.println("CMND phải có 9 chữ số và theo định dạng XXX XXX XXX !");
+        } while (true);
+        return cmnd;
+    }
+
+    public static String kiemTraNgaySinh() {
+        String ngaySinh;
+        do {
+            System.out.print("Nhập ngày tháng năm sinh : ");
+            ngaySinh = scanner.nextLine();
+            if (ngaySinh.matches("^((0[1-9])|([1-2]\\d)|(3[0-1]))[/]((0[1-9])|(1[0-2]))[/]((19\\d{2})|(200[0-2]))$"))
+                break;
+            else System.out.println("Năm sinh phải > 1900 và nhỏ hơn năm hiện tại 18 năm, đúng định dạng dd/mm/yyyy !");
+        } while (true);
+        return ngaySinh;
     }
 }

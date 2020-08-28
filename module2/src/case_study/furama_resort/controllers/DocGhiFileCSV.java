@@ -5,10 +5,7 @@ import case_study.furama_resort.models.Room;
 import case_study.furama_resort.models.Services;
 import case_study.furama_resort.models.Villa;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,19 +25,20 @@ public class DocGhiFileCSV {
 
     public static void ghiFile(String tenFile, List<String> thongTin) throws IOException {
         kiemTraDichVu(tenFile);
-        FileWriter fileWriter = null;
+        FileWriter fileWriter = new FileWriter(path, true);
+        BufferedWriter bf = new BufferedWriter(fileWriter);
         try {
-            fileWriter = new FileWriter(path, true);
-            fileWriter.append(NEW_LINE_SEPARATOR);
+            bf.append(NEW_LINE_SEPARATOR);
             for (int i = 0; i < thongTin.size(); i++) {
-                fileWriter.append(thongTin.get(i));
+                bf.append(thongTin.get(i));
                 if (i == thongTin.size() - 1) break;
-                fileWriter.append(COMMA_DELIMITER);
+                bf.append(COMMA_DELIMITER);
             }
+            bf.flush();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            assert fileWriter != null;
+            bf.close();
             fileWriter.close();
         }
     }
@@ -48,24 +46,25 @@ public class DocGhiFileCSV {
     public static List docFile(String tenFile) throws IOException {
         List list = new ArrayList();
         kiemTraDichVu(tenFile);
-        BufferedReader br = null;
+        BufferedReader br = new BufferedReader(new FileReader(path));
         try {
-            br = new BufferedReader(new FileReader(path));
             Services services = null;
             String[] temp;
             String line = br.readLine();
             while ((line = br.readLine()) != null) {
                 temp = line.split(",");
-                if (tenFile.equals("Villa")) services = new Villa(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],temp[8],temp[9]);
-                if (tenFile.equals("House")) services = new House(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],temp[8]);
-                if (tenFile.equals("Room")) services = new Room(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]);
+                if (tenFile.equals("Villa"))
+                    services = new Villa(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
+                if (tenFile.equals("House"))
+                    services = new House(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
+                if (tenFile.equals("Room"))
+                    services = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
                 list.add(services);
             }
             return list;
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
             br.close();
         }
         return list;

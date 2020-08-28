@@ -1,4 +1,4 @@
-package case_study.furama_resort.controllers;
+package case_study.furama_resort.commons;
 
 import case_study.furama_resort.models.House;
 import case_study.furama_resort.models.Room;

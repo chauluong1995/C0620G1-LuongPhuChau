@@ -98,7 +98,9 @@ public class Customer {
     }
 
     public String showInfo() {
-        return "Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "
-                + soDienThoai + " , email : " + email + " , loại khách : " + loaiKhach + " , địa chỉ : " + diaChi + " , dịch vụ : " + dichVu;
+        if (dichVu == null){
+            return "Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "
+                    + soDienThoai + " , email : " + email + " , loại khách : " + loaiKhach + " , địa chỉ : " + diaChi;
+        } else return "";
     }
 }

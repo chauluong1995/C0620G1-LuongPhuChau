@@ -1,4 +1,4 @@
-package case_study.demo;
+package behavioral_design_pattern.bai_tap;
 
 import java.io.*;
 import java.util.ArrayList;

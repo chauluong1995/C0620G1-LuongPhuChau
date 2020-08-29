@@ -91,7 +91,7 @@ public class Regex {
             System.out.print("Nhập dịch vụ miễn phí đi kèm : ");
             dichVuDiKem = scanner.nextLine();
             if (dichVuDiKem.matches("^massage$|^karaoke$|^food$|^drink$|^car$")) break;
-            // ^(massage|karaoke|food|drink|car)([,](massage|karaoke|food|drink|car)){0,4}$
+                // ^(massage|karaoke|food|drink|car)([,](massage|karaoke|food|drink|car)){0,4}$
             else System.out.println("Dịch vụ đi kèm phải là 1 trong các giá trị: massage, karaoke, food, drink, car !");
         } while (true);
         return dichVuDiKem;
@@ -129,7 +129,8 @@ public class Regex {
                 System.out.print("Nhập họ và tên : ");
                 //System.out.flush();
                 ten = scanner.nextLine();
-                if (ten.matches("^[A-Z]([a-z]*)(\\s[A-Z]([a-z]*))*")) break;
+                // if (ten.matches("^[A-Z]([a-z]*)(\\s[A-Z]([a-z]*))*")) break;
+                if (ten.matches("^\\p{Lu}((\\p{Ll})*)(\\s\\p{Lu}(\\p{Ll})*)*$")) break;
                 else throw new NameException();
             } catch (NameException n) {
                 //System.err.println("Lỗi : Tên khách hàng phải in hoa ký tự đầu tiên của mỗi từ và không có khoảng trắng dư thừa !");
@@ -146,7 +147,7 @@ public class Regex {
             try {
                 System.out.print("Nhập email : ");
                 email = scanner.nextLine();
-                if (email.matches("^\\w+[@]\\w{3,7}[.]\\w{2,3}$")) break;
+                if (email.matches("^\\w+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$")) break;
                 else throw new EmailException();
             } catch (EmailException e) {
                 System.out.println("Email phải đúng định dạng abc@abc.abc !");

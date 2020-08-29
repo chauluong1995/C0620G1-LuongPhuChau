@@ -1,6 +1,7 @@
 package case_study.furama_resort.controllers;
 
 import case_study.furama_resort.commons.Add;
+import case_study.furama_resort.commons.Booking;
 import case_study.furama_resort.commons.Regex;
 import case_study.furama_resort.views.Show;
 
@@ -40,8 +41,9 @@ public class MainController {
                     case 4:
                         Show.showInformationCustomers();
                         break;
-//                    case 5:
-//                        break;
+                    case 5:
+                        addNewBooking();
+                        break;
 //                    case 6:
 //                        break;
                     case 7:
@@ -88,7 +90,6 @@ public class MainController {
     }
 
 
-
     public static void showServices() throws IOException {
         int luaChon;
         do {
@@ -121,6 +122,39 @@ public class MainController {
                         displayMainMenu();
                         break;
                     case 8:
+                        System.exit(0);
+                    default:
+                        System.out.println("Lựa chọn không tồn tại !");
+                }
+            } else {
+                System.out.println("Lựa chọn không hợp lệ !");
+            }
+        } while (true);
+    }
+
+    public static void addNewBooking() throws IOException {
+        Show.showInformationCustomers();
+        int luaChon;
+        do {
+            System.out.println("Menu : \n1. Booking Villa\n2. Booking House\n3. Booking Room\n4. Back to Menu\n5. Exit");
+            System.out.print("Chọn thao tác muốn thực hiện : ");
+            String nhapLuaChon = scanner.nextLine();
+            if (Regex.kiemTraNhapSoNguyen(nhapLuaChon)) {
+                luaChon = Integer.parseInt(nhapLuaChon);
+                switch (luaChon) {
+                    case 1:
+                        Booking.bookingVilla();
+                        break;
+                    case 2:
+                        Booking.bookingHouse();
+                        break;
+                    case 3:
+                        Booking.bookingRoom();
+                        break;
+                    case 4:
+                        displayMainMenu();
+                        break;
+                    case 5:
                         System.exit(0);
                     default:
                         System.out.println("Lựa chọn không tồn tại !");

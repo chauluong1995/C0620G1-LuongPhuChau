@@ -62,6 +62,7 @@ public class Show {
 
     public static void showInformationCustomers() throws IOException {
         List<Customer> list = DocGhiFileCSV.docFileCustomer();
+        list.sort(new SapXepCustomer());
         for (Customer element : list) {
             bienDem++;
             System.out.println("Customer " + bienDem + element.showInfo());

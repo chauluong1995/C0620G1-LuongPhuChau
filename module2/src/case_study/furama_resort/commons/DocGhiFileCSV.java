@@ -16,6 +16,7 @@ public class DocGhiFileCSV {
         if (tenFile.equals("House")) path = "src/case_study/furama_resort/data/House.csv";
         if (tenFile.equals("Room")) path = "src/case_study/furama_resort/data/Room.csv";
         if (tenFile.equals("Customer")) path = "src/case_study/furama_resort/data/Customer.csv";
+        if (tenFile.equals("Booking")) path = "src/case_study/furama_resort/data/Booking.csv";
     }
 
     public static void ghiFile(String tenFile, List<String> thongTin) throws IOException {

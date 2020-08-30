@@ -21,31 +21,43 @@ public class Show {
 //        bienDem = 0;
 //    }
 
-    public static void showAllVilla() throws IOException {
+    public static List<Villa> showAllVilla() throws IOException {
+        bienDem = 0;
         List<Villa> list = DocGhiFileCSV.docFileVilla();
-        for (Villa element : list) {
-            bienDem++;
-            System.out.println("Villa " + bienDem + element.showInfor());
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có Villa nào !");
+        else {
+            for (Villa element : list) {
+                bienDem++;
+                System.out.println(bienDem + " : Villa " + bienDem + element.showInfor());
+            }
         }
-        bienDem = 0;
+        return list;
     }
 
-    public static void showAllHouse() throws IOException {
+    public static List<House> showAllHouse() throws IOException {
+        bienDem = 0;
         List<House> list = DocGhiFileCSV.docFileHouse();
-        for (House element : list) {
-            bienDem++;
-            System.out.println("House " + bienDem + element.showInfor());
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có House nào !");
+        else {
+            for (House element : list) {
+                bienDem++;
+                System.out.println(bienDem + " : House " + bienDem + element.showInfor());
+            }
         }
-        bienDem = 0;
+        return list;
     }
 
-    public static void showAllRoom() throws IOException {
-        List<Room> list = DocGhiFileCSV.docFileRoom();
-        for (Room element : list) {
-            bienDem++;
-            System.out.println("Room " + bienDem + element.showInfor());
-        }
+    public static List<Room> showAllRoom() throws IOException {
         bienDem = 0;
+        List<Room> list = DocGhiFileCSV.docFileRoom();
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có Room nào !");
+        else {
+            for (Room element : list) {
+                bienDem++;
+                System.out.println(bienDem + " : Room " + bienDem + element.showInfor());
+            }
+        }
+        return list;
     }
 
     public static void showAllNameVillaNotDuplicate() {
@@ -60,13 +72,17 @@ public class Show {
 
     }
 
-    public static void showInformationCustomers() throws IOException {
-        List<Customer> list = DocGhiFileCSV.docFileCustomer();
-        list.sort(new SapXepCustomer());
-        for (Customer element : list) {
-            bienDem++;
-            System.out.println("Customer " + bienDem + element.showInfo());
-        }
+    public static List<Customer> showInformationCustomers() throws IOException {
         bienDem = 0;
+        List<Customer> list = DocGhiFileCSV.docFileCustomer();
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có Customer nào !");
+        else {
+            list.sort(new SapXepCustomer());
+            for (Customer element : list) {
+                bienDem++;
+                System.out.println(bienDem + " : Customer " + bienDem + element.showInfo());
+            }
+        }
+        return list;
     }
 }

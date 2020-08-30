@@ -33,23 +33,19 @@ public class Regex {
         do {
             System.out.print("Nhập tên dịch vụ : ");
             nhapTen = scanner.nextLine();
-            if (nhapTen.equals(tenDungCuaDichVu)) break;
-            else
-                System.out.println("Tên dịch vụ không hợp lệ !\nNếu Villa thì sẽ là Villa\nNếu House thì sẽ là House\nNếu Room thì sẽ là Room");
+            if (tenDungCuaDichVu.equals("Villa")) {
+                if (nhapTen.matches("^(Villa)(\\s(\\w)+)+$")) break;
+            }
+            if (tenDungCuaDichVu.equals("House")) {
+                if (nhapTen.matches("^(House)(\\s(\\w)+)+$")) break;
+            }
+            if (tenDungCuaDichVu.equals("Room")) {
+                if (nhapTen.matches("^(Room)(\\s(\\w)+)+$")) break;
+            }
+            System.out.println("Tên dịch vụ không hợp lệ !");
         } while (true);
         return nhapTen;
     }
-
-//    public static String kiemTraDienTichSuDung() {
-//        String dienTichSuDung;
-//        do {
-//            System.out.print("Nhập diện tích sử dụng : ");
-//            dienTichSuDung = scanner.nextLine();
-//            if (kiemTraNhapSoThuc(dienTichSuDung) && Float.parseFloat(dienTichSuDung) > 30) break;
-//            else System.out.println("Diện tích sử dụng phải là số thực lớn hơn 30 !");
-//        } while (true);
-//        return dienTichSuDung;
-//    }
 
     public static String kiemTraDienTich(String loaiDienTich) {
         String dienTich;
@@ -90,7 +86,7 @@ public class Regex {
         do {
             System.out.print("Nhập dịch vụ miễn phí đi kèm : ");
             dichVuDiKem = scanner.nextLine();
-            if (dichVuDiKem.matches("^massage$|^karaoke$|^food$|^drink$|^car$")) break;
+            if (dichVuDiKem.matches("^(massage)|(karaoke)|(food)|(drink)|(car)$")) break;
                 // ^(massage|karaoke|food|drink|car)([,](massage|karaoke|food|drink|car)){0,4}$
             else System.out.println("Dịch vụ đi kèm phải là 1 trong các giá trị: massage, karaoke, food, drink, car !");
         } while (true);
@@ -162,12 +158,13 @@ public class Regex {
             try {
                 System.out.print("Nhập giới tính : ");
                 gioiTinh = scanner.nextLine();
-                gioiTinh = gioiTinh.toLowerCase();
-                gioiTinh = Character.toUpperCase(gioiTinh.charAt(0)) + gioiTinh.substring(1);
-                if (gioiTinh.equals("Male") || gioiTinh.equals("Female") || gioiTinh.equals("Unknow")) break;
-                else throw new GenderException();
+                if (gioiTinh.matches("^([Mm][Aa][Ll][Ee])|([Ff][Ee][Mm][Aa][Ll][Ee])|([Uu][Nn][Kk][Nn][Oo][Ww])$")) {
+                    gioiTinh = gioiTinh.toLowerCase();
+                    gioiTinh = Character.toUpperCase(gioiTinh.charAt(0)) + gioiTinh.substring(1);
+                    break;
+                } else throw new GenderException();
             } catch (GenderException g) {
-                System.out.println("Giới tính bạn nhập không hợp lệ !");
+                System.out.println("Giới tính bạn nhập không hợp lệ ! Giới tính phải là Male hoặc Female hoặc Unknow !");
             }
         } while (true);
         return gioiTinh;

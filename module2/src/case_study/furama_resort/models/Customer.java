@@ -1,6 +1,8 @@
 package case_study.furama_resort.models;
 
-public class Customer {
+import case_study.furama_resort.commons.Information;
+
+public class Customer implements Information {
     private String hoTen;
     private String ngaySinh;
     private String gioiTinh;
@@ -97,7 +99,7 @@ public class Customer {
         this.dichVu = dichVu;
     }
 
-    public String showInfo() {
+    public String showInfor() {
         if (dichVu == null) {
             return " = Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "
                     + soDienThoai + " , email : " + email + " , loại khách : " + loaiKhach + " , địa chỉ : " + diaChi;

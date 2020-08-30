@@ -1,6 +1,8 @@
 package case_study.furama_resort.models;
 
-public abstract class Services {
+import case_study.furama_resort.commons.Information;
+
+public abstract class Services implements Information {
     private String id;
     private String tenDichVu;
     private String dienTichSuDung;

@@ -8,6 +8,7 @@ import case_study.furama_resort.models.Villa;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Show {
     public static int bienDem = 0;
@@ -60,16 +61,46 @@ public class Show {
         return list;
     }
 
-    public static void showAllNameVillaNotDuplicate() {
-
+    public static void showAllNameVillaNotDuplicate() throws IOException {
+        List<Villa> list = DocGhiFileCSV.docFileVilla();
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có Villa nào !");
+        else {
+            TreeSet<String> treeSet = new TreeSet<>();
+//            TreeSet<String> treeSet = new TreeSet<>(new Comparator<>() {
+//                @Override
+//                public int compare(String s1, String s2) {
+//                    return s2.compareTo(s1);
+//                }
+//            });
+            for (Villa villa : list) {
+                treeSet.add(villa.getTenDichVu());
+            }
+            System.out.println(treeSet);
+        }
     }
 
-    public static void showAllNameHouseNotDuplicate() {
-
+    public static void showAllNameHouseNotDuplicate() throws IOException {
+        List<House> list = DocGhiFileCSV.docFileHouse();
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có House nào !");
+        else {
+            TreeSet<String> treeSet = new TreeSet<>();
+            for (House house : list) {
+                treeSet.add(house.getTenDichVu());
+            }
+            System.out.println(treeSet);
+        }
     }
 
-    public static void showAllNameRoomNotDuplicate() {
-
+    public static void showAllNameRoomNotDuplicate() throws IOException {
+        List<Room> list = DocGhiFileCSV.docFileRoom();
+        if (list.isEmpty()) System.out.println("Hiện tại chưa có Room nào !");
+        else {
+            TreeSet<String> treeSet = new TreeSet<>();
+            for (Room room : list) {
+                treeSet.add(room.getTenDichVu());
+            }
+            System.out.println(treeSet);
+        }
     }
 
     public static List<Customer> showInformationCustomers() throws IOException {
@@ -80,9 +111,13 @@ public class Show {
             list.sort(new SapXepCustomer());
             for (Customer element : list) {
                 bienDem++;
-                System.out.println(bienDem + " : Customer " + bienDem + element.showInfo());
+                System.out.println(bienDem + " : Customer " + bienDem + element.showInfor());
             }
         }
         return list;
+    }
+
+    public static void showInformationOfEmployee() {
+
     }
 }

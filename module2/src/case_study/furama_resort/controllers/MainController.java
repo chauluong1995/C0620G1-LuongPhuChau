@@ -16,6 +16,7 @@ public class MainController {
 
     public static void main(String[] args) {
         try {
+            //DocGhiFileCSV.lamMoiFile("Villa");
             displayMainMenu();
         } catch (IOException e) {
             e.printStackTrace();
@@ -47,8 +48,9 @@ public class MainController {
                     case 5:
                         addNewBooking();
                         break;
-//                    case 6:
-//                        break;
+                    case 6:
+                        Show.showInformationOfEmployee();
+                        break;
                     case 7:
                         System.exit(0);
                     default:
@@ -114,12 +116,15 @@ public class MainController {
                         break;
                     case 4:
                         Show.showAllNameVillaNotDuplicate();
+                        displayMainMenu();
                         break;
                     case 5:
                         Show.showAllNameHouseNotDuplicate();
+                        displayMainMenu();
                         break;
                     case 6:
                         Show.showAllNameRoomNotDuplicate();
+                        displayMainMenu();
                         break;
                     case 7:
                         displayMainMenu();
@@ -160,17 +165,17 @@ public class MainController {
                     luaChon = Integer.parseInt(nhapLuaChon);
                     switch (luaChon) {
                         case 1:
-                            if (Booking.bookingVilla(customer)){
+                            if (Booking.bookingVilla(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
                             }
                             break;
                         case 2:
-                            if (Booking.bookingHouse(customer)){
+                            if (Booking.bookingHouse(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
                             }
                             break;
                         case 3:
-                            if (Booking.bookingRoom(customer)){
+                            if (Booking.bookingRoom(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
                             }
                             break;

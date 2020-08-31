@@ -152,14 +152,14 @@ public class Show {
         TuHoSo tuHoSo = new TuHoSo();
         Scanner scanner = new Scanner(System.in);
         boolean xacNhan = true;
-        System.out.print("Nhập tên nhân viên bạn muốn tìm hồ sơ : ");
-        String ten = scanner.nextLine();
-        while (!tuHoSo.employeeStack.empty()){
+        System.out.print("Nhập mã số nhân viên bạn muốn tìm hồ sơ : ");
+        String maSo = scanner.nextLine();
+        while (!tuHoSo.employeeStack.empty()) {
             Employee employee = tuHoSo.employeeStack.pop();
-            if (ten.equals(employee.getHoTen())) {
+            if (maSo.equals(employee.getMaSoNhanVien())) {
                 xacNhan = false;
                 System.out.println("Hồ sơ nhân viên cần tìm là :" + employee);
-                //break;
+                break;
             }
         }
         if (xacNhan) System.out.println("Nhân viên bạn tìm không có trong hệ thống !");

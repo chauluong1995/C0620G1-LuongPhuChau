@@ -175,16 +175,19 @@ public class MainController {
                             if (Booking.bookingVilla(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
                             }
+                            displayMainMenu();
                             break;
                         case 2:
                             if (Booking.bookingHouse(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
                             }
+                            displayMainMenu();
                             break;
                         case 3:
                             if (Booking.bookingRoom(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
                             }
+                            displayMainMenu();
                             break;
                         case 4:
                             displayMainMenu();

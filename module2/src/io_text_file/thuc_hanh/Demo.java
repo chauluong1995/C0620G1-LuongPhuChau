@@ -1,6 +1,7 @@
 package io_text_file.thuc_hanh;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Demo {
@@ -30,13 +31,14 @@ public class Demo {
                     case 2:
                         break;
                     case 3:
+                        xoaSanPham();
                         break;
                     case 4:
-                        break;
+                        //break;
                     case 5:
                         break;
                     case 6:
-                        break;
+                        //break;
                     case 7:
                         System.exit(0);
                     default:
@@ -71,5 +73,10 @@ public class Demo {
                 }
             } else System.out.println("Lựa chọn không hợp lệ !");
         } while (true);
+    }
+
+    public static void xoaSanPham() throws IOException {
+        List<SanPham> list = LuuFileCSV.docFile();
+
     }
 }

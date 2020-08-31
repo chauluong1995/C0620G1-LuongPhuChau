@@ -99,6 +99,7 @@ public class Customer implements Information {
         this.dichVu = dichVu;
     }
 
+    @Override
     public String showInfor() {
         if (dichVu == null) {
             return " = Họ tên : " + hoTen + " , ngày sinh : " + ngaySinh + " , giới tính : " + gioiTinh + " , CMND : " + cmnd + " , số điện thoại : "

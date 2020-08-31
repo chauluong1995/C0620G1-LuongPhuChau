@@ -188,6 +188,29 @@ public class DocGhiFileCSV {
         return list;
     }
 
+    public static List<Employee> docFileEmployee() throws IOException {
+        List<Employee> list = new ArrayList<>();
+        BufferedReader br = null;
+        try {
+            FileReader fileReader = new FileReader("src/case_study/furama_resort/data/Employee.csv");
+            br = new BufferedReader(fileReader);
+            Employee employee;
+            String[] temp;
+            String line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                temp = line.split(DAU_PHAY);
+                employee = new Employee(temp[0], temp[1], temp[2], temp[3]);
+                list.add(employee);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            assert br != null;
+            br.close();
+        }
+        return list;
+    }
+
 //        public static List docFile(String tenFile) throws IOException {
 //        List list = new ArrayList();
 //        kiemTraDichVu(tenFile);

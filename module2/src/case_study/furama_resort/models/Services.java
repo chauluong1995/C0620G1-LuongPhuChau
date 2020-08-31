@@ -70,6 +70,7 @@ public abstract class Services implements Information {
         this.kieuThue = kieuThue;
     }
 
+    @Override
     public abstract String showInfor();
 
     @Override

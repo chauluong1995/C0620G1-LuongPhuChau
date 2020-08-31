@@ -27,7 +27,8 @@ public class MainController {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Add New Services\n2. Show Services\n3. Add New Customer" +
-                    "\n4. Show Information of Customer\n5. Add New Booking\n6. Show Information of Employee\n7. Exit");
+                    "\n4. Show Information of Customer\n5. Add New Booking\n6. Show Information of Employee" +
+                    "\n7. Buy Movie Tickets\n8. Find Information Employee \n9. Exit");
             System.out.print("Chọn thao tác muốn thực hiện : ");
             String nhapLuaChon = scanner.nextLine();
             if (Regex.kiemTraNhapSoNguyen(nhapLuaChon)) {
@@ -52,6 +53,12 @@ public class MainController {
                         Show.showInformationOfEmployee();
                         break;
                     case 7:
+                        Booking.buyMovieTickets();
+                        break;
+                    case 8:
+                        Show.findInformationEmployee();
+                        break;
+                    case 9:
                         System.exit(0);
                     default:
                         System.out.println("Lựa chọn không tồn tại !");

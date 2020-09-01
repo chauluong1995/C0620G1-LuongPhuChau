@@ -24,9 +24,9 @@ public class MainController {
 
         int luaChon;
         do {
-            System.out.println("Menu : \n1. Add New Services\n2. Show Services\n3. Add New Customer" +
+            System.out.println("==========================================\nMenu : \n1. Add New Services\n2. Show Services\n3. Add New Customer" +
                     "\n4. Show Information of Customer\n5. Add New Booking\n6. Show Information of Employee" +
-                    "\n7. Buy Movie Tickets\n8. Find Information Employee \n9. Exit");
+                    "\n7. Buy Movie Tickets\n8. Find Information Employee \n9. Exit\n==========================================");
             System.out.print("Chọn thao tác muốn thực hiện : ");
             String nhapLuaChon = scanner.nextLine();
             if (Regex.kiemTraNhapSoNguyen(nhapLuaChon)) {
@@ -70,7 +70,8 @@ public class MainController {
     public static void addNewServices() {
         int luaChon;
         do {
-            System.out.println("Menu : \n1. Add New Villa\n2. Add New House\n3. Add New Room\n4. Back to Menu\n5. Exit");
+            System.out.println("==========================================\nMenu : \n1. Add New Villa\n2. Add New House\n3. Add New Room" +
+                    "\n4. Back to Menu\n5. Exit\n==========================================");
             System.out.print("Chọn thao tác muốn thực hiện : ");
             String nhapLuaChon = scanner.nextLine();
             if (Regex.kiemTraNhapSoNguyen(nhapLuaChon)) {
@@ -102,8 +103,9 @@ public class MainController {
     public static void showServices() {
         int luaChon;
         do {
-            System.out.println("Menu : \n1. Show all Villa\n2. Show all House\n3. Show all Room\n4. Show All Name Villa Not Duplicate" +
-                    "\n5. Show All Name House Not Duplicate\n6. Show All Name Room Not Duplicate\n7. Back to menu\n8. Exit");
+            System.out.println("==========================================\nMenu : \n1. Show all Villa\n2. Show all House\n3. Show all Room" +
+                    "\n4. Show All Name Villa Not Duplicate" + "\n5. Show All Name House Not Duplicate\n6. Show All Name Room Not Duplicate" +
+                    "\n7. Back to menu\n8. Exit\n==========================================");
             System.out.print("Chọn thao tác muốn thực hiện : ");
             String nhapLuaChon = scanner.nextLine();
             if (Regex.kiemTraNhapSoNguyen(nhapLuaChon)) {
@@ -162,7 +164,8 @@ public class MainController {
 
             int luaChon;
             do {
-                System.out.println("Menu : \n1. Booking Villa\n2. Booking House\n3. Booking Room\n4. Back to Menu\n5. Exit");
+                System.out.println("==========================================\nMenu : \n1. Booking Villa\n2. Booking House\n3. Booking Room" +
+                        "\n4. Back to Menu\n5. Exit\n==========================================");
                 System.out.print("Chọn thao tác muốn thực hiện : ");
                 String nhapLuaChon = scanner.nextLine();
                 if (Regex.kiemTraNhapSoNguyen(nhapLuaChon)) {

@@ -143,8 +143,10 @@ public class Show {
             }
             System.out.println("Các Employee hiện tại có trong hệ thống là :");
             //System.out.println(employeeMap);
+            int bienDem = 1;
             for (Map.Entry<String, Employee> employeeEntry : employeeMap.entrySet()) {
-                System.out.println(employeeEntry.toString());
+                System.out.println("Nhân viên " + bienDem + " =" + employeeEntry.getValue());
+                bienDem++;
             }
         } else System.out.println("Hiện tại chưa có nhân viên nào !");
     }

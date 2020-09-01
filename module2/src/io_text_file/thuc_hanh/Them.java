@@ -1,18 +1,24 @@
 package io_text_file.thuc_hanh;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Them {
     public static Scanner scanner = new Scanner(System.in);
-    public static int bienDemID = 1;
 
-    public static void themThongTinSanPham() {
-
+    public static int capNhatBienDem() {
+        int bienDemID;
+        List<SanPham> list = LuuFileCSV.docFile();
+        if (list.isEmpty()) bienDemID = 1;
+        else {
+            int id = list.get(list.size() - 1).getId();
+            bienDemID = id + 1;
+        }
+        return bienDemID;
     }
 
-    public static void themSanPhamNhapKhau() throws IOException {
-        String id = String.valueOf(bienDemID++);
+    public static void themSanPhamNhapKhau() {
+        int id = capNhatBienDem();
         String maSanPham = Regex.kiemTraNhapChu("mã sản phẩm");
         String tenSanPham = Regex.kiemTraNhapChu("tên sản phẩm");
         String giaBanSanPham = Regex.kiemTraNhapSo("giá bán sản phẩm");
@@ -25,8 +31,8 @@ public class Them {
         LuuFileCSV.ghiFile(sanPham);
     }
 
-    public static void themSanPhamXuatKhau() throws IOException {
-        String id = String.valueOf(bienDemID++);
+    public static void themSanPhamXuatKhau() {
+        int id = capNhatBienDem();
         String maSanPham = Regex.kiemTraNhapChu(" mã sản phẩm");
         String tenSanPham = Regex.kiemTraNhapChu("tên sản phẩm");
         String giaBanSanPham = Regex.kiemTraNhapSo("giá bán sản phẩm");

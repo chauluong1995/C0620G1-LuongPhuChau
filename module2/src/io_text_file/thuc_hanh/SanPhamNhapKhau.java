@@ -8,7 +8,7 @@ public class SanPhamNhapKhau extends SanPham {
     public SanPhamNhapKhau() {
     }
 
-    public SanPhamNhapKhau(String id, String maSanPham, String tenSanPham, String giaSanPham, String soLuongSanPham, String nhaSanXuat,
+    public SanPhamNhapKhau(int id, String maSanPham, String tenSanPham, String giaSanPham, String soLuongSanPham, String nhaSanXuat,
                            String giaNhapKhau, String tinhThanhNhap, String thueNhapKhau) {
         super(id, maSanPham, tenSanPham, giaSanPham, soLuongSanPham, nhaSanXuat);
         this.giaNhapKhau = giaNhapKhau;

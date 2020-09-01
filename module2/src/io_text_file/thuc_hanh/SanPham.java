@@ -1,7 +1,7 @@
 package io_text_file.thuc_hanh;
 
 public abstract class SanPham {
-    private String id;
+    private int id;
     private String maSanPham;
     private String tenSanPham;
     private String giaSanPham;
@@ -11,7 +11,7 @@ public abstract class SanPham {
     public SanPham() {
     }
 
-    public SanPham(String id, String maSanPham, String tenSanPham, String giaSanPham, String soLuongSanPham, String nhaSanXuat) {
+    public SanPham(int id, String maSanPham, String tenSanPham, String giaSanPham, String soLuongSanPham, String nhaSanXuat) {
         this.id = id;
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;
@@ -20,11 +20,11 @@ public abstract class SanPham {
         this.nhaSanXuat = nhaSanXuat;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

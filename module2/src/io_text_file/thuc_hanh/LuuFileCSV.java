@@ -8,15 +8,16 @@ public class LuuFileCSV {
     private static final String DAU_PHAY = ",";
     private static final String XUONG_DONG = "\n";
 
-    public static void ghiFile(SanPham sanPham) throws IOException {
+    public static void ghiFile(SanPham sanPham) {
         File file = new File("src/io_text_file/thuc_hanh/products.csv");
+        FileWriter fileWriter = null;
         BufferedWriter bf = null;
         try {
-            FileWriter fileWriter = new FileWriter(file, true);
+            fileWriter = new FileWriter(file, true);
             bf = new BufferedWriter(fileWriter);
 
             StringBuilder stringBuilder = new StringBuilder();
-            if (sanPham instanceof SanPhamNhapKhau){
+            if (sanPham instanceof SanPhamNhapKhau) {
                 stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
                         .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
                         .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
@@ -33,74 +34,71 @@ public class LuuFileCSV {
             bf.write(stringBuilder.toString());
             bf.append(XUONG_DONG);
             bf.flush();
-            fileWriter.close();
+        } catch (FileNotFoundException f) {
+            System.out.println(f.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            assert bf != null;
-            bf.close();
-        }
-    }
-    public static void ghiSanPhamMoi(SanPham sanPham){
-
-    }
-
-    public static void capNhatFile(SanPham sanPham) throws IOException {
-        File file = new File("src/io_text_file/thuc_hanh/products.csv");
-        BufferedWriter bf = null;
-        try {
-            FileWriter fileWriter = new FileWriter(file);
-            bf = new BufferedWriter(fileWriter);
-
-            StringBuilder stringBuilder = new StringBuilder();
-            if (sanPham instanceof SanPhamNhapKhau){
-                stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
-                        .append(((SanPhamNhapKhau) sanPham).getGiaNhapKhau()).append(DAU_PHAY)
-                        .append(((SanPhamNhapKhau) sanPham).getTinhThanhNhap()).append(DAU_PHAY)
-                        .append(((SanPhamNhapKhau) sanPham).getThueNhapKhau());
-            } else {
-                stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
-                        .append(((SanPhamXuatKhau) sanPham).getGiaXuatKhau()).append(DAU_PHAY)
-                        .append(((SanPhamXuatKhau) sanPham).getQuocGiaNhapSanPham());
+            try {
+                if (fileWriter != null) {
+                    if (bf != null) bf.close();
+                    fileWriter.close();
+                }
+            } catch (IOException i) {
+                i.printStackTrace();
             }
-            bf.write(stringBuilder.toString());
-            bf.append(XUONG_DONG);
-            bf.flush();
-            fileWriter.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            assert bf != null;
-            bf.close();
         }
     }
 
-    public static List<SanPham> docFile() throws IOException {
+    public static void capNhatFile(List<SanPham> list) {
+        File file = new File("src/io_text_file/thuc_hanh/products.csv");
+        if (file.delete())
+            System.out.println("Xóa thành công !");
+        try {
+            if (file.createNewFile()) System.out.println("Cập nhật mới file sản phẩm !");
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        for (SanPham sanPham : list) {
+            ghiFile(sanPham);
+        }
+    }
+
+    public static List<SanPham> docFile() {
         List<SanPham> list = new ArrayList<>();
+        FileReader fileReader = null;
         BufferedReader br = null;
         try {
-            FileReader fileReader = new FileReader("src/io_text_file/thuc_hanh/product.csv");
+            fileReader = new FileReader("src/io_text_file/thuc_hanh/products.csv");
             br = new BufferedReader(fileReader);
             SanPham sanPham;
             String[] temp;
             String line;
             while ((line = br.readLine()) != null) {
                 temp = line.split(DAU_PHAY);
-                if (temp.length == 9) sanPham = new SanPhamNhapKhau(temp[0], temp[1], temp[2], temp[3],temp[4], temp[5], temp[6], temp[7],temp[8]);
-                else sanPham = new SanPhamXuatKhau(temp[0], temp[1], temp[2], temp[3],temp[4], temp[5], temp[6], temp[7]);
-                list.add(sanPham);
+                if (temp.length == 9) {
+                    sanPham = new SanPhamNhapKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
+                            temp[8]);
+                    list.add(sanPham);
+                }
+                if (temp.length == 8){
+                    sanPham = new SanPhamXuatKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
+                    list.add(sanPham);
+                }
             }
-        } catch (FileNotFoundException f){
-            f.printStackTrace();
-        } catch (IOException e) {
+        } catch (FileNotFoundException f) {
+            System.out.println(f.getMessage());
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
-            br.close();
+            try {
+                if (fileReader != null) {
+                    if (br != null) br.close();
+                    fileReader.close();
+                }
+            } catch (IOException i) {
+                i.printStackTrace();
+            }
         }
         return list;
     }

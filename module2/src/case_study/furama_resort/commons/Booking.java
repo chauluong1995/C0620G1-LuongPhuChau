@@ -6,7 +6,6 @@ import case_study.furama_resort.models.Room;
 import case_study.furama_resort.models.Villa;
 import case_study.furama_resort.views.Show;
 
-import java.io.IOException;
 import java.util.*;
 
 public class Booking {
@@ -15,7 +14,7 @@ public class Booking {
     //public static List<Customer> listBuyMovieTickets = new ArrayList<>();
     public static int bienDemVe = 0;
 
-    public static boolean bookingVilla(Customer customer) throws IOException {
+    public static boolean bookingVilla(Customer customer) {
         List<Villa> list = Show.showAllVilla();
         if (!list.isEmpty()) {
             int soThuTu;
@@ -36,7 +35,7 @@ public class Booking {
         return false;
     }
 
-    public static boolean bookingHouse(Customer customer) throws IOException {
+    public static boolean bookingHouse(Customer customer) {
         List<House> list = Show.showAllHouse();
         if (!list.isEmpty()) {
             int soThuTu;
@@ -57,7 +56,7 @@ public class Booking {
         return false;
     }
 
-    public static boolean bookingRoom(Customer customer) throws IOException {
+    public static boolean bookingRoom(Customer customer) {
         List<Room> list = Show.showAllRoom();
         if (!list.isEmpty()) {
             int soThuTu;
@@ -78,7 +77,7 @@ public class Booking {
         return false;
     }
 
-    public static void buyMovieTickets() throws IOException {
+    public static void buyMovieTickets() {
         if (bienDemVe < 5) {
             List<Customer> list = Show.showInformationCustomers();
             if (!list.isEmpty()) {

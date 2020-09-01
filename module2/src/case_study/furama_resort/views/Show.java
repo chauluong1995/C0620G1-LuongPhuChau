@@ -3,7 +3,6 @@ package case_study.furama_resort.views;
 import case_study.furama_resort.commons.DocGhiFileCSV;
 import case_study.furama_resort.models.*;
 
-import java.io.IOException;
 import java.util.*;
 
 public class Show {
@@ -18,7 +17,7 @@ public class Show {
 //        bienDem = 0;
 //    }
 
-    public static List<Villa> showAllVilla() throws IOException {
+    public static List<Villa> showAllVilla() {
         bienDem = 0;
         List<Villa> list = DocGhiFileCSV.docFileVilla();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có Villa nào !");
@@ -32,7 +31,7 @@ public class Show {
         return list;
     }
 
-    public static List<House> showAllHouse() throws IOException {
+    public static List<House> showAllHouse() {
         bienDem = 0;
         List<House> list = DocGhiFileCSV.docFileHouse();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có House nào !");
@@ -46,7 +45,7 @@ public class Show {
         return list;
     }
 
-    public static List<Room> showAllRoom() throws IOException {
+    public static List<Room> showAllRoom() {
         bienDem = 0;
         List<Room> list = DocGhiFileCSV.docFileRoom();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có Room nào !");
@@ -60,7 +59,7 @@ public class Show {
         return list;
     }
 
-    public static void showAllNameVillaNotDuplicate() throws IOException {
+    public static void showAllNameVillaNotDuplicate() {
         List<Villa> list = DocGhiFileCSV.docFileVilla();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có Villa nào !");
         else {
@@ -84,7 +83,7 @@ public class Show {
         }
     }
 
-    public static void showAllNameHouseNotDuplicate() throws IOException {
+    public static void showAllNameHouseNotDuplicate() {
         List<House> list = DocGhiFileCSV.docFileHouse();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có House nào !");
         else {
@@ -102,7 +101,7 @@ public class Show {
         }
     }
 
-    public static void showAllNameRoomNotDuplicate() throws IOException {
+    public static void showAllNameRoomNotDuplicate() {
         List<Room> list = DocGhiFileCSV.docFileRoom();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có Room nào !");
         else {
@@ -120,7 +119,7 @@ public class Show {
         }
     }
 
-    public static List<Customer> showInformationCustomers() throws IOException {
+    public static List<Customer> showInformationCustomers() {
         bienDem = 0;
         List<Customer> list = DocGhiFileCSV.docFileCustomer();
         if (list.isEmpty()) System.out.println("Hiện tại chưa có Customer nào !");
@@ -135,34 +134,38 @@ public class Show {
         return list;
     }
 
-    public static void showInformationOfEmployee() throws IOException {
+    public static void showInformationOfEmployee() {
         List<Employee> list = DocGhiFileCSV.docFileEmployee();
-        Map<String, Employee> employeeMap = new HashMap<>();
-        for (Employee employee : list) {
-            employeeMap.put(employee.getMaSoNhanVien(), employee);
-        }
-        System.out.println("Các Employee hiện tại có trong hệ thống là :");
-        //System.out.println(employeeMap);
-        for (Map.Entry<String, Employee> employeeEntry : employeeMap.entrySet()) {
-            System.out.println(employeeEntry.toString());
-        }
+        if (!list.isEmpty()) {
+            Map<String, Employee> employeeMap = new HashMap<>();
+            for (Employee employee : list) {
+                employeeMap.put(employee.getMaSoNhanVien(), employee);
+            }
+            System.out.println("Các Employee hiện tại có trong hệ thống là :");
+            //System.out.println(employeeMap);
+            for (Map.Entry<String, Employee> employeeEntry : employeeMap.entrySet()) {
+                System.out.println(employeeEntry.toString());
+            }
+        } else System.out.println("Hiện tại chưa có nhân viên nào !");
     }
 
-    public static void findInformationEmployee() throws IOException {
+    public static void findInformationEmployee() {
         TuHoSo tuHoSo = new TuHoSo();
-        Scanner scanner = new Scanner(System.in);
-        boolean xacNhan = true;
-        System.out.print("Nhập mã số nhân viên bạn muốn tìm hồ sơ : ");
-        String maSo = scanner.nextLine();
-        while (!tuHoSo.employeeStack.empty()) {
-            Employee employee = tuHoSo.employeeStack.pop();
-            if (maSo.equals(employee.getMaSoNhanVien())) {
-                xacNhan = false;
-                System.out.println("Hồ sơ nhân viên cần tìm là :" + employee);
-                break;
+        if (!tuHoSo.employeeStack.empty()) {
+            Scanner scanner = new Scanner(System.in);
+            boolean xacNhan = true;
+            System.out.print("Nhập mã số nhân viên bạn muốn tìm hồ sơ : ");
+            String maSo = scanner.nextLine();
+            while (!tuHoSo.employeeStack.empty()) {
+                Employee employee = tuHoSo.employeeStack.pop();
+                if (maSo.equals(employee.getMaSoNhanVien())) {
+                    xacNhan = false;
+                    System.out.println("Hồ sơ nhân viên cần tìm là :" + employee);
+                    break;
+                }
             }
-        }
-        if (xacNhan) System.out.println("Nhân viên bạn tìm không có trong hệ thống !");
+            if (xacNhan) System.out.println("Nhân viên bạn tìm không có trong hệ thống !");
+        } else System.out.println("Tủ hồ sơ đang trống !");
 //        System.out.println("Các Employee hiện tại có trong hệ thống là :");
 //        int bienDemEmployee = 1;
 //        while (!tuHoSo.employeeStack.empty()){

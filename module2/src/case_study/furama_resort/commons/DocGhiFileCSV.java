@@ -11,12 +11,13 @@ public class DocGhiFileCSV {
     private static final String XUONG_DONG = "\n";
     public static String path = "";
 
-    public static void lamMoiFile(String tenFile) throws IOException {
+    public static void lamMoiFile(String tenFile) {
         kiemTraDichVu(tenFile);
 
+        FileWriter fileWriter = null;
         BufferedWriter bf = null;
         try {
-            FileWriter fileWriter = new FileWriter(path);
+            fileWriter = new FileWriter(path);
             bf = new BufferedWriter(fileWriter);
             if (tenFile.equals("Villa")) {
                 bf.append("ID , tên dịch vụ , diện tích sử dụng , chi phí thuê , số lượng người tối đa , " +
@@ -33,12 +34,19 @@ public class DocGhiFileCSV {
                 bf.append("Họ tên, ngày sinh, giới tính, số CMND, số điện thoại, email, loại khách, địa chỉ, dịch vụ");
             }
             bf.flush();
-            fileWriter.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert bf != null;
-            bf.close();
+            try {
+                if (fileWriter != null) {
+                    if (bf != null) bf.close();
+                    fileWriter.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -49,12 +57,13 @@ public class DocGhiFileCSV {
         if (tenFile.equals("Customer")) path = "src/case_study/furama_resort/data/Customer.csv";
     }
 
-    public static void ghiFile(String tenFile, List<String> thongTin) throws IOException {
+    public static void ghiFile(String tenFile, List<String> thongTin) {
         kiemTraDichVu(tenFile);
 
+        FileWriter fileWriter = null;
         BufferedWriter bf = null;
         try {
-            FileWriter fileWriter = new FileWriter(path, true);
+            fileWriter = new FileWriter(path, true);
             bf = new BufferedWriter(fileWriter);
 
             bf.append(XUONG_DONG);
@@ -64,43 +73,59 @@ public class DocGhiFileCSV {
                 bf.append(DAU_PHAY);
             }
             bf.flush();
-            fileWriter.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            assert bf != null;
-            bf.close();
-        }
-    }
-
-    public static void ghiFileBooking(Customer customer) throws IOException {
-        File file = new File("src/case_study/furama_resort/data/Booking.csv");
-        BufferedWriter bf = null;
-        try {
-            FileWriter fileWriter = new FileWriter(file, true);
-            bf = new BufferedWriter(fileWriter);
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(customer.getHoTen()).append(DAU_PHAY).append(customer.getNgaySinh()).append(DAU_PHAY).append(customer.getGioiTinh())
-                    .append(DAU_PHAY).append(customer.getCmnd()).append(DAU_PHAY).append(customer.getSoDienThoai()).append(DAU_PHAY)
-                    .append(customer.getEmail()).append(DAU_PHAY).append(customer.getLoaiKhach()).append(DAU_PHAY).append(customer.getDiaChi())
-                    .append(DAU_PHAY).append("Dịch vụ").append(customer.getDichVu());
-            bf.write(stringBuilder.toString());
-            bf.append("\n");
-            bf.flush();
-            fileWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert bf != null;
-            bf.close();
+            try {
+                if (fileWriter != null) {
+                    if (bf != null) bf.close();
+                    fileWriter.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static List<Villa> docFileVilla() throws IOException {
+    public static void ghiFileBooking(Customer customer) {
+        File file = new File("src/case_study/furama_resort/data/Booking.csv");
+        FileWriter fileWriter = null;
+        BufferedWriter bf = null;
+        try {
+            fileWriter = new FileWriter(file, true);
+            bf = new BufferedWriter(fileWriter);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(customer.getHoTen()).append(DAU_PHAY).append(customer.getNgaySinh()).append(DAU_PHAY)
+                    .append(customer.getGioiTinh()).append(DAU_PHAY).append(customer.getCmnd()).append(DAU_PHAY).append(customer.getSoDienThoai())
+                    .append(DAU_PHAY).append(customer.getEmail()).append(DAU_PHAY).append(customer.getLoaiKhach()).append(DAU_PHAY)
+                    .append(customer.getDiaChi()).append(DAU_PHAY).append("Dịch vụ").append(customer.getDichVu());
+            bf.write(stringBuilder.toString());
+            bf.append("\n");
+            bf.flush();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fileWriter != null) {
+                    if (bf != null) bf.close();
+                    fileWriter.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static List<Villa> docFileVilla() {
         List<Villa> list = new ArrayList<>();
+        FileReader fileReader = null;
         BufferedReader br = null;
         try {
-            FileReader fileReader = new FileReader("src/case_study/furama_resort/data/Villa.csv");
+            fileReader = new FileReader("src/case_study/furama_resort/data/Villa.csv");
             br = new BufferedReader(fileReader);
             Villa villa;
             String[] temp;
@@ -110,20 +135,29 @@ public class DocGhiFileCSV {
                 villa = new Villa(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
                 list.add(villa);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
-            br.close();
+            try {
+                if (fileReader != null) {
+                    if (br != null) br.close();
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }
 
-    public static List<House> docFileHouse() throws IOException {
+    public static List<House> docFileHouse() {
         List<House> list = new ArrayList<>();
+        FileReader fileReader = null;
         BufferedReader br = null;
         try {
-            FileReader fileReader = new FileReader("src/case_study/furama_resort/data/House.csv");
+            fileReader = new FileReader("src/case_study/furama_resort/data/House.csv");
             br = new BufferedReader(fileReader);
             House house;
             String[] temp;
@@ -133,20 +167,29 @@ public class DocGhiFileCSV {
                 house = new House(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
                 list.add(house);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
-            br.close();
+            try {
+                if (fileReader != null) {
+                    if (br != null) br.close();
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }
 
-    public static List<Room> docFileRoom() throws IOException {
+    public static List<Room> docFileRoom() {
         List<Room> list = new ArrayList<>();
+        FileReader fileReader = null;
         BufferedReader br = null;
         try {
-            FileReader fileReader = new FileReader("src/case_study/furama_resort/data/Room.csv");
+            fileReader = new FileReader("src/case_study/furama_resort/data/Room.csv");
             br = new BufferedReader(fileReader);
             Room room;
             String[] temp;
@@ -156,20 +199,29 @@ public class DocGhiFileCSV {
                 room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
                 list.add(room);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
-            br.close();
+            try {
+                if (fileReader != null) {
+                    if (br != null) br.close();
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }
 
-    public static List<Customer> docFileCustomer() throws IOException {
+    public static List<Customer> docFileCustomer() {
         List<Customer> list = new ArrayList<>();
+        FileReader fileReader = null;
         BufferedReader br = null;
         try {
-            FileReader fileReader = new FileReader("src/case_study/furama_resort/data/Customer.csv");
+            fileReader = new FileReader("src/case_study/furama_resort/data/Customer.csv");
             br = new BufferedReader(fileReader);
             Customer customer;
             String[] temp;
@@ -179,20 +231,29 @@ public class DocGhiFileCSV {
                 customer = new Customer(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
                 list.add(customer);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
-            br.close();
+            try {
+                if (fileReader != null) {
+                    if (br != null) br.close();
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }
 
-    public static List<Employee> docFileEmployee() throws IOException {
+    public static List<Employee> docFileEmployee() {
         List<Employee> list = new ArrayList<>();
+        FileReader fileReader = null;
         BufferedReader br = null;
         try {
-            FileReader fileReader = new FileReader("src/case_study/furama_resort/data/Employee.csv");
+            fileReader = new FileReader("src/case_study/furama_resort/data/Employee.csv");
             br = new BufferedReader(fileReader);
             Employee employee;
             String[] temp;
@@ -202,20 +263,32 @@ public class DocGhiFileCSV {
                 employee = new Employee(temp[0], temp[1], temp[2], temp[3]);
                 list.add(employee);
             }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert br != null;
-            br.close();
+            try {
+                if (fileReader != null) {
+                    if (br != null) br.close();
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return list;
     }
 
-//        public static List docFile(String tenFile) throws IOException {
+//    public static List docFile(String tenFile) {
 //        List list = new ArrayList();
 //        kiemTraDichVu(tenFile);
-//        BufferedReader br = new BufferedReader(new FileReader(path));
+//
+//        FileReader fileReader = null;
+//        BufferedReader br = null;
 //        try {
+//            fileReader = new FileReader(path);
+//            br = new BufferedReader(fileReader);
 //            Services services = null;
 //            Customer customer;
 //            String[] temp;
@@ -235,10 +308,19 @@ public class DocGhiFileCSV {
 //                    list.add(services);
 //                }
 //            }
+//        } catch (FileNotFoundException e) {
+//            System.out.println(e.getMessage());
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        } finally {
-//            br.close();
+//            try {
+//                if (fileReader != null) {
+//                    if (br != null) br.close();
+//                    fileReader.close();
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
 //        }
 //        return list;
 //    }

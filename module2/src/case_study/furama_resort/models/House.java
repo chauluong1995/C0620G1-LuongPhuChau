@@ -45,4 +45,10 @@ public class House extends Services {
         return super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
                 + moTaTienNghiKhac + " , số tầng : " + soTang;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
+                + moTaTienNghiKhac + " , số tầng : " + soTang;
+    }
 }

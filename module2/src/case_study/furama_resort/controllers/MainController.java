@@ -7,6 +7,7 @@ import case_study.furama_resort.commons.Regex;
 import case_study.furama_resort.models.Customer;
 import case_study.furama_resort.views.Show;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -15,15 +16,12 @@ public class MainController {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        try {
-            //DocGhiFileCSV.lamMoiFile("Villa");
-            displayMainMenu();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        displayMainMenu();
     }
 
-    public static void displayMainMenu() throws IOException {
+    public static void displayMainMenu() {
+        kiemTraFile();
+
         int luaChon;
         do {
             System.out.println("Menu : \n1. Add New Services\n2. Show Services\n3. Add New Customer" +
@@ -69,7 +67,7 @@ public class MainController {
         } while (true);
     }
 
-    public static void addNewServices() throws IOException {
+    public static void addNewServices() {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Add New Villa\n2. Add New House\n3. Add New Room\n4. Back to Menu\n5. Exit");
@@ -101,8 +99,7 @@ public class MainController {
         } while (true);
     }
 
-
-    public static void showServices() throws IOException {
+    public static void showServices() {
         int luaChon;
         do {
             System.out.println("Menu : \n1. Show all Villa\n2. Show all House\n3. Show all Room\n4. Show All Name Villa Not Duplicate" +
@@ -147,7 +144,7 @@ public class MainController {
         } while (true);
     }
 
-    public static void addNewBooking() throws IOException {
+    public static void addNewBooking() {
         List<Customer> list = Show.showInformationCustomers();
         if (!list.isEmpty()) {
             int soThuTu;
@@ -174,18 +171,21 @@ public class MainController {
                         case 1:
                             if (Booking.bookingVilla(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
+                                System.out.println("Booking Villa thành công !");
                             }
                             displayMainMenu();
                             break;
                         case 2:
                             if (Booking.bookingHouse(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
+                                System.out.println("Booking House thành công !");
                             }
                             displayMainMenu();
                             break;
                         case 3:
                             if (Booking.bookingRoom(customer)) {
                                 DocGhiFileCSV.ghiFileBooking(customer);
+                                System.out.println("Booking Room thành công !");
                             }
                             displayMainMenu();
                             break;
@@ -203,4 +203,47 @@ public class MainController {
             } while (true);
         }
     }
+
+    public static void kiemTraFile() {
+        File fileVilla = new File("src/case_study/furama_resort/data/Villa.csv");
+        if (!fileVilla.isFile()) DocGhiFileCSV.lamMoiFile("Villa");
+
+        File fileHouse = new File("src/case_study/furama_resort/data/House.csv");
+        if (!fileHouse.isFile()) DocGhiFileCSV.lamMoiFile("House");
+
+        File fileRoom = new File("src/case_study/furama_resort/data/Room.csv");
+        if (!fileRoom.isFile()) DocGhiFileCSV.lamMoiFile("Room");
+
+        File fileCustomer = new File("src/case_study/furama_resort/data/Customer.csv");
+        if (!fileCustomer.isFile()) DocGhiFileCSV.lamMoiFile("Customer");
+
+        File fileEmployee = new File("src/case_study/furama_resort/data/Employee.csv");
+        if (!fileEmployee.isFile()) {
+            try {
+                if (fileEmployee.createNewFile()) System.out.println("Tạo file Employee.csv thành công !");
+            } catch (IOException i) {
+                i.printStackTrace();
+            }
+        }
+
+        File fileBooking = new File("src/case_study/furama_resort/data/Booking.csv");
+        if (!fileBooking.isFile()) {
+            try {
+                if (fileBooking.createNewFile()) System.out.println("Tạo file Booking.csv thành công !");
+            } catch (IOException i) {
+                i.printStackTrace();
+            }
+        }
+    }
+    //Mã số nhân viên,Họ Tên,Tuổi,Địa chỉ
+    //003,Nguyễn Văn A,22,Đà Nẵng
+    //002,Lê Thị B,21,Quảng Bình
+    //001,Trần Văn C,22,Quảng Trị
+    //004,Bùi Văn D,22,Huế
+    //010,Huỳnh Văn E,23,Quảng Nam
+    //006,Lý Văn H,22,Quảng Ngãi
+    //009,Đỗ Thị K,21,Bình Định
+    //008,Hồ Thị M,21,Phú Yên
+    //007,Phạm Văn N,23,Khánh Hòa
+    //005,Hoàng Văn P,23,Ninh Thuận
 }

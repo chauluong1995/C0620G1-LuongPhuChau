@@ -77,6 +77,32 @@ public class Demo {
 
     public static void xoaSanPham() throws IOException {
         List<SanPham> list = LuuFileCSV.docFile();
-
+        if (!list.isEmpty()){
+            do {
+                try {
+                    System.out.print("Nhập mã sản phẩm cần xóa : ");
+                    String nhap = scanner.nextLine();
+                    for (int i = 0; i < list.size(); i++) {
+                        if (nhap.equals(list.get(i).getMaSanPham())) {
+                            do {
+                                System.out.print("Bạn có thực sự muốn xóa sản phẩm này không ?!\nNhập Yes nếu muốn xóa\nNếu không thì nhập No");
+                                String chon = scanner.nextLine();
+                                if (chon.equals("Yes")){
+                                    list.remove(i);
+                                    return;
+                                }
+                                if (chon.equals("No")) return;
+                            }while (true);
+                        }
+                    }
+                    throw new  NotFoundProductException();
+                } catch (NotFoundProductException n){
+                    n.getMassage();
+                    System.out.println("Bạn có muốn quay về menu chính hay không ?! Ấn Enter để quay về ! Nhập No nếu muốn xóa tiếp !");
+                    String luaChon = scanner.nextLine();
+                    if (luaChon.equals("")) return;
+                }
+            } while (true);
+        } else System.out.println("Hiện tại chưa có sản phẩm nào !");
     }
 }

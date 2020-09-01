@@ -1,6 +1,5 @@
 package case_study.furama_resort.commons;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +16,7 @@ public class Add {
         thongTin.add(Regex.chuanHoaDuLieu(scanner.nextLine()));
     }
 
-    public static void addNewVilla() throws IOException {
+    public static void addNewVilla() {
         thongTin.add(Regex.kiemTraID("VL"));
         thongTin.add(Regex.kiemTraTenDichVu("Villa"));
         addNewInfoService();
@@ -32,7 +31,7 @@ public class Add {
         thongTin.clear();
     }
 
-    public static void addNewHouse() throws IOException {
+    public static void addNewHouse() {
         thongTin.add(Regex.kiemTraID("HO"));
         thongTin.add(Regex.kiemTraTenDichVu("House"));
         addNewInfoService();
@@ -46,7 +45,7 @@ public class Add {
         thongTin.clear();
     }
 
-    public static void addNewRoom() throws IOException {
+    public static void addNewRoom() {
         thongTin.add(Regex.kiemTraID("RO"));
         thongTin.add(Regex.kiemTraTenDichVu("Room"));
         addNewInfoService();
@@ -56,7 +55,7 @@ public class Add {
         thongTin.clear();
     }
 
-    public static void addNewCusTomer() throws IOException {
+    public static void addNewCusTomer() {
         thongTin.add(Regex.kiemTraTen());
         thongTin.add(Regex.kiemTraNgaySinh());
         thongTin.add(Regex.kiemTraGioiTinh());
@@ -73,7 +72,7 @@ public class Add {
         thongTin.clear();
     }
 
-//        public static void addNewVilla() throws IOException {
+//        public static void addNewVilla() {
 //        String id = nhapID("VL");
 //        String tenDichVu = nhapTenDichVu("Villa");
 //        String dienTichSuDung= nhapDienTichSuDung();

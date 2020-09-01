@@ -55,4 +55,10 @@ public class Villa extends Services {
         return super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
                 + moTaTienNghiKhac + " , diện tích hồ bơi : " + dienTichHoBoi + " , số tầng : " + soTang;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " , tiêu chuẩn phòng : " + tieuChuanPhong + " , mô tả tiện nghi khác : "
+                + moTaTienNghiKhac + " , diện tích hồ bơi : " + dienTichHoBoi + " , số tầng : " + soTang;
+    }
 }

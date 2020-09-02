@@ -53,9 +53,9 @@ public class LuuFileCSV {
     public static void capNhatFile(List<SanPham> list) {
         File file = new File("src/io_text_file/thuc_hanh/products.csv");
         if (file.delete())
-            System.out.println("Xóa thành công !");
+            System.out.println("Cập nhật file sản phẩm !");
         try {
-            if (file.createNewFile()) System.out.println("Cập nhật mới file sản phẩm !");
+            if (file.createNewFile()) System.out.println("Cập nhật thành công !");
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -66,38 +66,47 @@ public class LuuFileCSV {
 
     public static List<SanPham> docFile() {
         List<SanPham> list = new ArrayList<>();
-        FileReader fileReader = null;
-        BufferedReader br = null;
-        try {
-            fileReader = new FileReader("src/io_text_file/thuc_hanh/products.csv");
-            br = new BufferedReader(fileReader);
-            SanPham sanPham;
-            String[] temp;
-            String line;
-            while ((line = br.readLine()) != null) {
-                temp = line.split(DAU_PHAY);
-                if (temp.length == 9) {
-                    sanPham = new SanPhamNhapKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
-                            temp[8]);
-                    list.add(sanPham);
+        File file = new File("src/io_text_file/thuc_hanh/products.csv");
+        if (file.isFile()){
+            FileReader fileReader = null;
+            BufferedReader br = null;
+            try {
+                fileReader = new FileReader(file);
+                br = new BufferedReader(fileReader);
+                SanPham sanPham;
+                String[] temp;
+                String line;
+                while ((line = br.readLine()) != null) {
+                    temp = line.split(DAU_PHAY);
+                    if (temp.length == 9) {
+                        sanPham = new SanPhamNhapKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
+                                temp[8]);
+                        list.add(sanPham);
+                    }
+                    if (temp.length == 8){
+                        sanPham = new SanPhamXuatKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
+                        list.add(sanPham);
+                    }
                 }
-                if (temp.length == 8){
-                    sanPham = new SanPhamXuatKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
-                    list.add(sanPham);
+            } catch (FileNotFoundException f) {
+                System.out.println(f.getMessage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (fileReader != null) {
+                        if (br != null) br.close();
+                        fileReader.close();
+                    }
+                } catch (IOException i) {
+                    i.printStackTrace();
                 }
             }
-        } catch (FileNotFoundException f) {
-            System.out.println(f.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+        } else {
             try {
-                if (fileReader != null) {
-                    if (br != null) br.close();
-                    fileReader.close();
-                }
-            } catch (IOException i) {
-                i.printStackTrace();
+                if (file.createNewFile()) System.out.println("File đang trống !");
+            } catch (IOException io){
+                io.printStackTrace();
             }
         }
         return list;

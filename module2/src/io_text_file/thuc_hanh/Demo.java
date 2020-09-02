@@ -14,7 +14,7 @@ public class Demo {
         int luaChon;
         do {
             System.out.println("==================================\nMenu : \n1. Thêm sản phẩm\n2. Sửa thông tin sản phẩm\n3. Xóa sản phẩm" +
-                    "\n4. Hiển thị danh sách sản phẩm\n5. Tìm kiếm sản phẩm\n6. Sắp xếp sản phẩm theo giá\n7. Thoát" +
+                    "\n4. Hiển thị danh sách sản phẩm\n5. Tìm kiếm sản phẩm\n6. Sắp xếp sản phẩm theo giá bán tăng dần\n7. Thoát" +
                     "\n==================================");
             System.out.print("Chọn thao tác muốn thực hiện : ");
             String nhapLuaChon = scanner.nextLine();
@@ -25,6 +25,7 @@ public class Demo {
                         themSanPham();
                         break;
                     case 2:
+                        sua();
                         break;
                     case 3:
                         xoaSanPham();
@@ -33,8 +34,10 @@ public class Demo {
                         hienThi();
                         break;
                     case 5:
+                        timKiem();
                         break;
                     case 6:
+                        sapXep();
                         break;
                     case 7:
                         System.exit(0);
@@ -107,13 +110,67 @@ public class Demo {
         } else System.out.println("Hiện tại chưa có sản phẩm nào !");
     }
 
-    public static void hienThi(){
+    public static void hienThi() {
         List<SanPham> list = LuuFileCSV.docFile();
         if (!list.isEmpty()) {
             int bienDem = 1;
-            for (SanPham sanPham : list){
+            System.out.println("Danh sách các sản phẩm hiện tại là :");
+            for (SanPham sanPham : list) {
                 System.out.println("Sản phẩm " + bienDem + sanPham);
                 bienDem++;
+            }
+        } else System.out.println("Hiện tại chưa có sản phẩm nào !");
+    }
+
+    public static void timKiem() {
+        List<SanPham> list = LuuFileCSV.docFile();
+        if (!list.isEmpty()) {
+            System.out.print("Nhập mã hoặc tên của sản phẩm bạn muốn tìm kiếm : ");
+            String nhap = scanner.nextLine();
+            boolean kiemTra = true;
+            int bienDem = 1;
+            for (SanPham sanPham : list) {
+                if (sanPham.getTenSanPham().contains(nhap) || sanPham.getMaSanPham().contains(nhap)) {
+                    kiemTra = false;
+                    System.out.println("Sản phẩm " + bienDem + sanPham);
+                    bienDem++;
+                }
+            }
+            if (kiemTra) System.out.println("Không tồn tại sản phẩm nào khớp với thông tin bạn nhập !");
+        } else System.out.println("Hiện tại chưa có sản phẩm nào !");
+    }
+
+    public static void sapXep(){
+        List<SanPham> list = LuuFileCSV.docFile();
+        if (!list.isEmpty()) {
+            list.sort(new SapXepSanPham());
+            //Collections.reverse(list);
+            int bienDem = 1;
+            System.out.println("Danh sách sản phẩm được sắp xếp tăng dần theo giá bán là :");
+            for (SanPham sanPham : list) {
+                System.out.println("Sản phẩm " + bienDem + sanPham);
+                bienDem++;
+            }
+        } else System.out.println("Hiện tại chưa có sản phẩm nào !");
+    }
+
+    public static void sua(){
+        List<SanPham> list = LuuFileCSV.docFile();
+        if (!list.isEmpty()) {
+            boolean kiemTra = true;
+            SanPham suaSanPham;
+            System.out.print("Nhập mã chính xác của sản phẩm bạn muốn sửa : ");
+            String nhap = scanner.nextLine();
+            for (SanPham sanPham : list){
+                if (nhap.equals(sanPham.getMaSanPham())){
+                    kiemTra = false;
+                    suaSanPham = sanPham;
+                    break;
+                }
+            }
+            if (kiemTra) System.out.println("Không tồn tại sản phẩm nào khớp với thông tin bạn nhập !");
+            else {
+                
             }
         } else System.out.println("Hiện tại chưa có sản phẩm nào !");
     }

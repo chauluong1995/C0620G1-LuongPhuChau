@@ -69,8 +69,5 @@ public abstract class SanPham {
     }
 
     @Override
-    public String toString() {
-        return " = id : " + id + " , mã sản phẩm : " + maSanPham + " , tên sản phẩm : " + tenSanPham + " , giá sản phẩm : " + giaSanPham +
-                " , số lượng sản phẩm : " + soLuongSanPham + " , nhà sản xuất : " + nhaSanXuat;
-    }
+    public abstract String toString();
 }

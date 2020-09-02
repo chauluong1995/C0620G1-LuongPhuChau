@@ -32,6 +32,9 @@ public class SanPhamXuatKhau extends SanPham {
 
     @Override
     public String toString() {
-        return super.toString() + " , giá xuất khẩu : " + giaXuatKhau + " , quốc gia nhập sản phẩm : " + quocGiaNhapSanPham;
+        return " = id : " + this.getId() + " , mã sản phẩm : " + this.getMaSanPham() + " , tên sản phẩm : " + this.getTenSanPham() +
+                " , giá sản phẩm : " + this.getGiaSanPham() + " , số lượng sản phẩm : " + this.getSoLuongSanPham() + " , nhà sản xuất : " +
+                this.getNhaSanXuat()
+                + " , giá xuất khẩu : " + giaXuatKhau + " , quốc gia nhập sản phẩm : " + quocGiaNhapSanPham;
     }
 }

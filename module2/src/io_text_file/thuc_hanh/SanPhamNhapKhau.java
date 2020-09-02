@@ -42,7 +42,9 @@ public class SanPhamNhapKhau extends SanPham {
 
     @Override
     public String toString() {
-        return super.toString() + " , giá nhập khẩu : " + giaNhapKhau + " , tỉnh thành nhập : " + tinhThanhNhap
-                + " , thuế nhập khẩu : " + thueNhapKhau;
+        return " = id : " + this.getId() + " , mã sản phẩm : " + this.getMaSanPham() + " , tên sản phẩm : " + this.getTenSanPham() +
+                " , giá sản phẩm : " + this.getGiaSanPham() + " , số lượng sản phẩm : " + this.getSoLuongSanPham() + " , nhà sản xuất : " +
+                this.getNhaSanXuat() + " , giá nhập khẩu : "
+                + this.giaNhapKhau + " , tỉnh thành nhập : " + this.tinhThanhNhap + " , thuế nhập khẩu : " + this.thueNhapKhau;
     }
 }

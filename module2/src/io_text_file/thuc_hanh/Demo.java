@@ -99,8 +99,8 @@ public class Demo {
                             } while (true);
                         }
                     }
-                    throw new NotFoundProductException();
-                } catch (NotFoundProductException n) {
+                    throw new SPException();
+                } catch (SPException n) {
                     n.getMassage();
                     System.out.println("Bạn có muốn quay về menu chính hay không ?! Ấn Enter để quay về ! Nhập No nếu muốn xóa tiếp !");
                     String luaChon = scanner.nextLine();
@@ -140,7 +140,7 @@ public class Demo {
         } else System.out.println("Hiện tại chưa có sản phẩm nào !");
     }
 
-    public static void sapXep(){
+    public static void sapXep() {
         List<SanPham> list = LuuFileCSV.docFile();
         if (!list.isEmpty()) {
             list.sort(new SapXepSanPham());
@@ -154,15 +154,15 @@ public class Demo {
         } else System.out.println("Hiện tại chưa có sản phẩm nào !");
     }
 
-    public static void sua(){
+    public static void sua() {
         List<SanPham> list = LuuFileCSV.docFile();
         if (!list.isEmpty()) {
             boolean kiemTra = true;
-            SanPham suaSanPham;
+            SanPham suaSanPham = null;
             System.out.print("Nhập mã chính xác của sản phẩm bạn muốn sửa : ");
             String nhap = scanner.nextLine();
-            for (SanPham sanPham : list){
-                if (nhap.equals(sanPham.getMaSanPham())){
+            for (SanPham sanPham : list) {
+                if (nhap.equals(sanPham.getMaSanPham())) {
                     kiemTra = false;
                     suaSanPham = sanPham;
                     break;
@@ -170,8 +170,23 @@ public class Demo {
             }
             if (kiemTra) System.out.println("Không tồn tại sản phẩm nào khớp với thông tin bạn nhập !");
             else {
-                
+                suaSanPham.setMaSanPham(Regex.kiemTraNhapChu("mã sản phẩm"));
+                suaSanPham.setTenSanPham(Regex.kiemTraNhapChu("tên sản phẩm"));
+                suaSanPham.setGiaSanPham(Regex.kiemTraNhapSo("giá bán sản phẩm"));
+                suaSanPham.setSoLuongSanPham(Regex.kiemTraNhapSo("số lượng sản phẩm"));
+                suaSanPham.setNhaSanXuat(Regex.kiemTraNhapChu("tên nhà sản xuất"));
+                if (suaSanPham instanceof Nhap) {
+                    ((Nhap) suaSanPham).setGiaNhapKhau(Regex.kiemTraNhapSo("giá nhập khẩu"));
+                    ((Nhap) suaSanPham).setTinhThanhNhap(Regex.kiemTraNhapChu("tên tỉnh thành nhập về"));
+                    ((Nhap) suaSanPham).setThueNhapKhau(Regex.kiemTraNhapSo("thuế nhập khẩu"));
+                }
+                if (suaSanPham instanceof Xuat) {
+                    ((Xuat) suaSanPham).setGiaXuatKhau(Regex.kiemTraNhapSo("giá xuất khẩu"));
+                    ((Xuat) suaSanPham).setQuocGiaNhapSanPham(Regex.kiemTraNhapChu("tên quốc gia nhập sản phẩm"));
+                }
+                LuuFileCSV.capNhatFile(list);
             }
+            hienThi();
         } else System.out.println("Hiện tại chưa có sản phẩm nào !");
     }
 }

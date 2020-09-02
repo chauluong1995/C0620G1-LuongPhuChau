@@ -1,15 +1,15 @@
 package io_text_file.thuc_hanh;
 
-public class SanPhamNhapKhau extends SanPham {
+public class Nhap extends SanPham {
     private String giaNhapKhau;
     private String tinhThanhNhap;
     private String thueNhapKhau;
 
-    public SanPhamNhapKhau() {
+    public Nhap() {
     }
 
-    public SanPhamNhapKhau(int id, String maSanPham, String tenSanPham, String giaSanPham, String soLuongSanPham, String nhaSanXuat,
-                           String giaNhapKhau, String tinhThanhNhap, String thueNhapKhau) {
+    public Nhap(int id, String maSanPham, String tenSanPham, String giaSanPham, String soLuongSanPham, String nhaSanXuat,
+                String giaNhapKhau, String tinhThanhNhap, String thueNhapKhau) {
         super(id, maSanPham, tenSanPham, giaSanPham, soLuongSanPham, nhaSanXuat);
         this.giaNhapKhau = giaNhapKhau;
         this.tinhThanhNhap = tinhThanhNhap;

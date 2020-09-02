@@ -17,19 +17,19 @@ public class LuuFileCSV {
             bf = new BufferedWriter(fileWriter);
 
             StringBuilder stringBuilder = new StringBuilder();
-            if (sanPham instanceof SanPhamNhapKhau) {
+            if (sanPham instanceof Nhap) {
                 stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
                         .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
                         .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
-                        .append(((SanPhamNhapKhau) sanPham).getGiaNhapKhau()).append(DAU_PHAY)
-                        .append(((SanPhamNhapKhau) sanPham).getTinhThanhNhap()).append(DAU_PHAY)
-                        .append(((SanPhamNhapKhau) sanPham).getThueNhapKhau());
+                        .append(((Nhap) sanPham).getGiaNhapKhau()).append(DAU_PHAY)
+                        .append(((Nhap) sanPham).getTinhThanhNhap()).append(DAU_PHAY)
+                        .append(((Nhap) sanPham).getThueNhapKhau());
             } else {
                 stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
                         .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
                         .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
-                        .append(((SanPhamXuatKhau) sanPham).getGiaXuatKhau()).append(DAU_PHAY)
-                        .append(((SanPhamXuatKhau) sanPham).getQuocGiaNhapSanPham());
+                        .append(((Xuat) sanPham).getGiaXuatKhau()).append(DAU_PHAY)
+                        .append(((Xuat) sanPham).getQuocGiaNhapSanPham());
             }
             bf.write(stringBuilder.toString());
             bf.append(XUONG_DONG);
@@ -79,12 +79,12 @@ public class LuuFileCSV {
                 while ((line = br.readLine()) != null) {
                     temp = line.split(DAU_PHAY);
                     if (temp.length == 9) {
-                        sanPham = new SanPhamNhapKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
+                        sanPham = new Nhap(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
                                 temp[8]);
                         list.add(sanPham);
                     }
                     if (temp.length == 8){
-                        sanPham = new SanPhamXuatKhau(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
+                        sanPham = new Xuat(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
                         list.add(sanPham);
                     }
                 }

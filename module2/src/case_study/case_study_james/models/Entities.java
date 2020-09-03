@@ -1,11 +1,17 @@
 package case_study.case_study_james.models;
 
-import java.io.Serializable;
-
-public class Entities implements Serializable {
-    private String type;
+public class Entities {
     private String keyword;
+    private String type;
     private String mean;
+
+    public Entities() {
+    }
+
+    public Entities(String type, String mean) {
+        this.type = type;
+        this.mean = mean;
+    }
 
     public String getKeyword() {
         return keyword;
@@ -31,8 +37,12 @@ public class Entities implements Serializable {
         this.type = type;
     }
 
+    public String showInfo(){
+        return "Type : " + type + " , mean : " + mean;
+    }
+
     @Override
     public String toString() {
-        return keyword + " = type : " + type + " , mean : " + mean;
+        return type + "," + mean;
     }
 }

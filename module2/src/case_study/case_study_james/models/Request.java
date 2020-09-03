@@ -3,28 +3,27 @@ package case_study.case_study_james.models;
 import case_study.case_study_james.commons.Service;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Request {
     private String action;
-    private List<Entities> params = new ArrayList<>();
+    private List<String> params = new ArrayList<>();
     private String keyword;
 
     public Request() {
     }
 
-    public Request(String action, List<Entities> params, String keyword) {
+    public Request(String action, List<String> params, String keyword) {
         this.action = action;
         this.params = params;
         this.keyword = keyword;
     }
 
-    public List<Entities> getParams() {
+    public List<String> getParams() {
         return params;
     }
 
-    public void setParams(LinkedList<Entities> params) {
+    public void setParams(List<String> params) {
         this.params = params;
     }
 
@@ -46,10 +45,9 @@ public class Request {
 
 
     public void checkAction() {
-        //this.params = ReadFile.read();
-        if (this.action.equals("lookup")) Service.lookup(params, this.keyword);
-        else if (this.action.equals("define")) Service.define(params, this.keyword);
-        else Service.drop(params, this.keyword);
+        if (this.action.equals("lookup")) Service.lookup(this.keyword);
+        else if (this.action.equals("define")) Service.define(this.params, this.keyword);
+        else Service.drop(this.keyword);
     }
 
 //    private void lookup(String word) {

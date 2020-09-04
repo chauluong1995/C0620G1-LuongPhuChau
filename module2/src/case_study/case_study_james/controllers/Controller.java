@@ -19,12 +19,16 @@ public class Controller {
                 System.out.print("Action: ");
                 action = scanner.nextLine();
                 if (action.equals("e")) System.exit(0);
-                if (action.matches("^(((lookup)|(drop))(\\s\\D+))|((define)((\\s\\D+){2}))$")) break;
-                else
+                if (action.matches("^((export)(default))|(((lookup)|(drop)|(export))(\\s\\D+))|((define)((\\s\\D+){2}))$")) {
+                    break;
+                } else {
                     System.out.println("==========================================================\nInput : lookup word : for search !" +
                             "\nInput : define word type of word : for add or edit !\nInput : drop word : for delete !" +
+                            "\nInput : export path or export default : for export dictionary ! If input export default then dictionary is " +
+                            "save in path file : src/case_study/case_study_james/dictionary/newDictionary.txt " +
                             "\nExample : Input lookup pro to search mean of pro !" +
                             "\n==========================================================");
+                }
             } while (true);
             String[] string = action.split("\\s");
             Request request = new Request();

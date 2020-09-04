@@ -8,7 +8,8 @@ public class Entities {
     public Entities() {
     }
 
-    public Entities(String type, String mean) {
+    public Entities(String keyword, String type, String mean) {
+        this.keyword = keyword;
         this.type = type;
         this.mean = mean;
     }
@@ -37,12 +38,12 @@ public class Entities {
         this.type = type;
     }
 
-    public String showInfo(){
-        return "Type : " + type + " , mean : " + mean;
+    public String showInfo() {
+        return "Word : " + keyword + " , type : " + type + " , mean : " + mean;
     }
 
     @Override
     public String toString() {
-        return type + "," + mean;
+        return keyword + "," + type + "," + mean;
     }
 }

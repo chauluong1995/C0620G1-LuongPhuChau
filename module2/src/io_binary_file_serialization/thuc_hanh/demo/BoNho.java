@@ -15,6 +15,8 @@ public class BoNho {
         try {
             fileWriter = new FileWriter(file);
             bf = new BufferedWriter(fileWriter);
+            bf.append("Số điện thoại,Nhóm của danh bạ,Họ tên,Giới tính,Địa chỉ,Ngày sinh,Email");
+            bf.append(XUONG_DONG);
             for (DoiTuong doiTuong : list){
                 bf.append(doiTuong.toString());
                 bf.append(XUONG_DONG);
@@ -47,7 +49,7 @@ public class BoNho {
                 br = new BufferedReader(fileReader);
                 DoiTuong doiTuong;
                 String[] temp;
-                String line;
+                String line = br.readLine();
                 while ((line = br.readLine()) != null) {
                     temp = line.split(DAU_PHAY);
                     doiTuong = new DoiTuong(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);

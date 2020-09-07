@@ -8,32 +8,34 @@ public class LuuFileCSV {
     private static final String DAU_PHAY = ",";
     private static final String XUONG_DONG = "\n";
 
-    public static void ghiFile(SanPham sanPham) {
+    public static void ghiFile(SanPham sanPham, String cachGhi) {
         File file = new File("src/io_text_file/thuc_hanh/products.csv");
         FileWriter fileWriter = null;
         BufferedWriter bf = null;
         try {
-            fileWriter = new FileWriter(file, true);
-            bf = new BufferedWriter(fileWriter);
-
-            StringBuilder stringBuilder = new StringBuilder();
-            if (sanPham instanceof Nhap) {
-                stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
-                        .append(((Nhap) sanPham).getGiaNhapKhau()).append(DAU_PHAY)
-                        .append(((Nhap) sanPham).getTinhThanhNhap()).append(DAU_PHAY)
-                        .append(((Nhap) sanPham).getThueNhapKhau());
-            } else {
-                stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
-                        .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
-                        .append(((Xuat) sanPham).getGiaXuatKhau()).append(DAU_PHAY)
-                        .append(((Xuat) sanPham).getQuocGiaNhapSanPham());
+            if (cachGhi.equals("ghi đè")) fileWriter = new FileWriter(file);
+            if (cachGhi.equals("thêm")) fileWriter = new FileWriter(file, true);
+            if (fileWriter != null) {
+                bf = new BufferedWriter(fileWriter);
+                StringBuilder stringBuilder = new StringBuilder();
+                if (sanPham instanceof Nhap) {
+                    stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
+                            .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
+                            .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
+                            .append(((Nhap) sanPham).getGiaNhapKhau()).append(DAU_PHAY)
+                            .append(((Nhap) sanPham).getTinhThanhNhap()).append(DAU_PHAY)
+                            .append(((Nhap) sanPham).getThueNhapKhau());
+                } else {
+                    stringBuilder.append(sanPham.getId()).append(DAU_PHAY).append(sanPham.getMaSanPham()).append(DAU_PHAY)
+                            .append(sanPham.getTenSanPham()).append(DAU_PHAY).append(sanPham.getGiaSanPham()).append(DAU_PHAY)
+                            .append(sanPham.getSoLuongSanPham()).append(DAU_PHAY).append(sanPham.getNhaSanXuat()).append(DAU_PHAY)
+                            .append(((Xuat) sanPham).getGiaXuatKhau()).append(DAU_PHAY)
+                            .append(((Xuat) sanPham).getQuocGiaNhapSanPham());
+                }
+                bf.write(stringBuilder.toString());
+                bf.append(XUONG_DONG);
+                bf.flush();
             }
-            bf.write(stringBuilder.toString());
-            bf.append(XUONG_DONG);
-            bf.flush();
         } catch (FileNotFoundException f) {
             System.out.println(f.getMessage());
         } catch (Exception e) {
@@ -51,23 +53,26 @@ public class LuuFileCSV {
     }
 
     public static void capNhatFile(List<SanPham> list) {
-        File file = new File("src/io_text_file/thuc_hanh/products.csv");
-        if (file.delete())
-            System.out.println("Cập nhật file sản phẩm !");
-        try {
-            if (file.createNewFile()) System.out.println("Cập nhật thành công !");
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
+//        File file = new File("src/io_text_file/thuc_hanh/products.csv");
+//        if (file.delete())
+//            System.out.println("Cập nhật file sản phẩm !");
+//        try {
+//            if (file.createNewFile()) System.out.println("Cập nhật thành công !");
+//        } catch (IOException ioe) {
+//            ioe.printStackTrace();
+//        }
+        int xacNhan = 1;
         for (SanPham sanPham : list) {
-            ghiFile(sanPham);
+            if (xacNhan == 1) ghiFile(sanPham, "ghi đè");
+            else ghiFile(sanPham, "thêm");
+            xacNhan++;
         }
     }
 
     public static List<SanPham> docFile() {
         List<SanPham> list = new ArrayList<>();
         File file = new File("src/io_text_file/thuc_hanh/products.csv");
-        if (file.isFile()){
+        if (file.isFile()) {
             FileReader fileReader = null;
             BufferedReader br = null;
             try {
@@ -83,7 +88,7 @@ public class LuuFileCSV {
                                 temp[8]);
                         list.add(sanPham);
                     }
-                    if (temp.length == 8){
+                    if (temp.length == 8) {
                         sanPham = new Xuat(Integer.parseInt(temp[0]), temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
                         list.add(sanPham);
                     }
@@ -105,7 +110,7 @@ public class LuuFileCSV {
         } else {
             try {
                 if (file.createNewFile()) System.out.println("File đang trống !");
-            } catch (IOException io){
+            } catch (IOException io) {
                 io.printStackTrace();
             }
         }

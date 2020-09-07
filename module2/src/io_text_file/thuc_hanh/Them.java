@@ -28,7 +28,7 @@ public class Them {
         String tenTinhNhapVe = Regex.kiemTraNhapChu("tên tỉnh thành nhập về");
         String thue = Regex.kiemTraNhapSo("thuế nhập khẩu");
         SanPham sanPham = new Nhap(id, maSanPham, tenSanPham, giaBanSanPham, soLuong, tenNhaSanXuat, giaNhapKhau, tenTinhNhapVe, thue);
-        LuuFileCSV.ghiFile(sanPham);
+        LuuFileCSV.ghiFile(sanPham, "thêm");
         System.out.println("Thêm sản phẩm nhập khẩu thành công !");
     }
 
@@ -42,7 +42,7 @@ public class Them {
         String giaXuatKhau = Regex.kiemTraNhapSo("giá xuất khẩu");
         String tenQuocGiaNhapSanPham = Regex.kiemTraNhapChu("tên quốc gia nhập sản phẩm");
         SanPham sanPham = new Xuat(id, maSanPham, tenSanPham, giaBanSanPham, soLuong, tenNhaSanXuat, giaXuatKhau, tenQuocGiaNhapSanPham);
-        LuuFileCSV.ghiFile(sanPham);
+        LuuFileCSV.ghiFile(sanPham, "thêm");
         System.out.println("Thêm sản phẩm xuất khẩu thành công !");
     }
 }

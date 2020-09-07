@@ -46,14 +46,14 @@ public class Main {
                     case 8:
                         System.exit(0);
                     default:
-                        System.out.println("Lựa chọn không tồn tại !");
+                        System.out.println("Lựa chọn không tồn tại !\n");
                 }
-            } else System.out.println("Lựa chọn không hợp lệ !");
+            } else System.out.println("Lựa chọn không hợp lệ !\n");
         } while (true);
     }
 
     public static void hienThi() {
-        if (list.isEmpty()) System.out.println("Trống !");
+        if (list.isEmpty()) System.out.println("Trống !\n");
         else {
             int bienDem = 0;
             for (DoiTuong doiTuong : list) {
@@ -83,18 +83,18 @@ public class Main {
         String email = Validate.kiemTraEmail();
         DoiTuong doiTuong = new DoiTuong(sdt, nhom, ten, gioiTinh, diaChi, ngaySinh, email);
         list.add(doiTuong);
-        System.out.println("Thêm thành công !");
+        System.out.println("Thêm thành công !\n");
     }
 
     public static void capNhat() {
-        if (list.isEmpty()) System.out.println("Trống !");
+        if (list.isEmpty()) System.out.println("Trống !\n");
         else {
             DoiTuong doiTuong = null;
             do {
                 System.out.print("Nhập sdt cần sửa : ");
                 String sdt = scanner.nextLine();
                 if (sdt.equals("")) {
-                    System.out.println("Không nhập thì khỏi sửa !");
+                    System.out.println("Không nhập thì khỏi sửa !\n");
                     break;
                 }
                 for (DoiTuong element : list) {
@@ -119,20 +119,20 @@ public class Main {
                 doiTuong.setNgaySinh(ngaySinh);
                 String email = Validate.kiemTraEmail();
                 doiTuong.setEmail(email);
-                System.out.println("Cập nhật thành công !");
+                System.out.println("Cập nhật thành công !\n");
             }
         }
     }
 
     public static void xoa() {
-        if (list.isEmpty()) System.out.println("Trống !");
+        if (list.isEmpty()) System.out.println("Trống !\n");
         else {
             DoiTuong doiTuong = null;
             do {
                 System.out.print("Nhập sdt cần xóa : ");
                 String sdt = scanner.nextLine();
                 if (sdt.equals("")) {
-                    System.out.println("Không nhập thì khỏi xóa !");
+                    System.out.println("Không nhập thì khỏi xóa !\n");
                     break;
                 }
                 for (DoiTuong element : list) {
@@ -149,13 +149,13 @@ public class Main {
                 if (scanner.nextLine().equals("Y")) {
                     list.remove(doiTuong);
                     System.out.println("Xóa thành công !");
-                } else System.out.println("Lệnh xóa đã được hủy !");
+                } else System.out.println("Lệnh xóa đã được hủy !\n");
             }
         }
     }
 
     public static void timKiem() {
-        if (list.isEmpty()) System.out.println("Trống !");
+        if (list.isEmpty()) System.out.println("Trống !\n");
         else {
             boolean kiemTra = true;
             int bienDem = 1;
@@ -169,16 +169,28 @@ public class Main {
                     bienDem++;
                 }
             }
-            if (kiemTra) System.out.println("Không tìm thấy DB khớp với thông tin bạn nhập !");
+            if (kiemTra) System.out.println("Không tìm thấy DB khớp với thông tin bạn nhập !\n");
         }
     }
 
     public static void docTuFile() {
-        list = BoNho.xuat();
-        System.out.println("Cập nhật thành công !");
+        if (BoNho.xuat().isEmpty()) System.out.println("File trống !");
+        System.out.println("Bạn có thực sự muốn cập nhật DB hay k ?! Nếu cập nhật toàn bộ bộ nhớ DB sẽ bị xóa !\n" +
+                "Nhập Yes nếu muốn cập nhật ! Nếu không nhập Yes thì lệnh cập nhật sẽ được hủy !");
+        if (scanner.nextLine().equals("Yes")) {
+            list = BoNho.xuat();
+            System.out.println("Cập nhật thành công !");
+            hienThi();
+        } else System.out.println("Lệnh cập nhật đã được hủy !\n");
     }
 
     public static void ghiVaoFile() {
-
+        if (list.isEmpty()) System.out.println("DB trống !");
+        System.out.println("Bạn có thực sự muốn cập nhật file hay k ?! Nếu cập nhật toàn bộ nội dung file sẽ bị xóa !\n" +
+                "Nhập Yes nếu muốn cập nhật ! Nếu không nhập Yes thì lệnh cập nhật sẽ được hủy !");
+        if (scanner.nextLine().equals("Yes")) {
+            BoNho.luu(list);
+            System.out.println("Cập nhật thành công !");
+        } else System.out.println("Lệnh cập nhật đã được hủy !\n");
     }
 }

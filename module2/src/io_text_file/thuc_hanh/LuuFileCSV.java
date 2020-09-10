@@ -62,10 +62,31 @@ public class LuuFileCSV {
 //            ioe.printStackTrace();
 //        }
         int xacNhan = 1;
-        for (SanPham sanPham : list) {
-            if (xacNhan == 1) ghiFile(sanPham, "ghi đè");
-            else ghiFile(sanPham, "thêm");
-            xacNhan++;
+        if (list.isEmpty()) {
+            File file = new File("src/io_text_file/thuc_hanh/products.csv");
+            FileWriter fileWriter = null;
+            try {
+                fileWriter = new FileWriter(file);
+                fileWriter.append("");
+            } catch (FileNotFoundException f) {
+                System.out.println(f.getMessage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (fileWriter != null) {
+                        fileWriter.close();
+                    }
+                } catch (IOException i) {
+                    i.printStackTrace();
+                }
+            }
+        } else {
+            for (SanPham sanPham : list) {
+                if (xacNhan == 1) ghiFile(sanPham, "ghi đè");
+                else ghiFile(sanPham, "thêm");
+                xacNhan++;
+            }
         }
     }
 

@@ -73,8 +73,17 @@ values
 insert into khach_hang (id_loai_khach, ho_ten, ngay_sinh, dia_chi)
 values
 	(1, 'Chau Luong Phu', '1995-05-27', 'Đà Nẵng'),
-	(2, 'Din Luong Vu Quang', '1996-05-22', 'Quảng Ngãi'),
-	(3, 'Khanh Nguyen Quoc', '1994-09-02', 'Nhật Bản'),
-	(4, 'Vu Nguyen Duc', '1997-07-27', 'Quảng Trị'),
-	(5, 'Lanh Nguyen Quang Nhat', '1997-02-22', 'Đà Nẵng'),
+	(1, 'Din Luong Vu Quang', '1996-05-22', 'Quảng Ngãi'),
+	(1, 'Khanh Nguyen Quoc', '1994-09-02', 'Nhật Bản'),
+	(2, 'Vu Nguyen Duc', '1997-07-27', 'Quảng Trị'),
+	(2, 'Lanh Nguyen Quang Nhat', '1997-02-22', 'Đà Nẵng'),
 	(1, 'Mai Ho', '1995-05-15', 'Trên mây');
+    
+insert into hop_dong (id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc)
+values
+	(106, 1, 1, '2020-01-01', '2020-09-15'),
+	(107, 2, 2, '2019-01-01', '2020-09-15'),
+	(106, 5, 3, '2018-01-01', '2020-09-15'),
+	(106, 1, 3, '2018-01-01', '2020-09-15'),
+	(107, 1, 4, '2017-01-01', '2020-09-15'),
+	(106, 2, 5, '2016-01-01', '2020-09-15');

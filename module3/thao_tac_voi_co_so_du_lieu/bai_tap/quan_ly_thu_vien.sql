@@ -1,4 +1,4 @@
--- drop database if exists manage_borrow_return_book;
+drop database if exists manage_borrow_return_book;
 create database manage_borrow_return_book;
 use manage_borrow_return_book;
 
@@ -51,10 +51,8 @@ book_publishing_year date,
 number_of_publications int,
 buyprice int,
 book_image varchar(100),
-book_student_number varchar(10),
 book_borrowoder_number varchar(10),
 book_type_number varchar(10),
-constraint fk_book_student foreign key(book_student_number) references students(student_number),
 constraint fk_book_borrowoder foreign key(book_borrowoder_number) references borrowoders(borrowoder_number),
 constraint fk_type foreign key(book_type_number) references type_of_book(id) 
 );

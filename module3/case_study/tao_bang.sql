@@ -109,7 +109,7 @@ create table hop_dong (
 );
 
 create table hop_dong_chi_tiet (
-	id_hop_dong_chi_tiet int primary key not null,
+	id_hop_dong_chi_tiet int primary key not null auto_increment,
     so_luong int,
     
     id_hop_dong int,

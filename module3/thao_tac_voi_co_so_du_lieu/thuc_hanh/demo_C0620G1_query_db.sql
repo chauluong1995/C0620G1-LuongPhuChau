@@ -52,3 +52,11 @@ group by class_id;
 select *
 from student
 order by `name`, date_of_birth desc;
+
+-- 7. Lấy ra lớp chưa có học viên nào :
+select count(s.class_id) as 'sohocvien',c.`name`
+from class c
+left join student s on s.class_id = c.id
+right join type_of_class t on t.id = c.type_of_class_id
+group by t.id
+having count(s.class_id) = 0;

@@ -1,5 +1,7 @@
 use furama_resort;
 
+
+
 -- Task 2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự :
 select *
 from nhan_vien;
@@ -11,6 +13,8 @@ regexp '^[HKT]{1}(.)*$' and length(ho_ten) <= 15;  -- Tìm tên theo kiểu tên
 -- '^([a-zA-Z]+[ ])+[H,K,T][a-zA-Z]+$' : Tìm tên viết theo kiểu họ trước tên sau !
 -- '(H|K|T)[:alpha:]*$' : Tìm tên tiếng Việt viết theo kiểu họ trước tên sau !
 
+
+
 -- Task 3. Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị” :
 select *
 from khach_hang;
@@ -18,6 +22,8 @@ from khach_hang;
 select *
 from khach_hang
 where (year(now()) - year(ngay_sinh) between 18 and 50) and (dia_chi in ('Đà Nẵng','Quảng Trị'));
+
+
 
 -- Task 4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng. 
 --          Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
@@ -28,6 +34,8 @@ inner join loai_khach l on l.id_loai_khach = kh.id_loai_khach
 where l.ten_loai_khach = 'Diamond'
 group by kh.id_khach_hang
 order by count(hd.id_khach_hang);
+
+
 
 -- Task 5.	Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong, TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien 
 --          (Với TongTien được tính theo công thức như sau: ChiPhiThue + SoLuong * Gia, với SoLuong và Giá là từ bảng DichVuDiKem) 
@@ -42,6 +50,35 @@ left join hop_dong_chi_tiet hdct on hdct.id_hop_dong = hd.id_hop_dong
 left join dich_vu_di_kem dvdk on hdct.id_dich_vu_di_kem = dvdk.id_dich_vu_di_kem
 group by kh.id_khach_hang;
 
--- Task 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1
+
+
+-- Task 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt trong quý 1
 --          của năm 2019 (Quý 1 là tháng 1, 2, 3) :
--- select count(id_dich_vu) as 'so_lan_dat', id_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue,
+select dv.id_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, ldv.ten_loai_dich_vu
+from dich_vu dv
+	left join hop_dong hd using(id_dich_vu)
+	left join loai_dich_vu ldv using(id_loai_dich_vu)
+where dv.ten_dich_vu not in (
+	select dv.ten_dich_vu
+    from dich_vu dv
+		left join hop_dong hd using(id_dich_vu)
+	where hd.ngay_lam_hop_dong > '2019-01-01' and hd.ngay_lam_hop_dong < '2019-03-31'
+)
+group by dv.ten_dich_vu;
+
+
+
+-- Task 7. Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng 
+--         trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng trong năm 2019 :
+select dv.id_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, ldv.ten_loai_dich_vu
+from dich_vu dv
+	left join hop_dong hd using(id_dich_vu)
+	left join loai_dich_vu ldv using(id_loai_dich_vu)
+where hd.ngay_lam_hop_dong > '2017-12-31' and hd.ngay_lam_hop_dong < '2019-01-01'
+and dv.ten_dich_vu not in (
+	select dv.ten_dich_vu
+    from dich_vu dv
+		left join hop_dong hd using(id_dich_vu)
+	where hd.ngay_lam_hop_dong > '2018-12-31' and hd.ngay_lam_hop_dong < '2020-01-01'
+)
+group by dv.ten_dich_vu;

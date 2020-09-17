@@ -61,7 +61,7 @@ create table dich_vu (
     dien_tich int,
     so_tang int,
     so_nguoi_toi_da varchar(45),
-    chi_phi_thue varchar(45),
+    chi_phi_thue int,
     trang_thai varchar(45),
     
     id_kieu_thue int,

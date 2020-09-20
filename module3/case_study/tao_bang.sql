@@ -38,7 +38,7 @@ create table dich_vu_di_kem (
 	id_dich_vu_di_kem int primary key not null auto_increment,
     ten_dich_vu_di_kem varchar(45),
     gia int,
-    don_vi int,
+    don_vi varchar(45),
     trang_thai_kha_dung varchar(45)
 );
 
@@ -102,7 +102,7 @@ create table hop_dong (
     foreign key(id_nhan_vien) references nhan_vien(id_nhan_vien),
     
     id_khach_hang int,
-    foreign key(id_khach_hang) references khach_hang(id_khach_hang),
+    constraint fk_khach_hang foreign key(id_khach_hang) references khach_hang(id_khach_hang),
     
     id_dich_vu int,
     foreign key(id_dich_vu) references dich_vu(id_dich_vu)
@@ -113,7 +113,7 @@ create table hop_dong_chi_tiet (
     so_luong int,
     
     id_hop_dong int,
-    foreign key(id_hop_dong) references hop_dong(id_hop_dong),
+    constraint fk_hop_dong foreign key(id_hop_dong) references hop_dong(id_hop_dong),
     
     id_dich_vu_di_kem int,
     foreign key(id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem)

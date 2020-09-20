@@ -115,34 +115,34 @@ from hop_dong hd
 	join khach_hang kh using(id_khach_hang)
 where year(hd.ngay_lam_hop_dong) = '2019'
 group by month(hd.ngay_lam_hop_dong)
-order by 'thang';
+order by month(hd.ngay_lam_hop_dong);
 
 -- Cách 2 :
 select tong_doanh_thu.thang, count(hd.id_khach_hang) as so_lan_dat_phong
 from (
 	select '01' as 'thang'
 	union
-	select '02' as 'thang'
+	select '02'
 	union
-	select '03' as 'thang'
+	select '03'
 	union
-	select '04' as 'thang'
+	select '04'
 	union
-	select '05' as 'thang'
+	select '05'
 	union
-	select '06' as 'thang'
+	select '06'
 	union
-	select '07' as 'thang'
+	select '07'
 	union
-	select '08' as 'thang'
+	select '08'
 	union
-	select '09' as 'thang'
+	select '09'
 	union
-	select '10' as 'thang'
+	select '10'
 	union
-	select '11' as 'thang'
+	select '11'
 	union
-	select '12' as 'thang'
+	select '12'
 ) as tong_doanh_thu
 left join hop_dong hd on month(hd.ngay_lam_hop_dong) = tong_doanh_thu.thang and year(hd.ngay_lam_hop_dong) = '2019'
 group by tong_doanh_thu.thang;
@@ -266,7 +266,7 @@ where khach_hang.id_khach_hang in (
     from thong_ke tk
     where tk.ten_loai_khach = 'Platinium' and tk.tong_tien > (10000000 / 25000)
 );
-drop view thong_ke;
+drop view if exists thong_ke;
 
 
 
@@ -307,7 +307,7 @@ where id_dich_vu_di_kem in (
     group by tk.id_dich_vu_di_kem
     having sum(tk.so_luong) > 10
 );
-drop view thong_ke;
+drop view if exists thong_ke;
 
 
 
@@ -323,6 +323,8 @@ from khach_hang kh;
 
 -- Task 21. Tạo khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và đã từng lập hợp đồng cho 1 hoặc nhiều 
 --     Khách hàng bất kỳ với ngày lập hợp đồng là “12/12/2019” :
+drop view if exists V_NHANVIEN;
+
 create view V_NHANVIEN as
 select nv.id_nhan_vien, nv.ho_ten, nv.ngay_sinh, nv.dia_chi, hd.ngay_lam_hop_dong
 from nhan_vien nv
@@ -337,11 +339,12 @@ select * from V_NHANVIEN;
 update V_NHANVIEN
 set dia_chi = 'Liên Chiểu';
 
-drop view V_NHANVIEN;
+drop view if exists V_NHANVIEN;
 
 
 
 -- Task 23.	Tạo Store procedure Sp_1 Dùng để xóa thông tin của một Khách hàng nào đó với Id Khách hàng được truyền vào như là 1 tham số của Sp_1 :
+drop procedure if exists Sp_1;
 DELIMITER //
 CREATE PROCEDURE Sp_1(id_need_delete int)
 BEGIN
@@ -351,3 +354,62 @@ END //
 DELIMITER ;
 
 call Sp_1(7);
+
+
+
+-- Task 24.	Tạo Store procedure Sp_2 Dùng để thêm mới vào bảng HopDong với yêu cầu Sp_2 phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung, với nguyên tắc
+--          không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan :
+drop procedure if exists Sp_2;
+DELIMITER //
+CREATE PROCEDURE Sp_2(id_nhan_vien_add int, id_khach_hang_add int, id_dich_vu_add int, ngay_lam_hop_dong_moi date, ngay_ket_thuc_moi date)
+BEGIN
+	insert into hop_dong (id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc)
+    value (id_nhan_vien_add, id_khach_hang_add, id_dich_vu_add, ngay_lam_hop_dong_moi, ngay_ket_thuc_moi);
+END //
+DELIMITER ;
+
+call Sp_2(101, 1, 1, '2020-09-20', '2020-09-25');
+drop procedure if exists Sp_2;
+
+
+
+-- Task 25.	Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database :
+drop trigger if exists Tr_1;
+delimiter //
+create trigger Tr_1
+after delete
+on hop_dong for each row
+begin
+	
+end; //
+delimiter ;
+
+
+
+-- Task 26.	Tạo triggers có tên Tr_2 Khi cập nhật Ngày kết thúc hợp đồng, cần kiểm tra xem thời gian cập nhật có phù hợp hay không, với quy tắc sau: 
+--          Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ
+--          thì in ra thông báo “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database :
+drop trigger if exists Tr_2;
+delimiter //
+create trigger Tr_2
+after update
+on hop_dong for each row
+begin
+	
+end; //
+delimiter ;
+
+
+
+-- Task 27.	Tạo user function thực hiện yêu cầu sau:
+--          a. Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
+--          b. Tạo user function Func_2: Tính khoảng thời gian dài nhất tính từ lúc bắt đầu làm hợp đồng đến lúc kết thúc hợp đồng mà Khách hàng đã thực hiện
+--             thuê dịch vụ (lưu ý chỉ xét các khoảng thời gian dựa vào từng lần làm hợp đồng thuê dịch vụ, không xét trên toàn bộ các lần làm hợp đồng).
+--             Mã của Khách hàng được truyền vào như là 1 tham số của function này :
+
+
+
+
+-- Task 28.	Tạo Store procedure Sp_3 để tìm các dịch vụ được thuê bởi khách hàng với loại dịch vụ là “Room” từ đầu năm 2015 đến hết năm 2019 để xóa thông tin
+--          của các dịch vụ đó (tức là xóa các bảng ghi trong bảng DichVu) và xóa những HopDong sử dụng dịch vụ liên quan (tức là phải xóa những bản gi trong bảng HopDong)
+--          và những bản liên quan khác :

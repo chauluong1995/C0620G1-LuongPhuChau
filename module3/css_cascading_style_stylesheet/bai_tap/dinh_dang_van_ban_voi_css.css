@@ -1,0 +1,23 @@
+hr {
+    border: none;
+    border-top: 1px solid black;
+    margin-right: 850px;
+}
+
+.xanh_nhat {
+    color: dodgerblue;
+}
+
+.xanh_dam {
+    color: blue;
+}
+
+p {
+    text-align: justify;
+    margin-right: 850px;
+    text-indent: 45px;
+}
+
+body {
+    margin-left: 55px;
+}

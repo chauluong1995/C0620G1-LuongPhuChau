@@ -154,7 +154,6 @@ group by tong_doanh_thu.thang;
 select hd.id_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, hd.tien_dat_coc, count(hdct.id_hop_dong_chi_tiet) as 'so_luong_dich_vu_di_kem'
 from hop_dong hd
 	left join hop_dong_chi_tiet hdct using(id_hop_dong)
-    left join dich_vu_di_kem dvdk using(id_dich_vu_di_kem)
 group by hd.id_hop_dong;
 
 
@@ -173,7 +172,7 @@ group by dvdk.ten_dich_vu_di_kem;
 
 -- Task 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), 
 --          TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019 :
-select hd.id_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, dv.ten_dich_vu, hd.tien_dat_coc, count(hdct.id_hop_dong_chi_tiet) as 'so_luong'
+select hd.id_hop_dong,hd.ngay_lam_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, dv.ten_dich_vu, hd.tien_dat_coc, count(hdct.id_hop_dong_chi_tiet) as 'so_luong'
 from hop_dong hd
 	left join hop_dong_chi_tiet hdct using(id_hop_dong)
     left join nhan_vien nv using(id_nhan_vien)
@@ -374,30 +373,30 @@ drop procedure if exists Sp_2;
 
 
 -- Task 25.	Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database :
-drop trigger if exists Tr_1;
-delimiter //
-create trigger Tr_1
-after delete
-on hop_dong for each row
-begin
-	
-end; //
-delimiter ;
+-- drop trigger if exists Tr_1;
+-- delimiter //
+-- create trigger Tr_1
+-- after delete
+-- on hop_dong for each row
+-- begin
+-- 	
+-- end; //
+-- delimiter ;
 
 
 
 -- Task 26.	Tạo triggers có tên Tr_2 Khi cập nhật Ngày kết thúc hợp đồng, cần kiểm tra xem thời gian cập nhật có phù hợp hay không, với quy tắc sau: 
 --          Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ
 --          thì in ra thông báo “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database :
-drop trigger if exists Tr_2;
-delimiter //
-create trigger Tr_2
-after update
-on hop_dong for each row
-begin
-	
-end; //
-delimiter ;
+-- drop trigger if exists Tr_2;
+-- delimiter //
+-- create trigger Tr_2
+-- after update
+-- on hop_dong for each row
+-- begin
+-- 	
+-- end; //
+-- delimiter ;
 
 
 
@@ -407,6 +406,21 @@ delimiter ;
 --             thuê dịch vụ (lưu ý chỉ xét các khoảng thời gian dựa vào từng lần làm hợp đồng thuê dịch vụ, không xét trên toàn bộ các lần làm hợp đồng).
 --             Mã của Khách hàng được truyền vào như là 1 tham số của function này :
 
+-- Câu a :
+drop function if exists dem_dich_vu;
+DELIMITER //
+create function dem_dich_vu(tham_so int)
+returns int
+deterministic
+BEGIN
+	declare count int;
+    set count = ?;
+	return count;
+END //
+DELIMITER ;
+
+select dem_dich_vu(2000000);
+drop function if exists dem_dich_vu;
 
 
 

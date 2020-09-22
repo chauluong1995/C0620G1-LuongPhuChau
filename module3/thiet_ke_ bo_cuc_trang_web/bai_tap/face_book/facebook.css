@@ -1,0 +1,88 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class *= 'col-'] {
+    float: left;
+}
+
+.row::after{
+    clear: both;
+}
+
+.header {
+    background: dodgerblue;
+}
+
+h1 {
+    margin: 15px 15px;
+    color: white;
+    font-size: 50px;
+    float: left;
+}
+
+.header img {
+    margin: 15px 80px;
+    width: 50px;
+    height: 50px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.left-panel ul li {
+    background-color: deeppink;
+    padding: 31px 0px 35px 25px;
+}
+
+.right-panel ul li {
+    background-color: blueviolet;
+    padding: 31px 0px 35px 25px;
+}
+
+ul li img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    float: left;
+}
+
+ul li:hover{
+    background-color: magenta;
+}
+
+.body {
+    background-color: deepskyblue;
+    padding: 100px;
+}
+
+.right-panel ul li h3 {
+    padding-bottom: 15px;
+}
+
+h3 {
+    color: greenyellow;
+    font-size: 15px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 768px) {
+    [class *= 'col-'] {
+        width: 100%;
+    }
+}

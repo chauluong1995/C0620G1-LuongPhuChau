@@ -18,12 +18,12 @@
 <h3 style="color: red">List Price : <span style="color: blue"><%=request.getAttribute("listPrice")%></span> USD</h3>
 
 <h3 style="color: red">Discount Percent : <span style="color: blue"><%=request.getAttribute("discountPercent")%></span>
-    USD</h3>
+    %</h3>
 
 <h3 style="color: red">Discount Amount : <span style="color: blue"><%=request.getAttribute("discountAmount")%></span>
     USD</h3>
 
-<h3 style="color: red">Discount Percent : <span style="color: blue"><%=request.getAttribute("iscountPrice")%></span> USD
+<h3 style="color: red">Discount Price : <span style="color: blue"><%=request.getAttribute("iscountPrice")%></span> USD
 </h3>
 
 </body>

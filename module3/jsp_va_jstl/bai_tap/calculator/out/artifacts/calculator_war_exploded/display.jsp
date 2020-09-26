@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1>Result:</h1>
-<h3><%=request.getAttribute("display")%></h3>
+<h3><%=request.getAttribute("display")%>
+</h3>
 </body>
 </html>

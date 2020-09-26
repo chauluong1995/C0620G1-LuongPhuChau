@@ -59,7 +59,7 @@
         </c:forEach>
     </table>
     <br><br>
-    <c:set scope=""></c:set>
+<%--    <c:set scope=""></c:set>--%>
 
 <%--    ${testVariable}--%>
 <%--    <c:out value="${testVariable}" />--%>

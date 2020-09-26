@@ -44,12 +44,6 @@
                         </c:when>
                         <c:otherwise>
                             Bad
-                            <c:if test="${student.gender == 0}">
-                                Female
-                            </c:if>
-                            <c:if test="${student.gender == 1}">
-                                Male
-                            </c:if>
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -65,6 +59,7 @@
         </c:forEach>
     </table>
     <br><br>
+<%--    <c:set scope=""></c:set>--%>
 
 <%--    ${testVariable}--%>
 <%--    <c:out value="${testVariable}" />--%>

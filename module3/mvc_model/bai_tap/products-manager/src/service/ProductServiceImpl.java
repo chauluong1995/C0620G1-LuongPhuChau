@@ -6,7 +6,6 @@ import java.util.*;
 
 public class ProductServiceImpl implements ProductService {
     private static Map<String, Product> products;
-
     static {
         products = new TreeMap<>();
         products.put("VJ5", new Product("VJ5", "Vsmart Joy 5", "500 $", "Nice", "Vsmart"));
@@ -32,13 +31,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findByName(String name) {
+    public List<Product> findByName(String name) {
+        List<Product> productSearch = new ArrayList<>();
         for (Map.Entry<String, Product> entry : products.entrySet()) {
-            if (entry.getValue().getName().equals(name)){
-                return entry.getValue();
+            if (entry.getValue().getName().contains(name)){
+                productSearch.add(entry.getValue());
             }
         }
-        return null;
+        return productSearch;
     }
 
     @Override

@@ -22,11 +22,11 @@
         <table>
             <tr>
                 <td>ID :</td>
-                <td>${requestScope["product"].getId()}</td>
+                <td>${product.getId()}</td>
             </tr>
             <tr>
                 <td>Name :</td>
-                <td>${requestScope["product"].getName()}</td>
+                <td>${product.getName()}</td>
             </tr>
             <tr>
                 <td>Price :</td>

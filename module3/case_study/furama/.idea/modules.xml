@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/furrama.iml" filepath="$PROJECT_DIR$/furrama.iml" />
+      <module fileurl="file://$PROJECT_DIR$/furama.iml" filepath="$PROJECT_DIR$/furama.iml" />
     </modules>
   </component>
 </project>

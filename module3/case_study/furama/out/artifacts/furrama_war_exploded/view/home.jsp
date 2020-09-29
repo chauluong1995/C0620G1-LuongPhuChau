@@ -13,6 +13,7 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         * {
             margin: 0;
@@ -29,7 +30,7 @@
         }
 
         .nav-link {
-            margin-left: 70px;
+            margin-left: 35px;
         }
 
         h5 {
@@ -54,15 +55,16 @@
     </style>
 </head>
 <body>
-<form action="/furama" method="post">
+<form action="/furama">
     <div class="container-fluid">
         <div class="row" style="background-color: aqua">
-            <div class="col-sm-7">
-                <img src="img/furama-icon.png" alt="furama-icon">
+            <div class="col-sm-8">
+                <img src="../img/furama-icon.png" alt="furama-icon">
             </div>
 
-            <div class="col-sm-5">
-                <h1>Luxury Resort in Da Nang</h1>
+            <div class="col-sm-4">
+                <%--<h1>Luxury Resort in Da Nang</h1>--%>
+                <h1>LƯƠNG PHÚ CHÂU</h1>
             </div>
         </div>
 
@@ -74,6 +76,7 @@
                     <a href="#" class="nav-link text-dark">Customer</a>
                     <a href="#" class="nav-link text-dark">Service</a>
                     <a href="#" class="nav-link text-dark">Contract</a>
+                    <a href="#" class="nav-link text-dark">Contract Detail</a>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                style="margin-left: 70px; width: 500px">
@@ -86,11 +89,11 @@
         <div class="row" style="background-color: cadetblue">
             <div class="col-sm-3">
                 <div class="row">
-                    <img src="img/villa.jpg" alt="villa-icon">
+                    <img src="../img/villa.jpg" alt="villa-icon">
                     <h5>Luxury Villa System</h5>
-                    <img src="img/house.jpg" alt="house-icon">
+                    <img src="../img/house.jpg" alt="house-icon">
                     <h5>Perfect Home System</h5>
-                    <img src="img/room.jpg" alt="room-icon">
+                    <img src="../img/room.jpg" alt="room-icon">
                     <h5>Comfortable Room System</h5>
                 </div>
             </div>
@@ -119,7 +122,7 @@
                         </p>
                     </div>
                     <div class="col-sm-6 icon">
-                        <img src="img/img1.jpg" alt="img1">
+                        <img src="../img/img1.jpg" alt="img1">
                     </div>
                 </div>
             </div>
@@ -127,16 +130,16 @@
 
         <div class="row" style="background-color: cadetblue">
             <div class="col-sm-3">
-                <img src="img/img2.jpg" alt="img2">
+                <img src="../img/img2.jpg" alt="img2">
             </div>
             <div class="col-sm-3">
-                <img src="img/img3.jpg" alt="img3">
+                <img src="../img/img3.jpg" alt="img3">
             </div>
             <div class="col-sm-3">
-                <img src="img/img4.jpg" alt="img4">
+                <img src="../img/img4.jpg" alt="img4">
             </div>
             <div class="col-sm-3">
-                <img src="img/img5.jpg" alt="img5">
+                <img src="../img/img5.jpg" alt="img5">
             </div>
         </div>
 

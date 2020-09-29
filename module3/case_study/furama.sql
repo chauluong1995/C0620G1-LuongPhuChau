@@ -71,6 +71,14 @@ create table customer (
     foreign key (customer_type_id) references customer_type(customer_type_id)
 );
 
+insert into customer (customer_name, customer_birthday, customer_gender, customer_email, customer_address)
+values
+	('Châu Lương', '1995-05-27', 1, 'chauluong@codegym.com', 'Quảng Nam'),
+	('Mai Hồ', '1995-05-15', 0, 'maiho@codegym.com', 'Đà Nẵng'),
+	('Lành Nguyễn', '1997-02-02', 1, 'lanhnguyen@codegym.com', 'Đà Nẵng'),
+	('Đin Lương', '1996-06-06', 1, 'dinluong@codegym.com', 'Quảng Ngãi'),
+	('Khánh Nguyễn', '1994-09-02', 1, 'khanh@codegym.com', 'Đà Nẵng');
+
 create table service (
 	service_id int primary key auto_increment,
     service_name varchar(45),

@@ -6,7 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e510a6de-0a2b-4871-a2aa-1e8dcbbc41f3" name="Default Changelist" comment="" />
+    <list default="true" id="e510a6de-0a2b-4871-a2aa-1e8dcbbc41f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/artifacts/user_update_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/libraries/mysql_connector_java_8_0_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/libraries/taglibs_standard_impl_1_2_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/src/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/user-update.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../jdbc_va_crud/bai_tap/user-update/web/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +30,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -27,6 +41,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1hwp6BCemh0DcWwHDlZ0yvLWNiG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -37,6 +52,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -147,6 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600931831023</updated>
       <workItem from="1600931836767" duration="4120000" />
+      <workItem from="1601341727626" duration="144000" />
     </task>
     <servers />
   </component>

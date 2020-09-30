@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserDAO implements IUserDAO {
-    Connection connection = getConnection();
     private BaseDAO baseDAO = new BaseDAO();
 
     private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
@@ -42,17 +41,51 @@ public class UserDAO implements IUserDAO {
         return connection;
     }
 
+//    public void insertUser(User user) throws SQLException {
+//        System.out.println(INSERT_USERS_SQL);
+//        // try-with-resource statement will auto close the connection.
+//        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+//            preparedStatement.setString(1, user.getName());
+//            preparedStatement.setString(2, user.getEmail());
+//            preparedStatement.setString(3, user.getCountry());
+//            System.out.println(preparedStatement);
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException e) {
+//            printSQLException(e);
+//        }
+//    }
+
     public void insertUser(User user) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
-        // try-with-resource statement will auto close the connection.
-        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+        Connection connection = getConnection();
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
+
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getCountry());
-            System.out.println(preparedStatement);
-            preparedStatement.executeUpdate();
+
+            int rowAffect = preparedStatement.executeUpdate();
+
+            PreparedStatement temp
+                    = connection.prepareStatement("insert into permision (name, email, country) " +
+                    "values (?, ?, ?)");
+            temp.setString(1, "1");
+            temp.setString(2, "2");
+            temp.setString(3, "3");
+
+            rowAffect += temp.executeUpdate();
+
+            if (rowAffect == 2) {
+                connection.commit();
+            } else {
+                connection.rollback();
+            }
+
         } catch (SQLException e) {
-            printSQLException(e);
+            connection.rollback();
+            e.printStackTrace();
         }
     }
 
@@ -327,6 +360,7 @@ public class UserDAO implements IUserDAO {
     private static final String SQL_TABLE_CREATE = "CREATE TABLE EMPLOYEE" + "(" + " ID serial," + " NAME varchar(100) NOT NULL,"
             + " SALARY numeric(15, 2) NOT NULL," + " CREATED_DATE timestamp," + " PRIMARY KEY (ID)" + ")";
     private static final String SQL_TABLE_DROP = "DROP TABLE IF EXISTS EMPLOYEE";
+
     @Override
     public void insertUpdateWithoutTransaction() {
         try (Connection conn = getConnection();

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e565f0f6-a10a-4473-86e7-9249ad4ca283" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../module3/jdbc_querying_va_transaction/thuc_hanh/c06g-jdbc-transaction/out/artifacts/c06g_jdbc_transaction_war_exploded/WEB-INF/classes/dao/StudentDAOTransactionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jdbc_querying_va_transaction/thuc_hanh/c06g-jdbc-transaction/out/artifacts/c06g_jdbc_transaction_war_exploded/WEB-INF/classes/dao/StudentDAOTransactionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/jdbc_querying_va_transaction/thuc_hanh/c06g-jdbc-transaction/out/production/c06g-jdbc-transaction/dao/StudentDAOTransactionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jdbc_querying_va_transaction/thuc_hanh/c06g-jdbc-transaction/out/production/c06g-jdbc-transaction/dao/StudentDAOTransactionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/jdbc_querying_va_transaction/thuc_hanh/c06g-jdbc-transaction/src/dao/StudentDAOTransactionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jdbc_querying_va_transaction/thuc_hanh/c06g-jdbc-transaction/src/dao/StudentDAOTransactionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/jdbc_va_crud/bai_tap/user-update/out/artifacts/user_update_war_exploded/WEB-INF/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jdbc_va_crud/bai_tap/user-update/out/artifacts/user_update_war_exploded/WEB-INF/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/jdbc_va_crud/bai_tap/user-update/out/production/user-update/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jdbc_va_crud/bai_tap/user-update/out/production/user-update/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/jdbc_va_crud/bai_tap/user-update/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jdbc_va_crud/bai_tap/user-update/src/dao/UserDAO.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1iEkJECv542dH17kJ5vU07Kdsfl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e565f0f6-a10a-4473-86e7-9249ad4ca283" name="Default Changelist" comment="" />
+      <created>1601480064907</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601480064907</updated>
+      <workItem from="1601480066057" duration="111000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

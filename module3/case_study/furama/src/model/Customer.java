@@ -1,11 +1,11 @@
 package model;
 
 public class Customer {
-    private int id;
-    private int typeCustomer;
+    private String id;
+    private String typeCustomer;
     private String name;
     private String birthDay;
-    private int gender;
+    private String gender;
     private String idCard;
     private String phoneNumber;
     private String email;
@@ -14,7 +14,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, int typeCustomer, String name, String birthDay, int gender, String idCard, String phoneNumber, String email, String address) {
+    public Customer(String id, String typeCustomer, String name, String birthDay, String gender, String idCard, String phoneNumber, String email, String address) {
         this.id = id;
         this.typeCustomer = typeCustomer;
         this.name = name;
@@ -26,7 +26,7 @@ public class Customer {
         this.address = address;
     }
 
-    public Customer(int id, String name, String birthDay, int gender, String email, String address) {
+    public Customer(String id, String name, String birthDay, String gender, String email, String address) {
         this.id = id;
         this.name = name;
         this.birthDay = birthDay;
@@ -35,19 +35,19 @@ public class Customer {
         this.address = address;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getTypeCustomer() {
+    public String getTypeCustomer() {
         return typeCustomer;
     }
 
-    public void setTypeCustomer(int typeCustomer) {
+    public void setTypeCustomer(String typeCustomer) {
         this.typeCustomer = typeCustomer;
     }
 
@@ -67,11 +67,11 @@ public class Customer {
         this.birthDay = birthDay;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bootstrap Simple Data Table</title>
+    <title>List Customer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -174,69 +174,71 @@
     </script>
 </head>
 <body>
-<div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1 style="color: red">Customer List</h1>
-                        <p>
-                            <a href="/furama?action=createNewCustomer"><h3>Create New Customer</h3></a>
-                        </p>
+<form>
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 style="color: red">Customer List</h1>
+                            <p>
+                                <a href="/furama?actionFurama=showCreateNewCustomer"><h3>Create New Customer</h3></a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <table class="table table-striped table-hover table-bordered">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>BirthDay</th>
-                    <th>Gender</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items='${"customerList"}' var="customer">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
                     <tr>
-                        <td>${customer.getId()}</td>
-                        <td>${customer.getName()}</td>
-                        <td>${customer.getBirthDay()}</td>
-                        <td>${customer.getGender()}</td>
-                        <td>${customer.getEmail()}</td>
-                        <td>${customer.getAddress()}</td>
-                        <td>
-                            <a href="/furama?action=edit&id=${customer.getId()}" class="edit" title="Edit"
-                               data-toggle="tooltip"><i
-                                    class="material-icons">&#xE254;</i></a>
-                            <a href="/furama?action=delete&id=${customer.getId()}" class="delete"
-                               title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>BirthDay</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Actions</th>
                     </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            <p>
-                <a href="/furama">Home</a>
-            </p>
-            <%--            <div class="clearfix">--%>
-            <%--                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>--%>
-            <%--                <ul class="pagination">--%>
-            <%--                    <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>--%>
-            <%--                    <li class="page-item"><a href="#" class="page-link">1</a></li>--%>
-            <%--                    <li class="page-item"><a href="#" class="page-link">2</a></li>--%>
-            <%--                    <li class="page-item active"><a href="#" class="page-link">3</a></li>--%>
-            <%--                    <li class="page-item"><a href="#" class="page-link">4</a></li>--%>
-            <%--                    <li class="page-item"><a href="#" class="page-link">5</a></li>--%>
-            <%--                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a>--%>
-            <%--                    </li>--%>
-            <%--                </ul>--%>
-            <%--            </div>--%>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${customerList}" var="customer">
+                        <tr>
+                            <td>${customer.getId()}</td>
+                            <td>${customer.getName()}</td>
+                            <td>${customer.getBirthDay()}</td>
+                            <td>${customer.getGender()}</td>
+                            <td>${customer.getEmail()}</td>
+                            <td>${customer.getAddress()}</td>
+                            <td>
+                                <a href="/furama?action=edit&id=${customer.getId()}" class="edit" title="Edit"
+                                   data-toggle="tooltip"><i
+                                        class="material-icons">&#xE254;</i></a>
+                                <a href="/furama?action=delete&id=${customer.getId()}" class="delete"
+                                   title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <p>
+                    <a href="/furama">Home</a>
+                </p>
+                <%--            <div class="clearfix">--%>
+                <%--                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>--%>
+                <%--                <ul class="pagination">--%>
+                <%--                    <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>--%>
+                <%--                    <li class="page-item"><a href="#" class="page-link">1</a></li>--%>
+                <%--                    <li class="page-item"><a href="#" class="page-link">2</a></li>--%>
+                <%--                    <li class="page-item active"><a href="#" class="page-link">3</a></li>--%>
+                <%--                    <li class="page-item"><a href="#" class="page-link">4</a></li>--%>
+                <%--                    <li class="page-item"><a href="#" class="page-link">5</a></li>--%>
+                <%--                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a>--%>
+                <%--                    </li>--%>
+                <%--                </ul>--%>
+                <%--            </div>--%>
+            </div>
         </div>
     </div>
-</div>
+</form>
 </body>
 </html>

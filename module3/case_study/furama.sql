@@ -23,6 +23,14 @@ create table customer_type (
     customer_type_name varchar (45)
 );
 
+insert into customer_type (customer_type_name)
+values
+	('Diamond'),
+	('Platinium'),
+	('Gold'),
+	('Silver'),
+	('Member');
+
 create table rent_type (
 	rent_type_id int primary key auto_increment,
     rent_type_name varchar (45),
@@ -58,10 +66,10 @@ create table user_role (
 );
 
 create table customer (
-	customer_id int primary key auto_increment,
+	customer_id varchar(25) primary key,
     customer_name varchar(45),
     customer_birthday date,
-    customer_gender bit(1),
+    customer_gender varchar(45),
     customer_id_card varchar(45),
     customer_phone varchar(45),
     customer_email varchar(45),
@@ -71,16 +79,17 @@ create table customer (
     foreign key (customer_type_id) references customer_type(customer_type_id)
 );
 
-insert into customer (customer_name, customer_birthday, customer_gender, customer_email, customer_address)
+insert into customer (customer_id, customer_name, customer_birthday, customer_gender, customer_email, customer_address)
 values
-	('Châu Lương', '1995-05-27', 1, 'chauluong@codegym.com', 'Quảng Nam'),
-	('Mai Hồ', '1995-05-15', 0, 'maiho@codegym.com', 'Đà Nẵng'),
-	('Lành Nguyễn', '1997-02-02', 1, 'lanhnguyen@codegym.com', 'Đà Nẵng'),
-	('Đin Lương', '1996-06-06', 1, 'dinluong@codegym.com', 'Quảng Ngãi'),
-	('Khánh Nguyễn', '1994-09-02', 1, 'khanh@codegym.com', 'Đà Nẵng');
+	('KH-6789', 'Châu Lương', '1995-05-27', 'Nam', 'chauluong@codegym.com', 'Quảng Nam'),
+	('KH-0515', 'Mai Hồ', '1995-05-15', 'Nữ', 'maiho@codegym.com', 'Đà Nẵng'),
+	('KH-0202', 'Lành Nguyễn', '1997-02-02', 'Nam', 'lanhnguyen@codegym.com', 'Đà Nẵng'),
+	('KH-0606', 'Đin Lương', '1996-06-06', 'Nam', 'dinluong@codegym.com', 'Quảng Ngãi'),
+	('KH-0902', 'Khánh Nguyễn', '1994-09-02', 'Nam', 'khanh@codegym.com', 'Đà Nẵng'),
+	('KH-0707', 'Vũ Nguyễn', '1997-07-07', 'Nam', 'vunguyen@codegym.com', 'Hà Tĩnh');
 
 create table service (
-	service_id int primary key auto_increment,
+	service_id varchar(25) primary key,
     service_name varchar(45),
     service_area int,
     service_cost double,
@@ -130,10 +139,10 @@ create table contract (
     employee_id int,
     foreign key(employee_id) references employee(employee_id),
     
-    customer_id int,
+    customer_id varchar(25),
     constraint fk_customer foreign key(customer_id) references customer(customer_id),
     
-    service_id int,
+    service_id varchar(25),
     constraint fk_service foreign key(service_id) references service(service_id)
 );
 

@@ -7,7 +7,7 @@ import java.util.List;
 public interface CustomerBO {
     List<Customer> findAll();
 
-    void save(Customer customer);
+    String save(Customer customer);
 
     void update(int id, Customer customer);
 

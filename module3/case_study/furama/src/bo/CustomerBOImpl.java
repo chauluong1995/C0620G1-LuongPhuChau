@@ -15,8 +15,10 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
-    public void save(Customer customer) {
-
+    public String save(Customer customer) {
+        String message;
+        message = this.customerDAO.save(customer);
+        return message;
     }
 
     @Override

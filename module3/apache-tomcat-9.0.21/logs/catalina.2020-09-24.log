@@ -1,0 +1,42 @@
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.21
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 4 2019 20:19:36 UTC
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.21.0
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_211\jre
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_211-b12
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\apache-tomcat-9.0.21
+24-Sep-2020 10:29:02.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\apache-tomcat-9.0.21
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\apache-tomcat-9.0.21\conf\logging.properties
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\apache-tomcat-9.0.21
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\apache-tomcat-9.0.21
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\apache-tomcat-9.0.21\temp
+24-Sep-2020 10:29:02.724 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_211\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\nodejs\;D:\Gradle\gradle-6.3\bin;C:\Program Files\Git\cmd;D:\Android\Sdk;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pato2\AppData\Local\Microsoft\WindowsApps;D:\IntelliJ IDEA Community Edition 2019.3.2\bin;D:\IntelliJ IDEA 2019.3.3\bin;D:\WebStorm 2019.3.3\bin;C:\Users\pato2\AppData\Roaming\npm;C:\Program Files\heroku\bin;D:\flutter\bin;;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;.]
+24-Sep-2020 10:29:03.380 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+24-Sep-2020 10:29:03.677 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2020 10:29:03.693 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1,476] milliseconds
+24-Sep-2020 10:29:03.740 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+24-Sep-2020 10:29:03.740 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.21]
+24-Sep-2020 10:29:03.911 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\apache-tomcat-9.0.21\webapps\test.war]
+24-Sep-2020 10:29:05.677 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2020 10:29:05.802 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\apache-tomcat-9.0.21\webapps\test.war] has finished in [1,891] ms
+24-Sep-2020 10:29:05.802 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\apache-tomcat-9.0.21\webapps\docs]
+24-Sep-2020 10:29:05.896 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\apache-tomcat-9.0.21\webapps\docs] has finished in [94] ms
+24-Sep-2020 10:29:05.911 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\apache-tomcat-9.0.21\webapps\examples]
+24-Sep-2020 10:29:07.154 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\apache-tomcat-9.0.21\webapps\examples] has finished in [1,258] ms
+24-Sep-2020 10:29:07.169 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\apache-tomcat-9.0.21\webapps\host-manager]
+24-Sep-2020 10:29:07.247 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\apache-tomcat-9.0.21\webapps\host-manager] has finished in [78] ms
+24-Sep-2020 10:29:07.247 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\apache-tomcat-9.0.21\webapps\manager]
+24-Sep-2020 10:29:07.325 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\apache-tomcat-9.0.21\webapps\manager] has finished in [78] ms
+24-Sep-2020 10:29:07.341 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\apache-tomcat-9.0.21\webapps\ROOT]
+24-Sep-2020 10:29:08.119 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2020 10:29:08.135 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\apache-tomcat-9.0.21\webapps\ROOT] has finished in [794] ms
+24-Sep-2020 10:29:08.135 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+24-Sep-2020 10:29:08.166 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2020 10:29:08.166 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4,478] milliseconds

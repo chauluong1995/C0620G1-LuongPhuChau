@@ -26,6 +26,9 @@ public class FuramaServlet extends HttpServlet {
             case "createNewCustomer":
                 createNewCustomer(request, response);
                 break;
+            case "deleteCustomer":
+                deleteCustomer(request, response);
+                break;
         }
     }
 
@@ -40,6 +43,9 @@ public class FuramaServlet extends HttpServlet {
                 break;
             case "showCreateNewCustomer":
                 showCreateNewCustomer(request, response);
+                break;
+            case "showDeleteCustomer":
+                showDeleteCustomer(request, response);
                 break;
             default:
                 home(request, response);
@@ -91,6 +97,34 @@ public class FuramaServlet extends HttpServlet {
         request.setAttribute("message", message);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/create-new-customer.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showDeleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Customer customer = this.customerBO.findCustomerById(id);
+        RequestDispatcher dispatcher;
+        request.setAttribute("customer", customer);
+        dispatcher = request.getRequestDispatcher("view/delete-customer.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("idCustomer");
+        this.customerBO.deleteCustomer(id);
+
+        List<Customer> customerList = this.customerBO.findAll();
+        request.setAttribute("customerList", customerList);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer-list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {

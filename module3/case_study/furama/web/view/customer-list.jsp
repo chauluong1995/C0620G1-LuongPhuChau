@@ -210,10 +210,10 @@
                             <td>${customer.getEmail()}</td>
                             <td>${customer.getAddress()}</td>
                             <td>
-                                <a href="/furama?action=edit&id=${customer.getId()}" class="edit" title="Edit"
+                                <a href="/furama?actionFurama=edit&id=${customer.getId()}" class="edit" title="Edit"
                                    data-toggle="tooltip"><i
                                         class="material-icons">&#xE254;</i></a>
-                                <a href="/furama?action=delete&id=${customer.getId()}" class="delete"
+                                <a href="/furama?actionFurama=showDeleteCustomer&id=${customer.getId()}" class="delete"
                                    title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>

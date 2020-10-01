@@ -9,7 +9,7 @@ public interface CustomerDAO {
 
     String save(Customer customer);
 
-    void update(int id, Customer customer);
+    Customer findCustomerById(String id);
 
-    void remove(int id);
+    void deleteCustomer (String id);
 }

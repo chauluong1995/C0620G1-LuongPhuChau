@@ -177,3 +177,20 @@ drop foreign key fk_contract;
 alter table contract_detail
 add constraint fk_contract foreign key(contract_id) references contract(contract_id) on delete cascade
 on update cascade;
+
+DELIMITER //
+CREATE PROCEDURE find_customer_by_id(id_need_find varchar(25))
+BEGIN
+	select *
+    from customer
+    where customer_id = id_need_find;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE delete_customer(id_need_delete varchar(25))
+BEGIN
+	delete from customer
+    where customer_id = id_need_delete;
+END //
+DELIMITER ;

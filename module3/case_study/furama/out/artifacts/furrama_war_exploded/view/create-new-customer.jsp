@@ -80,6 +80,19 @@
         .iconbk{
             background-color:#D9534F;
         }
+
+        .list {
+            text-align: center;
+        }
+
+        .list a {
+            color: red;
+        }
+
+        .message {
+            text-align: center;
+            color: orangered;
+        }
     </style>
     <title>Create New Customer</title>
 </head>
@@ -94,6 +107,10 @@
                 <hr />
             </div>
         </div>
+        <p class="list">
+            <a href="/furama?actionFurama=customerList">Back to Customer List</a>
+        </p>
+        <p class="message">${message}</p>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/furama">
                 <input type="hidden" name="actionFurama" value="createNewCustomer" />
@@ -195,11 +212,6 @@
 <%--                    <a href="#">Already have an account?</a>--%>
 <%--                </div>--%>
             </form>
-
-            <p>
-                <a href="/furama?actionFurama=customerList">Home</a>
-            </p>
-            <p style="color: red">${message}</p>
         </div>
     </div>
 </div>

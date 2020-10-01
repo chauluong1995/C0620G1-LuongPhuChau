@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <div class="row" style="background-color: sienna">
+        <div class="row" style="background-color: grey">
             <div class="col-sm-12 icon">
                 <nav class="nav nav-tabs row">
                     <a href="#" class="nav-link text-dark">Home</a>

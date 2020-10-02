@@ -37,10 +37,22 @@ create table rent_type (
     rent_type_cost double
 );
 
+insert into rent_type (rent_type_name)
+values
+	('Full day'),
+	('Full Week'),
+	('Full month');
+
 create table service_type (
 	service_type_id int primary key auto_increment,
     service_type_name varchar (45)
 );
+
+insert into service_type (service_type_name)
+values
+	('Villa'),
+	('House'),
+	('Room');
 
 create table attach_service (
 	attach_service_id int primary key auto_increment,
@@ -192,5 +204,17 @@ CREATE PROCEDURE delete_customer(id_need_delete varchar(25))
 BEGIN
 	delete from customer
     where customer_id = id_need_delete;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE update_customer(id_need_update varchar(25), name_need_update varchar(45), birthday_need_update date, gender_need_update varchar(45), 
+id_card_need_update varchar(45), phone_need_update varchar(45), email_need_update varchar(45), address_need_update varchar(45), type_id_need_update int)
+BEGIN
+	update customer
+    set customer_name = name_need_update, customer_email = email_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
+    customer_id_card = id_card_need_update,
+    customer_phone = phone_need_update, customer_email = email_need_update, customer_address = address_need_update, customer_type_id = type_id_need_update
+    where customer_id = id_need_update;
 END //
 DELIMITER ;

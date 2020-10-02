@@ -7,7 +7,11 @@ import java.util.List;
 public interface CustomerDAO {
     List<Customer> findAll();
 
-    String save(Customer customer);
+    List<Customer> findByName(String name);
+
+    String saveCustomer(Customer customer);
+
+    String updateCustomer(Customer customer);
 
     Customer findCustomerById(String id);
 

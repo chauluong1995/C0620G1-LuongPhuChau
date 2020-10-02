@@ -42,7 +42,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public String save(Customer customer) {
+    public String saveCustomer(Customer customer) {
         try {
             PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(CREATE_NEW_CUSTOMER);
             preparedStatement.setString(1, customer.getId());
@@ -101,5 +101,62 @@ public class CustomerDAOImpl implements CustomerDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String updateCustomer(Customer customer) {
+        try {
+            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call update_customer(?,?,?,?,?,?,?,?,?)");
+            callableStatement.setString(1, customer.getId());
+            callableStatement.setString(2, customer.getName());
+            callableStatement.setString(3, customer.getBirthDay());
+            callableStatement.setString(4, customer.getGender());
+            callableStatement.setString(5, customer.getIdCard());
+            callableStatement.setString(6, customer.getPhoneNumber());
+            callableStatement.setString(7, customer.getEmail());
+            callableStatement.setString(8, customer.getAddress());
+            callableStatement.setString(9, customer.getTypeCustomer());
+
+            callableStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Update Complete !";
+    }
+
+    @Override
+    public List<Customer> findByName(String name) {
+        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerListResult = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMERS);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Customer customer;
+            while (resultSet.next()) {
+//                String id = String.valueOf(resultSet.getInt("customer_id"));
+                String id = resultSet.getString("customer_id");
+                String nameCustomer = resultSet.getString("customer_name");
+                String birthDay = resultSet.getString("customer_birthday");
+                String gender = resultSet.getString("customer_gender");
+                String email = resultSet.getString("customer_email");
+                String address = resultSet.getString("customer_address");
+
+                customer = new Customer(id, nameCustomer, birthDay, gender, email, address);
+                customerList.add(customer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        for (Customer customer : customerList) {
+            if (customer.getName().contains(name)) {
+                customerListResult.add(customer);
+            }
+        }
+
+        return customerListResult;
     }
 }

@@ -15,9 +15,14 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
-    public String save(Customer customer) {
+    public List<Customer> findByName(String name) {
+        return this.customerDAO.findByName(name);
+    }
+
+    @Override
+    public String saveCustomer(Customer customer) {
         String message;
-        message = this.customerDAO.save(customer);
+        message = this.customerDAO.saveCustomer(customer);
         return message;
     }
 
@@ -29,5 +34,12 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public void deleteCustomer(String id) {
         this.customerDAO.deleteCustomer(id);
+    }
+
+    @Override
+    public String updateCustomer(Customer customer) {
+        String message;
+        message = this.customerDAO.updateCustomer(customer);
+        return message;
     }
 }

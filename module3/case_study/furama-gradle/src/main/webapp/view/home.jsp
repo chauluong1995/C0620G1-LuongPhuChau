@@ -74,7 +74,7 @@
                     <a href="#" class="nav-link text-dark">Home</a>
                     <a href="#" class="nav-link text-dark">Employee</a>
                     <a href="/furama?actionFurama=customerList" class="nav-link text-dark">Customer</a>
-                    <a href="#" class="nav-link text-dark">Service</a>
+                    <a href="/furama?actionFurama=addNewService" class="nav-link text-dark">Service</a>
                     <a href="#" class="nav-link text-dark">Contract</a>
                     <a href="#" class="nav-link text-dark">Contract Detail</a>
                     <form class="form-inline my-2 my-lg-0">

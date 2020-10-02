@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="60d6c34f-fb5a-482e-a62e-f06d713e1213" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/create-new-service.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/search-list-customer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/update-customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/CustomerBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/CustomerBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/CustomerBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/CustomerBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/CustomerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/CustomerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/CustomerDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/libs/furama-gradle-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/libs/furama-gradle-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/controller/FuramaServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/create-new-customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/create-new-customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1iJKsSCH5mNuB2TmIVTgxmtmZOx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60d6c34f-fb5a-482e-a62e-f06d713e1213" name="Default Changelist" comment="" />
+      <created>1601620460551</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601620460551</updated>
+      <workItem from="1601620461874" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

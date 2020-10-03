@@ -105,7 +105,7 @@
             </div>
         </div>
         <p class="list">
-            <a href="/furama">Back to Home</a>
+            <a href="/furama?actionFurama=employeeList">Back to Employee List</a>
         </p>
         <p class="message">${message}</p>
         <div class="main-login main-center">
@@ -240,6 +240,9 @@
                 <%--                    <a href="#">Already have an account?</a>--%>
                 <%--                </div>--%>
             </form>
+            <p style="text-align: center">
+                <a href="/furama">Home</a>
+            </p>
         </div>
     </div>
 </div>

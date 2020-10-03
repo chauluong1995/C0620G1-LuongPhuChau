@@ -207,6 +207,9 @@
 <%--                    <a href="#">Already have an account?</a>--%>
 <%--                </div>--%>
             </form>
+            <p style="text-align: center">
+                <a href="/furama">Home</a>
+            </p>
         </div>
     </div>
 </div>

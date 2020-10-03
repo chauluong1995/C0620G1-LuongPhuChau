@@ -72,7 +72,7 @@
             <div class="col-sm-12 icon">
                 <nav class="nav nav-tabs row">
                     <a href="#" class="nav-link text-dark">Home</a>
-                    <a href="/furama?actionFurama=addNewEmployee" class="nav-link text-dark">Employee</a>
+                    <a href="/furama?actionFurama=employeeList" class="nav-link text-dark">Employee</a>
                     <a href="/furama?actionFurama=customerList" class="nav-link text-dark">Customer</a>
                     <a href="/furama?actionFurama=addNewService" class="nav-link text-dark">Service</a>
                     <a href="#" class="nav-link text-dark">Contract</a>

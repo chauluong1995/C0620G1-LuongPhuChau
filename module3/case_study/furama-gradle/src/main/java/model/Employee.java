@@ -17,6 +17,14 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String name, String salary, String phone, String email, String address) {
+        this.name = name;
+        this.salary = salary;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+    }
+
     public Employee(String name, String birthDay, String idCard, String salary, String phone, String email,
                     String address, String idPosition, String idEducationDegree, String idDivision, String userName) {
         this.name = name;

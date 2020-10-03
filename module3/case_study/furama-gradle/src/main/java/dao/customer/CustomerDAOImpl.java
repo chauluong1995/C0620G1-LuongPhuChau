@@ -18,14 +18,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> findAll() {
-        List<Customer> studentList = new ArrayList<>();
+        List<Customer> customerList = new ArrayList<>();
 
         try {
             PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMERS);
             ResultSet resultSet = preparedStatement.executeQuery();
             Customer customer;
             while (resultSet.next()) {
-//                String id = String.valueOf(resultSet.getInt("customer_id"));
                 String id = resultSet.getString("customer_id");
                 String name = resultSet.getString("customer_name");
                 String birthDay = resultSet.getString("customer_birthday");
@@ -34,12 +33,12 @@ public class CustomerDAOImpl implements CustomerDAO {
                 String address = resultSet.getString("customer_address");
 
                 customer = new Customer(id, name, birthDay, gender, email, address);
-                studentList.add(customer);
+                customerList.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return studentList;
+        return customerList;
     }
 
     @Override
@@ -98,7 +97,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         try {
             CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call delete_customer(?)");
             callableStatement.setString(1, idNeedDelete);
-            int result = callableStatement.executeUpdate();
+            callableStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -129,28 +128,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> findByName(String name) {
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerList = findAll();
         List<Customer> customerListResult = new ArrayList<>();
-
-        try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMERS);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            Customer customer;
-            while (resultSet.next()) {
-//                String id = String.valueOf(resultSet.getInt("customer_id"));
-                String id = resultSet.getString("customer_id");
-                String nameCustomer = resultSet.getString("customer_name");
-                String birthDay = resultSet.getString("customer_birthday");
-                String gender = resultSet.getString("customer_gender");
-                String email = resultSet.getString("customer_email");
-                String address = resultSet.getString("customer_address");
-
-                customer = new Customer(id, nameCustomer, birthDay, gender, email, address);
-                customerList.add(customer);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         for (Customer customer : customerList) {
             if (customer.getName().contains(name)) {

@@ -61,6 +61,9 @@ public class FuramaServlet extends HttpServlet {
             case "customerList":
                 customerTable(request, response);
                 break;
+            case "employeeList":
+                employeeTable(request, response);
+                break;
             case "showCreateNewCustomer":
                 showCreateNewCustomer(request, response);
                 break;
@@ -70,14 +73,17 @@ public class FuramaServlet extends HttpServlet {
             case "deleteCustomer":
                 deleteCustomer(request, response);
                 break;
+            case "deleteEmployee":
+                deleteEmployee(request, response);
+                break;
             case "showEditCustomer":
                 showEditCustomer(request, response);
                 break;
             case "addNewService":
                 addNewService(request, response);
                 break;
-            case "addNewEmployee":
-                addNewEmployee(request, response);
+            case "showCreateNewEmployee":
+                showCreateNewEmployee(request, response);
                 break;
             default:
                 home(request, response);
@@ -196,6 +202,7 @@ public class FuramaServlet extends HttpServlet {
         request.setAttribute("message", message);
 
         this.customerTable(request, response);
+
 //        List<Customer> customerList = this.customerBO.findAll();
 //        request.setAttribute("customerList", customerList);
 //
@@ -255,9 +262,21 @@ public class FuramaServlet extends HttpServlet {
         }
     }
 
-    private void addNewEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void employeeTable(HttpServletRequest request, HttpServletResponse response) {
+        List<Employee> employeeList = this.employeeBO.findAll();
+        request.setAttribute("employeeList", employeeList);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/employee-list.jsp");
         try {
-            response.sendRedirect("view/create-new-employee.jsp");
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showCreateNewEmployee(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            response.sendRedirect("view/employee/create-new-employee.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -282,11 +301,18 @@ public class FuramaServlet extends HttpServlet {
         String message = this.employeeBO.saveEmployee(employee);
         request.setAttribute("message", message);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create-new-employee.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/create-new-employee.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("idEmployee");
+        this.employeeBO.deleteEmployee(id);
+
+        employeeTable(request, response);
     }
 }

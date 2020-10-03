@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<%--    <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>--%>
-<%--    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>--%>
+    <%--    <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>--%>
+    <%--    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>--%>
 
     <style>
         body {
@@ -178,11 +178,16 @@
         /*}*/
     </style>
 
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body>
 <%--<form>--%>
 <p class="message">${message}</p>
-<div class="container-xl">
+<div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -253,8 +258,7 @@
                             <input type="hidden" name="idCustomer" id="id"/>
                             <div class="modal-header">
                                 <h4 class="modal-title">Delete Customer</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    &times;
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
                                 </button>
                             </div>
                             <div class="modal-body">
@@ -298,10 +302,6 @@
         keywordHidden.value = keywordDisplay.value;
         document.getElementById("formSearchCustomer").submit();
     }
-
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
 
     $(document).ready(function () {
         $('#tableCustomer').dataTable({

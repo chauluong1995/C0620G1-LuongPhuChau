@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
-  Date: 9/29/2020
-  Time: 10:54 PM
+  Date: 10/3/2020
+  Time: 2:40 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>List Customer</title>
+    <title>List Employee</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -54,7 +54,7 @@
             display: flex;
         }
 
-        .search-box input#keywordCustomerDisplay {
+        .search-box input#keywordEmployeeDisplay {
 
             border-radius: 20px;
             padding-left: 35px;
@@ -178,11 +178,6 @@
         /*}*/
     </style>
 
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body>
 <%--<form>--%>
@@ -193,52 +188,48 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h1 style="color: red">Customer List</h1>
+                        <h1 style="color: red">Employee List</h1>
                         <p>
-                            <a href="/furama?actionFurama=showCreateNewCustomer"><h3>Create New Customer</h3></a>
+                            <a href="/furama?actionFurama=showCreateNewEmployee"><h3>Create New Employee</h3></a>
                         </p>
                     </div>
                     <div class="col-sm-4">
                         <div class="search-box">
                             <i class="material-icons">&#xE8B6;</i>
-                            <input type="text" name="nameCustomer" class="form-control" id="keywordCustomerDisplay"
+                            <input type="text" name="nameEmployee" class="form-control" id="keywordEmployeeDisplay"
                                    placeholder="Search by Name">
                             <input type="button" value="Search" class="btn btn-primary"
-                                   onclick="submitFormSearchCustomer()">
+                                   onclick="submitFormSearchEmployee()">
                         </div>
                     </div>
                 </div>
             </div>
-            <table id="tableCustomer" class="table table-striped table-hover table-bordered" style="width: 100%">
+            <table id="tableEmployee" class="table table-striped table-hover table-bordered" style="width: 100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
-                    <th>BirthDay</th>
-                    <th>Gender</th>
+                    <th>Salary (USD)</th>
+                    <th>Phone Number</th>
                     <th>Email</th>
                     <th>Address</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${customerList}" var="customer">
+                <c:forEach items="${employeeList}" var="employee">
                     <tr>
-                        <td>${customer.id}</td>
-                        <td>${customer.name}</td>
-                        <td>${customer.birthDay}</td>
-                        <td>${customer.gender}</td>
-                        <td>${customer.email}</td>
-                        <td>${customer.address}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.salary}</td>
+                        <td>${employee.phone}</td>
+                        <td>${employee.email}</td>
+                        <td>${employee.address}</td>
                         <td>
-                            <a href="/furama?actionFurama=showEditCustomer&id=${customer.id}" class="edit"
+                            <a href="/furama?actionFurama=showEditEmployee&id=${employee.id}" class="edit"
                                title="Edit"
                                data-toggle="tooltip"><i
                                     class="material-icons">&#xE254;</i></a>
-                                <%-- <a href="/furama?actionFurama=showDeleteCustomer&id=${customer.getId()}" class="delete"--%>
-                                <%-- title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>--%>
-                            <a data-toggle="modal" data-target="#deleteCustomerModal" href="#"
-                               onclick="setCustomerId('${customer.id}')" class="delete" title="Delete"
+                            <a data-toggle="modal" data-target="#deleteEmployeeModal" href="#"
+                               onclick="setEmployeeId('${employee.id}')" class="delete" title="Delete"
                                data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -250,21 +241,21 @@
                 <a href="/furama">Home</a>
             </p>
 
-            <div id="deleteCustomerModal" class="modal fade">
+            <div id="deleteEmployeeModal" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="/furama">
-                            <input type="hidden" name="actionFurama" value="deleteCustomer"/>
-                            <input type="hidden" name="idCustomer" id="id"/>
+                            <input type="hidden" name="actionFurama" value="deleteEmployee"/>
+                            <input type="hidden" name="idEmployee" id="id"/>
                             <div class="modal-header">
-                                <h4 class="modal-title">Delete Customer</h4>
+                                <h4 class="modal-title">Delete Employee</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to delete this customer?</p>
-                                <p class="text-warning"><small style="color: blue">This action cannot be
-                                    undone.</small></p>
+                                <p>Are you sure you want to delete this Employee?</p>
+                                <p class="text-warning"><small style="color: blue">This action cannot be undone.</small>
+                                </p>
                             </div>
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -278,9 +269,9 @@
     </div>
 </div>
 <%--</form>--%>
-<form method="post" action="/furama" id="formSearchCustomer">
-    <input type="hidden" name="actionFurama" value="searchCustomer">
-    <input type="hidden" name="nameCustomer" id="keywordCustomerHidden"/>
+<form method="post" action="/furama" id="formSearchEmployee">
+    <input type="hidden" name="actionFurama" value="searchEmployee">
+    <input type="hidden" name="nameEmployee" id="keywordEmployeeHidden"/>
     <input hidden type="submit" value="Search"/>
 </form>
 <%--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--%>
@@ -292,19 +283,23 @@
 <script src="datatables/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
-    function setCustomerId(id) {
+    function setEmployeeId(id) {
         document.getElementById("id").value = id;
     }
 
-    function submitFormSearchCustomer() {
-        let keywordHidden = document.getElementById("keywordCustomerHidden");
-        let keywordDisplay = document.getElementById("keywordCustomerDisplay");
+    function submitFormSearchEmployee() {
+        let keywordHidden = document.getElementById("keywordEmployeeHidden");
+        let keywordDisplay = document.getElementById("keywordEmployeeDisplay");
         keywordHidden.value = keywordDisplay.value;
-        document.getElementById("formSearchCustomer").submit();
+        document.getElementById("formSearchEmployee").submit();
     }
 
     $(document).ready(function () {
-        $('#tableCustomer').dataTable({
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    $(document).ready(function () {
+        $('#tableEmployee').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

@@ -175,6 +175,15 @@ create table employee (
     foreign key(user_name) references `user`(user_name)
 );
 
+insert into employee (employee_id, employee_name, employee_birthday, employee_salary, employee_email, employee_address, position_id, education_degree_id, division_id, user_name)
+values
+	('1', 'Phong Tran', '1995-05-27', 5000, 'phong@codegym.com', 'Quang Nam', 6, 4, 4, 'Admin'),
+	('2', 'Ly Le', '1995-05-15', 4500, 'lyle@codegym.com', 'Da Nang', 5, 4, 3, 'Admin'),
+	('3', 'Tam Nguyen', '1997-02-02', 1000, 'tamnguyen@codegym.com', 'Da Nang', 4, 2, 1, 'Client'),
+	('4', 'Giang Ly', '1996-06-06', 4500, 'giang@codegym.com', 'Quang Ngai', 3, 4, 3, 'Admin'),
+	('5', 'Khoi Huynh', '1994-09-02', 3500, 'khoi@codegym.com', 'Da Nang', 2, 4, 2, 'Client'),
+	('6', 'Vy Ho', '1997-07-07', 1500, 'vyho@codegym.com', 'Ha Tinh', 1, 3, 2, 'Client');
+
 create table contract (
 	contract_id int primary key auto_increment,
     contract_start_date datetime,
@@ -250,5 +259,26 @@ BEGIN
     customer_id_card = id_card_need_update,
     customer_phone = phone_need_update, customer_email = email_need_update, customer_address = address_need_update, customer_type_id = type_id_need_update
     where customer_id = id_need_update;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE delete_employee(id_need_delete int)
+BEGIN
+	delete from employee
+    where employee_id = id_need_delete;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE update_employee(id_update int, name_update varchar(45), birthday_update date, id_card_update varchar(45), 
+salary_update double, phone_update varchar(45), email_update varchar(45), address_update varchar(45), position_id_update int, 
+education_degree_id_update int, division_id_update int, user_name_update varchar(255))
+BEGIN
+	update employee
+    set employee_name = name_update, employee_birthday = birthday_update, employee_id_card = id_card_update, employee_salary = salary_update,
+    employee_phone = phone_update, employee_email = email_update, employee_address = address_update, position_id = position_id_update,
+    education_degree_id = education_degree_id_update, division_id = division_id_update, user_name = user_name_update
+    where employee_id = id_update;
 END //
 DELIMITER ;

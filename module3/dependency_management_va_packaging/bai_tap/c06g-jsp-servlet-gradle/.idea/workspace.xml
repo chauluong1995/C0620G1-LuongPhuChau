@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7595ba94-c844-4d51-b523-21abc2d0379e" name="Default Changelist" comment="" />
+    <list default="true" id="7595ba94-c844-4d51-b523-21abc2d0379e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/create-new-employee.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/c06g-jsp-servlet-gradle.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/ServiceBOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/FuramaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/create-new-service.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/create-new-customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/customer-list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/delete-customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/search-list-customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/update-customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/CustomerBOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/ServiceBOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/libs/furama-gradle-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/libs/furama-gradle-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/ServiceBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/ServiceBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/controller/FuramaServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/ServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/ServiceDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/c06g-jsp-servlet-gradle-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/c06g-jsp-servlet-gradle-1.0-SNAPSHOT.war" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +113,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -65,6 +124,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1iGYm6pGniMOKCTjc6BPktAQbji" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -72,10 +132,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../thuc_hanh/M3-paging-sorting-jsp-servlet-client" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -268,6 +332,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.15437159" />
           <treeState>
             <expand>
               <path>
@@ -300,6 +365,7 @@
       <workItem from="1601544120746" duration="3920000" />
       <workItem from="1601559359136" duration="598000" />
       <workItem from="1601605614541" duration="6717000" />
+      <workItem from="1601703503758" duration="266000" />
     </task>
     <servers />
   </component>
@@ -307,6 +373,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="72" key="#Project_Structure" timestamp="1601703584777">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1601703584777" />
     <state x="234" y="28" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601535966825">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -319,58 +389,71 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="438" y="73" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1601626028117" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1601609175485">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="521" y="138" key="FileChooserDialogImpl" timestamp="1601703770829">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601609175485" />
-    <state width="905" height="179" key="GridCell.Tab.0.bottom" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="521" y="138" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601703770829" />
+    <state width="1237" height="210" key="GridCell.Tab.0.bottom" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.0.center" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.0.center" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.0.left" timestamp="1601626035901">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.0.left" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601626035901" />
-    <state width="905" height="179" key="GridCell.Tab.0.right" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.0.right" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.1.bottom" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.1.bottom" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.1.center" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.1.center" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.1.left" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.1.left" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.1.right" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.1.right" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.2.bottom" timestamp="1601626035903">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.2.bottom" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601626035903" />
-    <state width="905" height="179" key="GridCell.Tab.2.center" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.2.center" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.2.left" timestamp="1601626035902">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.2.left" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1601626035902" />
-    <state width="905" height="179" key="GridCell.Tab.2.right" timestamp="1601626035903">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="210" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
+    <state width="1237" height="210" key="GridCell.Tab.2.right" timestamp="1601703771738">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="905" height="179" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1601626035903" />
+    <state width="1237" height="210" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1601703771738" />
     <state x="392" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1601607593959">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -8,15 +8,38 @@ create table `position` (
     position_name varchar(45)
 );
 
+insert into `position` (position_name)
+values
+	('Receptionist'),
+	('Serve'),
+	('Expert'),
+	('Monitoring'),
+	('Manage'),
+	('Manager');
+
 create table education_degree (
 	education_degree_id int primary key auto_increment,
     education_degree_name varchar (45)
 );
 
+insert into education_degree (education_degree_name)
+values
+	('Intermediate'),
+	('College'),
+	('University'),
+	('After University');
+
 create table division (
 	division_id int primary key auto_increment,
     division_name varchar (45)
 );
+
+insert into division (division_name)
+values
+	('Sale – Marketing'),
+	('Administration'),
+	('Serve'),
+	('Manage');
 
 create table customer_type (
 	customer_type_id int primary key auto_increment,
@@ -67,10 +90,21 @@ create table `role` (
     role_name varchar(255)
 );
 
+insert into `role` (role_name)
+values
+	('Manager'),
+	('Employee');
+
+
 create table `user` (
 	user_name varchar(255) primary key,
-    password varchar(255)
+    `password` varchar(255)
 );
+
+insert into `user` (user_name, `password`)
+values
+	('Admin', 'ok'),
+	('Client', 'notok');
 
 create table user_role (
 	role_id int,
@@ -93,12 +127,12 @@ create table customer (
 
 insert into customer (customer_id, customer_name, customer_birthday, customer_gender, customer_email, customer_address)
 values
-	('KH-6789', 'Châu Lương', '1995-05-27', 'Nam', 'chauluong@codegym.com', 'Quảng Nam'),
-	('KH-0515', 'Mai Hồ', '1995-05-15', 'Nữ', 'maiho@codegym.com', 'Đà Nẵng'),
-	('KH-0202', 'Lành Nguyễn', '1997-02-02', 'Nam', 'lanhnguyen@codegym.com', 'Đà Nẵng'),
-	('KH-0606', 'Đin Lương', '1996-06-06', 'Nam', 'dinluong@codegym.com', 'Quảng Ngãi'),
-	('KH-0902', 'Khánh Nguyễn', '1994-09-02', 'Nam', 'khanh@codegym.com', 'Đà Nẵng'),
-	('KH-0707', 'Vũ Nguyễn', '1997-07-07', 'Nam', 'vunguyen@codegym.com', 'Hà Tĩnh');
+	('KH-6789', 'Chau Luong', '1995-05-27', 'Male', 'chauluong@codegym.com', 'Quang Nam'),
+	('KH-0515', 'Mai Ho', '1995-05-15', 'Female', 'maiho@codegym.com', 'Da Nang'),
+	('KH-0202', 'Lanh Nguyen', '1997-02-02', 'Male', 'lanhnguyen@codegym.com', 'Da Nang'),
+	('KH-0606', 'Din Luong', '1996-06-06', 'Male', 'dinluong@codegym.com', 'Quang Ngai'),
+	('KH-0902', 'Khanh Nguyen', '1994-09-02', 'Male', 'khanh@codegym.com', 'Da Nang'),
+	('KH-0707', 'Vu Nguyen', '1997-07-07', 'Male', 'vunguyen@codegym.com', 'Ha Tinh');
 
 create table service (
 	service_id varchar(25) primary key,
@@ -119,7 +153,7 @@ create table service (
 );
 
 create table employee (
-	employee_id int primary key not null,
+	employee_id int primary key auto_increment,
     employee_name varchar(45),
     employee_birthday date,
     employee_id_card varchar(45),

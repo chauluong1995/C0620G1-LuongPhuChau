@@ -1,10 +1,13 @@
 package controller;
 
-import bo.CustomerBO;
-import bo.CustomerBOImpl;
-import bo.ServiceBO;
-import bo.ServiceBOImpl;
+import bo.customer.CustomerBO;
+import bo.customer.CustomerBOImpl;
+import bo.employee.EmployeeBO;
+import bo.employee.EmployeeBOImpl;
+import bo.service.ServiceBO;
+import bo.service.ServiceBOImpl;
 import model.Customer;
+import model.Employee;
 import model.Service;
 
 import javax.servlet.RequestDispatcher;
@@ -20,6 +23,7 @@ import java.util.List;
 public class FuramaServlet extends HttpServlet {
     CustomerBO customerBO = new CustomerBOImpl();
     ServiceBO serviceBO = new ServiceBOImpl();
+    EmployeeBO employeeBO = new EmployeeBOImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String actionFurama = request.getParameter("actionFurama");
@@ -32,6 +36,9 @@ public class FuramaServlet extends HttpServlet {
                 break;
             case "createNewService":
                 createNewService(request, response);
+                break;
+            case "createNewEmployee":
+                createNewEmployee(request, response);
                 break;
 //            case "deleteCustomer":
 //                deleteCustomer(request, response);
@@ -68,6 +75,9 @@ public class FuramaServlet extends HttpServlet {
                 break;
             case "addNewService":
                 addNewService(request, response);
+                break;
+            case "addNewEmployee":
+                addNewEmployee(request, response);
                 break;
             default:
                 home(request, response);
@@ -238,6 +248,41 @@ public class FuramaServlet extends HttpServlet {
         request.setAttribute("message", message);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/create-new-service.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addNewEmployee(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            response.sendRedirect("view/create-new-employee.jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createNewEmployee(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String birthDay = request.getParameter("birthDay");
+        String idCard = request.getParameter("idCard");
+        String salary = request.getParameter("salary");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String position = request.getParameter("position");
+        String educationDegree = request.getParameter("educationDegree");
+        String division = request.getParameter("division");
+        String userName = request.getParameter("userName");
+
+        Employee employee = new Employee(name, birthDay, idCard, salary, phone, email, address, position,
+                educationDegree, division, userName);
+
+        String message = this.employeeBO.saveEmployee(employee);
+        request.setAttribute("message", message);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create-new-employee.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {

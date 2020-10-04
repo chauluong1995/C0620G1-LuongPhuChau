@@ -13,6 +13,7 @@ import java.util.List;
 
 public class ServiceDAOImpl implements ServiceDAO {
     private BaseDAO baseDAO = new BaseDAO();
+
     private static final String CREATE_NEW_SERVICE = "insert into service values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_RENT_TYPE = "select * from rent_type";
     private static final String SELECT_ALL_SERVICE_TYPE = "select * from service_type";

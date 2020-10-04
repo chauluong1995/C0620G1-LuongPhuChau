@@ -205,13 +205,6 @@
                             <option value="${position.id}">${position.name}</option>
                         </c:forEach>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                            <input type="text" class="form-control" name="position" id="position"--%>
-                    <%--                                   placeholder="Enter position here" required/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -221,13 +214,6 @@
                             <option value="${educationDegree.id}">${educationDegree.name}</option>
                         </c:forEach>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                            <input type="text" class="form-control" name="educationDegree" id="educationDegree"--%>
-                    <%--                                   placeholder="Enter education degree here" required/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -237,13 +223,6 @@
                             <option value="${division.id}">${division.name}</option>
                         </c:forEach>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                            <input type="text" class="form-control" name="division" id="division"--%>
-                    <%--                                   placeholder="Enter division here" required/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -253,21 +232,11 @@
                             <option value="${user.name}">${user.name}</option>
                         </c:forEach>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                            <input type="text" class="form-control" name="userName" id="userName"--%>
-                    <%--                                   placeholder="Enter user name here" required/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-danger btn-lg btn-block login-button">Update Information Employee</button>
                 </div>
-                <%--                <div class="login-register">--%>
-                <%--                    <a href="#">Already have an account?</a>--%>
-                <%--                </div>--%>
             </form>
             <p style="text-align: center">
                 <a href="/furama">Home</a>

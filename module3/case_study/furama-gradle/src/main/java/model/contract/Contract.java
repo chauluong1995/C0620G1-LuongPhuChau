@@ -13,9 +13,8 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(String id, String startDate, String endDate, String deposite, String totalMoney, String idEmployee,
+    public Contract(String startDate, String endDate, String deposite, String totalMoney, String idEmployee,
                     String idCustomer, String idService) {
-        this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.deposite = deposite;

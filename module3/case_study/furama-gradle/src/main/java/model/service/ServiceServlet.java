@@ -47,11 +47,6 @@ public class ServiceServlet {
         String message = serviceBO.saveService(service);
         request.setAttribute("message", message);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create-new-service.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
+        addNewService(request, response);
     }
 }

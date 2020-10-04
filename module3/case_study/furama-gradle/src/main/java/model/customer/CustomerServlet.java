@@ -43,12 +43,7 @@ public class CustomerServlet {
         String message = customerBO.saveCustomer(customer);
         request.setAttribute("message", message);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/create-new-customer.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
+        showCreateNewCustomer(request, response);
     }
 
 //    public void showDeleteCustomer(HttpServletRequest request, HttpServletResponse response) {

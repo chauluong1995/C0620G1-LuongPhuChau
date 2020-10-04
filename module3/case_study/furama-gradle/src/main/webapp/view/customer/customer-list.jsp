@@ -262,9 +262,9 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to delete this customer?</p>
-                                <p class="text-warning"><small style="color: blue">This action cannot be
-                                    undone.</small></p>
+                                <p>Are you sure you want to delete this customer ?</p>
+                                <p class="text-warning"><small style="color: blue">This action cannot be undone.</small>
+                                </p>
                             </div>
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

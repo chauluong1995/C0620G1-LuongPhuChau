@@ -1,5 +1,6 @@
 package controller;
 
+import model.contract.ContractServlet;
 import model.customer.CustomerServlet;
 import model.employee.EmployeeServlet;
 import model.service.ServiceServlet;
@@ -23,26 +24,29 @@ public class FuramaServlet extends HttpServlet {
             case "createNewCustomer":
                 CustomerServlet.createNewCustomer(request, response);
                 break;
-            case "createNewService":
-                ServiceServlet.createNewService(request, response);
+            case "searchCustomer":
+                CustomerServlet.searchCustomer(request, response);
                 break;
-            case "createNewEmployee":
-                EmployeeServlet.createNewEmployee(request, response);
+            case "editCustomer":
+                CustomerServlet.updateCustomer(request, response);
                 break;
 //            case "deleteCustomer":
 //                CustomerServlet.deleteCustomer(request, response);
 //                break;
-            case "editCustomer":
-                CustomerServlet.updateCustomer(request, response);
+            case "createNewService":
+                ServiceServlet.createNewService(request, response);
                 break;
-            case "editEmployee":
-                EmployeeServlet.updateEmployee(request, response);
+            case "createNewContract":
+                ContractServlet.createNewContract(request, response);
                 break;
-            case "searchCustomer":
-                CustomerServlet.searchCustomer(request, response);
+            case "createNewEmployee":
+                EmployeeServlet.createNewEmployee(request, response);
                 break;
             case "searchEmployee":
                 EmployeeServlet.searchEmployee(request, response);
+                break;
+            case "editEmployee":
+                EmployeeServlet.updateEmployee(request, response);
                 break;
         }
     }
@@ -56,32 +60,35 @@ public class FuramaServlet extends HttpServlet {
             case "customerList":
                 CustomerServlet.customerTable(request, response);
                 break;
-            case "employeeList":
-                EmployeeServlet.employeeTable(request, response);
-                break;
             case "showCreateNewCustomer":
                 CustomerServlet.showCreateNewCustomer(request, response);
-                break;
-//            case "showDeleteCustomer":
-//                CustomerServlet.showDeleteCustomer(request, response);
-//                break;
-            case "deleteCustomer":
-                CustomerServlet.deleteCustomer(request, response);
-                break;
-            case "deleteEmployee":
-                EmployeeServlet.deleteEmployee(request, response);
                 break;
             case "showEditCustomer":
                 CustomerServlet.showEditCustomer(request, response);
                 break;
+            case "deleteCustomer":
+                CustomerServlet.deleteCustomer(request, response);
+                break;
+//            case "showDeleteCustomer":
+//                CustomerServlet.showDeleteCustomer(request, response);
+//                break;
+            case "employeeList":
+                EmployeeServlet.employeeTable(request, response);
+                break;
+            case "showCreateNewEmployee":
+                EmployeeServlet.showCreateNewEmployee(request, response);
+                break;
             case "showEditEmployee":
                 EmployeeServlet.showEditEmployee(request, response);
+                break;
+            case "deleteEmployee":
+                EmployeeServlet.deleteEmployee(request, response);
                 break;
             case "addNewService":
                 ServiceServlet.addNewService(request, response);
                 break;
-            case "showCreateNewEmployee":
-                EmployeeServlet.showCreateNewEmployee(request, response);
+            case "addNewContract":
+                ContractServlet.addNewContract(request, response);
                 break;
             default:
                 home(request, response);

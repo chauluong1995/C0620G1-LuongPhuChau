@@ -29,13 +29,13 @@
             color: blue;
         }
 
-        .nav-link {
-            margin-left: 35px;
+        .btn {
+            margin-left: 39px;
         }
 
         h5 {
             color: sienna;
-            margin-left: 15px;
+            margin-left: 11%;
         }
 
         .col-sm-3 img {
@@ -64,19 +64,24 @@
 
             <div class="col-sm-4">
                 <%--<h1>Luxury Resort in Da Nang</h1>--%>
-                <h1>LƯƠNG PHÚ CHÂU</h1>
+                <h1>LUONG PHU CHAU</h1>
             </div>
         </div>
 
-        <div class="row" style="background-color: grey">
+        <div class="row" style="background-color: powderblue">
             <div class="col-sm-12 icon">
                 <nav class="nav nav-tabs row">
-                    <a href="#" class="nav-link text-dark">Home</a>
-                    <a href="/furama?actionFurama=employeeList" class="nav-link text-dark">Employee</a>
-                    <a href="/furama?actionFurama=customerList" class="nav-link text-dark">Customer</a>
-                    <a href="/furama?actionFurama=addNewService" class="nav-link text-dark">Service</a>
-                    <a href="#" class="nav-link text-dark">Contract</a>
-                    <a href="#" class="nav-link text-dark">Contract Detail</a>
+                    <a href="#" class="btn btn-outline-success my-2 my-sm-0">Home</a>
+                    <a href="/furama?actionFurama=employeeList"
+                       class="btn btn-outline-success my-2 my-sm-0">Employee</a>
+                    <a href="/furama?actionFurama=customerList"
+                       class="btn btn-outline-success my-2 my-sm-0">Customer</a>
+                    <a href="/furama?actionFurama=addNewService"
+                       class="btn btn-outline-success my-2 my-sm-0">Service</a>
+                    <a href="/furama?actionFurama=addNewContract"
+                       class="btn btn-outline-success my-2 my-sm-0">Contract</a>
+                    <a href="/furama?actionFurama=addNewContractDetail" class="btn btn-outline-success my-2 my-sm-0">
+                        Contract Detail</a>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                style="margin-left: 70px; width: 500px">
@@ -86,16 +91,14 @@
             </div>
         </div>
 
-        <div class="row" style="background-color: cadetblue">
+        <div class="row" style="background-color: #9fcdff">
             <div class="col-sm-3">
-                <div class="row">
-                    <img src="../img/villa.jpg" alt="villa-icon">
-                    <h5>Luxury Villa System</h5>
-                    <img src="../img/house.jpg" alt="house-icon">
-                    <h5>Perfect Home System</h5>
-                    <img src="../img/room.jpg" alt="room-icon">
-                    <h5>Comfortable Room System</h5>
-                </div>
+                <img src="../img/villa.jpg" alt="villa-icon">
+                <h5>Luxury Villa System</h5>
+                <img src="../img/house.jpg" alt="house-icon">
+                <h5>Perfect Home System</h5>
+                <img src="../img/room.jpg" alt="room-icon">
+                <h5>Comfortable Room System</h5>
             </div>
 
             <div class="col-sm-9">
@@ -122,30 +125,30 @@
                         </p>
                     </div>
                     <div class="col-sm-6 icon">
-                        <img src="../img/img1.jpg" alt="img1">
+                        <img src="../img/img3.jpg" alt="img3">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row" style="background-color: cadetblue">
-            <div class="col-sm-3">
-                <img src="../img/img2.jpg" alt="img2">
-            </div>
-            <div class="col-sm-3">
-                <img src="../img/img3.jpg" alt="img3">
-            </div>
-            <div class="col-sm-3">
-                <img src="../img/img4.jpg" alt="img4">
-            </div>
-            <div class="col-sm-3">
-                <img src="../img/img5.jpg" alt="img5">
-            </div>
-        </div>
+        <%--        <div class="row">--%>
+        <%--            <div class="col-sm-3">--%>
+        <%--                <img src="../img/img2.jpg" alt="img2">--%>
+        <%--            </div>--%>
+        <%--            <div class="col-sm-3">--%>
+        <%--                <img src="../img/img3.jpg" alt="img3">--%>
+        <%--            </div>--%>
+        <%--            <div class="col-sm-3">--%>
+        <%--                <img src="../img/img4.jpg" alt="img4">--%>
+        <%--            </div>--%>
+        <%--            <div class="col-sm-3">--%>
+        <%--                <img src="../img/img5.jpg" alt="img5">--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
 
         <div class="row">
             <div class="col-sm-12 footer">
-                <p>Web được thiết kế bởi Hội Bàn Đào</p>
+                <p>Web designed by SuPea Jr</p>
             </div>
         </div>
     </div>

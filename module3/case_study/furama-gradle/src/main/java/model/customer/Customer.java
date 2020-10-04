@@ -35,6 +35,11 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public String getId() {
         return id;
     }

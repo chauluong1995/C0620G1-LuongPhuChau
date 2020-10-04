@@ -174,19 +174,6 @@
                             <option value="${rentType.id}">${rentType.name}</option>
                         </c:forEach>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <select name="rentTypeId" id="rentTypeId">--%>
-                    <%--                                <c:forEach var="rentType" items="${rentTypes}">--%>
-                    <%--                                    <option value="${rentType.id}">${rentType.name}</option>--%>
-                    <%--                                </c:forEach>--%>
-                    <%--                            </select>--%>
-
-                    <%--                           <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                           <input type="text" class="form-control" name="rentTypeId" id="rentTypeId"--%>
-                    <%--                                   placeholder="Enter rent type id of service here" required/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -196,19 +183,6 @@
                             <option value="${serviceType.id}">${serviceType.name}</option>
                         </c:forEach>
                     </select>
-<%--                    <div class="cols-sm-10">--%>
-<%--                        <div class="input-group">--%>
-<%--                            <select name="serviceTypeId" id="serviceTypeId">--%>
-<%--                                <c:forEach var="serviceType" items="${serviceTypes}">--%>
-<%--                                    <option value="${serviceType.id}">${serviceType.name}</option>--%>
-<%--                                </c:forEach>--%>
-<%--                            </select>--%>
-
-<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-<%--                            <input type="text" class="form-control" name="serviceTypeId" id="serviceTypeId"--%>
-<%--                                   placeholder="Enter service type id of service here" required/>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -261,9 +235,6 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-danger btn-lg btn-block login-button">Create New</button>
                 </div>
-                <%--                <div class="login-register">--%>
-                <%--                    <a href="#">Already have an account?</a>--%>
-                <%--                </div>--%>
             </form>
         </div>
     </div>

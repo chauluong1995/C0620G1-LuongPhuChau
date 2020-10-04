@@ -42,12 +42,7 @@ public class EmployeeServlet {
         String message = employeeBO.saveEmployee(employee);
         request.setAttribute("message", message);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/create-new-employee.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
+        showCreateNewEmployee(request, response);
     }
 
     public static void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {

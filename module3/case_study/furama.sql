@@ -62,9 +62,9 @@ create table rent_type (
 
 insert into rent_type (rent_type_name)
 values
-	('Full day'),
+	('Full Day'),
 	('Full Week'),
-	('Full month');
+	('Full Month');
 
 create table service_type (
 	service_type_id int primary key auto_increment,
@@ -151,6 +151,14 @@ create table service (
     service_type_id int,
     foreign key (service_type_id) references service_type(service_type_id)
 );
+
+insert into service (service_id, service_name, service_area, service_cost, pool_area, rent_type_id, service_type_id)
+values
+	('DV-6789', 'Villa Vip', 200, 1000, 70, 3, 1),
+	('DV-0515', 'House Vip', 100, 500, 25, 3, 2),
+	('DV-0202', 'Room Vip', 50, 200, 0, 2, 3),
+	('DV-0606', 'House Standard', 75, 250, 15, 2, 2),
+	('DV-0902', 'Room Standard', 35, 100, 0, 1, 3);
 
 create table employee (
 	employee_id int primary key auto_increment,

@@ -1,11 +1,14 @@
 package dao.customer;
 
-import model.Customer;
+import model.customer.Customer;
+import model.customer.TypeCustomer;
 
 import java.util.List;
 
 public interface CustomerDAO {
     List<Customer> findAll();
+
+    List<TypeCustomer> findAllTypeCustomer();
 
     List<Customer> findByName(String name);
 

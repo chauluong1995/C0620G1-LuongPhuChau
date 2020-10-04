@@ -1,7 +1,8 @@
 package dao.customer;
 
 import dao.BaseDAO;
-import model.Customer;
+import model.customer.Customer;
+import model.customer.TypeCustomer;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -15,6 +16,9 @@ public class CustomerDAOImpl implements CustomerDAO {
     private static final String SELECT_ALL_CUSTOMERS = "select customer_id, customer_name, customer_birthday, customer_gender, customer_email, " +
             "customer_address from customer";
     private static final String CREATE_NEW_CUSTOMER = "insert into customer values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SEARCH_CUSTOMERS = "select customer_id, customer_name, customer_birthday, customer_gender, customer_email, " +
+            "customer_address from customer where customer_name like ?";
+    private static final String SELECT_ALL_TYPE_CUSTOMER = "select * from customer_type";
 
     @Override
     public List<Customer> findAll() {
@@ -65,11 +69,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Customer findCustomerById(String idNeedDelete) {
+    public Customer findCustomerById(String idNeedFind) {
         Customer customer = null;
         try {
             CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call find_customer_by_id(?)");
-            callableStatement.setString(1, idNeedDelete);
+            callableStatement.setString(1, idNeedFind);
             ResultSet resultSet = callableStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -127,16 +131,61 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public List<Customer> findByName(String name) {
-        List<Customer> customerList = findAll();
-        List<Customer> customerListResult = new ArrayList<>();
+    public List<Customer> findByName(String nameNeedSearch) {
+        List<Customer> customerList = new ArrayList<>();
 
-        for (Customer customer : customerList) {
-            if (customer.getName().contains(name)) {
-                customerListResult.add(customer);
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SEARCH_CUSTOMERS);
+            preparedStatement.setString(1, '%' + nameNeedSearch + '%');
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Customer customer;
+            while (resultSet.next()) {
+                String id = resultSet.getString("customer_id");
+                String name = resultSet.getString("customer_name");
+                String birthDay = resultSet.getString("customer_birthday");
+                String gender = resultSet.getString("customer_gender");
+                String email = resultSet.getString("customer_email");
+                String address = resultSet.getString("customer_address");
+
+                customer = new Customer(id, name, birthDay, gender, email, address);
+                customerList.add(customer);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return customerList;
 
-        return customerListResult;
+//        List<Customer> customerList = findAll();
+//        List<Customer> customerListResult = new ArrayList<>();
+//
+//        for (Customer customer : customerList) {
+//            if (customer.getName().contains(nameNeedSearch)) {
+//                customerListResult.add(customer);
+//            }
+//        }
+//
+//        return customerListResult;
+    }
+
+    @Override
+    public List<TypeCustomer> findAllTypeCustomer() {
+        List<TypeCustomer> typeCustomers = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_TYPE_CUSTOMER);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            TypeCustomer typeCustomer;
+            while (resultSet.next()) {
+                String id = resultSet.getString("customer_type_id");
+                String name = resultSet.getString("customer_type_name");
+
+                typeCustomer = new TypeCustomer(id, name);
+                typeCustomers.add(typeCustomer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return typeCustomers;
     }
 }

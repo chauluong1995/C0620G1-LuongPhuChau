@@ -15,20 +15,20 @@
     <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
     <style>
-        body, html{
+        body, html {
             height: 100%;
             background-repeat: no-repeat;
             background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
-        .main{
+        .main {
             margin-top: 70px;
         }
-        .form-group{
+
+        .form-group {
             margin-bottom: 15px;
         }
-
 
 
         input,
@@ -37,7 +37,7 @@
             padding-top: 3px;
         }
 
-        .main-login{
+        .main-login {
             background-color: #F4CFCE;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
@@ -49,11 +49,12 @@
 
         }
 
-        label{
+        label {
             margin-bottom: 15px;
-            font-size:18px;
+            font-size: 18px;
         }
-        .main-center{
+
+        .main-center {
             margin-top: 30px;
             margin: 0 auto;
             max-width: 750px;
@@ -61,19 +62,20 @@
 
         }
 
-        .login-button{
+        .login-button {
             margin-top: 5px;
         }
 
-        .login-register{
+        .login-register {
             font-size: 12px;
             text-align: center;
-            text-decoration:underline;
-            color:#5CB85C;
-            font-weight:bold;
+            text-decoration: underline;
+            color: #5CB85C;
+            font-weight: bold;
         }
-        .iconbk{
-            background-color:#D9534F;
+
+        .iconbk {
+            background-color: #D9534F;
         }
 
         .list {
@@ -99,7 +101,7 @@
         <div class="panel-heading">
             <div class="panel-title text-center">
                 <h1 class="title">Create New Customer</h1>
-                <hr />
+                <hr/>
             </div>
         </div>
         <p class="list">
@@ -108,14 +110,15 @@
         <p class="message">${message}</p>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/furama">
-                <input type="hidden" name="actionFurama" value="createNewCustomer" />
+                <input type="hidden" name="actionFurama" value="createNewCustomer"/>
 
                 <div class="form-group">
                     <label for="id" class="cols-sm-2 control-label">ID:</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="id" id="id"  placeholder="Enter your ID here" required/>
+                            <input type="text" class="form-control" name="id" id="id" placeholder="Enter your ID here"
+                                   required/>
                         </div>
                     </div>
                 </div>
@@ -125,39 +128,62 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your name here" required/>
+                            <input type="text" class="form-control" name="name" id="name"
+                                   placeholder="Enter your name here" required/>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="type" class="cols-sm-2 control-label">Type Customer:</label>
+                    <label for="type" class="cols-sm-2 control-label">Type Customer : </label>
+                    <select name="type" id="type">
+                        <c:forEach var="typeCustomer" items="${typeCustomers}">
+                            <option value="${typeCustomer.id}">${typeCustomer.name}</option>
+                        </c:forEach>
+                    </select>
+<%--                    <div class="cols-sm-10">--%>
+<%--                        <div class="input-group">--%>
+<%--                            <select name="type" id="type">--%>
+<%--                                <c:forEach var="typeCustomer" items="${typeCustomers}">--%>
+<%--                                    <option value="${typeCustomer.id}">${typeCustomer.name}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+<%--                            <input type="text" class="form-control" name="type" id="type"--%>
+<%--                                   placeholder="Enter your type customer here" required/>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDay" class="cols-sm-2 control-label">Birth Day:</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="type" id="type"  placeholder="Enter your type customer here" required/>
+                            <input type="date" class="form-control" name="birthDay" id="birthDay" required/>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="birthday" class="cols-sm-2 control-label">Birth Day:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="birthday" id="birthday"  placeholder="Enter your birthday here" required/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="gender" class="cols-sm-2 control-label">Gender:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="gender" id="gender"  placeholder="Enter your gender here"/>
-                        </div>
-                    </div>
+                    <label for="gender" class="cols-sm-2 control-label">Gender : </label>
+                    <select name="gender" id="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Unknown</option>
+                    </select>
+                    <%--                    <div class="cols-sm-10">--%>
+                    <%--                        <div class="input-group">--%>
+                    <%--                            <select name="gender" id="gender">--%>
+                    <%--                                <option>Male</option>--%>
+                    <%--                                <option>Female</option>--%>
+                    <%--                                <option>Unknown</option>--%>
+                    <%--                           </select>--%>
+                    <%--                           <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+                    <%--                           <input type="text" class="form-control" name="gender" id="gender"--%>
+                    <%--                                   placeholder="Enter your gender here"/>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -165,7 +191,8 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="idCard" id="idCard"  placeholder="Enter your ID card here" required/>
+                            <input type="text" class="form-control" name="idCard" id="idCard"
+                                   placeholder="Enter your ID card here" required/>
                         </div>
                     </div>
                 </div>
@@ -175,7 +202,8 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone here" required/>
+                            <input type="text" class="form-control" name="phone" id="phone"
+                                   placeholder="Enter your phone here" required/>
                         </div>
                     </div>
                 </div>
@@ -184,8 +212,10 @@
                     <label for="email" class="cols-sm-2 control-label">Email:</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-envelope-o fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your email here" required/>
+                            <span class="input-group-addon iconbk"><i class="fa fa-envelope-o fa"
+                                                                      aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="email" id="email"
+                                   placeholder="Enter your email here" required/>
                         </div>
                     </div>
                 </div>
@@ -195,7 +225,8 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="address" id="address"  placeholder="Enter your address here" required/>
+                            <input type="text" class="form-control" name="address" id="address"
+                                   placeholder="Enter your address here" required/>
                         </div>
                     </div>
                 </div>
@@ -203,9 +234,9 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-danger btn-lg btn-block login-button">Create New</button>
                 </div>
-<%--                <div class="login-register">--%>
-<%--                    <a href="#">Already have an account?</a>--%>
-<%--                </div>--%>
+                <%--                <div class="login-register">--%>
+                <%--                    <a href="#">Already have an account?</a>--%>
+                <%--                </div>--%>
             </form>
             <p style="text-align: center">
                 <a href="/furama">Home</a>

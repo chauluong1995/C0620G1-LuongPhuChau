@@ -1,8 +1,7 @@
 package dao.employee;
 
 import dao.BaseDAO;
-import model.Customer;
-import model.Employee;
+import model.employee.*;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -14,8 +13,14 @@ import java.util.List;
 public class EmployeeDAOImpl implements EmployeeDAO {
     private BaseDAO baseDAO = new BaseDAO();
     private static final String CREATE_NEW_EMPLOYEE = "insert into employee values(null,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SELECT_ALL_EMPLOYEE = "select employee_name, employee_salary, employee_phone, employee_email, " +
+    private static final String SELECT_ALL_EMPLOYEE = "select employee_id, employee_name, employee_salary, employee_phone, employee_email, " +
             "employee_address from employee";
+    private static final String SEARCH_EMPLOYEE = "select employee_id, employee_name, employee_salary, employee_phone, employee_email, " +
+            "employee_address from employee where employee_name like ?";
+    private static final String SELECT_ALL_POSITION = "select * from position";
+    private static final String SELECT_ALL_DIVISION = "select * from division";
+    private static final String SELECT_ALL_EDUCATION_DEGREE = "select * from education_degree";
+    private static final String SELECT_ALL_USER = "select user_name from user";
 
     @Override
     public String saveEmployee(Employee employee) {
@@ -51,13 +56,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             Employee employee;
             while (resultSet.next()) {
+                String id = resultSet.getString("employee_id");
                 String name = resultSet.getString("employee_name");
                 String salary = resultSet.getString("employee_salary");
                 String phone = resultSet.getString("employee_phone");
                 String email = resultSet.getString("employee_email");
                 String address = resultSet.getString("employee_address");
 
-                employee = new Employee(name, salary, phone, email, address);
+                employee = new Employee(id, name, salary, phone, email, address);
                 employeeList.add(employee);
             }
         } catch (SQLException e) {
@@ -67,17 +73,154 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public List<Employee> findByName(String name) {
-        List<Employee> employeeListResult = new ArrayList<>();
-        List<Employee> employeeList = findAll();
+    public List<Position> findAllPosition() {
+        List<Position> positions = new ArrayList<>();
 
-        for (Employee employee : employeeList) {
-            if (employee.getName().contains(name)) {
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_POSITION);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Position position;
+            while (resultSet.next()) {
+                String id = resultSet.getString("position_id");
+                String name = resultSet.getString("position_name");
+
+                position = new Position(id, name);
+                positions.add(position);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return positions;
+    }
+
+    @Override
+    public List<Division> findAllDivision() {
+        List<Division> divisions = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_DIVISION);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Division division;
+            while (resultSet.next()) {
+                String id = resultSet.getString("division_id");
+                String name = resultSet.getString("division_name");
+
+                division = new Division(id, name);
+                divisions.add(division);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return divisions;
+    }
+
+    @Override
+    public List<EducationDegree> findAllEducationDegree() {
+        List<EducationDegree> educationDegrees = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_EDUCATION_DEGREE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            EducationDegree educationDegree;
+            while (resultSet.next()) {
+                String id = resultSet.getString("education_degree_id");
+                String name = resultSet.getString("education_degree_name");
+
+                educationDegree = new EducationDegree(id, name);
+                educationDegrees.add(educationDegree);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return educationDegrees;
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        List<User> users = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_USER);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            User user;
+            while (resultSet.next()) {
+                String name = resultSet.getString("user_name");
+
+                user = new User(name);
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public Employee findEmployeeById(String idNeedFind) {
+        Employee employee = null;
+        try {
+            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call find_employee_by_id(?)");
+            callableStatement.setString(1, idNeedFind);
+            ResultSet resultSet = callableStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("employee_id");
+                String name = resultSet.getString("employee_name");
+                String birthDay = resultSet.getString("employee_birthday");
+                String idCard = resultSet.getString("employee_id_card");
+                String salary = resultSet.getString("employee_salary");
+                String phone = resultSet.getString("employee_phone");
+                String email = resultSet.getString("employee_email");
+                String address = resultSet.getString("employee_address");
+                String idPosition = resultSet.getString("position_id");
+                String idEducationDegree = resultSet.getString("education_degree_id");
+                String idDivision = resultSet.getString("division_id");
+                String userName = resultSet.getString("user_name");
+
+                employee = new Employee(id, name, birthDay, idCard, salary, phone, email, address, idPosition, idEducationDegree, idDivision, userName);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
+    }
+
+    @Override
+    public List<Employee> findByName(String nameNeedSearch) {
+        List<Employee> employeeListResult = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SEARCH_EMPLOYEE);
+            preparedStatement.setString(1, '%' + nameNeedSearch + '%');
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Employee employee;
+            while (resultSet.next()) {
+                String id = resultSet.getString("employee_id");
+                String name = resultSet.getString("employee_name");
+                String salary = resultSet.getString("employee_salary");
+                String phone = resultSet.getString("employee_phone");
+                String email = resultSet.getString("employee_email");
+                String address = resultSet.getString("employee_address");
+
+                employee = new Employee(id, name, salary, phone, email, address);
                 employeeListResult.add(employee);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
         return employeeListResult;
+
+//        List<Employee> employeeList = findAll();
+//
+//        for (Employee employee : employeeList) {
+//            if (employee.getName().contains(name)) {
+//                employeeListResult.add(employee);
+//            }
+//        }
+//
+//        return employeeListResult;
     }
 
     @Override
@@ -108,6 +251,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void deleteEmployee(String idNeedDelete) {
+//        int id = Integer.parseInt(idNeedDelete);
         try {
             CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call delete_employee(?)");
             callableStatement.setString(1, idNeedDelete);

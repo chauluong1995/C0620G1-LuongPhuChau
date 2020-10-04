@@ -2,28 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7595ba94-c844-4d51-b523-21abc2d0379e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/create-new-employee.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/c06g-jsp-servlet-gradle.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/CustomerBOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/ServiceBOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/FuramaServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/CustomerDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/create-new-service.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/create-new-customer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/customer-list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/delete-customer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/search-list-customer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/update-customer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/home.jsp" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/customer/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/customer/TypeCustomer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/employee/EmployeeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/employee/search-list-employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/customer/CustomerBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/customer/CustomerBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/customer/CustomerBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/customer/CustomerBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/employee/EmployeeBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/employee/EmployeeBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/employee/EmployeeBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/employee/EmployeeBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/customer/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/customer/CustomerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/customer/CustomerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/customer/CustomerDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/employee/EmployeeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/employee/EmployeeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/employee/EmployeeDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/employee/EmployeeDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/create-new-customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/create-new-customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/customer-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/customer-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/search-list-customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/customer/search-list-customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/employee/employee-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.38/webapps/ROOT/view/employee/employee-list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -31,32 +27,39 @@
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/CustomerBOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/ServiceBOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/customer/CustomerBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/customer/CustomerBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/customer/CustomerBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/customer/CustomerBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/employee/EmployeeBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/employee/EmployeeBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/employee/EmployeeBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/bo/employee/EmployeeBOImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/customer/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/customer/CustomerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/customer/CustomerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/customer/CustomerDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/employee/EmployeeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/employee/EmployeeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/employee/EmployeeDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/dao/employee/EmployeeDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/classes/java/main/model/Employee.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/libs/furama-gradle-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/build/libs/furama-gradle-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/ServiceBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/ServiceBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/customer/CustomerBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/employee/EmployeeBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/bo/service/ServiceBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/controller/FuramaServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/ServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/ServiceDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../case_study/furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/customer/CustomerDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/employee/EmployeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/dao/service/ServiceDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/java/model/service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer/create-new-customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer/create-new-customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer/customer-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer/customer-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer/search-list-customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/customer/search-list-customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/employee/employee-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study/furama-gradle/src/main/webapp/view/employee/employee-list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/c06g-jsp-servlet-gradle-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/c06g-jsp-servlet-gradle-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/M3-paging-sorting-jsp-servlet-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/M3-paging-sorting-jsp-servlet-client/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +139,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../thuc_hanh/M3-paging-sorting-jsp-servlet-client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -366,6 +375,7 @@
       <workItem from="1601559359136" duration="598000" />
       <workItem from="1601605614541" duration="6717000" />
       <workItem from="1601703503758" duration="266000" />
+      <workItem from="1601788047088" duration="2099000" />
     </task>
     <servers />
   </component>
@@ -467,11 +477,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/StudentServlet.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/StudentServlet.java</url>
           <line>50</line>

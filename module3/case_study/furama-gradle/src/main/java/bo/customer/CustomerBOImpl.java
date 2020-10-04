@@ -2,7 +2,8 @@ package bo.customer;
 
 import dao.customer.CustomerDAO;
 import dao.customer.CustomerDAOImpl;
-import model.Customer;
+import model.customer.Customer;
+import model.customer.TypeCustomer;
 
 import java.util.List;
 
@@ -12,6 +13,11 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public List<Customer> findAll() {
         return this.customerDAO.findAll();
+    }
+
+    @Override
+    public List<TypeCustomer> findAllTypeCustomer() {
+        return this.customerDAO.findAllTypeCustomer();
     }
 
     @Override

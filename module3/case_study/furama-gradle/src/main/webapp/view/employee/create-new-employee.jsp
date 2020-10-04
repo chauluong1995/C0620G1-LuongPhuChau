@@ -128,8 +128,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="birthDay" id="birthDay"
-                                   placeholder="Enter birth day here" required/>
+                            <input type="date" class="form-control" name="birthDay" id="birthDay" required/>
                         </div>
                     </div>
                 </div>
@@ -190,47 +189,67 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="position" class="cols-sm-2 control-label">Position:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="position" id="position"
-                                   placeholder="Enter position here" required/>
-                        </div>
-                    </div>
+                    <label for="position" class="cols-sm-2 control-label">Position : </label>
+                    <select name="position" id="position">
+                        <c:forEach var="position" items="${positions}">
+                            <option value="${position.id}">${position.name}</option>
+                        </c:forEach>
+                    </select>
+<%--                    <div class="cols-sm-10">--%>
+<%--                        <div class="input-group">--%>
+<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+<%--                            <input type="text" class="form-control" name="position" id="position"--%>
+<%--                                   placeholder="Enter position here" required/>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
-                    <label for="educationDegree" class="cols-sm-2 control-label">Education Degree:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="educationDegree" id="educationDegree"
-                                   placeholder="Enter education degree here" required/>
-                        </div>
-                    </div>
+                    <label for="educationDegree" class="cols-sm-2 control-label">Education Degree : </label>
+                    <select name="educationDegree" id="educationDegree">
+                        <c:forEach var="educationDegree" items="${educationDegrees}">
+                            <option value="${educationDegree.id}">${educationDegree.name}</option>
+                        </c:forEach>
+                    </select>
+<%--                    <div class="cols-sm-10">--%>
+<%--                        <div class="input-group">--%>
+<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+<%--                            <input type="text" class="form-control" name="educationDegree" id="educationDegree"--%>
+<%--                                   placeholder="Enter education degree here" required/>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
-                    <label for="division" class="cols-sm-2 control-label">Division:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="division" id="division"
-                                   placeholder="Enter division here" required/>
-                        </div>
-                    </div>
+                    <label for="division" class="cols-sm-2 control-label">Division : </label>
+                    <select name="division" id="division">
+                        <c:forEach var="division" items="${divisions}">
+                            <option value="${division.id}">${division.name}</option>
+                        </c:forEach>
+                    </select>
+<%--                    <div class="cols-sm-10">--%>
+<%--                        <div class="input-group">--%>
+<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+<%--                            <input type="text" class="form-control" name="division" id="division"--%>
+<%--                                   placeholder="Enter division here" required/>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
-                    <label for="userName" class="cols-sm-2 control-label">User Name:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="userName" id="userName"
-                                   placeholder="Enter user name here" required/>
-                        </div>
-                    </div>
+                    <label for="user" class="cols-sm-2 control-label">User Name : </label>
+                    <select name="user" id="user">
+                        <c:forEach var="user" items="${users}">
+                            <option value="${user.name}">${user.name}</option>
+                        </c:forEach>
+                    </select>
+<%--                    <div class="cols-sm-10">--%>
+<%--                        <div class="input-group">--%>
+<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+<%--                            <input type="text" class="form-control" name="userName" id="userName"--%>
+<%--                                   placeholder="Enter user name here" required/>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">

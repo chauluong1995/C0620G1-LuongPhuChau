@@ -2,7 +2,7 @@ package bo.employee;
 
 import dao.employee.EmployeeDAO;
 import dao.employee.EmployeeDAOImpl;
-import model.Employee;
+import model.employee.*;
 
 import java.util.List;
 
@@ -19,6 +19,31 @@ public class EmployeeBOImpl implements EmployeeBO {
     @Override
     public List<Employee> findAll() {
         return this.employeeDAO.findAll();
+    }
+
+    @Override
+    public Employee findEmployeeById(String id) {
+        return this.employeeDAO.findEmployeeById(id);
+    }
+
+    @Override
+    public List<Position> findAllPosition() {
+        return this.employeeDAO.findAllPosition();
+    }
+
+    @Override
+    public List<Division> findAllDivision() {
+        return this.employeeDAO.findAllDivision();
+    }
+
+    @Override
+    public List<EducationDegree> findAllEducationDegree() {
+        return this.employeeDAO.findAllEducationDegree();
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        return this.employeeDAO.findAllUser();
     }
 
     @Override

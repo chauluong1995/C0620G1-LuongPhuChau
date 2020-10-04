@@ -15,7 +15,7 @@ values
 	('Expert'),
 	('Monitoring'),
 	('Manage'),
-	('Manager');
+	('Director');
 
 create table education_degree (
 	education_degree_id int primary key auto_increment,
@@ -175,14 +175,15 @@ create table employee (
     foreign key(user_name) references `user`(user_name)
 );
 
-insert into employee (employee_id, employee_name, employee_birthday, employee_salary, employee_email, employee_address, position_id, education_degree_id, division_id, user_name)
+insert into employee (employee_id, employee_name, employee_phone, employee_id_card, employee_birthday, employee_salary, employee_email, employee_address, 
+position_id, education_degree_id, division_id, user_name)
 values
-	('1', 'Phong Tran', '1995-05-27', 5000, 'phong@codegym.com', 'Quang Nam', 6, 4, 4, 'Admin'),
-	('2', 'Ly Le', '1995-05-15', 4500, 'lyle@codegym.com', 'Da Nang', 5, 4, 3, 'Admin'),
-	('3', 'Tam Nguyen', '1997-02-02', 1000, 'tamnguyen@codegym.com', 'Da Nang', 4, 2, 1, 'Client'),
-	('4', 'Giang Ly', '1996-06-06', 4500, 'giang@codegym.com', 'Quang Ngai', 3, 4, 3, 'Admin'),
-	('5', 'Khoi Huynh', '1994-09-02', 3500, 'khoi@codegym.com', 'Da Nang', 2, 4, 2, 'Client'),
-	('6', 'Vy Ho', '1997-07-07', 1500, 'vyho@codegym.com', 'Ha Tinh', 1, 3, 2, 'Client');
+	('1', 'Phong Tran', '0905052795', '905052795', '1995-05-27', 5000, 'phong@codegym.com', 'Quang Nam', 6, 4, 4, 'Admin'),
+	('2', 'Ly Le', '0905051595', '805052795', '1995-05-15', 4500, 'lyle@codegym.com', 'Da Nang', 5, 4, 3, 'Admin'),
+	('3', 'Tam Nguyen', '0905020297', '705052795', '1997-02-02', 1000, 'tamnguyen@codegym.com', 'Da Nang', 4, 2, 1, 'Client'),
+	('4', 'Giang Ly', '0905060696', '605052795', '1996-06-06', 4500, 'giang@codegym.com', 'Quang Ngai', 3, 4, 3, 'Admin'),
+	('5', 'Khoi Huynh', '0905090294', '505052795', '1994-09-02', 3500, 'khoi@codegym.com', 'Da Nang', 2, 4, 2, 'Client'),
+	('6', 'Vy Ho', '0905070797', '305052795', '1997-07-07', 1500, 'vyho@codegym.com', 'Ha Tinh', 1, 3, 2, 'Client');
 
 create table contract (
 	contract_id int primary key auto_increment,
@@ -239,6 +240,15 @@ BEGIN
 	select *
     from customer
     where customer_id = id_need_find;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE find_employee_by_id(id_need_find varchar(25))
+BEGIN
+	select *
+    from employee
+    where employee_id = id_need_find;
 END //
 DELIMITER ;
 

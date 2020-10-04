@@ -168,25 +168,47 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="rentTypeId" class="cols-sm-2 control-label">Rent Type ID:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="rentTypeId" id="rentTypeId"
-                                   placeholder="Enter rent type id of service here" required/>
-                        </div>
-                    </div>
+                    <label for="rentTypeId" class="cols-sm-2 control-label">Rent Type : </label>
+                    <select name="rentTypeId" id="rentTypeId">
+                        <c:forEach var="rentType" items="${rentTypes}">
+                            <option value="${rentType.id}">${rentType.name}</option>
+                        </c:forEach>
+                    </select>
+                    <%--                    <div class="cols-sm-10">--%>
+                    <%--                        <div class="input-group">--%>
+                    <%--                            <select name="rentTypeId" id="rentTypeId">--%>
+                    <%--                                <c:forEach var="rentType" items="${rentTypes}">--%>
+                    <%--                                    <option value="${rentType.id}">${rentType.name}</option>--%>
+                    <%--                                </c:forEach>--%>
+                    <%--                            </select>--%>
+
+                    <%--                           <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+                    <%--                           <input type="text" class="form-control" name="rentTypeId" id="rentTypeId"--%>
+                    <%--                                   placeholder="Enter rent type id of service here" required/>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
-                    <label for="serviceTypeId" class="cols-sm-2 control-label">Service Type ID:</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="serviceTypeId" id="serviceTypeId"
-                                   placeholder="Enter service type id of service here" required/>
-                        </div>
-                    </div>
+                    <label for="serviceTypeId" class="cols-sm-2 control-label">Service Type : </label>
+                    <select name="serviceTypeId" id="serviceTypeId">
+                        <c:forEach var="serviceType" items="${serviceTypes}">
+                            <option value="${serviceType.id}">${serviceType.name}</option>
+                        </c:forEach>
+                    </select>
+<%--                    <div class="cols-sm-10">--%>
+<%--                        <div class="input-group">--%>
+<%--                            <select name="serviceTypeId" id="serviceTypeId">--%>
+<%--                                <c:forEach var="serviceType" items="${serviceTypes}">--%>
+<%--                                    <option value="${serviceType.id}">${serviceType.name}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+
+<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
+<%--                            <input type="text" class="form-control" name="serviceTypeId" id="serviceTypeId"--%>
+<%--                                   placeholder="Enter service type id of service here" required/>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">

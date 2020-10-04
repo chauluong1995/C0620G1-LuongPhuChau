@@ -1,4 +1,4 @@
-package model;
+package model.employee;
 
 public class Employee {
     private String id;
@@ -17,7 +17,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String salary, String phone, String email, String address) {
+    public Employee(String id, String name, String salary, String phone, String email, String address) {
+        this.id = id;
         this.name = name;
         this.salary = salary;
         this.phone = phone;
@@ -27,6 +28,22 @@ public class Employee {
 
     public Employee(String name, String birthDay, String idCard, String salary, String phone, String email,
                     String address, String idPosition, String idEducationDegree, String idDivision, String userName) {
+        this.name = name;
+        this.birthDay = birthDay;
+        this.idCard = idCard;
+        this.salary = salary;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.idPosition = idPosition;
+        this.idEducationDegree = idEducationDegree;
+        this.idDivision = idDivision;
+        this.userName = userName;
+    }
+
+    public Employee(String id, String name, String birthDay, String idCard, String salary, String phone, String email,
+                    String address, String idPosition, String idEducationDegree, String idDivision, String userName) {
+        this.id = id;
         this.name = name;
         this.birthDay = birthDay;
         this.idCard = idCard;

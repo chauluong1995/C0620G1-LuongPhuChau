@@ -107,7 +107,7 @@
         <p class="list">
             <a href="/furama">Back to Home</a>
         </p>
-        <p class="message">${message}</p>
+        <h3 class="message">${message}</h3>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/service">
                 <input type="hidden" name="actionFurama" value="createNewService"/>
@@ -118,7 +118,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="id" id="id"
-                                   placeholder="Enter ID of service here" required/>
+                                   value="${service.id}" required/>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="name" id="name"
-                                   placeholder="Enter name of service here" required/>
+                                   value="${service.name}" required/>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="area" id="area"
-                                   placeholder="Enter area of service here" required/>
+                                   value="${service.area}" required/>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="cost" id="cost"
-                                   placeholder="Enter cost of service here" required/>
+                                   value="${service.cost}" required/>
                         </div>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="maxPeople" id="maxPeople"
-                                   placeholder="Enter max people of service here"/>
+                                   value="${service.maxPeople}" required/>
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
                             <span class="input-group-addon iconbk"><i class="fa fa-envelope-o fa"
                                                                       aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="standardRoom" id="standardRoom"
-                                   placeholder="Enter standard room of service here" required/>
+                                   value="${service.standardRoom}" required/>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="descriptionOtherConvenience"
                                    id="descriptionOtherConvenience"
-                                   placeholder="Enter description other convenience of service here" required/>
+                                   value="${service.descriptionOtherConvenience}" required/>
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="poolArea" id="poolArea"
-                                   placeholder="Enter pool area of service here" required/>
+                                   value="${service.poolArea}" required/>
                         </div>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="numberOfFloors" id="numberOfFloors"
-                                   placeholder="Enter number of floors of service here" required/>
+                                   value="${service.numberOfFloors}" required/>
                         </div>
                     </div>
                 </div>

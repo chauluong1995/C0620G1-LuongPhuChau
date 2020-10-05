@@ -12,4 +12,6 @@ public interface ServiceDAO {
     List<RentType> findAllRentType();
 
     List<ServiceType> findAllServiceType();
+
+    List<String> findAllIDService();
 }

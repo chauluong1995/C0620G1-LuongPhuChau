@@ -1,5 +1,6 @@
 package bo.customer;
 
+import common.Validation;
 import dao.customer.CustomerDAO;
 import dao.customer.CustomerDAOImpl;
 import model.customer.Customer;
@@ -28,7 +29,13 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public String saveCustomer(Customer customer) {
         String message;
-        message = this.customerDAO.saveCustomer(customer);
+
+        if (!Validation.regexIDCustomer(customer.getId())) {
+            message = "Format ID is KH-XXXX with X is number from 0 to 9 !";
+        } else if (testID(customer.getId())) {
+            message = "ID is exists ! Please input ID other !";
+        } else message = this.customerDAO.saveCustomer(customer);
+
         return message;
     }
 
@@ -47,5 +54,15 @@ public class CustomerBOImpl implements CustomerBO {
         String message;
         message = this.customerDAO.updateCustomer(customer);
         return message;
+    }
+
+    private boolean testID(String id) {
+        List<Customer> customerList = findAll();
+        for (Customer customer : customerList){
+            if (customer.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

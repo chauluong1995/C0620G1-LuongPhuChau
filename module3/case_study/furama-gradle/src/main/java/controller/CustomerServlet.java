@@ -93,6 +93,9 @@ public class CustomerServlet extends HttpServlet {
 
         String message = this.customerBO.saveCustomer(customer);
         request.setAttribute("message", message);
+        if (!message.equals("Create Complete !")) {
+            request.setAttribute("customer", customer);
+        }
 
         showCreateNewCustomer(request, response);
     }

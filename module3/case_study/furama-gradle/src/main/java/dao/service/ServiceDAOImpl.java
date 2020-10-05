@@ -17,6 +17,7 @@ public class ServiceDAOImpl implements ServiceDAO {
     private static final String CREATE_NEW_SERVICE = "insert into service values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_RENT_TYPE = "select * from rent_type";
     private static final String SELECT_ALL_SERVICE_TYPE = "select * from service_type";
+    private static final String SELECT_ALL_ID_SERVICE = "select service_id from service";
 
     @Override
     public String saveService(Service service) {
@@ -83,5 +84,24 @@ public class ServiceDAOImpl implements ServiceDAO {
             e.printStackTrace();
         }
         return serviceTypes;
+    }
+
+    @Override
+    public List<String> findAllIDService() {
+        List<String> listID = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_ID_SERVICE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            String id;
+            while (resultSet.next()) {
+                id = resultSet.getString("service_id");
+                listID.add(id);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listID;
     }
 }

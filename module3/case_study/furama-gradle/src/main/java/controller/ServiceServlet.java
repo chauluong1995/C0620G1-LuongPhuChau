@@ -68,6 +68,9 @@ public class ServiceServlet extends HttpServlet {
 
         String message = this.serviceBO.saveService(service);
         request.setAttribute("message", message);
+        if (!message.equals("Create Complete !")) {
+            request.setAttribute("service", service);
+        }
 
         addNewService(request, response);
     }

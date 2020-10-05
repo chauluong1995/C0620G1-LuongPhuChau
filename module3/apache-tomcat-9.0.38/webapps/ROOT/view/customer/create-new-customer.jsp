@@ -107,7 +107,7 @@
         <p class="list">
             <a href="/customer?actionFurama=customerList">Back to Customer List</a>
         </p>
-        <p class="message">${message}</p>
+        <h3 class="message">${message}</h3>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/customer">
                 <input type="hidden" name="actionFurama" value="createNewCustomer"/>
@@ -117,7 +117,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="id" id="id" placeholder="Enter your ID here"
+                            <input type="text" class="form-control" name="id" id="id" value="${customer.id}"
                                    required/>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="name" id="name"
-                                   placeholder="Enter your name here" required/>
+                                   value="${customer.name}" required/>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="date" class="form-control" name="birthDay" id="birthDay" required/>
+                            <input type="date" class="form-control" name="birthDay" id="birthDay" value="${customer.birthDay}" required/>
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="idCard" id="idCard"
-                                   placeholder="Enter your ID card here" required/>
+                                   value="${customer.idCard}" required/>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="phone" id="phone"
-                                   placeholder="Enter your phone here" required/>
+                                   value="${customer.phoneNumber}" required/>
                         </div>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                             <span class="input-group-addon iconbk"><i class="fa fa-envelope-o fa"
                                                                       aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="email" id="email"
-                                   placeholder="Enter your email here" required/>
+                                   value="${customer.email}" required/>
                         </div>
                     </div>
                 </div>
@@ -226,7 +226,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="address" id="address"
-                                   placeholder="Enter your address here" required/>
+                                   value="${customer.address}" required/>
                         </div>
                     </div>
                 </div>

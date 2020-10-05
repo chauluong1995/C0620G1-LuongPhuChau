@@ -210,7 +210,7 @@ create table contract (
     contract_total_money double,
     
     employee_id int,
-    foreign key(employee_id) references employee(employee_id),
+    constraint fk_employee foreign key(employee_id) references employee(employee_id),
     
     customer_id varchar(25),
     constraint fk_customer foreign key(customer_id) references customer(customer_id),
@@ -251,6 +251,13 @@ drop foreign key fk_customer;
  
 alter table contract
 add constraint fk_customer foreign key(customer_id) references customer(customer_id) on delete cascade
+on update cascade;
+
+alter table contract
+drop foreign key fk_employee;
+ 
+alter table contract
+add constraint fk_employee foreign key(employee_id) references employee(employee_id) on delete cascade
 on update cascade;
 
 alter table contract

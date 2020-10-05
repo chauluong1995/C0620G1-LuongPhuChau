@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContractDAOImpl implements ContractDAO {
-    private BaseDAO baseDAO = new BaseDAO();
-
     private static final String CREATE_NEW_CONTRACT = "insert into contract values (null, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_EMPLOYEE = "select employee_id, employee_name from employee";
     private static final String SELECT_ALL_CUSTOMER = "select customer_id, customer_name from customer";
@@ -22,8 +20,9 @@ public class ContractDAOImpl implements ContractDAO {
 
     @Override
     public String saveContract(Contract contract) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(CREATE_NEW_CONTRACT);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(CREATE_NEW_CONTRACT);
             preparedStatement.setString(1, contract.getStartDate());
             preparedStatement.setString(2, contract.getEndDate());
             preparedStatement.setString(3, contract.getDeposite());
@@ -36,17 +35,23 @@ public class ContractDAOImpl implements ContractDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Create Complete !";
     }
 
     @Override
     public List<Employee> findAllEmployee() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Employee> employees = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_EMPLOYEE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_EMPLOYEE);
             ResultSet resultSet = preparedStatement.executeQuery();
             Employee employee;
             while (resultSet.next()) {
@@ -58,16 +63,23 @@ public class ContractDAOImpl implements ContractDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return employees;
     }
 
     @Override
     public List<Customer> findAllCustomer() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Customer> customers = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMER);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMER);
             ResultSet resultSet = preparedStatement.executeQuery();
             Customer customer;
             while (resultSet.next()) {
@@ -79,16 +91,23 @@ public class ContractDAOImpl implements ContractDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return customers;
     }
 
     @Override
     public List<Service> findAllService() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Service> services = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_SERVICE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_SERVICE);
             ResultSet resultSet = preparedStatement.executeQuery();
             Service service;
             while (resultSet.next()) {
@@ -100,6 +119,12 @@ public class ContractDAOImpl implements ContractDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return services;
     }

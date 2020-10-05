@@ -85,6 +85,9 @@ public class EmployeeServlet extends HttpServlet {
 
         String message = this.employeeBO.saveEmployee(employee);
         request.setAttribute("message", message);
+        if (!message.equals("Create Complete !")) {
+            request.setAttribute("employee", employee);
+        }
 
         showCreateNewEmployee(request, response);
     }
@@ -132,8 +135,16 @@ public class EmployeeServlet extends HttpServlet {
 
         String message = this.employeeBO.updateEmployee(employee);
         request.setAttribute("message", message);
-
-        employeeTable(request, response);
+        if (!message.equals("Update Complete !")) {
+            request.setAttribute("employee", employee);
+            RequestDispatcher dispatcher;
+            dispatcher = request.getRequestDispatcher("view/employee/update-employee.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        } else employeeTable(request, response);
     }
 
     private Employee informationEmployee(HttpServletRequest request) {

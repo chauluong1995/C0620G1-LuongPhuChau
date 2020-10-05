@@ -57,7 +57,7 @@
 <body>
 <form action="/furama">
     <div class="container-fluid">
-        <div class="row" style="background-color: aqua">
+        <div class="row">
             <div class="col-sm-8">
                 <img src="../img/furama-icon.png" alt="furama-icon">
             </div>
@@ -91,7 +91,7 @@
             </div>
         </div>
 
-        <div class="row" style="background-color: #9fcdff">
+        <div class="row">
             <div class="col-sm-3">
                 <img src="../img/villa.jpg" alt="villa-icon">
                 <h5>Luxury Villa System</h5>

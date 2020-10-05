@@ -181,7 +181,7 @@
 </head>
 <body>
 <%--<form>--%>
-<p class="message">${message}</p>
+<h3 class="message">${message}</h3>
 <div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">

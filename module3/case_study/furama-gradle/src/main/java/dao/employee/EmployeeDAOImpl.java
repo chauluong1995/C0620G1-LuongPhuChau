@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
-    private BaseDAO baseDAO = new BaseDAO();
     private static final String CREATE_NEW_EMPLOYEE = "insert into employee values(null,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_ALL_EMPLOYEE = "select employee_id, employee_name, employee_salary, employee_phone, employee_email, " +
             "employee_address from employee";
@@ -24,8 +23,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public String saveEmployee(Employee employee) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(CREATE_NEW_EMPLOYEE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(CREATE_NEW_EMPLOYEE);
             preparedStatement.setString(1, employee.getName());
             preparedStatement.setString(2, employee.getBirthDay());
             preparedStatement.setString(3, employee.getIdCard());
@@ -42,17 +42,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Create Complete !";
     }
 
     @Override
     public List<Employee> findAll() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Employee> employeeList = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_EMPLOYEE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_EMPLOYEE);
             ResultSet resultSet = preparedStatement.executeQuery();
             Employee employee;
             while (resultSet.next()) {
@@ -68,16 +74,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return employeeList;
     }
 
     @Override
     public List<Position> findAllPosition() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Position> positions = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_POSITION);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_POSITION);
             ResultSet resultSet = preparedStatement.executeQuery();
             Position position;
             while (resultSet.next()) {
@@ -89,16 +102,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return positions;
     }
 
     @Override
     public List<Division> findAllDivision() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Division> divisions = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_DIVISION);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_DIVISION);
             ResultSet resultSet = preparedStatement.executeQuery();
             Division division;
             while (resultSet.next()) {
@@ -110,16 +130,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return divisions;
     }
 
     @Override
     public List<EducationDegree> findAllEducationDegree() {
+        BaseDAO baseDAO = new BaseDAO();
         List<EducationDegree> educationDegrees = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_EDUCATION_DEGREE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_EDUCATION_DEGREE);
             ResultSet resultSet = preparedStatement.executeQuery();
             EducationDegree educationDegree;
             while (resultSet.next()) {
@@ -131,16 +158,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return educationDegrees;
     }
 
     @Override
     public List<User> findAllUser() {
+        BaseDAO baseDAO = new BaseDAO();
         List<User> users = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_USER);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_USER);
             ResultSet resultSet = preparedStatement.executeQuery();
             User user;
             while (resultSet.next()) {
@@ -151,15 +185,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return users;
     }
 
     @Override
     public Employee findEmployeeById(String idNeedFind) {
+        BaseDAO baseDAO = new BaseDAO();
         Employee employee = null;
         try {
-            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call find_employee_by_id(?)");
+            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call find_employee_by_id(?)");
             callableStatement.setString(1, idNeedFind);
             ResultSet resultSet = callableStatement.executeQuery();
 
@@ -177,21 +218,29 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String idDivision = resultSet.getString("division_id");
                 String userName = resultSet.getString("user_name");
 
-                employee = new Employee(id, name, birthDay, idCard, salary, phone, email, address, idPosition, idEducationDegree, idDivision, userName);
+                employee = new Employee(id, name, birthDay, idCard, salary, phone, email, address, idPosition,
+                        idEducationDegree, idDivision, userName);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return employee;
     }
 
     @Override
     public List<Employee> findByName(String nameNeedSearch) {
+        BaseDAO baseDAO = new BaseDAO();
         List<Employee> employeeListResult = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SEARCH_EMPLOYEE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SEARCH_EMPLOYEE);
             preparedStatement.setString(1, '%' + nameNeedSearch + '%');
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -209,24 +258,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return employeeListResult;
-
-//        List<Employee> employeeList = findAll();
-//
-//        for (Employee employee : employeeList) {
-//            if (employee.getName().contains(name)) {
-//                employeeListResult.add(employee);
-//            }
-//        }
-//
-//        return employeeListResult;
     }
 
     @Override
     public String updateEmployee(Employee employee) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call update_employee(?,?,?,?,?,?,?,?,?,?,?,?)");
+            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call update_employee(?,?,?,?,?,?,?,?,?,?,?,?)");
             callableStatement.setString(1, employee.getId());
             callableStatement.setString(2, employee.getName());
             callableStatement.setString(3, employee.getBirthDay());
@@ -244,20 +290,31 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Update Complete !";
     }
 
     @Override
     public void deleteEmployee(String idNeedDelete) {
-//        int id = Integer.parseInt(idNeedDelete);
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call delete_employee(?)");
+            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call delete_employee(?)");
             callableStatement.setString(1, idNeedDelete);
             callableStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

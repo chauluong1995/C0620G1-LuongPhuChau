@@ -87,11 +87,11 @@ create table attach_service (
 
 insert into attach_service (attach_service_id, attach_service_name, attach_service_status)
 values
-	(1, 'massage', 'available'),
-	(2, 'karaoke', 'available'),
-	(3, 'food', 'available'),
-	(4, 'drink', 'available'),
-	(5, 'car', 'available');
+	(1, 'Massage', 'Available'),
+	(2, 'Karaoke', 'Available'),
+	(3, 'Food', 'Available'),
+	(4, 'Drink', 'Available'),
+	(5, 'Car', 'Available');
 	
 
 create table `role` (
@@ -131,7 +131,7 @@ create table customer (
     customer_address varchar(45),
     
     customer_type_id int,
-    foreign key (customer_type_id) references customer_type(customer_type_id)
+    foreign key (customer_type_id) references customer_type(customer_type_id) on delete cascade on update cascade
 );
 
 insert into customer (customer_id, customer_name, customer_birthday, customer_gender, customer_email, customer_address)
@@ -155,10 +155,10 @@ create table service (
     number_of_floors int,
     
     rent_type_id int,
-    foreign key (rent_type_id) references rent_type(rent_type_id),
+    foreign key (rent_type_id) references rent_type(rent_type_id) on delete cascade on update cascade,
     
     service_type_id int,
-    foreign key (service_type_id) references service_type(service_type_id)
+    foreign key (service_type_id) references service_type(service_type_id) on delete cascade on update cascade
 );
 
 insert into service (service_id, service_name, service_area, service_cost, pool_area, rent_type_id, service_type_id)
@@ -180,16 +180,16 @@ create table employee (
     employee_address varchar(45),
     
     position_id int,
-    foreign key(position_id) references `position`(position_id),
+    foreign key(position_id) references `position`(position_id) on delete cascade on update cascade,
     
     education_degree_id int,
-    foreign key(education_degree_id) references education_degree(education_degree_id),
+    foreign key(education_degree_id) references education_degree(education_degree_id) on delete cascade on update cascade,
     
     division_id int,
-    foreign key(division_id) references division(division_id),
+    foreign key(division_id) references division(division_id) on delete cascade on update cascade,
     
     user_name varchar(255),
-    foreign key(user_name) references `user`(user_name)
+    foreign key(user_name) references `user`(user_name) on delete cascade on update cascade
 );
 
 insert into employee (employee_id, employee_name, employee_phone, employee_id_card, employee_birthday, employee_salary, employee_email, employee_address, 
@@ -210,13 +210,13 @@ create table contract (
     contract_total_money double,
     
     employee_id int,
-    constraint fk_employee foreign key(employee_id) references employee(employee_id),
+    constraint fk_employee foreign key(employee_id) references employee(employee_id) on delete cascade on update cascade,
     
     customer_id varchar(25),
-    constraint fk_customer foreign key(customer_id) references customer(customer_id),
+    constraint fk_customer foreign key(customer_id) references customer(customer_id) on delete cascade on update cascade,
     
     service_id varchar(25),
-    constraint fk_service foreign key(service_id) references service(service_id)
+    constraint fk_service foreign key(service_id) references service(service_id) on delete cascade on update cascade
 );
 
 insert into contract (contract_id, contract_start_date, contract_end_date, contract_deposite, employee_id, customer_id, service_id)
@@ -232,10 +232,10 @@ create table contract_detail (
     quantity int,
     
     contract_id int,
-    constraint fk_contract foreign key(contract_id) references contract(contract_id),
+    constraint fk_contract foreign key(contract_id) references contract(contract_id) on delete cascade on update cascade,
     
     attach_service_id int,
-    foreign key(attach_service_id) references attach_service(attach_service_id)
+    foreign key(attach_service_id) references attach_service(attach_service_id) on delete cascade on update cascade
 );
 
 insert into contract_detail (contract_detail_id, quantity, contract_id, attach_service_id)
@@ -245,34 +245,6 @@ values
 	(3, 1, 3, 3),
 	(4, 1, 4, 4),
 	(5, 1, 5, 5);
-
-alter table contract
-drop foreign key fk_customer;
- 
-alter table contract
-add constraint fk_customer foreign key(customer_id) references customer(customer_id) on delete cascade
-on update cascade;
-
-alter table contract
-drop foreign key fk_employee;
- 
-alter table contract
-add constraint fk_employee foreign key(employee_id) references employee(employee_id) on delete cascade
-on update cascade;
-
-alter table contract
-drop foreign key fk_service;
- 
-alter table contract
-add constraint fk_service foreign key(service_id) references service(service_id) on delete cascade
-on update cascade;
- 
-alter table contract_detail
-drop foreign key fk_contract;
- 
-alter table contract_detail
-add constraint fk_contract foreign key(contract_id) references contract(contract_id) on delete cascade
-on update cascade;
 
 DELIMITER //
 CREATE PROCEDURE find_customer_by_id(id_need_find varchar(25))

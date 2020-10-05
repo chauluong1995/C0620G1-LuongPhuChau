@@ -18,7 +18,6 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
@@ -38,7 +37,7 @@
         }
 
         .main-login {
-            background-color: #F4CFCE;
+            background-color: #9fcdff;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -107,7 +106,7 @@
         <p class="list">
             <a href="/employee?actionFurama=employeeList">Back to Employee List</a>
         </p>
-        <p class="message">${message}</p>
+        <h3 class="message">${message}</h3>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/employee">
                 <input type="hidden" name="actionFurama" value="editEmployee"/>

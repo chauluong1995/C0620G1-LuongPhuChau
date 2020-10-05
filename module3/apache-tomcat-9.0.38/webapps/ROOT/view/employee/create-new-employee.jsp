@@ -18,7 +18,6 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
@@ -38,7 +37,7 @@
         }
 
         .main-login {
-            background-color: #F4CFCE;
+            background-color: #9fcdff;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -107,7 +106,7 @@
         <p class="list">
             <a href="/employee?actionFurama=employeeList">Back to Employee List</a>
         </p>
-        <p class="message">${message}</p>
+        <h3 class="message">${message}</h3>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/employee">
                 <input type="hidden" name="actionFurama" value="createNewEmployee"/>
@@ -199,7 +198,7 @@
 
                 <div class="form-group">
                     <label for="educationDegree" class="cols-sm-2 control-label">Education Degree : </label>
-                    <select name="educationDegree" id="educationDegree">
+                    <select name="educationDegree" id="educationDegree" required>
                         <c:forEach var="educationDegree" items="${educationDegrees}">
                             <option value="${educationDegree.id}">${educationDegree.name}</option>
                         </c:forEach>
@@ -208,7 +207,7 @@
 
                 <div class="form-group">
                     <label for="division" class="cols-sm-2 control-label">Division : </label>
-                    <select name="division" id="division">
+                    <select name="division" id="division" required>
                         <c:forEach var="division" items="${divisions}">
                             <option value="${division.id}">${division.name}</option>
                         </c:forEach>
@@ -217,7 +216,7 @@
 
                 <div class="form-group">
                     <label for="user" class="cols-sm-2 control-label">User Name : </label>
-                    <select name="user" id="user">
+                    <select name="user" id="user" required>
                         <c:forEach var="user" items="${users}">
                             <option value="${user.name}">${user.name}</option>
                         </c:forEach>

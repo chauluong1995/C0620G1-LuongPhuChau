@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceDAOImpl implements ServiceDAO {
-    private BaseDAO baseDAO = new BaseDAO();
-
     private static final String CREATE_NEW_SERVICE = "insert into service values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_RENT_TYPE = "select * from rent_type";
     private static final String SELECT_ALL_SERVICE_TYPE = "select * from service_type";
@@ -21,8 +19,9 @@ public class ServiceDAOImpl implements ServiceDAO {
 
     @Override
     public String saveService(Service service) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(CREATE_NEW_SERVICE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(CREATE_NEW_SERVICE);
             preparedStatement.setString(1, service.getId());
             preparedStatement.setString(2, service.getName());
             preparedStatement.setString(3, service.getArea());
@@ -39,17 +38,23 @@ public class ServiceDAOImpl implements ServiceDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Create Complete !";
     }
 
     @Override
     public List<RentType> findAllRentType() {
+        BaseDAO baseDAO = new BaseDAO();
         List<RentType> rentTypes = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_RENT_TYPE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_RENT_TYPE);
             ResultSet resultSet = preparedStatement.executeQuery();
             RentType rentType;
             while (resultSet.next()) {
@@ -61,16 +66,23 @@ public class ServiceDAOImpl implements ServiceDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return rentTypes;
     }
 
     @Override
     public List<ServiceType> findAllServiceType() {
+        BaseDAO baseDAO = new BaseDAO();
         List<ServiceType> serviceTypes = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_SERVICE_TYPE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_SERVICE_TYPE);
             ResultSet resultSet = preparedStatement.executeQuery();
             ServiceType serviceType;
             while (resultSet.next()) {
@@ -82,16 +94,23 @@ public class ServiceDAOImpl implements ServiceDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return serviceTypes;
     }
 
     @Override
     public List<String> findAllIDService() {
+        BaseDAO baseDAO = new BaseDAO();
         List<String> listID = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_ID_SERVICE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_ID_SERVICE);
             ResultSet resultSet = preparedStatement.executeQuery();
             String id;
             while (resultSet.next()) {
@@ -100,8 +119,13 @@ public class ServiceDAOImpl implements ServiceDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return listID;
     }
 }

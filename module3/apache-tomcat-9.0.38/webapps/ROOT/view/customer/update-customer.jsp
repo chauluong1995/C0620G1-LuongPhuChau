@@ -21,7 +21,6 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
@@ -41,7 +40,7 @@
         }
 
         .main-login {
-            background-color: #F4CFCE;
+            background-color: #9fcdff;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -110,7 +109,7 @@
         <p class="list">
             <a href="/customer?actionFurama=customerList">Back to Customer List</a>
         </p>
-        <p class="message">${message}</p>
+        <h3 class="message">${message}</h3>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/customer">
                 <input type="hidden" name="actionFurama" value="editCustomer"/>
@@ -138,24 +137,12 @@
 
                 <div class="form-group">
                     <label for="type" class="cols-sm-2 control-label">Type Customer : </label>
-                    <select name="type" id="type">
+                    <select name="type" id="type" required>
+                        <option>${customer.typeCustomer}</option>
                         <c:forEach var="typeCustomer" items="${typeCustomers}">
                             <option value="${typeCustomer.id}">${typeCustomer.name}</option>
                         </c:forEach>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <select name="type" id="type">--%>
-                    <%--                                <c:forEach var="typeCustomer" items="${typeCustomers}">--%>
-                    <%--                                    <option value="${typeCustomer.id}">${typeCustomer.name}</option>--%>
-                    <%--                                </c:forEach>--%>
-                    <%--                            </select>--%>
-
-                    <%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                            <input type="text" class="form-control" name="type" id="type"--%>
-                    <%--                                   value="${customer.typeCustomer}" required/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -171,24 +158,12 @@
 
                 <div class="form-group">
                     <label for="gender" class="cols-sm-2 control-label">Gender : </label>
-                    <select name="gender" id="gender">
+                    <select name="gender" id="gender" required>
+                        <option>${customer.gender}</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Unknown</option>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <select name="gender" id="gender">--%>
-                    <%--                                <option>Male</option>--%>
-                    <%--                                <option>Female</option>--%>
-                    <%--                                <option>Unknown</option>--%>
-                    <%--                            </select>--%>
-
-                    <%--                           <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                           <input type="text" class="form-control" name="gender" id="gender"--%>
-                    <%--                                   value="${customer.gender}"/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">

@@ -1,5 +1,6 @@
 package bo.employee;
 
+import common.Validation;
 import dao.employee.EmployeeDAO;
 import dao.employee.EmployeeDAOImpl;
 import model.employee.*;
@@ -12,7 +13,11 @@ public class EmployeeBOImpl implements EmployeeBO {
     @Override
     public String saveEmployee(Employee employee) {
         String message;
-        message = this.employeeDAO.saveEmployee(employee);
+
+        if (!Validation.regexIDCard(employee.getIdCard())){
+            message = "";
+        }
+        else message = this.employeeDAO.saveEmployee(employee);
         return message;
     }
 

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
-    private BaseDAO baseDAO = new BaseDAO();
     private static final String SELECT_ALL_CUSTOMERS = "select customer_id, customer_name, customer_birthday, customer_gender, customer_email, " +
             "customer_address from customer";
     private static final String CREATE_NEW_CUSTOMER = "insert into customer values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -22,10 +21,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> findAll() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Customer> customerList = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMERS);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_CUSTOMERS);
             ResultSet resultSet = preparedStatement.executeQuery();
             Customer customer;
             while (resultSet.next()) {
@@ -41,14 +41,21 @@ public class CustomerDAOImpl implements CustomerDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return customerList;
     }
 
     @Override
     public String saveCustomer(Customer customer) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(CREATE_NEW_CUSTOMER);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(CREATE_NEW_CUSTOMER);
             preparedStatement.setString(1, customer.getId());
             preparedStatement.setString(2, customer.getName());
             preparedStatement.setString(3, customer.getBirthDay());
@@ -63,16 +70,22 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Create Complete !";
     }
 
     @Override
     public Customer findCustomerById(String idNeedFind) {
+        BaseDAO baseDAO = new BaseDAO();
         Customer customer = null;
         try {
-            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call find_customer_by_id(?)");
+            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call find_customer_by_id(?)");
             callableStatement.setString(1, idNeedFind);
             ResultSet resultSet = callableStatement.executeQuery();
 
@@ -92,25 +105,39 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return customer;
     }
 
     @Override
     public void deleteCustomer(String idNeedDelete) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call delete_customer(?)");
+            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call delete_customer(?)");
             callableStatement.setString(1, idNeedDelete);
             callableStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public String updateCustomer(Customer customer) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            CallableStatement callableStatement = this.baseDAO.getConnection().prepareCall("call update_customer(?,?,?,?,?,?,?,?,?)");
+            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call update_customer(?,?,?,?,?,?,?,?,?)");
             callableStatement.setString(1, customer.getId());
             callableStatement.setString(2, customer.getName());
             callableStatement.setString(3, customer.getBirthDay());
@@ -125,17 +152,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Update Complete !";
     }
 
     @Override
     public List<Customer> findByName(String nameNeedSearch) {
+        BaseDAO baseDAO = new BaseDAO();
         List<Customer> customerList = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SEARCH_CUSTOMERS);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SEARCH_CUSTOMERS);
             preparedStatement.setString(1, '%' + nameNeedSearch + '%');
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -153,27 +186,23 @@ public class CustomerDAOImpl implements CustomerDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return customerList;
-
-//        List<Customer> customerList = findAll();
-//        List<Customer> customerListResult = new ArrayList<>();
-//
-//        for (Customer customer : customerList) {
-//            if (customer.getName().contains(nameNeedSearch)) {
-//                customerListResult.add(customer);
-//            }
-//        }
-//
-//        return customerListResult;
     }
 
     @Override
     public List<TypeCustomer> findAllTypeCustomer() {
+        BaseDAO baseDAO = new BaseDAO();
         List<TypeCustomer> typeCustomers = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_TYPE_CUSTOMER);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_TYPE_CUSTOMER);
             ResultSet resultSet = preparedStatement.executeQuery();
             TypeCustomer typeCustomer;
             while (resultSet.next()) {
@@ -185,6 +214,12 @@ public class CustomerDAOImpl implements CustomerDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return typeCustomers;
     }

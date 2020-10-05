@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContractDetailDAOImpl implements ContractDetailDAO {
-    private BaseDAO baseDAO = new BaseDAO();
     private static final String CREATE_NEW_CONTRACT_DETAIL = "insert into contract_detail values (null, ?, ?, ?)";
     private static final String SELECT_ALL_CONTRACT = "select contract_id from contract";
     private static final String SELECT_ALL_ATTACH_SERVICE = "select attach_service_id, attach_service_name from attach_service";
 
     @Override
     public String saveContractDetail(ContractDetail contractDetail) {
+        BaseDAO baseDAO = new BaseDAO();
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(CREATE_NEW_CONTRACT_DETAIL);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(CREATE_NEW_CONTRACT_DETAIL);
             preparedStatement.setString(1, contractDetail.getQuantity());
             preparedStatement.setString(2, contractDetail.getIdContract());
             preparedStatement.setString(3, contractDetail.getIdAttachService());
@@ -29,17 +29,23 @@ public class ContractDetailDAOImpl implements ContractDetailDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
         return "Create Complete !";
     }
 
     @Override
     public List<Contract> findAllContract() {
+        BaseDAO baseDAO = new BaseDAO();
         List<Contract> contracts = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_CONTRACT);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_CONTRACT);
             ResultSet resultSet = preparedStatement.executeQuery();
             Contract contract;
             while (resultSet.next()) {
@@ -50,16 +56,23 @@ public class ContractDetailDAOImpl implements ContractDetailDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return contracts;
     }
 
     @Override
     public List<AttachService> findAllAttachService() {
+        BaseDAO baseDAO = new BaseDAO();
         List<AttachService> attachServices = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.baseDAO.getConnection().prepareStatement(SELECT_ALL_ATTACH_SERVICE);
+            PreparedStatement preparedStatement = baseDAO.getConnection().prepareStatement(SELECT_ALL_ATTACH_SERVICE);
             ResultSet resultSet = preparedStatement.executeQuery();
             AttachService attachService;
             while (resultSet.next()) {
@@ -71,6 +84,12 @@ public class ContractDetailDAOImpl implements ContractDetailDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                baseDAO.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return attachServices;
     }

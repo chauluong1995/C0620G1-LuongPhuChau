@@ -31,9 +31,16 @@ public class CustomerBOImpl implements CustomerBO {
         String message;
 
         if (!Validation.regexIDCustomer(customer.getId())) {
-            message = "Format ID is KH-XXXX with X is number from 0 to 9 !";
+            message = "Invalid ID ! Format ID is KH-XXXX with X is number from 0 to 9 !";
         } else if (testID(customer.getId())) {
-            message = "ID is exists ! Please input ID other !";
+            message = "Invalid ID ! ID is exists ! Please input ID other !";
+        } else if (!Validation.regexIDCard(customer.getIdCard())) {
+            message = "Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !";
+        } else if (!Validation.regexPhoneNumber(customer.getPhoneNumber())) {
+            message = "Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
+                    "(84)+91xxxxxxx with x is number from 0 to 9 !";
+        } else if (!Validation.regexEmail(customer.getEmail())) {
+            message = "Invalid email ! Format email is abc@abc.abc !";
         } else message = this.customerDAO.saveCustomer(customer);
 
         return message;
@@ -52,13 +59,22 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public String updateCustomer(Customer customer) {
         String message;
-        message = this.customerDAO.updateCustomer(customer);
+
+        if (!Validation.regexIDCard(customer.getIdCard())) {
+            message = "Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !";
+        } else if (!Validation.regexPhoneNumber(customer.getPhoneNumber())) {
+            message = "Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
+                    "(84)+91xxxxxxx with x is number from 0 to 9 !";
+        } else if (!Validation.regexEmail(customer.getEmail())) {
+            message = "Invalid email ! Format email is abc@abc.abc !";
+        } else message = this.customerDAO.updateCustomer(customer);
+
         return message;
     }
 
     private boolean testID(String id) {
         List<Customer> customerList = findAll();
-        for (Customer customer : customerList){
+        for (Customer customer : customerList) {
             if (customer.getId().equals(id)) {
                 return true;
             }

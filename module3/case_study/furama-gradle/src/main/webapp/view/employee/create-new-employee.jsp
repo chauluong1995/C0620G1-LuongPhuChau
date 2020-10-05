@@ -18,7 +18,6 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
@@ -38,7 +37,7 @@
         }
 
         .main-login {
-            background-color: #F4CFCE;
+            background-color: #9fcdff;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -107,7 +106,7 @@
         <p class="list">
             <a href="/employee?actionFurama=employeeList">Back to Employee List</a>
         </p>
-        <p class="message">${message}</p>
+        <h3 class="message">${message}</h3>
         <div class="main-login main-center">
             <form class="form-horizontal" method="post" action="/employee">
                 <input type="hidden" name="actionFurama" value="createNewEmployee"/>
@@ -118,7 +117,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="name" id="name"
-                                   placeholder="Enter name here" required/>
+                                   value="${employee.name}" required/>
                         </div>
                     </div>
                 </div>
@@ -128,7 +127,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="date" class="form-control" name="birthDay" id="birthDay" required/>
+                            <input type="date" class="form-control" name="birthDay" id="birthDay" value="${employee.birthDay}" required/>
                         </div>
                     </div>
                 </div>
@@ -139,7 +138,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="idCard" id="idCard"
-                                   placeholder="Enter id card here" required/>
+                                   value="${employee.idCard}" required/>
                         </div>
                     </div>
                 </div>
@@ -150,7 +149,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="salary" id="salary"
-                                   placeholder="Enter salary here"/>
+                                   value="${employee.salary}" required/>
                         </div>
                     </div>
                 </div>
@@ -161,7 +160,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="phone" id="phone"
-                                   placeholder="Enter phone number here" required/>
+                                   value="${employee.phone}" required/>
                         </div>
                     </div>
                 </div>
@@ -172,7 +171,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="email" id="email"
-                                   placeholder="Enter email here" required/>
+                                   value="${employee.email}" required/>
                         </div>
                     </div>
                 </div>
@@ -183,7 +182,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-envelope-o fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="address" id="address"
-                                   placeholder="Enter address here" required/>
+                                   value="${employee.address}" required/>
                         </div>
                     </div>
                 </div>
@@ -191,6 +190,7 @@
                 <div class="form-group">
                     <label for="position" class="cols-sm-2 control-label">Position : </label>
                     <select name="position" id="position">
+                        <option>${employee.idPosition}</option>
                         <c:forEach var="position" items="${positions}">
                             <option value="${position.id}">${position.name}</option>
                         </c:forEach>
@@ -199,7 +199,8 @@
 
                 <div class="form-group">
                     <label for="educationDegree" class="cols-sm-2 control-label">Education Degree : </label>
-                    <select name="educationDegree" id="educationDegree">
+                    <select name="educationDegree" id="educationDegree" required>
+                        <option>${employee.idEducationDegree}</option>
                         <c:forEach var="educationDegree" items="${educationDegrees}">
                             <option value="${educationDegree.id}">${educationDegree.name}</option>
                         </c:forEach>
@@ -208,7 +209,8 @@
 
                 <div class="form-group">
                     <label for="division" class="cols-sm-2 control-label">Division : </label>
-                    <select name="division" id="division">
+                    <select name="division" id="division" required>
+                        <option>${employee.idDivision}</option>
                         <c:forEach var="division" items="${divisions}">
                             <option value="${division.id}">${division.name}</option>
                         </c:forEach>
@@ -217,7 +219,8 @@
 
                 <div class="form-group">
                     <label for="user" class="cols-sm-2 control-label">User Name : </label>
-                    <select name="user" id="user">
+                    <select name="user" id="user" required>
+                        <option>${employee.userName}</option>
                         <c:forEach var="user" items="${users}">
                             <option value="${user.name}">${user.name}</option>
                         </c:forEach>

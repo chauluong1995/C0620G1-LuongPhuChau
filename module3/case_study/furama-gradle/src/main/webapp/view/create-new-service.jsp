@@ -18,7 +18,6 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
@@ -38,7 +37,7 @@
         }
 
         .main-login {
-            background-color: #F4CFCE;
+            background-color: #9fcdff;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;

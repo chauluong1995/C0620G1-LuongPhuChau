@@ -18,7 +18,6 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
             font-family: 'Lato', Verdana;
         }
 
@@ -38,7 +37,7 @@
         }
 
         .main-login {
-            background-color: #F4CFCE;
+            background-color: #9fcdff;
             /* shadows and rounded borders */
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
@@ -136,7 +135,8 @@
 
                 <div class="form-group">
                     <label for="type" class="cols-sm-2 control-label">Type Customer : </label>
-                    <select name="type" id="type">
+                    <select name="type" id="type" required>
+                        <option>${customer.typeCustomer}</option>
                         <c:forEach var="typeCustomer" items="${typeCustomers}">
                             <option value="${typeCustomer.id}">${typeCustomer.name}</option>
                         </c:forEach>
@@ -167,7 +167,8 @@
 
                 <div class="form-group">
                     <label for="gender" class="cols-sm-2 control-label">Gender : </label>
-                    <select name="gender" id="gender">
+                    <select name="gender" id="gender" required>
+                        <option>${customer.gender}</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Unknown</option>

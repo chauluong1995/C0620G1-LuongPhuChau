@@ -130,18 +130,26 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("idCustomer");
-        this.customerBO.deleteCustomer(id);
-
-        customerTable(request, response);
-    }
-
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
         Customer customer = informationCustomer(request);
 
         String message = this.customerBO.updateCustomer(customer);
         request.setAttribute("message", message);
+        if (!message.equals("Update Complete !")) {
+            request.setAttribute("customer", customer);
+            RequestDispatcher dispatcher;
+            dispatcher = request.getRequestDispatcher("view/customer/update-customer.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        } else customerTable(request, response);
+    }
+
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("idCustomer");
+        this.customerBO.deleteCustomer(id);
 
         customerTable(request, response);
     }
@@ -159,7 +167,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private Customer informationCustomer(HttpServletRequest request){
+    private Customer informationCustomer(HttpServletRequest request) {
         String id = request.getParameter("id");
         String name = request.getParameter("name");
         String type = request.getParameter("type");

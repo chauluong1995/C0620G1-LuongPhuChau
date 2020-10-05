@@ -47,36 +47,6 @@
             font-size: 22px;
         }
 
-        .search-box {
-            position: relative;
-            display: flex;
-        }
-
-        .search-box input#keywordEmployeeDisplay {
-
-            border-radius: 20px;
-            padding-left: 35px;
-            border-color: #ddd;
-            box-shadow: none;
-        }
-
-        .search-box input {
-
-            border-radius: 20px;
-        }
-
-        .search-box input:focus {
-            border-color: #3FBAE4;
-        }
-
-        .search-box i {
-            color: #a0a5b1;
-            position: absolute;
-            font-size: 19px;
-            top: 11px;
-            left: 10px;
-        }
-
         table.table tr th, table.table tr td {
             border-color: #e9e9e9;
         }
@@ -180,7 +150,7 @@
             <h1 style="text-align: center">List Employee Searched</h1>
 
             <p style="text-align: center">
-                <a href="/furama?actionFurama=employeeList">Back to Employee List</a>
+                <a href="/employee?actionFurama=employeeList">Back to Employee List</a>
             </p>
 
             <table id="tableEmployee" class="table table-striped table-hover table-bordered" style="width: 100%">
@@ -203,7 +173,7 @@
                         <td>${employee.email}</td>
                         <td>${employee.address}</td>
                         <td>
-                            <a href="/furama?actionFurama=showEditEmployee&id=${employee.id}" class="edit"
+                            <a href="/employee?actionFurama=showEditEmployee&id=${employee.id}" class="edit"
                                title="Edit"
                                data-toggle="tooltip"><i
                                     class="material-icons">&#xE254;</i></a>
@@ -223,7 +193,7 @@
             <div id="deleteEmployeeModal" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/furama">
+                        <form action="/employee">
                             <input type="hidden" name="actionFurama" value="deleteEmployee"/>
                             <input type="hidden" name="idEmployee" id="id"/>
                             <div class="modal-header">

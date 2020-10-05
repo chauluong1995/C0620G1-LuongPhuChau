@@ -1,23 +1,45 @@
-package model.service;
+package controller;
 
 import bo.service.ServiceBO;
 import bo.service.ServiceBOImpl;
+import model.service.RentType;
+import model.service.Service;
+import model.service.ServiceType;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class ServiceServlet {
-    private static ServiceBO serviceBO = new ServiceBOImpl();
+@WebServlet(name = "ServiceServlet", urlPatterns = {"/service"})
 
-    public static void addNewService(HttpServletRequest request, HttpServletResponse response) {
-        List<RentType> rentTypes = serviceBO.findAllRentType();
+
+public class ServiceServlet extends HttpServlet {
+    private ServiceBO serviceBO = new ServiceBOImpl();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        String actionFurama = request.getParameter("actionFurama");
+        if (actionFurama.equals("createNewService")) {
+            createNewService(request, response);
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+        String actionFurama = request.getParameter("actionFurama");
+        if (actionFurama.equals("addNewService")) {
+            addNewService(request, response);
+        }
+    }
+
+    private void addNewService(HttpServletRequest request, HttpServletResponse response) {
+        List<RentType> rentTypes = this.serviceBO.findAllRentType();
         request.setAttribute("rentTypes", rentTypes);
 
-        List<ServiceType> serviceTypes = serviceBO.findAllServiceType();
+        List<ServiceType> serviceTypes = this.serviceBO.findAllServiceType();
         request.setAttribute("serviceTypes", serviceTypes);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/create-new-service.jsp");
@@ -28,7 +50,7 @@ public class ServiceServlet {
         }
     }
 
-    public static void createNewService(HttpServletRequest request, HttpServletResponse response) {
+    private void createNewService(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         String name = request.getParameter("name");
         String area = request.getParameter("area");
@@ -44,7 +66,7 @@ public class ServiceServlet {
         Service service = new Service(id, name, area, cost, maxPeople, rentTypeId, serviceTypeId, standardRoom, descriptionOtherConvenience,
                 poolArea, numberOfFloors);
 
-        String message = serviceBO.saveService(service);
+        String message = this.serviceBO.saveService(service);
         request.setAttribute("message", message);
 
         addNewService(request, response);

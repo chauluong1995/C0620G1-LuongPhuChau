@@ -1,4 +1,4 @@
-package model.contract;
+package model.contract_detail;
 
 public class AttachService {
     private String id;
@@ -8,6 +8,11 @@ public class AttachService {
     private String status;
 
     public AttachService() {
+    }
+
+    public AttachService(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public AttachService(String id, String name, String cost, String unit, String status) {

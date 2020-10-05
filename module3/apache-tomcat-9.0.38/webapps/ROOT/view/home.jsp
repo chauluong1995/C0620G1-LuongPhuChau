@@ -72,15 +72,15 @@
             <div class="col-sm-12 icon">
                 <nav class="nav nav-tabs row">
                     <a href="#" class="btn btn-outline-success my-2 my-sm-0">Home</a>
-                    <a href="/furama?actionFurama=employeeList"
+                    <a href="/employee?actionFurama=employeeList"
                        class="btn btn-outline-success my-2 my-sm-0">Employee</a>
-                    <a href="/furama?actionFurama=customerList"
+                    <a href="/customer?actionFurama=customerList"
                        class="btn btn-outline-success my-2 my-sm-0">Customer</a>
-                    <a href="/furama?actionFurama=addNewService"
+                    <a href="/service?actionFurama=addNewService"
                        class="btn btn-outline-success my-2 my-sm-0">Service</a>
-                    <a href="/furama?actionFurama=addNewContract"
+                    <a href="/contract?actionFurama=addNewContract"
                        class="btn btn-outline-success my-2 my-sm-0">Contract</a>
-                    <a href="/furama?actionFurama=addNewContractDetail" class="btn btn-outline-success my-2 my-sm-0">
+                    <a href="/contractDetail?actionFurama=addNewContractDetail" class="btn btn-outline-success my-2 my-sm-0">
                         Contract Detail</a>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"

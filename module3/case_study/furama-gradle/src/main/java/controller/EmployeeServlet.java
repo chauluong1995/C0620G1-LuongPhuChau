@@ -1,20 +1,64 @@
-package model.employee;
+package controller;
 
 import bo.employee.EmployeeBO;
 import bo.employee.EmployeeBOImpl;
+import model.employee.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class EmployeeServlet {
-    private static EmployeeBO employeeBO = new EmployeeBOImpl();
+@WebServlet(name = "EmployeeServlet", urlPatterns = {"/employee"})
 
-    public static void employeeTable(HttpServletRequest request, HttpServletResponse response) {
-        List<Employee> employeeList = employeeBO.findAll();
+public class EmployeeServlet extends HttpServlet {
+    private EmployeeBO employeeBO = new EmployeeBOImpl();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        String actionFurama = request.getParameter("actionFurama");
+        if (actionFurama == null) {
+            actionFurama = "";
+        }
+        switch (actionFurama) {
+            case "createNewEmployee":
+                createNewEmployee(request, response);
+                break;
+            case "searchEmployee":
+                searchEmployee(request, response);
+                break;
+            case "editEmployee":
+                updateEmployee(request, response);
+                break;
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+        String actionFurama = request.getParameter("actionFurama");
+        if (actionFurama == null) {
+            actionFurama = "";
+        }
+        switch (actionFurama) {
+            case "employeeList":
+                employeeTable(request, response);
+                break;
+            case "showCreateNewEmployee":
+                showCreateNewEmployee(request, response);
+                break;
+            case "showEditEmployee":
+                showEditEmployee(request, response);
+                break;
+            case "deleteEmployee":
+                deleteEmployee(request, response);
+                break;
+        }
+    }
+
+    private void employeeTable(HttpServletRequest request, HttpServletResponse response) {
+        List<Employee> employeeList = this.employeeBO.findAll();
         request.setAttribute("employeeList", employeeList);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/employee-list.jsp");
@@ -25,7 +69,7 @@ public class EmployeeServlet {
         }
     }
 
-    public static void showCreateNewEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void showCreateNewEmployee(HttpServletRequest request, HttpServletResponse response) {
         support(request);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/create-new-employee.jsp");
@@ -36,25 +80,25 @@ public class EmployeeServlet {
         }
     }
 
-    public static void createNewEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void createNewEmployee(HttpServletRequest request, HttpServletResponse response) {
         Employee employee = informationEmployee(request);
 
-        String message = employeeBO.saveEmployee(employee);
+        String message = this.employeeBO.saveEmployee(employee);
         request.setAttribute("message", message);
 
         showCreateNewEmployee(request, response);
     }
 
-    public static void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("idEmployee");
-        employeeBO.deleteEmployee(id);
+        this.employeeBO.deleteEmployee(id);
 
         employeeTable(request, response);
     }
 
-    public static void searchEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("nameEmployee");
-        List<Employee> employeeList = employeeBO.findByName(name);
+        List<Employee> employeeList = this.employeeBO.findByName(name);
         request.setAttribute("employeeList", employeeList);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/employee/search-list-employee.jsp");
@@ -65,9 +109,9 @@ public class EmployeeServlet {
         }
     }
 
-    public static void showEditEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void showEditEmployee(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
-        Employee employee = employeeBO.findEmployeeById(id);
+        Employee employee = this.employeeBO.findEmployeeById(id);
         request.setAttribute("employee", employee);
 
         support(request);
@@ -81,18 +125,18 @@ public class EmployeeServlet {
         }
     }
 
-    public static void updateEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void updateEmployee(HttpServletRequest request, HttpServletResponse response) {
         Employee employee = informationEmployee(request);
         String id = request.getParameter("id");
         employee.setId(id);
 
-        String message = employeeBO.updateEmployee(employee);
+        String message = this.employeeBO.updateEmployee(employee);
         request.setAttribute("message", message);
 
         employeeTable(request, response);
     }
 
-    private static Employee informationEmployee(HttpServletRequest request) {
+    private Employee informationEmployee(HttpServletRequest request) {
         String name = request.getParameter("name");
         String birthDay = request.getParameter("birthDay");
         String idCard = request.getParameter("idCard");
@@ -109,17 +153,17 @@ public class EmployeeServlet {
                 educationDegree, division, userName);
     }
 
-    private static void support(HttpServletRequest request) {
-        List<Position> positions = employeeBO.findAllPosition();
+    private void support(HttpServletRequest request) {
+        List<Position> positions = this.employeeBO.findAllPosition();
         request.setAttribute("positions", positions);
 
-        List<EducationDegree> educationDegrees = employeeBO.findAllEducationDegree();
+        List<EducationDegree> educationDegrees = this.employeeBO.findAllEducationDegree();
         request.setAttribute("educationDegrees", educationDegrees);
 
-        List<Division> divisions = employeeBO.findAllDivision();
+        List<Division> divisions = this.employeeBO.findAllDivision();
         request.setAttribute("divisions", divisions);
 
-        List<User> users = employeeBO.findAllUser();
+        List<User> users = this.employeeBO.findAllUser();
         request.setAttribute("users", users);
     }
 }

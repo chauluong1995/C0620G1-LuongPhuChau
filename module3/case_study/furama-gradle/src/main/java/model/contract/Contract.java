@@ -13,6 +13,10 @@ public class Contract {
     public Contract() {
     }
 
+    public Contract(String id) {
+        this.id = id;
+    }
+
     public Contract(String startDate, String endDate, String deposite, String totalMoney, String idEmployee,
                     String idCustomer, String idService) {
         this.startDate = startDate;

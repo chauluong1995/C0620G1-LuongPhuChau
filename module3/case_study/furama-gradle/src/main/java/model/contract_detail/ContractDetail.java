@@ -1,19 +1,18 @@
-package model.contract;
+package model.contract_detail;
 
 public class ContractDetail {
     private String id;
+    private String quantity;
     private String idContract;
     private String idAttachService;
-    private String quantity;
 
     public ContractDetail() {
     }
 
-    public ContractDetail(String id, String idContract, String idAttachService, String quantity) {
-        this.id = id;
+    public ContractDetail(String quantity, String idContract, String idAttachService) {
+        this.quantity = quantity;
         this.idContract = idContract;
         this.idAttachService = idAttachService;
-        this.quantity = quantity;
     }
 
     public String getId() {

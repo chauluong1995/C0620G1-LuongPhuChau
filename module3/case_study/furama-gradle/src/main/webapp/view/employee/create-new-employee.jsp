@@ -105,11 +105,11 @@
             </div>
         </div>
         <p class="list">
-            <a href="/furama?actionFurama=employeeList">Back to Employee List</a>
+            <a href="/employee?actionFurama=employeeList">Back to Employee List</a>
         </p>
         <p class="message">${message}</p>
         <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="/furama">
+            <form class="form-horizontal" method="post" action="/employee">
                 <input type="hidden" name="actionFurama" value="createNewEmployee"/>
 
                 <div class="form-group">

@@ -180,7 +180,7 @@
             <h1 style="text-align: center">List Customer Searched</h1>
 
             <p style="text-align: center">
-                <a href="/furama?actionFurama=customerList">Back to Customer List</a>
+                <a href="/customer?actionFurama=customerList">Back to Customer List</a>
             </p>
 
             <table id="tableCustomer" class="table table-striped table-hover table-bordered" style="width: 100%">
@@ -205,11 +205,11 @@
                         <td>${customer.email}</td>
                         <td>${customer.address}</td>
                         <td>
-                            <a href="/furama?actionFurama=showEditCustomer&id=${customer.id}" class="edit"
+                            <a href="/customer?actionFurama=showEditCustomer&id=${customer.id}" class="edit"
                                title="Edit"
                                data-toggle="tooltip"><i
                                     class="material-icons">&#xE254;</i></a>
-                                <%-- <a href="/furama?actionFurama=showDeleteCustomer&id=${customer.getId()}" class="delete"--%>
+                                <%-- <a href="/customer?actionFurama=showDeleteCustomer&id=${customer.getId()}" class="delete"--%>
                                 <%-- title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>--%>
                             <a data-toggle="modal" data-target="#deleteCustomerModal" href="#"
                                onclick="setCustomerId('${customer.id}')" class="delete" title="Delete"
@@ -227,7 +227,7 @@
             <div id="deleteCustomerModal" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/furama">
+                        <form action="/customer">
                             <input type="hidden" name="actionFurama" value="deleteCustomer"/>
                             <input type="hidden" name="idCustomer" id="id"/>
                             <div class="modal-header">

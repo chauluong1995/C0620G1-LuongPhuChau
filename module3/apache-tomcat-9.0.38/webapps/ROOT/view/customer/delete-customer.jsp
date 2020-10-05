@@ -13,9 +13,9 @@
 <body>
 <h1>Delete Customer</h1>
 <p>
-    <a href="/furama?actionFurama=customerList">Back to Customer List</a>
+    <a href="/customer?actionFurama=customerList">Back to Customer List</a>
 </p>
-<form method="post" action="/furama">
+<form method="post" action="/customer">
     <input type="hidden" name="actionFurama" value="deleteCustomer">
     <input type="hidden" name="idCustomer" value="${customer.getId()}">
     <h3>Do you really want to delete this Customer ?</h3>

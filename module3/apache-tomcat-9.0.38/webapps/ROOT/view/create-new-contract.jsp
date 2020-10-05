@@ -109,7 +109,7 @@
         </p>
         <p class="message">${message}</p>
         <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="/furama">
+            <form class="form-horizontal" method="post" action="/contract">
                 <input type="hidden" name="actionFurama" value="createNewContract"/>
 
                 <div class="form-group">

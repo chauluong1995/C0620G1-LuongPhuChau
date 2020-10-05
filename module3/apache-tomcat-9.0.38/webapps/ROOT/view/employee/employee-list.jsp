@@ -190,7 +190,7 @@
                     <div class="col-sm-8">
                         <h1 style="color: red">Employee List</h1>
                         <p>
-                            <a href="/furama?actionFurama=showCreateNewEmployee"><h3>Create New Employee</h3></a>
+                            <a href="/employee?actionFurama=showCreateNewEmployee"><h3>Create New Employee</h3></a>
                         </p>
                     </div>
                     <div class="col-sm-4">
@@ -224,7 +224,7 @@
                         <td>${employee.email}</td>
                         <td>${employee.address}</td>
                         <td>
-                            <a href="/furama?actionFurama=showEditEmployee&id=${employee.id}" class="edit"
+                            <a href="/employee?actionFurama=showEditEmployee&id=${employee.id}" class="edit"
                                title="Edit"
                                data-toggle="tooltip"><i
                                     class="material-icons">&#xE254;</i></a>
@@ -244,7 +244,7 @@
             <div id="deleteEmployeeModal" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/furama">
+                        <form action="/employee">
                             <input type="hidden" name="actionFurama" value="deleteEmployee"/>
                             <input type="hidden" name="idEmployee" id="id"/>
                             <div class="modal-header">
@@ -253,7 +253,8 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to delete this Employee?</p>
+                                <input type="text" id="warning" style="width: 100%; background-color: crimson"/>
+<%--                                <p>Are you sure you want to delete this Employee?</p>--%>
                                 <p class="text-warning"><small style="color: blue">This action cannot be undone.</small>
                                 </p>
                             </div>
@@ -269,7 +270,7 @@
     </div>
 </div>
 <%--</form>--%>
-<form method="post" action="/furama" id="formSearchEmployee">
+<form method="post" action="/employee" id="formSearchEmployee">
     <input type="hidden" name="actionFurama" value="searchEmployee">
     <input type="hidden" name="nameEmployee" id="keywordEmployeeHidden"/>
     <input hidden type="submit" value="Search"/>
@@ -283,6 +284,7 @@
 <script>
     function setEmployeeId(id) {
         document.getElementById("id").value = id;
+        document.getElementById("warning").value = "Are you sure you want to delete Employee have id is " + id + " ?";
     }
 
     function submitFormSearchEmployee() {

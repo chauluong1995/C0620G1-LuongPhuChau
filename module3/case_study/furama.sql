@@ -85,6 +85,15 @@ create table attach_service (
     attach_service_status varchar(45)
 );
 
+insert into attach_service (attach_service_id, attach_service_name, attach_service_status)
+values
+	(1, 'massage', 'available'),
+	(2, 'karaoke', 'available'),
+	(3, 'food', 'available'),
+	(4, 'drink', 'available'),
+	(5, 'car', 'available');
+	
+
 create table `role` (
 	role_id int primary key auto_increment,
     role_name varchar(255)
@@ -210,6 +219,14 @@ create table contract (
     constraint fk_service foreign key(service_id) references service(service_id)
 );
 
+insert into contract (contract_id, contract_start_date, contract_end_date, contract_deposite, employee_id, customer_id, service_id)
+values
+	(1, '2019-01-01', '2019-02-01', 100, 1, 'KH-6789', 'DV-6789'),
+	(2, '2019-01-01', '2019-02-01', 100, 2, 'KH-0202', 'DV-0515'),
+	(3, '2019-01-01', '2019-01-08', 100, 3, 'KH-0515', 'DV-0202'),
+	(4, '2019-01-01', '2019-01-08', 100, 4, 'KH-0606', 'DV-0606'),
+	(5, '2019-01-01', '2019-01-02', 100, 5, 'KH-0902', 'DV-0902');
+
 create table contract_detail (
 	contract_detail_id int primary key auto_increment,
     quantity int,
@@ -220,6 +237,14 @@ create table contract_detail (
     attach_service_id int,
     foreign key(attach_service_id) references attach_service(attach_service_id)
 );
+
+insert into contract_detail (contract_detail_id, quantity, contract_id, attach_service_id)
+values
+	(1, 1, 1, 1),
+	(2, 1, 2, 2),
+	(3, 1, 3, 3),
+	(4, 1, 4, 4),
+	(5, 1, 5, 5);
 
 alter table contract
 drop foreign key fk_customer;

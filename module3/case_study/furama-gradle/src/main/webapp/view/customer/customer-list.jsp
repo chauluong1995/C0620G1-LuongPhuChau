@@ -195,7 +195,7 @@
                     <div class="col-sm-8">
                         <h1 style="color: red">Customer List</h1>
                         <p>
-                            <a href="/furama?actionFurama=showCreateNewCustomer"><h3>Create New Customer</h3></a>
+                            <a href="/customer?actionFurama=showCreateNewCustomer"><h3>Create New Customer</h3></a>
                         </p>
                     </div>
                     <div class="col-sm-4">
@@ -231,11 +231,11 @@
                         <td>${customer.email}</td>
                         <td>${customer.address}</td>
                         <td>
-                            <a href="/furama?actionFurama=showEditCustomer&id=${customer.id}" class="edit"
+                            <a href="/customer?actionFurama=showEditCustomer&id=${customer.id}" class="edit"
                                title="Edit"
                                data-toggle="tooltip"><i
                                     class="material-icons">&#xE254;</i></a>
-                                <%-- <a href="/furama?actionFurama=showDeleteCustomer&id=${customer.getId()}" class="delete"--%>
+                                <%-- <a href="/customer?actionFurama=showDeleteCustomer&id=${customer.getId()}" class="delete"--%>
                                 <%-- title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>--%>
                             <a data-toggle="modal" data-target="#deleteCustomerModal" href="#"
                                onclick="setCustomerId('${customer.id}')" class="delete" title="Delete"
@@ -253,7 +253,7 @@
             <div id="deleteCustomerModal" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/furama">
+                        <form action="/customer">
                             <input type="hidden" name="actionFurama" value="deleteCustomer"/>
                             <input type="hidden" name="idCustomer" id="id"/>
                             <div class="modal-header">
@@ -262,7 +262,8 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to delete this customer ?</p>
+                                <input type="text" id="warning" style="width: 100%; background-color: crimson"/>
+                                <%--                                <p>Are you sure you want to delete this customer ?</p>--%>
                                 <p class="text-warning"><small style="color: blue">This action cannot be undone.</small>
                                 </p>
                             </div>
@@ -278,7 +279,7 @@
     </div>
 </div>
 <%--</form>--%>
-<form method="post" action="/furama" id="formSearchCustomer">
+<form method="post" action="/customer" id="formSearchCustomer">
     <input type="hidden" name="actionFurama" value="searchCustomer">
     <input type="hidden" name="nameCustomer" id="keywordCustomerHidden"/>
     <input hidden type="submit" value="Search"/>
@@ -292,6 +293,7 @@
 <script>
     function setCustomerId(id) {
         document.getElementById("id").value = id;
+        document.getElementById("warning").value = "Are you sure you want to delete Customer have id is " + id + " ?";
     }
 
     function submitFormSearchCustomer() {

@@ -13,7 +13,7 @@ public class FuramaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String userName = request.getParameter("userName");
         String passWord = request.getParameter("passWord");
-        if (userName.equals("SuPea Jr") && passWord.equals("ok hahaha")) {
+        if (userName.equals("SuPea Jr") && passWord.equals("ok haha")) {
             home(response);
         } else {
             String message = "Sorry ! Wrong password, bro !";

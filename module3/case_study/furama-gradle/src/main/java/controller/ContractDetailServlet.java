@@ -58,7 +58,9 @@ public class ContractDetailServlet extends HttpServlet {
 
         String message = this.contractDetailBO.saveContractDetail(contractDetail);
         request.setAttribute("message", message);
-
+        if (!message.equals("Create Complete !")) {
+            request.setAttribute("contractDetail", contractDetail);
+        }
         addNewContractDetail(request, response);
     }
 }

@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -136,23 +135,17 @@
                 <div class="form-group">
                     <label for="type" class="cols-sm-2 control-label">Type Customer : </label>
                     <select name="type" id="type" required>
-                        <option>${customer.typeCustomer}</option>
                         <c:forEach var="typeCustomer" items="${typeCustomers}">
-                            <option value="${typeCustomer.id}">${typeCustomer.name}</option>
+                            <c:choose>
+                                <c:when test="${typeCustomer.id.equals(customer.typeCustomer)}">
+                                    <option value="<c:out value='${typeCustomer.id}'/>" selected><c:out value="${typeCustomer.name}"></c:out></option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${typeCustomer.id}">${typeCustomer.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
-<%--                    <div class="cols-sm-10">--%>
-<%--                        <div class="input-group">--%>
-<%--                            <select name="type" id="type">--%>
-<%--                                <c:forEach var="typeCustomer" items="${typeCustomers}">--%>
-<%--                                    <option value="${typeCustomer.id}">${typeCustomer.name}</option>--%>
-<%--                                </c:forEach>--%>
-<%--                            </select>--%>
-<%--                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-<%--                            <input type="text" class="form-control" name="type" id="type"--%>
-<%--                                   placeholder="Enter your type customer here" required/>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                 </div>
 
                 <div class="form-group">
@@ -173,18 +166,6 @@
                         <option>Female</option>
                         <option>Unknown</option>
                     </select>
-                    <%--                    <div class="cols-sm-10">--%>
-                    <%--                        <div class="input-group">--%>
-                    <%--                            <select name="gender" id="gender">--%>
-                    <%--                                <option>Male</option>--%>
-                    <%--                                <option>Female</option>--%>
-                    <%--                                <option>Unknown</option>--%>
-                    <%--                           </select>--%>
-                    <%--                           <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>--%>
-                    <%--                           <input type="text" class="form-control" name="gender" id="gender"--%>
-                    <%--                                   placeholder="Enter your gender here"/>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
                 </div>
 
                 <div class="form-group">

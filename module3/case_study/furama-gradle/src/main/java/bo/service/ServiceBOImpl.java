@@ -20,6 +20,16 @@ public class ServiceBOImpl implements ServiceBO {
             message = "Format ID is DV-XXXX with X is number from 0 to 9 !";
         } else if (testID(service.getId())) {
             message = "ID is exists ! Please input ID other !";
+        } else if (Validation.regexPositiveNumbers(service.getArea())) {
+            message = "Invalid area ! Area must be a positive number !";
+        } else if (Validation.regexPositiveNumbers(service.getCost())) {
+            message = "Invalid cost ! Cost must be a positive number !";
+        } else if (Validation.regexPositiveIntegers(service.getMaxPeople())) {
+            message = "Invalid max people ! Max people must be a positive integer !";
+        } else if (Double.parseDouble(service.getPoolArea()) < 0) {
+            message = "Invalid pool area ! Pool area must be greater than or equal to 0 !";
+        } else if (Validation.regexPositiveIntegers(service.getNumberOfFloors())) {
+            message = "Invalid number of floor ! Number of floor must be a positive integer !";
         } else message = this.serviceDAO.saveService(service);
 
         return message;
@@ -37,7 +47,7 @@ public class ServiceBOImpl implements ServiceBO {
 
     private boolean testID(String id) {
         List<String> listID = this.serviceDAO.findAllIDService();
-        for (String idExist : listID){
+        for (String idExist : listID) {
             if (idExist.equals(id)) {
                 return true;
             }

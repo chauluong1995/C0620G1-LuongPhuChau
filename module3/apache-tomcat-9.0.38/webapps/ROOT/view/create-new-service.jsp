@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -168,18 +167,32 @@
 
                 <div class="form-group">
                     <label for="rentTypeId" class="cols-sm-2 control-label">Rent Type : </label>
-                    <select name="rentTypeId" id="rentTypeId">
+                    <select name="rentTypeId" id="rentTypeId" required>
                         <c:forEach var="rentType" items="${rentTypes}">
-                            <option value="${rentType.id}">${rentType.name}</option>
+                            <c:choose>
+                                <c:when test="${rentType.id.equals(service.rentTypeId)}">
+                                    <option value="<c:out value='${rentType.id}'/>" selected><c:out value="${rentType.name}"></c:out></option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${rentType.id}">${rentType.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="serviceTypeId" class="cols-sm-2 control-label">Service Type : </label>
-                    <select name="serviceTypeId" id="serviceTypeId">
+                    <select name="serviceTypeId" id="serviceTypeId" required>
                         <c:forEach var="serviceType" items="${serviceTypes}">
-                            <option value="${serviceType.id}">${serviceType.name}</option>
+                            <c:choose>
+                                <c:when test="${serviceType.id.equals(service.serviceTypeId)}">
+                                    <option value="<c:out value='${serviceType.id}'/>" selected><c:out value="${serviceType.name}"></c:out></option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${serviceType.id}">${serviceType.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>

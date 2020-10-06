@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -115,7 +114,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="date" class="form-control" name="startDate" id="startDate" required/>
+                            <input type="date" class="form-control" name="startDate" id="startDate" value="${contract.startDate}" required/>
                         </div>
                     </div>
                 </div>
@@ -125,7 +124,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
-                            <input type="date" class="form-control" name="endDate" id="endDate" required/>
+                            <input type="date" class="form-control" name="endDate" id="endDate" value="${contract.endDate}" required/>
                         </div>
                     </div>
                 </div>
@@ -136,7 +135,7 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="deposit" id="deposit"
-                                   placeholder="Enter deposit here" required/>
+                                   value="${contract.getDeposite()}" required/>
                         </div>
                     </div>
                 </div>
@@ -147,34 +146,61 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="totalMoney" id="totalMoney"
-                                   placeholder="Enter total money here" required/>
+                                   value="${contract.totalMoney}" required/>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="employee" class="cols-sm-2 control-label">Employee : </label>
-                    <select name="employee" id="employee">
+                    <select name="employee" id="employee" required>
                         <c:forEach var="employee" items="${employees}">
-                            <option value="${employee.id}">${employee.name}</option>
+                            <c:choose>
+                                <c:when test="${employee.id.equals(contract.idEmployee)}">
+                                    <option value="<c:out value='${employee.id}'/>" selected>
+                                        <c:out value="${employee.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${employee.id}">${employee.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="customer" class="cols-sm-2 control-label">Customer : </label>
-                    <select name="customer" id="customer">
+                    <select name="customer" id="customer" required>
                         <c:forEach var="customer" items="${customers}">
-                            <option value="${customer.id}">${customer.name}</option>
+                            <c:choose>
+                                <c:when test="${customer.id.equals(contract.idCustomer)}">
+                                    <option value="<c:out value='${customer.id}'/>" selected>
+                                        <c:out value="${customer.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${customer.id}">${customer.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="service" class="cols-sm-2 control-label">Service : </label>
-                    <select name="service" id="service">
+                    <select name="service" id="service" required>
                         <c:forEach var="service" items="${services}">
-                            <option value="${service.id}">${service.name}</option>
+                            <c:choose>
+                                <c:when test="${service.id.equals(contract.idService)}">
+                                    <option value="<c:out value='${service.id}'/>" selected>
+                                        <c:out value="${service.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${service.id}">${service.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>

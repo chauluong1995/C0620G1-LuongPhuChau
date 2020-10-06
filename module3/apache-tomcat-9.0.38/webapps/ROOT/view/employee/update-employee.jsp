@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -199,36 +198,72 @@
 
                 <div class="form-group">
                     <label for="position" class="cols-sm-2 control-label">Position : </label>
-                    <select name="position" id="position">
+                    <select name="position" id="position" required>
                         <c:forEach var="position" items="${positions}">
-                            <option value="${position.id}">${position.name}</option>
+                            <c:choose>
+                                <c:when test="${position.id.equals(employee.idPosition)}">
+                                    <option value="<c:out value='${position.id}'/>" selected>
+                                        <c:out value="${position.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${position.id}">${position.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="educationDegree" class="cols-sm-2 control-label">Education Degree : </label>
-                    <select name="educationDegree" id="educationDegree">
+                    <select name="educationDegree" id="educationDegree" required>
                         <c:forEach var="educationDegree" items="${educationDegrees}">
-                            <option value="${educationDegree.id}">${educationDegree.name}</option>
+                            <c:choose>
+                                <c:when test="${educationDegree.id.equals(employee.idEducationDegree)}">
+                                    <option value="<c:out value='${educationDegree.id}'/>" selected>
+                                        <c:out value="${educationDegree.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${educationDegree.id}">${educationDegree.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="division" class="cols-sm-2 control-label">Division : </label>
-                    <select name="division" id="division">
+                    <select name="division" id="division" required>
                         <c:forEach var="division" items="${divisions}">
-                            <option value="${division.id}">${division.name}</option>
+                            <c:choose>
+                                <c:when test="${division.id.equals(employee.idDivision)}">
+                                    <option value="<c:out value='${division.id}'/>" selected>
+                                        <c:out value="${division.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${division.id}">${division.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="user" class="cols-sm-2 control-label">User Name : </label>
-                    <select name="user" id="user">
+                    <select name="user" id="user" required>
                         <c:forEach var="user" items="${users}">
-                            <option value="${user.name}">${user.name}</option>
+                            <c:choose>
+                                <c:when test="${user.name.equals(employee.userName)}">
+                                    <option value="<c:out value='${user.name}'/>" selected>
+                                        <c:out value="${user.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${user.name}">${user.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>

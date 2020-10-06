@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -117,25 +116,43 @@
                         <div class="input-group">
                             <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="quantity" id="quantity"
-                                   placeholder="Enter quantity here" required/>
+                                   value="${contractDetail.quantity}" required/>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="idContract" class="cols-sm-2 control-label">ID Contract : </label>
-                    <select name="idContract" id="idContract">
+                    <select name="idContract" id="idContract" required>
                         <c:forEach var="idContract" items="${idContracts}">
-                            <option value="${idContract.id}">${idContract.id}</option>
+                            <c:choose>
+                                <c:when test="${idContract.id.equals(contractDetail.idContract)}">
+                                    <option value="<c:out value='${idContract.id}'/>" selected>
+                                        <c:out value="${idContract.id}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${idContract.id}">${idContract.id}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="attachService" class="cols-sm-2 control-label">Attach Service : </label>
-                    <select name="attachService" id="attachService">
+                    <select name="attachService" id="attachService" required>
                         <c:forEach var="attachService" items="${attachServices}">
-                            <option value="${attachService.id}">${attachService.name}</option>
+                            <c:choose>
+                                <c:when test="${attachService.id.equals(contractDetail.idAttachService)}">
+                                    <option value="<c:out value='${attachService.id}'/>" selected>
+                                        <c:out value="${attachService.name}"></c:out>
+                                    </option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${attachService.id}">${attachService.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>

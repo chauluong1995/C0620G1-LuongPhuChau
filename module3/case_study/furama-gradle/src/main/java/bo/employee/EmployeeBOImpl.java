@@ -14,10 +14,17 @@ public class EmployeeBOImpl implements EmployeeBO {
     public String saveEmployee(Employee employee) {
         String message;
 
-        if (!Validation.regexIDCard(employee.getIdCard())){
-            message = "";
-        }
-        else message = this.employeeDAO.saveEmployee(employee);
+        if (Validation.regexIDCard(employee.getIdCard())) {
+            message = "Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !";
+        } else if (Validation.regexPositiveNumbers(employee.getSalary())) {
+            message = "Invalid salary ! Salary must be a positive number !";
+        } else if (Validation.regexPhoneNumber(employee.getPhone())) {
+            message = "Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
+                    "(84)+91xxxxxxx with x is number from 0 to 9 !";
+        } else if (Validation.regexEmail(employee.getEmail())) {
+            message = "Invalid email ! Format email is abc@abc.abc !";
+        } else message = this.employeeDAO.saveEmployee(employee);
+
         return message;
     }
 
@@ -59,7 +66,18 @@ public class EmployeeBOImpl implements EmployeeBO {
     @Override
     public String updateEmployee(Employee employee) {
         String message;
-        message = this.employeeDAO.updateEmployee(employee);
+
+        if (Validation.regexIDCard(employee.getIdCard())) {
+            message = "Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !";
+        } else if (Validation.regexPositiveNumbers(employee.getSalary())) {
+            message = "Invalid salary ! Salary must be a positive number !";
+        } else if (Validation.regexPhoneNumber(employee.getPhone())) {
+            message = "Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
+                    "(84)+91xxxxxxx with x is number from 0 to 9 !";
+        } else if (Validation.regexEmail(employee.getEmail())) {
+            message = "Invalid email ! Format email is abc@abc.abc !";
+        } else message = this.employeeDAO.updateEmployee(employee);
+
         return message;
     }
 

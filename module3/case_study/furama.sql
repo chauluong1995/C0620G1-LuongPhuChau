@@ -138,7 +138,7 @@ insert into customer (customer_id, customer_name, customer_birthday, customer_ge
 values
 	('KH-6789', 'Chau Luong', '1995-05-27', 'Male', 'chauluong@codegym.com', 'Quang Nam'),
 	('KH-0515', 'Mai Ho', '1995-05-15', 'Female', 'maiho@codegym.com', 'Da Nang'),
-	('KH-0202', 'Lanh Nguyen', '1997-02-02', 'Male', 'lanhnguyen@codegym.com', 'Da Nang'),
+	('KH-2202', 'Lanh Nguyen', '1997-02-02', 'Male', 'lanhnguyen@codegym.com', 'Da Nang'),
 	('KH-0606', 'Din Luong', '1996-06-06', 'Male', 'dinluong@codegym.com', 'Quang Ngai'),
 	('KH-0902', 'Khanh Nguyen', '1994-09-02', 'Male', 'khanh@codegym.com', 'Da Nang'),
 	('KH-0707', 'Vu Nguyen', '1997-07-07', 'Male', 'vunguyen@codegym.com', 'Ha Tinh');
@@ -165,7 +165,7 @@ insert into service (service_id, service_name, service_area, service_cost, pool_
 values
 	('DV-6789', 'Villa Vip', 200, 1000, 70, 3, 1),
 	('DV-0515', 'House Vip', 100, 500, 25, 3, 2),
-	('DV-0202', 'Room Vip', 50, 200, 0, 2, 3),
+	('DV-2202', 'Room Vip', 50, 200, 0, 2, 3),
 	('DV-0606', 'House Standard', 75, 250, 15, 2, 2),
 	('DV-0902', 'Room Standard', 35, 100, 0, 1, 3);
 
@@ -222,8 +222,8 @@ create table contract (
 insert into contract (contract_id, contract_start_date, contract_end_date, contract_deposite, employee_id, customer_id, service_id)
 values
 	(1, '2019-01-01', '2019-02-01', 100, 1, 'KH-6789', 'DV-6789'),
-	(2, '2019-01-01', '2019-02-01', 100, 2, 'KH-0202', 'DV-0515'),
-	(3, '2019-01-01', '2019-01-08', 100, 3, 'KH-0515', 'DV-0202'),
+	(2, '2019-01-01', '2019-02-01', 100, 2, 'KH-2202', 'DV-0515'),
+	(3, '2019-01-01', '2019-01-08', 100, 3, 'KH-0515', 'DV-2202'),
 	(4, '2019-01-01', '2019-01-08', 100, 4, 'KH-0606', 'DV-0606'),
 	(5, '2019-01-01', '2019-01-02', 100, 5, 'KH-0902', 'DV-0902');
 

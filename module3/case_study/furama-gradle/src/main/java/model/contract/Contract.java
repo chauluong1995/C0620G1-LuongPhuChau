@@ -4,7 +4,7 @@ public class Contract {
     private String id;
     private String startDate;
     private String endDate;
-    private String deposite;
+    private String deposit;
     private String totalMoney;
     private String idEmployee;
     private String idCustomer;
@@ -17,11 +17,11 @@ public class Contract {
         this.id = id;
     }
 
-    public Contract(String startDate, String endDate, String deposite, String totalMoney, String idEmployee,
+    public Contract(String startDate, String endDate, String deposit, String totalMoney, String idEmployee,
                     String idCustomer, String idService) {
         this.startDate = startDate;
         this.endDate = endDate;
-        this.deposite = deposite;
+        this.deposit = deposit;
         this.totalMoney = totalMoney;
         this.idEmployee = idEmployee;
         this.idCustomer = idCustomer;
@@ -53,11 +53,11 @@ public class Contract {
     }
 
     public String getDeposite() {
-        return deposite;
+        return deposit;
     }
 
     public void setDeposite(String deposite) {
-        this.deposite = deposite;
+        this.deposit = deposite;
     }
 
     public String getTotalMoney() {

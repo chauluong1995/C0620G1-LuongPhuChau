@@ -34,12 +34,12 @@ public class CustomerBOImpl implements CustomerBO {
             message = "Invalid ID ! Format ID is KH-XXXX with X is number from 0 to 9 !";
         } else if (testID(customer.getId())) {
             message = "Invalid ID ! ID is exists ! Please input ID other !";
-        } else if (!Validation.regexIDCard(customer.getIdCard())) {
+        } else if (Validation.regexIDCard(customer.getIdCard())) {
             message = "Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !";
-        } else if (!Validation.regexPhoneNumber(customer.getPhoneNumber())) {
+        } else if (Validation.regexPhoneNumber(customer.getPhoneNumber())) {
             message = "Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
                     "(84)+91xxxxxxx with x is number from 0 to 9 !";
-        } else if (!Validation.regexEmail(customer.getEmail())) {
+        } else if (Validation.regexEmail(customer.getEmail())) {
             message = "Invalid email ! Format email is abc@abc.abc !";
         } else message = this.customerDAO.saveCustomer(customer);
 
@@ -60,12 +60,12 @@ public class CustomerBOImpl implements CustomerBO {
     public String updateCustomer(Customer customer) {
         String message;
 
-        if (!Validation.regexIDCard(customer.getIdCard())) {
+        if (Validation.regexIDCard(customer.getIdCard())) {
             message = "Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !";
-        } else if (!Validation.regexPhoneNumber(customer.getPhoneNumber())) {
+        } else if (Validation.regexPhoneNumber(customer.getPhoneNumber())) {
             message = "Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
                     "(84)+91xxxxxxx with x is number from 0 to 9 !";
-        } else if (!Validation.regexEmail(customer.getEmail())) {
+        } else if (Validation.regexEmail(customer.getEmail())) {
             message = "Invalid email ! Format email is abc@abc.abc !";
         } else message = this.customerDAO.updateCustomer(customer);
 

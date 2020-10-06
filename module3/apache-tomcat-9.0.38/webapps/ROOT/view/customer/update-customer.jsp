@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html>
 <head>
 
@@ -138,9 +137,15 @@
                 <div class="form-group">
                     <label for="type" class="cols-sm-2 control-label">Type Customer : </label>
                     <select name="type" id="type" required>
-                        <option>${customer.typeCustomer}</option>
                         <c:forEach var="typeCustomer" items="${typeCustomers}">
-                            <option value="${typeCustomer.id}">${typeCustomer.name}</option>
+                            <c:choose>
+                                <c:when test="${typeCustomer.id.equals(customer.typeCustomer)}">
+                                    <option value="<c:out value='${typeCustomer.id}'/>" selected><c:out value="${typeCustomer.name}"></c:out></option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${typeCustomer.id}">${typeCustomer.name}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>

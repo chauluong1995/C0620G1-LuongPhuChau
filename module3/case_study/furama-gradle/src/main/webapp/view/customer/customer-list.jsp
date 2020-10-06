@@ -7,7 +7,6 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -262,8 +261,8 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <input type="text" id="warning" style="width: 100%; background-color: crimson"/>
-                                <%--                                <p>Are you sure you want to delete this customer ?</p>--%>
+                                <input type="text" id="warning" style="width: 100%" />
+                                <%--<p>Are you sure you want to delete this customer ?</p>--%>
                                 <p class="text-warning"><small style="color: blue">This action cannot be undone.</small>
                                 </p>
                             </div>

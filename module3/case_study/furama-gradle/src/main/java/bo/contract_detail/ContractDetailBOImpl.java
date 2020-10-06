@@ -1,5 +1,6 @@
 package bo.contract_detail;
 
+import common.Validation;
 import dao.contract_detail.ContractDetailDAO;
 import dao.contract_detail.ContractDetailDAOImpl;
 import model.contract.Contract;
@@ -14,7 +15,11 @@ public class ContractDetailBOImpl implements ContractDetailBO {
     @Override
     public String saveContractDetail(ContractDetail contractDetail) {
         String message;
-        message = this.contractDetailDAO.saveContractDetail(contractDetail);
+
+        if (Validation.regexPositiveIntegers(contractDetail.getQuantity())) {
+            message = "Invalid quantity ! Quantity must be a positive integer !";
+        } else message = this.contractDetailDAO.saveContractDetail(contractDetail);
+
         return message;
     }
 

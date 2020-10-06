@@ -1,5 +1,6 @@
 package bo.contract;
 
+import common.Validation;
 import dao.contract.ContractDAO;
 import dao.contract.ContractDAOImpl;
 import model.contract.Contract;
@@ -15,7 +16,13 @@ public class ContractBOImpl implements ContractBO {
     @Override
     public String saveContract(Contract contract) {
         String message;
-        message = this.contractDAO.saveContract(contract);
+
+        if (Validation.regexPositiveNumbers(contract.getDeposite())) {
+            message = "Invalid deposit ! Deposit must be a positive number !";
+        } else if (Validation.regexPositiveNumbers(contract.getTotalMoney())) {
+            message = "Invalid total money ! Total money must be a positive number !";
+        } else message = this.contractDAO.saveContract(contract);
+
         return message;
     }
 

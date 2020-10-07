@@ -75,6 +75,7 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("categoryList", categoryList);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/list-product.jsp");
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("view/demo.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {

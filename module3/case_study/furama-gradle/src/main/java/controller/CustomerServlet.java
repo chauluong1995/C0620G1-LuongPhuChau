@@ -69,6 +69,7 @@ public class CustomerServlet extends HttpServlet {
         request.setAttribute("customerList", customerList);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/customer-list.jsp");
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("view/demo.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -132,6 +133,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
         Customer customer = informationCustomer(request);
+//        Customer customer = informationCustomerModal(request);
 
         String message = this.customerBO.updateCustomer(customer);
         request.setAttribute("message", message);
@@ -179,5 +181,16 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         return new Customer(id, type, name, birthDay, gender, idCard, phone, email, address);
+    }
+
+    private Customer informationCustomerModal(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        String birthDay = request.getParameter("birthDay");
+        String gender = request.getParameter("gender");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+
+        return new Customer(id, name, birthDay, gender, email, address);
     }
 }

@@ -148,6 +148,14 @@ public class CustomerDAOImpl implements CustomerDAO {
             callableStatement.setString(8, customer.getAddress());
             callableStatement.setString(9, customer.getTypeCustomer());
 
+//            CallableStatement callableStatement = baseDAO.getConnection().prepareCall("call update_customer_modal(?,?,?,?,?,?)");
+//            callableStatement.setString(1, customer.getId());
+//            callableStatement.setString(2, customer.getName());
+//            callableStatement.setString(3, customer.getBirthDay());
+//            callableStatement.setString(4, customer.getGender());
+//            callableStatement.setString(5, customer.getEmail());
+//            callableStatement.setString(6, customer.getAddress());
+
             callableStatement.executeUpdate();
 
         } catch (SQLException e) {

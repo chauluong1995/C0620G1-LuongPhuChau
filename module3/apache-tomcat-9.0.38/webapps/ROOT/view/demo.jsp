@@ -1,286 +1,369 @@
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
-  Date: 10/7/2020
-  Time: 12:26 AM
+  Date: 10/6/2020
+  Time: 2:25 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../all/bootstrap413/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../all/datatables/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="../all/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../all/style/private_style.css">
-    <title>${element_name}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Customer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/customer.css">
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="  https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 </head>
-
 <body>
-<%--<!-- Header -->--%>
-<%--<%@ include file="/common/header.jsp" %>--%>
-<%--<!-- Header ends -->--%>
 
-<!-- Navigation -->
-<div class="container-fluid" style="height: 66px">
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mr-auto">
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>Customer <b>Details</b></h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="/" class="btn btn-success"><i class="material-icons">&#xe84f;</i>
+                                            <span>Home</span></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#addCustomerModal" class="btn btn-success" data-toggle="modal"><i
+                                                class="material-icons">&#xE147;</i> <span>Add</span></a>
+                                    </div>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.jsp">Home
-                        <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/products">Product
-                        <span class="sr-only">(current)</span></a>
-                </li>
+                                </div>
 
-            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="search-box">
+                            <div class="input-group">
+                                <input type="text" id="search" class="form-control" placeholder="Search by Name">
+                                <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped" id="customerTable">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th style="width: 15%;">NAME</th>
+                    <th style="width: 15%;">BIRTHDAY</th>
+                    <th style="width: 15%;">GENDER</th>
+                    <th style="width: 15%;">ADDRESS</th>
+                    <th style="width: 15%;">CUSTOMER TYPE</th>
+                    <th>ACTIONS</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="customer" items="${customerList}">
+                    <tr>
+                        <td>${customer.id}</td>
+                        <td>${customer.name}</td>
+                        <td>${customer.birthDay}</td>
+                        <td>${customer.gender}</td>
+                        <td>${customer.email}</td>
+                        <td>${customer.address}</td>
+
+                        <td>
+                            <a data-toggle="modal" data-target="#editCustomerModal"
+                               onclick="setCustomerInfor('${customer.id}','${customer.name}','${customer.birthDay}',
+                                       '${customer.gender}','${customer.email}', '${customer.address}')"
+                               href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a data-toggle="modal" data-target="#deleteCustomerModal" href="#"
+                               onclick="setCustomerId('${customer.id}')" class="delete" title="Delete"
+                               data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                </c:forEach>
+
+                </tbody>
+            </table>
         </div>
-        <p style="color: blue">Hoang Kim Van Chuong</p>
-        <form class="form-inline my-2 my-lg-0">
-            <%--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"--%>
-            <%--                   style="width: 300px">--%>
-            <%--            <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>--%>
-        </form>
-    </nav>
+    </div>
 </div>
-<hr class="my-4" style="width: 98%">
-<!-- Navigation ends -->
 
-<!-- Body page -->
-<center>
-    <h2>${list_element.toUpperCase()}</h2>
-    <p>
-    <form method="post" action="${originalLink}">
-        <button class="btn btn-outline-info btn-sm"><a href="${originalLink}?action=create">${create_element}</a>
-        </button>
-        <span>&nbsp;</span>
-        <button class="btn btn-outline-info btn-sm"><a href="/index.jsp">Back to home</a></button>
-        <span>&nbsp;</span>
-        <button class="btn btn-outline-info btn-sm"><a href="${originalLink}">Back to ${element_name} list</a></button>
-        <span>&nbsp;</span>
-        <input type="hidden" name="action" value="search">
-        <input class="mr-sm-2" style="width: 200px" type="text" name="keywords" placeholder="search by name">
-        <button class="btn btn-primary" type="submit">Search</button>
-    </form>
-    </p>
-    <p class="msg-info">${msg_create}</p>
-    <p class="msg-info">${msg_edit}</p>
-    <form method="post" id="form" action="/products">
-        <input type="hidden" name="action" value="edit">
-        <table id="pagination" class="table table-striped table-hover">
-            <thead class="thead">
-            <tr class="table-info">
-                <th scope="col">${title_id}</th>
-                <th scope="col">${title_a}</th>
-                <th scope="col">${title_b}</th>
-                <th scope="col">${title_c}</th>
-                <th scope="col">${title_d}</th>
-                <th scope="col">${title_e}</th>
-                <th scope="col">${title_f}</th>
+<!-- Edit Modal HTML -->
+<div id="editCustomerModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/customer" method="post">
+                <input type="hidden" name="actionFurama" value="editCustomer"/>
 
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-                <th scope="col">View</th>
-                <th scope="col">Clear</th>
-            </tr>
-            </thead>
+                <div class="form-group">
+                    <label for="idEdit" class="cols-sm-2 control-label">ID:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="id" id="idEdit" readonly/>
+                        </div>
+                    </div>
+                </div>
 
-            <tbody>
-            <c:forEach items="${eList}" var="el">
-                <c:choose>
-                    <%--  EDIT ON ROW only --%>
-                    <c:when test="${id.equals(el.productId) && edit == 1}">
-                        <tr>
-                            <td scope="col">
-                                <input type="text" name="idNew" id="idNew" value="${el.productId}">
-                                <input type="hidden" name="id" id="id" value="${el.productId}">
-                            </td>
+                <div class="form-group">
+                    <label for="nameEdit" class="cols-sm-2 control-label">Name:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="name" id="nameEdit" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDayEdit" class="cols-sm-2 control-label">Birth Day:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
+                            <input type="date" class="form-control" name="birthDay" id="birthDayEdit" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="genderEdit" class="cols-sm-2 control-label">Gender : </label>
+                    <select name="gender" id="genderEdit" required>
+                        <option>${genderEdit}</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Unknown</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailEdit" class="cols-sm-2 control-label">Email:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon iconbk"><i class="fa fa-envelope-o fa"
+                                                                      aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="email" id="emailEdit" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="addressEdit" class="cols-sm-2 control-label">Address:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon iconbk"><i class="fa fa-user-plus fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="address" id="addressEdit" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger btn-lg btn-block login-button">Update Information
+                        Customer
+                    </button>
+                </div>
+
+<%--                <input type="hidden" name="action" value="edit">--%>
+<%--                <input id="customer_id_edit" type="hidden" name="customer_id"/>--%>
+<%--                <div class="modal-header">--%>
+<%--                    <h4 class="modal-title">Edit Employee</h4>--%>
+<%--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+<%--                </div>--%>
+<%--                <div class="modal-body">--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Name</label>--%>
+<%--                        <input type="text" id="customer_name" name="customer_name" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Birthday</label>--%>
+<%--                        <input type="date" id="customer_birthday" name="customer_birthday" class="form-control"--%>
+<%--                               required>--%>
+<%--                    </div>--%>
+
+<%--                    <div class="form-group">--%>
+<%--                        <label>Address</label>--%>
+<%--                        <input type="text" id="customer_address" name="customer_address" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Type of Customer</label>--%>
+<%--                        <select class="custom-select" name="customer_type">--%>
+<%--                            <c:forEach var="customerType" items="${customerTypeList}">--%>
+<%--                                <option id="${customerType.getCustomer_type_name()}"--%>
+<%--                                        value="${customerType.getCustomer_type_id()}"> ${customerType.getCustomer_type_name()} </option>--%>
+<%--                            </c:forEach>--%>
+
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="modal-footer">--%>
+<%--                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">--%>
+<%--                    <input type="submit" class="btn btn-success" value="Edit Customer">--%>
+<%--                </div>--%>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteCustomerModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/customer" id="formDelete">
+                <input type="hidden" name="actionFurama" value="deleteCustomer"/>
+                <input id="id" type="hidden" name="idCustomer"/>
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Customer</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this customer?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
-                            <td scope="col"><input type="text" name="a" id="a" value="${el.productName}"></td>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
-                            <td scope="col"><input type="text" name="b" id="b" value="${el.productPrice}"></td>
-
-                            <td scope="col"><input type="text" name="c" id="c" value="${el.productQuantity}"></td>
-
-                            <td scope="col"><input type="text" name="d" id="d" value="${el.productColor}"></td>
-
-                            <td scope="col"><input type="text" name="e" id="e" value="${el.productDescription}"></td>
-
-                            <td scope="col"><select name="f" id="f" value="${el.productCategory}">
-                                <c:forEach items="${eList2}" var="ca">
-                                    <option>${ca.categoryName}</option>
-                                </c:forEach>
-                            </select>
-                            </td>
-
-                            <!-- save after edit -->
-                            <td scope="col">
-
-                                <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('form').submit();">save</button>
-                            </td>
-
-                            <!-- delete -->
-                            <td scope="col">
-                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                        data-target="#e${el.productId}">Delete
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="e${el.productId}" tabindex="-1"
-                                     aria-labelledby="exampleModalLabel1"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel1">Do you want to delete?</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>${element_name} name: ${el.productName}</h5><!-- $$$ -->
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                    Cancel
-                                                </button>
-                                                <a href="${originalLink}?action=delete&id=${el.productId}"><!-- $$$ -->
-                                                    <button type="button" class="btn btn-primary">Delete</button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal ends -->
-                            </td>
-
-                            <!-- view details -->
-                            <td scope="col"><a href="${originalLink}?action=view&id=${el.productId}">
-                                <button type="button" class="btn btn-outline-info btn-sm">View</button>
-                            </a>
-                            </td>
-
-                            <!-- Clear on screen -->
-                            <td scope="col">
-                                <button type="button" class="btn btn-outline-success btn-sm"
-                                        onclick="displayHiddenElement('${el.productId}')">Clear
-                                </button>
-                            </td>
-                        </tr>
-                    </c:when>
-                    <%-- DISPLAY LIST only --%>
-                    <c:otherwise>
-                        <tr>
-                            <td scope="col">${el.productId}</td>
-
-                            <td scope="col">${el.productName}</td>
-
-                            <td scope="col">${el.productPrice}</td>
-
-                            <td scope="col">${el.productQuantity}</td>
-
-                            <td scope="col">${el.productColor}</td>
-
-                            <td scope="col">${el.productDescription}</td>
-
-                            <td scope="col">${el.productCategory}</td>
-
-                            <!-- edit -->
-                            <td scope="col" id="edit"><a href="${originalLink}?action=edit&id=${el.productId}">
-                                <button type="button" class="btn btn-outline-warning btn-sm">Edit</button>
-                            </a>
-                            </td>
-
-                            <!-- delete -->
-                            <td scope="col">
-                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                        data-target="#e${el.productId}">Delete
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="e${el.productId}" tabindex="-1"
-                                     aria-labelledby="exampleModalLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>${element_name} name: ${el.productName}</h5>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                    Cancel
-                                                </button>
-                                                <a href="${originalLink}?action=delete&id=${el.productId}">
-                                                    <button type="button" class="btn btn-primary">Delete</button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal ends -->
-                            </td>
-
-                            <!-- view details -->
-                            <td scope="col"><a href="${originalLink}?action=view&id=${el.productId}">
-                                <button type="button" class="btn btn-outline-info btn-sm">View</button>
-                            </a>
-                            </td>
-
-                            <!-- Clear on screen -->
-                            <td scope="col">
-                                <button type="button" class="btn btn-outline-success btn-sm"
-                                        onclick="displayHiddenElement('${el.productId}')">Clear
-                                </button>
-                            </td>
-                        </tr>
-                    </c:otherwise>
-                </c:choose>
-            </c:forEach>
-            </tbody>
-        </table>
-    </form>
-</center>
-<!-- Body ends -->
-
-<!-- Footer -->
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="../all/js/bootstrap.min.js"></script>
-<script src="../all/jquery/jquery-3.5.1.min.js"></script>
-<script src="../all/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../all/datatables/js/dataTables.bootstrap4.min.js"></script>
-
-<%--Pagination--%>
 <script>
-    $(document).ready(function() {
-        $('#pagination').dataTable( {
-            "dom": 'lrtip',
+    $(document).ready(function () {
+        // Activate tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Filter table rows based on searched term
+        $("#search").on("keyup", function () {
+            let term = $(this).val().toLowerCase();
+            $("table tbody tr").each(function () {
+                $row = $(this);
+                let name = $row.find("td:nth-child(2)").text().toLowerCase();
+                console.log(name);
+                if (name.search(term) < 0) {
+                    $row.hide();
+                } else {
+                    $row.show();
+                }
+            });
+
+        });
+        let groupColumn = 2;
+        let table = $('#customerTable').DataTable({
+
             "lengthChange": false,
-            "pageLength": 5
+            "columnDefs": [
+                {"visible": false, "targets": groupColumn}
+            ],
+            "order": [[groupColumn, 'asc']],
+            "displayLength": 5,
+            "drawCallback": function (settings) {
+                let api = this.api();
+                let rows = api.rows({page: 'current'}).nodes();
+                let last = null;
+
+
+            }
         });
     });
-</script>
 
-<%--CLEAR ON SCREEN--%>
-<script>
-    function displayHiddenElement(id) {
-        let thisItem = document.getElementById(id);
-        thisItem.style.display = "none";
+    function setCustomerId(id) {
+        document.getElementById("customer_id").value = id;
+
+    }
+
+    function setCustomerInfor(id, name, birthDay, gender, email, address) {
+        document.getElementById("idEdit").value = id;
+        document.getElementById("nameEdit").value = name;
+        document.getElementById("birthDayEdit").value = birthDay;
+        document.getElementById("genderEdit").value = gender;
+        document.getElementById("emailEdit").value = email;
+        document.getElementById("addressEdit").value = address;
+    }
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
     }
 </script>
-<hr class="my-4" style ="width: 98%">
-<footer>
-    <div class="container-fluid" style="height: 42px; background-color: #f5f5f0">
-        <p style="padding-top: 15px; text-align: center; font-size: 12px;">Hoang Kim Van Chuong&copy;2020. All rights reserved.</p>
-    </div>
-</footer>
-<!-- Footer ends -->
 </body>
 </html>
+
+<%--<!-- Add Modal HTML -->--%>
+<%--<div id="addCustomerModal" class="modal fade">--%>
+<%--    <div class="modal-dialog">--%>
+<%--        <div class="modal-content">--%>
+<%--            <form action="/customer" method="post" id="target">--%>
+<%--                <input type="hidden" name="action" value="create">--%>
+<%--                <div class="modal-header">--%>
+<%--                    <h4 class="modal-title">Add Employee</h4>--%>
+<%--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+<%--                </div>--%>
+<%--                <div class="modal-body">--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Name</label>--%>
+<%--                        <input type="text" name="customer_name" id="name_cus" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Birthday</label>--%>
+<%--                        <input type="date" name="customer_birthday" id="birthday_cus" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Gender</label>--%>
+<%--                        <select class="custom-select" name="customer_gender" required>--%>
+
+<%--                            <option value="0">Nữ</option>--%>
+<%--                            <option value="1">Nam</option>--%>
+
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>ID_CARD</label>--%>
+<%--                        <input type="text" name="customer_id_card" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Phone</label>--%>
+<%--                        <input type="text" name="customer_phone" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Email</label>--%>
+<%--                        <input type="text" name="customer_email" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Address</label>--%>
+<%--                        <input type="text" name="customer_address" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Type of Customer</label>--%>
+<%--                        <select class="custom-select" name="customer_type">--%>
+<%--                            <c:forEach var="customerType" items="${customerTypeList}">--%>
+<%--                                <option value="${customerType.getCustomer_type_id()}"> ${customerType.getCustomer_type_name()} </option>--%>
+<%--                            </c:forEach>--%>
+
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="modal-footer">--%>
+<%--                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">--%>
+<%--                    <input type="submit" class="btn btn-success" value="Add Customer">--%>
+<%--                </div>--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>

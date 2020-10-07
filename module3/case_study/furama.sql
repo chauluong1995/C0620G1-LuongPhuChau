@@ -279,7 +279,7 @@ BEGIN
 	update customer
     set customer_name = name_need_update, customer_email = email_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
     customer_id_card = id_card_need_update,
-    customer_phone = phone_need_update, customer_email = email_need_update, customer_address = address_need_update, customer_type_id = type_id_need_update
+    customer_phone = phone_need_update, customer_address = address_need_update, customer_type_id = type_id_need_update
     where customer_id = id_need_update;
 END //
 DELIMITER ;
@@ -302,5 +302,16 @@ BEGIN
     employee_phone = phone_update, employee_email = email_update, employee_address = address_update, position_id = position_id_update,
     education_degree_id = education_degree_id_update, division_id = division_id_update, user_name = user_name_update
     where employee_id = id_update;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE update_customer_modal(id_need_update varchar(25), name_need_update varchar(45), birthday_need_update date, gender_need_update varchar(45),
+ email_need_update varchar(45), address_need_update varchar(45))
+BEGIN
+	update customer
+    set customer_name = name_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
+    customer_email = email_need_update, customer_address = address_need_update
+    where customer_id = id_need_update;
 END //
 DELIMITER ;

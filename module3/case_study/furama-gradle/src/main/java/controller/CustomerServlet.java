@@ -138,6 +138,9 @@ public class CustomerServlet extends HttpServlet {
         String message = this.customerBO.updateCustomer(customer);
         request.setAttribute("message", message);
         if (!message.equals("Update Complete !")) {
+            List<TypeCustomer> typeCustomers = this.customerBO.findAllTypeCustomer();
+            request.setAttribute("typeCustomers", typeCustomers);
+
             request.setAttribute("customer", customer);
             RequestDispatcher dispatcher;
             dispatcher = request.getRequestDispatcher("view/customer/update-customer.jsp");

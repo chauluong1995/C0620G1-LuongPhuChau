@@ -130,9 +130,17 @@ public class ProductServlet extends HttpServlet {
         String message = this.productBO.update(product);
         request.setAttribute("message", message);
         if (!message.equals("Update Complete !")) {
+            List<Category> categoryList = this.productBO.findAllCategory();
+            request.setAttribute("categoryList", categoryList);
             request.setAttribute("product", product);
-        }
-        listProduct(request, response);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/edit-product.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        } else listProduct(request, response);
     }
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {

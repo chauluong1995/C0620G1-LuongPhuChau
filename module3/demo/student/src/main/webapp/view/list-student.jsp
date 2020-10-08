@@ -184,7 +184,7 @@
 </head>
 <body>
 
-<h3 class="message">${message}</h3>
+<h3 class="message">${messageComplete}</h3>
 
 <div class="container-fluid">
     <div class="table-responsive">

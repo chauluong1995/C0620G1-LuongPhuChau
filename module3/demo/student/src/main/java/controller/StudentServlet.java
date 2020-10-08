@@ -136,8 +136,6 @@ public class StudentServlet extends HttpServlet {
 
     private void updateStudent(HttpServletRequest request, HttpServletResponse response) {
         Student student = informationStudent(request);
-        String id = request.getParameter("id");
-        student.setId(id);
 
         String message = this.studentBO.update(student);
 

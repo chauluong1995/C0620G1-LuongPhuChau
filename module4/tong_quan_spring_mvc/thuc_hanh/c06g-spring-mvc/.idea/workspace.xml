@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="c06g-spring-mvc:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e090f7b-2067-4103-b7a8-8d23e13cb36c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/artifacts/currency_conversion_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/currency-conversion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/controller/ConvertController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/service/impl/ConvertServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/c06g_spring_mvc_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/c06g-spring-mvc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-aop-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-aspects-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-beans-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-context-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-context-support-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-core-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-expression-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-instrument-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-jms-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-messaging-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-orm-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-oxm-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-test-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-tx-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/controller/SumController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/service/SumService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/service/impl/SumServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/service/impl/SumServiceImplOther.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-aop-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-aspects-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-beans-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-context-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-context-support-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-core-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-expression-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-instrument-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-jdbc-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-jms-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-messaging-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-orm-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-oxm-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-test-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-tx-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-web-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-webmvc-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/views/hello_spring.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/views/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/views/sum_page.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/controller/SumController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/service/SumService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/service/impl/SumServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/service/impl/SumServiceImplOther.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/SumController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/SumService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/impl/SumServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/impl/SumServiceImplOther.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/hello_spring.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/sum_page.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/model/Customer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/service/CustomerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/service/CustomerServiceFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/servlet/CustomerServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/libs/Gran Demonstration-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/resources/main/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/service/CustomerServiceFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/servlet/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/WEB-INF/app-conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/customers/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/customers/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/artifacts/spring_greeting_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-aop-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-aspects-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-beans-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-context-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-context-support-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-core-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-expression-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-instrument-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-jdbc-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-jms-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-messaging-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-orm-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-oxm-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-test-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-tx-5.2.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/spring-greeting.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/src/controllers/GreetingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/LandBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/LandBOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/common/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/config/CharsetFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/LandServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/BaseDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/LandDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/LandDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/Land.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/LandStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/LandType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap4.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.foundation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.foundation.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.jqueryui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.jqueryui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.semanticui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.semanticui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/jquery.dataTables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.foundation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.foundation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.jqueryui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.jqueryui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.semanticui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.semanticui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/jquery.dataTables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/create-new-land.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/edit-land.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/list-land.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/search-land.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/view-detail-land.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/demo/mat_bang.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/demo/product-complete.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/demo/student-complete.rar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1ioVFFxvMtguI6OymSnBlDp7cPG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="D:/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.21" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="c06g-spring-mvc:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_c06g-spring-mvc" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65394" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="c06g-spring-mvc:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.21" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_c06g-spring-mvc" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65394" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e090f7b-2067-4103-b7a8-8d23e13cb36c" name="Default Changelist" comment="" />
+      <created>1602573825018</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602573825018</updated>
+      <workItem from="1602573829032" duration="3682000" />
+      <workItem from="1602579473551" duration="3054000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602574043736">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1602574043736" />
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1602576935670">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602576935670" />
+    <state width="425" height="179" key="GridCell.Tab.0.bottom" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.0.center" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.0.left" timestamp="1602577560845">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602577560845" />
+    <state width="425" height="179" key="GridCell.Tab.0.right" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.1.bottom" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.1.center" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.1.left" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.1.right" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.2.bottom" timestamp="1602577560847">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602577560847" />
+    <state width="425" height="179" key="GridCell.Tab.2.center" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.2.left" timestamp="1602577560846">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602577560846" />
+    <state width="425" height="179" key="GridCell.Tab.2.right" timestamp="1602577560847">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="425" height="179" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602577560847" />
+    <state width="905" height="179" key="GridCell.Tab.3.bottom" timestamp="1602574827363">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602574827363" />
+    <state width="905" height="179" key="GridCell.Tab.3.center" timestamp="1602574827362">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1602574827362" />
+    <state width="905" height="179" key="GridCell.Tab.3.left" timestamp="1602574827362">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1602574827362" />
+    <state width="905" height="179" key="GridCell.Tab.3.right" timestamp="1602574827363">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1602574827363" />
+    <state width="905" height="179" key="GridCell.Tab.4.bottom" timestamp="1602574826390">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.4.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602574826390" />
+    <state width="905" height="179" key="GridCell.Tab.4.center" timestamp="1602574826390">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.4.center/0.0.1366.728@0.0.1366.728" timestamp="1602574826390" />
+    <state width="905" height="179" key="GridCell.Tab.4.left" timestamp="1602574826390">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.4.left/0.0.1366.728@0.0.1366.728" timestamp="1602574826390" />
+    <state width="905" height="179" key="GridCell.Tab.4.right" timestamp="1602574826390">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="179" key="GridCell.Tab.4.right/0.0.1366.728@0.0.1366.728" timestamp="1602574826390" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1602574005797">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602574005797" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602576305996">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602576305996" />
+  </component>
+</project>

@@ -5,8 +5,16 @@ import service.ConvertService;
 
 @Service
 public class ConvertServiceImpl implements ConvertService {
+
     @Override
-    public double convert(double usd) {
-        return usd * 23500;
+    public String convert(String usd, String rate) {
+        String REGEX_NUMBER = "\\d+";
+        if (!usd.matches(REGEX_NUMBER) || !rate.matches(REGEX_NUMBER)) {
+            return "Invalid Data !";
+        } else {
+            double result;
+            result = Double.parseDouble(usd) * Double.parseDouble(rate);
+            return "Result : " + result + " VND .";
+        }
     }
 }

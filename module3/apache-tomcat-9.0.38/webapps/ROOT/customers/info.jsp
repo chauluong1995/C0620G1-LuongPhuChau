@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Update">
+<%--                <input type="submit" value="Update">--%>
             </td>
         </tr>
     </table>

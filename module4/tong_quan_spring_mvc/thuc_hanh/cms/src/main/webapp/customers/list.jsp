@@ -5,13 +5,13 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!
-//    private CustomerService customerService = CustomerServiceFactory.getInstance();
+    private CustomerService customerService = CustomerServiceFactory.getInstance();
 %>
 <%
-//    long count = customerService.count();
-//    List<Customer> customers = customerService.findAll();
+    long count = customerService.count();
+    List<Customer> customers = customerService.findAll();
 
-    List<Customer> customers = (List<Customer>) request.getAttribute("customers");
+//    List<Customer> customers = (List<Customer>) request.getAttribute("customers");
 %>
 <style>
     table {
@@ -38,29 +38,13 @@ There are ${requestScope.customers.size()} customer(s) in list.
     </tr>
     </thead>
     <tbody>
-    <% for (Customer c : customers) { %>
-<%--    <tr>--%>
-<%--        <td>--%>
-<%--            <%= c.getId() %>--%>
-<%--        </td>--%>
-<%--        <td>--%>
-<%--            <a href="info.jsp?id=<%= c.getId() %>"><%= c.getName() %></a>--%>
-<%--        </td>--%>
-<%--        <td>--%>
-<%--            <%= c.getEmail() %>--%>
-<%--        </td>--%>
-<%--        <td>--%>
-<%--            <%= c.getAddress() %>--%>
-<%--        </td>--%>
-<%--    </tr>--%>
-
     <c:forEach var="c" items="${requestScope.customers}">
         <tr>
             <td>
                 <c:out value="${c.id}"/>
             </td>
             <td>
-                <a href="info.jsp?id=${c.id}">${c.name}</a>
+                <a href="/customers/info.jsp?id=${c.id}">${c.name}</a>
             </td>
             <td>
                 <c:out value="${c.email}"/>
@@ -70,6 +54,5 @@ There are ${requestScope.customers.size()} customer(s) in list.
             </td>
         </tr>
     </c:forEach>
-    <% } %>
     </tbody>
 </table>

@@ -1,5 +1,5 @@
 package service;
 
 public interface ConvertService {
-    double convert(double usd);
+    String convert(String usd, String rate);
 }

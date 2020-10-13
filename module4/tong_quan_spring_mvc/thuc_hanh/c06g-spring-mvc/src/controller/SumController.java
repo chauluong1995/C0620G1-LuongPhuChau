@@ -19,6 +19,10 @@ public class SumController {
     @Autowired
     private SumService sumService;
 
+    @Qualifier("sumServiceImplOther")
+    @Autowired
+    private SumService hoMai;
+
     @GetMapping({"/", "/abc"})
     public String goGreeting() {
         return "hello_spring";

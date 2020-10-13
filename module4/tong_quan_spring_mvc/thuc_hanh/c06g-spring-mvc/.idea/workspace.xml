@@ -7,208 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e090f7b-2067-4103-b7a8-8d23e13cb36c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/artifacts/currency_conversion_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/currency-conversion.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/controller/ConvertController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/service/impl/ConvertServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/c06g_spring_mvc_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/c06g-spring-mvc.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-aop-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-aspects-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-beans-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-context-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-context-support-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-core-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-expression-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-instrument-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-jms-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-messaging-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-orm-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-oxm-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-test-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-tx-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/controller/SumController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/service/SumService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/service/impl/SumServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/classes/service/impl/SumServiceImplOther.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-aop-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-aspects-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-beans-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-context-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-context-support-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-core-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-expression-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-instrument-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-jdbc-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-jms-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-messaging-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-orm-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-oxm-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-test-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-tx-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-web-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/lib/spring-webmvc-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/views/hello_spring.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/views/result.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/views/sum_page.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/c06g_spring_mvc_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/controller/SumController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/service/SumService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/service/impl/SumServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/c06g-spring-mvc/service/impl/SumServiceImplOther.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/SumController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/SumService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/impl/SumServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/impl/SumServiceImplOther.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/hello_spring.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/result.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/sum_page.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/4.10.3/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/model/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/service/CustomerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/service/CustomerServiceFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/classes/java/main/cg/wbd/grandemonstration/servlet/CustomerServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/libs/Gran Demonstration-1.0-SNAPSHOT.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/resources/main/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/build/tmp/war/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/service/CustomerServiceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/java/cg/wbd/grandemonstration/servlet/CustomerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/WEB-INF/app-conf.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/customers/info.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cms/src/main/webapp/customers/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/artifacts/spring_greeting_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-aop-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-aspects-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-beans-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-context-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-context-support-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-core-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-expression-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-instrument-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-jdbc-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-jms-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-messaging-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-orm-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-oxm-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-test-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/lib/spring-tx-5.2.3.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/spring-greeting.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/src/controllers/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-greeting/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/LandBO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/bo/LandBOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/common/Validation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/config/CharsetFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/controller/LandServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/BaseDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/LandDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/dao/LandDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/Land.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/LandStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/classes/model/LandType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.bootstrap4.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.foundation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.foundation.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.jqueryui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.jqueryui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.semanticui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/dataTables.semanticui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/jquery.dataTables.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/css/jquery.dataTables.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_asc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_asc_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_both.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_desc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/images/sort_desc_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.bootstrap4.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.foundation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.foundation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.jqueryui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.jqueryui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.semanticui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/dataTables.semanticui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/jquery.dataTables.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/datatables/js/jquery.dataTables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/create-new-land.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/edit-land.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/list-land.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/search-land.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/apache-tomcat-9.0.38/webapps/ROOT/view/view-detail-land.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/demo/mat_bang.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/demo/product-complete.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/demo/student-complete.rar" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/dictionary/web/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/classes/controller/ConvertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/classes/controller/ConvertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/classes/service/ConvertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/classes/service/ConvertService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/classes/service/impl/ConvertServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/classes/service/impl/ConvertServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/artifacts/currency_conversion_war_exploded/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/production/currency-conversion/controller/ConvertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/production/currency-conversion/controller/ConvertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/production/currency-conversion/service/ConvertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/production/currency-conversion/service/ConvertService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/production/currency-conversion/service/impl/ConvertServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/out/production/currency-conversion/service/impl/ConvertServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/controller/ConvertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/controller/ConvertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/service/ConvertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/service/ConvertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/service/impl/ConvertServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/src/service/impl/ConvertServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/currency-conversion/web/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/dictionary/src/controller/ConvertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/dictionary/src/controller/ConvertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/dictionary/src/service/impl/TranslateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/dictionary/src/service/impl/TranslateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/SumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SumController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,6 +245,8 @@
       <updated>1602573825018</updated>
       <workItem from="1602573829032" duration="3682000" />
       <workItem from="1602579473551" duration="3054000" />
+      <workItem from="1602596941994" duration="137000" />
+      <workItem from="1602597477226" duration="217000" />
     </task>
     <servers />
   </component>

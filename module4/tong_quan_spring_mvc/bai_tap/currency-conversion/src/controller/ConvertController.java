@@ -20,15 +20,9 @@ public class ConvertController {
     }
 
     @PostMapping("/convert")
-    public String result(@RequestParam String usd, Model model) {
-
-        if (usd.equals("")) {
-            model.addAttribute("result", "Chưa nhập mà đòi tính cái gì !");
-        } else {
-            double result = convertService.convert(Double.parseDouble(usd));
-            model.addAttribute("result", "Result : " + result + " VND .");
-        }
-
+    public String result(@RequestParam String usd, @RequestParam String rate, Model model) {
+        String result = convertService.convert(usd, rate);
+        model.addAttribute("result", result);
         return "home";
     }
 }

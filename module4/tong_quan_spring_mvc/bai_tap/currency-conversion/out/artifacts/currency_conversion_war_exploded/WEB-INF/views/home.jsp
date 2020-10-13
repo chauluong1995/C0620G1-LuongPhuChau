@@ -36,8 +36,12 @@
     <form action="/convert" method="post">
         <h1>App Currency Conversion</h1>
 
+        <label> Exchange Rate :
+            <input type="text" name="rate" placeholder="Input Exchange Rate" />
+        </label><br><br>
+
         <label> USD :
-            <input type="text" name="usd" />
+            <input type="text" name="usd" placeholder="Input USD" />
         </label><br><br>
 
         <input class="submit" type="submit" value="Convert" /><br><br>

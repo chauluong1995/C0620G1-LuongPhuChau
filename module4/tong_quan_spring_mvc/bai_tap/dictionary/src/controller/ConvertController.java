@@ -19,16 +19,10 @@ public class ConvertController {
         return "home";
     }
 
-    @PostMapping("/convert")
-    public String result(@RequestParam String usd, Model model) {
-
-        if (usd.equals("")) {
-            model.addAttribute("result", "Chưa nhập mà đòi tính cái gì !");
-        } else {
-//            double result = translateService.translate("");
-//            model.addAttribute("result", "Result : " + result + " VND .");
-        }
-
+    @PostMapping("/translate")
+    public String result(@RequestParam String english, Model model) {
+        String result = translateService.translate(english);
+        model.addAttribute("result", result);
         return "home";
     }
 }

@@ -17,18 +17,18 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping
     public String index(Model model, RedirectAttributes redirect) {
         List<Product> productList = productService.findAll();
         model.addAttribute("products", productList);
         redirect.addFlashAttribute("success", "");
-        return "/index";
+        return "index";
     }
 
     @GetMapping("/product/create")
     public String create(Model model) {
         model.addAttribute("product", new Product());
-        return "/create";
+        return "create";
     }
 
     @PostMapping("/product/save")
@@ -42,7 +42,7 @@ public class ProductController {
     @GetMapping("/product/{id}/edit")
     public String edit(@PathVariable int id, Model model) {
         model.addAttribute("product", productService.findById(id));
-        return "/edit";
+        return "edit";
     }
 
     @PostMapping("/product/update")
@@ -55,7 +55,7 @@ public class ProductController {
     @GetMapping("/product/{id}/delete")
     public String delete(@PathVariable int id, Model model) {
         model.addAttribute("product", productService.findById(id));
-        return "/delete";
+        return "delete";
     }
 
     @PostMapping("/product/delete")
@@ -68,6 +68,6 @@ public class ProductController {
     @GetMapping("/product/{id}/view")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("product", productService.findById(id));
-        return "/view";
+        return "view";
     }
 }

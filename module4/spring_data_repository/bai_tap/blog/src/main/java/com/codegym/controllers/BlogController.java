@@ -46,6 +46,12 @@ public class BlogController {
         return "blog/blog-of-category";
     }
 
+    @GetMapping("/sort")
+    public String sortBlogByDateCreate(Model model) {
+        model.addAttribute("blogList", blogService.findAllBlogAndSort());
+        return "blog/sort-blog";
+    }
+
     @GetMapping("/create")
     public String showCreate(Model model) {
         model.addAttribute("blog", new Blog());

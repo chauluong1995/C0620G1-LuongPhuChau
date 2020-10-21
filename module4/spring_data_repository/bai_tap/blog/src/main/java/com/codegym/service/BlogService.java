@@ -22,4 +22,6 @@ public interface BlogService {
     void delete(String id);
 
     Page<Blog> findByNameContaining(Pageable pageable, String name);
+
+    List<Blog> findAllBlogAndSort();
 }

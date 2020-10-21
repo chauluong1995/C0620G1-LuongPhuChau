@@ -26,18 +26,16 @@
     <p style="color: blue" th:text="${message}"></p>
     <table >
         <tr>
-            <th>Id</th>
             <th>Name</th>
-            <th>Content</th>
+            <th>Date Created</th>
             <th>View</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
         <th:block th:each="blog : ${blogList}">
             <tr>
-                <td th:text="${blog.getId()}"></td>
                 <td th:text="${blog.getName()}"></td>
-                <td th:text="${blog.getContent()}"></td>
+                <td th:text="${blog.getDateCreated()}"></td>
                 <td><a th:href="@{/blog/detail(id=${blog.getId()})}">View Detail</a></td>
                 <td><a th:href="@{/blog/update(id=${blog.getId()})}">Edit</a></td>
                 <td><a th:href="@{/blog/delete(id=${blog.getId()})}">Delete</a></td>

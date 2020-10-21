@@ -5,8 +5,14 @@
     <title>Create</title>
 </head>
 <body>
+
+<a th:href="@{/}">
+    Back to home
+</a><br><br>
+
 <form action="/blog/update" method="post" th:object="${blog}">
     <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{dateCreated}"/>
 
     <label>Name :
         <input type="text" th:field="*{name}"/>

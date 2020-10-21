@@ -12,6 +12,13 @@ public class Blog {
 
     @Column(name = "blog_name")
     private String name;
+
+    @Column(name = "date_created")
+    private String dateCreated;
+
+
+    private String category;
+
     private String content;
 
     public Blog() {
@@ -31,6 +38,14 @@ public class Blog {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public String getContent() {

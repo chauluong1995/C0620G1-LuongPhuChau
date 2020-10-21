@@ -6,7 +6,12 @@
 </head>
 <body style="text-align: center">
 
+<a th:href="@{/}">
+    Back to home
+</a><br>
+
 <h3>Name : <span th:text="${blog.getName()}"></span></h3>
+<h3>Date Created : <span th:text="${blog.getDateCreated()}"></span></h3>
 <h3>Content : <span th:text="${blog.getContent()}"></span></h3>
 
 <footer th:replace="common::footerBlog"></footer>

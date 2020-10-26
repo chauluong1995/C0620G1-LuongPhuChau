@@ -53,7 +53,8 @@ public class BorrowBooksController {
     }
 
     @PostMapping("/give-back")
-    public String giveBack(@RequestParam Integer loanNumber, @RequestParam Integer idBook, RedirectAttributes redirectAttributes) {
+    public String giveBack(@RequestParam Integer loanNumber, @RequestParam Integer idBook,
+                           RedirectAttributes redirectAttributes) {
         String message = this.booksService.giveBack(loanNumber, idBook);
         redirectAttributes.addFlashAttribute("message", message);
         return "redirect:/home";

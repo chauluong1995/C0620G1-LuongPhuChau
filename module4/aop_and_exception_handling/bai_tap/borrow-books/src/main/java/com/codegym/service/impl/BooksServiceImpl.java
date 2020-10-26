@@ -37,7 +37,7 @@ public class BooksServiceImpl implements BooksService {
     public void borrow(Integer id) throws Exception {
         Books book = findById(id);
         if (book.getQuantity() == 0) {
-            throw new Exception("Hết sách rồi mà cũng bấm mượn được hay thiệt ?!");
+            throw new Exception("Hết sách !");
         } else {
             book.setQuantity(book.getQuantity() - 1);
             BookLoanNumber bookLoanNumber = new BookLoanNumber();

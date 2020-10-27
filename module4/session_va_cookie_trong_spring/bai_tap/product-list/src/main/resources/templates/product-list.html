@@ -27,20 +27,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="product,rowStat : ${productList}">
+        <tr th:each="product : ${productList}">
             <td th:text="${product.id}"></td>
             <td th:text="${product.name}"></td>
             <td th:text="${product.color}"></td>
             <td th:text="${product.price}"></td>
-            <td>
-                <select>
-                    <option th:each="quantityProduct : ${quantityProducts}"
-                            th:value="${product.quantity}" th:text="${quantityProduct}"></option>
-                </select>
-            </td>
+            <td th:text="${product.quantity}"></td>
+<!--            <td>-->
+<!--                <label for="quantityNew"></label>-->
+<!--                <select name="quantityNew" id="quantityNew">-->
+<!--                    <option th:each="quantityProduct : ${quantityProducts}"-->
+<!--                            th:text="${quantityProduct}"-->
+<!--                            th:selected="${quantityProduct == product.quantity}">-->
+<!--                    </option>-->
+<!--                </select>-->
+<!--            </td>-->
             <td th:text="${product.manufacturer}"></td>
             <td><a th:href="@{/product/{id}/view(id=${product.getId()})}">view</a></td>
-            <td><a th:href="@{/product/{id}/change(id=${product.getId()})}">Change</a></td>
             <td><a th:href="@{/product/{id}/delete-product-list(id=${product.getId()})}">delete</a></td>
         </tr>
         </tbody>

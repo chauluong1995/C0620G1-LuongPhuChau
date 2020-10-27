@@ -51,7 +51,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}/addProduct")
-    public String addProduct(List<Product> productList, @PathVariable Integer id, Model model) {
+    public String addProduct(@SessionAttribute(value = "productList") List<Product> productList, @PathVariable Integer id, Model model) {
         Product product = productService.findById(id);
         product.setQuantity(1);
         productList.add(product);
@@ -77,8 +77,19 @@ public class ProductController {
 
     @GetMapping("/productList")
     public String listProduct(Model model) {
-        Integer[] quantityProducts = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        model.addAttribute("quantityProducts", quantityProducts);
+//        Integer[] quantityProducts = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//        model.addAttribute("quantityProducts", quantityProducts);
         return "product-list";
     }
+
+//    @GetMapping("/change")
+//    public String changQuantity(List<Product> productList, @RequestParam Integer quantityNew, @RequestParam Integer id, Model model) {
+//        for (Product product : productList) {
+//            if (product.getId().equals(id)) {
+//                product.setQuantity(quantityNew);
+//                break;
+//            }
+//        }
+//        return "redirect:/productList";
+//    }
 }

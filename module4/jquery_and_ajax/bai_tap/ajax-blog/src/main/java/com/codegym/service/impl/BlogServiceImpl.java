@@ -22,6 +22,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findAllScroll(int start, int limit) {
+        return this.blogRepository.findAllScroll(start, limit);
+    }
+
+    @Override
     public Page<Blog> findAll(Pageable pageable) {
         return this.blogRepository.findAll(pageable);
     }

@@ -9,6 +9,8 @@ import java.util.List;
 public interface BlogService {
     List<Blog> findAll();
 
+    List<Blog> findAllScroll(int start, int limit);
+
     Page<Blog> findAll(Pageable pageable);
 
     List<Blog> findAllBlogOfCategory(String categoryID);

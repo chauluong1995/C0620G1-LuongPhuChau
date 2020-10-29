@@ -13,4 +13,7 @@ public interface BlogRepository extends JpaRepository<Blog, String> {
 
     @Query(value = "select * from blog group by id order by date_created desc", nativeQuery = true)
     List<Blog> findAllBlogAndSort();
+
+    @Query(value = "select * from blog limit  ?1, ?2", nativeQuery = true)
+    List<Blog> findAllScroll(int start, int limit);
 }

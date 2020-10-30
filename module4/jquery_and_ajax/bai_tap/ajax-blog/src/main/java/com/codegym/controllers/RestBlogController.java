@@ -68,8 +68,8 @@ public class RestBlogController {
         return new ResponseEntity<>(blogList, HttpStatus.OK);
     }
 
-    @GetMapping("/ajax-blog-scroll/{limit}/{start}")
-    public ResponseEntity<List<Blog>> getListBlogAjaxScroll(@PathVariable int limit, @PathVariable int start) {
+    @GetMapping("/ajax-blog-scroll")
+    public ResponseEntity<List<Blog>> getListBlogAjaxScroll(@RequestParam int start, int limit) {
         List<Blog> blogList = this.blogService.findAllScroll(start, limit);
         return new ResponseEntity<>(blogList, HttpStatus.OK);
     }

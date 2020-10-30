@@ -93,7 +93,7 @@
                 'Content-Type': 'application/json'
             },
             type: "GET",
-            url: "http://localhost:8080/restBlog/ajax-blog-scroll/" + limit + "/" + start,
+            url: "http://localhost:8080/restBlog/ajax-blog-scroll?start=" + start + "&limit=" + limit,
             success: function (listBlog) {
                 for (let i = 0; i < listBlog.length; i++) {
                     data += '<tr>\n' +
@@ -117,7 +117,7 @@
                     'Content-Type': 'application/json'
                 },
                 type: "GET",
-                url: "http://localhost:8080/restBlog/ajax-blog-scroll/" + limit + "/" + start,
+                url: "http://localhost:8080/restBlog/ajax-blog-scroll?start=" + start + "&limit=" + limit,
                 success: function (listBlog) {
                     for (let i = 0; i < listBlog.length; i++) {
                         data += '<tr>\n' +

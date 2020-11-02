@@ -42,11 +42,11 @@ values
 	('Manage');
 
 create table customer_type (
-	customer_type_id int primary key auto_increment,
-    customer_type_name varchar (45)
+	id int primary key auto_increment,
+    `name` varchar (45)
 );
 
-insert into customer_type (customer_type_name)
+insert into customer_type (`name`)
 values
 	('Diamond'),
 	('Platinium'),
@@ -121,20 +121,20 @@ create table user_role (
 );
 
 create table customer (
-	customer_id varchar(25) primary key,
-    customer_name varchar(45),
-    customer_birthday date,
-    customer_gender varchar(45),
-    customer_id_card varchar(45),
-    customer_phone varchar(45),
-    customer_email varchar(45),
-    customer_address varchar(45),
+	id varchar(25) primary key,
+    `name` varchar(45),
+    birthday date,
+    gender varchar(45),
+    id_card varchar(45),
+    phone_number varchar(45),
+    email varchar(45),
+    address varchar(45),
     
     customer_type_id int,
-    foreign key (customer_type_id) references customer_type(customer_type_id) on delete cascade on update cascade
+    foreign key (customer_type_id) references customer_type(id) on delete cascade on update cascade
 );
 
-insert into customer (customer_id, customer_name, customer_birthday, customer_gender, customer_email, customer_address)
+insert into customer (id, `name`, birthday, gender, email, address)
 values
 	('KH-6789', 'Chau Luong', '1995-05-27', 'Male', 'chauluong@codegym.com', 'Quang Nam'),
 	('KH-0515', 'Mai Ho', '1995-05-15', 'Female', 'maiho@codegym.com', 'Da Nang'),
@@ -213,7 +213,7 @@ create table contract (
     constraint fk_employee foreign key(employee_id) references employee(employee_id) on delete cascade on update cascade,
     
     customer_id varchar(25),
-    constraint fk_customer foreign key(customer_id) references customer(customer_id) on delete cascade on update cascade,
+    constraint fk_customer foreign key(customer_id) references customer(id) on delete cascade on update cascade,
     
     service_id varchar(25),
     constraint fk_service foreign key(service_id) references service(service_id) on delete cascade on update cascade
@@ -246,72 +246,72 @@ values
 	(4, 1, 4, 4),
 	(5, 1, 5, 5);
 
-DELIMITER //
-CREATE PROCEDURE find_customer_by_id(id_need_find varchar(25))
-BEGIN
-	select *
-    from customer
-    where customer_id = id_need_find;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE find_customer_by_id(id_need_find varchar(25))
+-- BEGIN
+-- 	select *
+--     from customer
+--     where customer_id = id_need_find;
+-- END //
+-- DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE find_employee_by_id(id_need_find varchar(25))
-BEGIN
-	select *
-    from employee
-    where employee_id = id_need_find;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE find_employee_by_id(id_need_find varchar(25))
+-- BEGIN
+-- 	select *
+--     from employee
+--     where employee_id = id_need_find;
+-- END //
+-- DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE delete_customer(id_need_delete varchar(25))
-BEGIN
-	delete from customer
-    where customer_id = id_need_delete;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE delete_customer(id_need_delete varchar(25))
+-- BEGIN
+-- 	delete from customer
+--     where customer_id = id_need_delete;
+-- END //
+-- DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE update_customer(id_need_update varchar(25), name_need_update varchar(45), birthday_need_update date, gender_need_update varchar(45), 
-id_card_need_update varchar(45), phone_need_update varchar(45), email_need_update varchar(45), address_need_update varchar(45), type_id_need_update int)
-BEGIN
-	update customer
-    set customer_name = name_need_update, customer_email = email_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
-    customer_id_card = id_card_need_update,
-    customer_phone = phone_need_update, customer_address = address_need_update, customer_type_id = type_id_need_update
-    where customer_id = id_need_update;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE update_customer(id_need_update varchar(25), name_need_update varchar(45), birthday_need_update date, gender_need_update varchar(45), 
+-- id_card_need_update varchar(45), phone_need_update varchar(45), email_need_update varchar(45), address_need_update varchar(45), type_id_need_update int)
+-- BEGIN
+-- 	update customer
+--     set customer_name = name_need_update, customer_email = email_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
+--     customer_id_card = id_card_need_update,
+--     customer_phone = phone_need_update, customer_address = address_need_update, customer_type_id = type_id_need_update
+--     where customer_id = id_need_update;
+-- END //
+-- DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE delete_employee(id_need_delete int)
-BEGIN
-	delete from employee
-    where employee_id = id_need_delete;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE delete_employee(id_need_delete int)
+-- BEGIN
+-- 	delete from employee
+--     where employee_id = id_need_delete;
+-- END //
+-- DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE update_employee(id_update int, name_update varchar(45), birthday_update date, id_card_update varchar(45), 
-salary_update double, phone_update varchar(45), email_update varchar(45), address_update varchar(45), position_id_update int, 
-education_degree_id_update int, division_id_update int, user_name_update varchar(255))
-BEGIN
-	update employee
-    set employee_name = name_update, employee_birthday = birthday_update, employee_id_card = id_card_update, employee_salary = salary_update,
-    employee_phone = phone_update, employee_email = email_update, employee_address = address_update, position_id = position_id_update,
-    education_degree_id = education_degree_id_update, division_id = division_id_update, user_name = user_name_update
-    where employee_id = id_update;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE update_employee(id_update int, name_update varchar(45), birthday_update date, id_card_update varchar(45), 
+-- salary_update double, phone_update varchar(45), email_update varchar(45), address_update varchar(45), position_id_update int, 
+-- education_degree_id_update int, division_id_update int, user_name_update varchar(255))
+-- BEGIN
+-- 	update employee
+--     set employee_name = name_update, employee_birthday = birthday_update, employee_id_card = id_card_update, employee_salary = salary_update,
+--     employee_phone = phone_update, employee_email = email_update, employee_address = address_update, position_id = position_id_update,
+--     education_degree_id = education_degree_id_update, division_id = division_id_update, user_name = user_name_update
+--     where employee_id = id_update;
+-- END //
+-- DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE update_customer_modal(id_need_update varchar(25), name_need_update varchar(45), birthday_need_update date, gender_need_update varchar(45),
- email_need_update varchar(45), address_need_update varchar(45))
-BEGIN
-	update customer
-    set customer_name = name_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
-    customer_email = email_need_update, customer_address = address_need_update
-    where customer_id = id_need_update;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE PROCEDURE update_customer_modal(id_need_update varchar(25), name_need_update varchar(45), birthday_need_update date, gender_need_update varchar(45),
+--  email_need_update varchar(45), address_need_update varchar(45))
+-- BEGIN
+-- 	update customer
+--     set customer_name = name_need_update, customer_birthday = birthday_need_update, customer_gender = gender_need_update,
+--     customer_email = email_need_update, customer_address = address_need_update
+--     where customer_id = id_need_update;
+-- END //
+-- DELIMITER ;

@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,16 +24,6 @@
 <div>
     <a th:href="@{/blog/create}">Create New Blog</a><br><br>
 
-    <form action="/blog">
-        <label>
-            <input type="text" name="keyword" th:value="${keywordOld}" />
-        </label>
-        <input type="submit" value="Search" />
-    </form><br>
-
-    <a th:href="@{/blog/sort}">Sort by Date Create</a>
-
-    <p style="color: blue" th:text="${message}"></p>
     <table >
         <tr>
             <th>Name</th>
@@ -54,10 +44,6 @@
             </tr>
         </th:block>
     </table>
-
-    <a th:if="${blogList.hasPrevious()}" th:href="@{/blog(page = ${blogList.number - 1}, keyword = ${keywordOld})}">Previous</a>
-    <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
-    <a th:if="${blogList.hasNext()}" th:href="@{/blog(page = ${blogList.number + 1}, keyword = ${keywordOld})}">Next</a>
 
     <footer th:replace="~{common/common::footerBlog}"></footer>
 </div>

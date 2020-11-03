@@ -50,4 +50,9 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CustomerType> allCustomerType() {
         return this.customerTypeRepository.findAll();
     }
+
+    @Override
+    public void update(Customer customer) {
+        this.customerRepository.save(customer);
+    }
 }

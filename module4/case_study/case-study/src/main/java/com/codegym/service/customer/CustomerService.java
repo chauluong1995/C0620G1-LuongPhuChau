@@ -20,4 +20,6 @@ public interface CustomerService {
     void save(Customer customer);
 
     List<CustomerType> allCustomerType();
+
+    void update(Customer customer);
 }

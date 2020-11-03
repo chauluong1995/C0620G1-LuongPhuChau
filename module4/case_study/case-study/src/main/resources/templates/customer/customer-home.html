@@ -22,6 +22,7 @@
 
         h1 {
             color: blue;
+            font-weight: bold;
         }
 
         .btn {
@@ -262,10 +263,23 @@
                         <td th:text="${customer.email}"></td>
                         <td th:text="${customer.address}"></td>
                         <td>
-                            <a href="/customer?actionFurama=showEditCustomer&id=${customer.id}" class="edit"
-                               title="Edit"
-                               data-toggle="tooltip"><i
-                                    class="material-icons">&#xE254;</i></a>
+                            <span class="update" th:data-id="${customer.id}"
+                                  th:data-name="${customer.name}"
+                                  th:data-birthday="${customer.birthDay}"
+                                  th:data-gender="${customer.gender}"
+                                  th:data-idcardedit="${customer.idCard}"
+                                  th:data-phonenumberedit="${customer.phoneNumber}"
+                                  th:data-email="${customer.email}"
+                                  th:data-address="${customer.address}"
+                                  th:data-lkh="${customer.customerType.getId()}">
+                                 <a href="#editCustomerModal" id="update" data-toggle="modal"
+                                    class="material-icons"
+                                    role="button" onclick="getEditModal()">
+                                    <i style="color: blue" class="material-icons" data-toggle="tooltip"
+                                       title="Edit">&#xE254;</i>
+                                 </a>
+                             </span>
+
                             <a data-toggle="modal" data-target="#deleteCustomerModal" href="#"
                                th:data-id="${customer.id}" class="delete" title="Delete"
                             ><i class="material-icons">&#xE872;</i></a>
@@ -345,76 +359,147 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form action="/customer/createNew" method="post" th:object="${newCustomer}"
-                      style="background-color: snow">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: blue">Add New Customer</h4>
+                      style="background-color: #1d15c233">
+                    <div class="modal-header text-center">
+                        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: darkblue"
+                            id="add">
+                            <strong>Create New Customer</strong></h3>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="id">ID :</label>
+                            <input type="text" class="form-control" id="id" th:field="*{id}" required/>
+                            <!--                        <p th:text="${messageID}"></p>-->
+                        </div>
 
-                    <div class="form-group has-success">
-                        <label for="id">ID :</label>
-                        <input type="text" class="form-control" id="id" th:field="${newCustomer.id}" required/>
-                        <p th:text="${messageID}"></p>
+                        <div class="form-group">
+                            <label for="name">Name :</label>
+                            <input type="text" class="form-control" id="name" th:field="*{name}" required/>
+                            <!--                        <p th:text="${messageName}"></p>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthDay">Birth Day :</label>
+                            <input type="date" class="form-control" id="birthDay" th:field="*{birthDay}"
+                                   required/>
+                            <!--                        <p th:text="${messageBirthDay}"></p>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender :</label>
+                            <select id="gender" th:field="*{gender}" required>
+                                <th:block th:each="genderNew : ${genderList}">
+                                    <option th:value="${genderNew}" th:text="${genderNew}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idCard">ID Card :</label>
+                            <input type="text" class="form-control" id="idCard" th:field="*{idCard}" required/>
+                            <!--                        <p th:text="${messageIdCard}"></p>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number :</label>
+                            <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}"
+                                   required/>
+                            <!--                        <p th:text="${messagePhoneNumber}"></p>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="text" class="form-control" id="email" th:field="*{email}" required/>
+                            <!--                        <p th:text="${messageEmail}"></p>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address :</label>
+                            <input type="text" class="form-control" id="address" th:field="*{address}"
+                                   required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerType">Customer Type :</label>
+                            <select id="customerType" th:field="*{customerType}" required>
+                                <th:block th:each="customerType : ${customerTypeList}">
+                                    <option th:value="${customerType.id}" th:text="${customerType.name}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <!--                            <a href="/customer" class="btn btn-info back">Back</a></span>-->
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-info" value="Create New"/>
+                        </div>
                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-                    <div class="form-group has-success">
-                        <label for="name">Name :</label>
-                        <input type="text" class="form-control" id="name" th:field="${newCustomer.name}" required/>
-                        <p th:text="${messageName}"></p>
+    <div id="editCustomerModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/customer/update" method="post" th:object="${newCustomer}"
+                      style="background-color: #203443">
+                    <input type="hidden" id="validEdit" th:value="${#fields.hasErrors()}">
+                    <div class="modal-header text-center">
+                        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: darkviolet"
+                            id="edit">
+                            <strong>Edit Customer</strong></h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <input type="hidden" id="idEdit" th:field="*{id}">
                     </div>
-
-                    <div class="form-group has-warning">
-                        <label for="birthDay">Birth Day :</label>
-                        <input type="date" class="form-control" id="birthDay" th:field="${newCustomer.birthDay}"
-                               required/>
-                        <p th:text="${messageBirthDay}"></p>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nameEdit">Name</label>
+                            <input type="text" id="nameEdit" th:field="*{name}" class="form-control" required/>
+                            <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Birth Day</label>
+                            <input type="date" id="birthdayEdit" th:field="*{birthDay}" class="form-control" required/>
+                            <p style="color: red" th:if="${#fields.hasErrors('birthDay')}" th:errors="*{birthDay}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select class="custom-select" id="genderEdit" th:field="*{gender}">
+                                <option th:each="genderEdit : ${genderList}"
+                                        th:value="${genderEdit}" th:text="${genderEdit}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>ID Card</label>
+                            <input type="text" class="form-control" id="idCardEdit" th:field="*{idCard}" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumberEdit" th:field="*{phoneNumber}"
+                                   required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" id="emailEdit" th:field="*{email}" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" class="form-control" id="addressEdit" th:field="*{address}" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="lkhEdit">Customer Type</label>
+                            <select class="custom-select" id="lkhEdit" th:field="*{customerType}">
+                                <option th:each="customerType : ${customerTypeList}"
+                                        th:value="${customerType.id}" th:text="${customerType.name}"></option>
+                            </select>
+                        </div>
                     </div>
-
-                    <div class="form-group has-error">
-                        <label for="gender">Gender :</label>
-                        <select id="gender" th:field="${newCustomer.gender}" required>
-                            <option th:value="Male">Male</option>
-                            <option th:value="Female">FeMale</option>
-                            <option th:value="Unknow">UnKnow</option>
-                        </select>
+                    <div class="modal-footer">
+                        <input style="color: yellow" type="button" class="btn btn-default" data-dismiss="modal"
+                               value="Cancel">
+                        <input type="submit" class="btn btn-success" value="Update">
                     </div>
-
-                    <div class="form-group has-error">
-                        <label for="idCard">ID Card :</label>
-                        <input type="text" class="form-control" id="idCard" th:field="${newCustomer.idCard}" required/>
-                        <p th:text="${messageIdCard}"></p>
-                    </div>
-
-                    <div class="form-group has-error">
-                        <label for="phoneNumber">Phone Number :</label>
-                        <input type="text" class="form-control" id="phoneNumber" th:field="${newCustomer.phoneNumber}"
-                               required/>
-                        <p th:text="${messagePhoneNumber}"></p>
-                    </div>
-
-                    <div class="form-group has-error">
-                        <label for="email">Email :</label>
-                        <input type="text" class="form-control" id="email" th:field="${newCustomer.email}" required/>
-                        <p th:text="${messageEmail}"></p>
-                    </div>
-
-                    <div class="form-group has-error">
-                        <label for="address">Address :</label>
-                        <input type="text" class="form-control" id="address" th:field="${newCustomer.address}"
-                               required/>
-                    </div>
-
-                    <div class="form-group has-error">
-                        <label for="customerType">Customer Type :</label>
-                        <select id="customerType" th:field="${newCustomer.customerType}" required>
-                            <th:block th:each="customerType : ${customerTypeList}">
-                                <option th:value="${customerType.id}" th:text="${customerType.name}"></option>
-                            </th:block>
-                        </select>
-                    </div>
-
-                    <input type="submit" class="btn btn-info" value="Create New"/><span>
-            <a href="/customer" class="btn btn-info back">Back</a></span>
                 </form>
             </div>
         </div>
@@ -434,8 +519,42 @@
 <script>
     $(".delete").click(function () {
         $("#deleteCustomerModal input[id='deleteId']").val($(this).data("id"));
-        $("#deleteCustomerModal input[id='warning']").val("Are you sure you want to delete Customer have ID is " + $(this).data("id") + " ?");
-    })
+        $("#deleteCustomerModal input[id='warning']").val("Are you sure you want to delete Customer have ID is "
+            + $(this).data("id") + " ?");
+    });
+
+    $(".update").click(function () {
+        $("#editCustomerModal input[id='idEdit']").val($(this).data("id"));
+        $("#editCustomerModal input[id='nameEdit']").val($(this).data("name"));
+        $("#editCustomerModal input[id='birthdayEdit']").val($(this).data("birthday"));
+        $("#editCustomerModal input[id='idCardEdit']").val($(this).data("idcardedit"));
+        $("#editCustomerModal input[id='phoneNumberEdit']").val($(this).data("phonenumberedit"));
+        $("#editCustomerModal input[id='emailEdit']").val($(this).data("email"));
+        $("#editCustomerModal input[id='addressEdit']").val($(this).data("address"));
+
+        let idCustomerType = $(this).data("lkh");
+        $("#editCustomerModal select[id='lkhEdit'] option").each(function () {
+            console.log(idCustomerType);
+            if (this.value == idCustomerType) {
+                $(this).prop("selected", true);
+            }
+        })
+
+        let genderEdit = $(this).data("gender");
+        console.log(genderEdit);
+        $("#editCustomerModal select[id='genderEdit'] option").each(function () {
+            if (this.value == genderEdit) {
+                $(this).prop("selected", true);
+            }
+        })
+    });
+
+    if ($('#validEdit').val() === 'true') {
+        $('#editCustomerModal').modal('show');
+    }
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>
 
 </body>

@@ -276,9 +276,8 @@
         let category = $(this).data("category");
         $("#editEmployeeModal select[id='category'] option").each(function () {
             console.log(category);
-            if (this.value == category) {
+            if (this.value === category) {
                 $(this).prop("selected", true);
-                return;
             }
         })
     })

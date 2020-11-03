@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,7 +22,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 5) Pageable pageable,
+    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 3) Pageable pageable,
                        @RequestParam Optional<String> keyword) {
         redirectAttributes.addFlashAttribute("message", "");
 
@@ -34,6 +36,11 @@ public class CustomerController {
         model.addAttribute("keywordOld", keywordOld);
         model.addAttribute("newCustomer", new Customer());
         model.addAttribute("customerTypeList", this.customerService.allCustomerType());
+        List<String> genderList = new ArrayList<>();
+        genderList.add("Male");
+        genderList.add("Female");
+        genderList.add("Unknow");
+        model.addAttribute("genderList", genderList);
 
         return "customer/customer-home";
     }
@@ -49,6 +56,13 @@ public class CustomerController {
     public String createNewCustomer(@ModelAttribute Customer newCustomer, RedirectAttributes redirectAttributes) {
         this.customerService.save(newCustomer);
         redirectAttributes.addFlashAttribute("message", "Create Complete !");
+        return "redirect:/customer";
+    }
+
+    @PostMapping("/update")
+    public String updateCustomer(@ModelAttribute Customer newCustomer, RedirectAttributes redirectAttributes) {
+        this.customerService.update(newCustomer);
+        redirectAttributes.addFlashAttribute("message", "Update Complete !");
         return "redirect:/customer";
     }
 }

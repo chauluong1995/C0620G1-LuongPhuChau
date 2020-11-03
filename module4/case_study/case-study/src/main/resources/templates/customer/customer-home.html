@@ -25,7 +25,7 @@
         }
 
         .btn {
-            margin-left: 39px;
+            margin-left: 3%;
         }
 
         h5 {
@@ -46,6 +46,11 @@
             background-color: aqua;
             text-align: center;
             height: 25px;
+        }
+
+        .searchBox {
+            margin-left: 11%;
+            width: 25%;
         }
 
         body {
@@ -81,8 +86,7 @@
             display: flex;
         }
 
-        .search-box input#keywordCustomerDisplay {
-
+        .search-box input {
             border-radius: 20px;
             padding-left: 35px;
             border-color: #ddd;
@@ -90,7 +94,6 @@
         }
 
         .search-box input {
-
             border-radius: 20px;
         }
 
@@ -199,10 +202,14 @@
             text-align: center;
             color: orangered;
         }
+
+        label {
+            color: deeppink;
+        }
     </style>
 </head>
 <body>
-<h3 class="message" th:text="${message}"></h3>
+
 <div class="container-fluid">
     <div>
         <th:block th:replace="common/fragment :: header"/>
@@ -214,9 +221,10 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <h1 style="color: red">Customer List</h1>
-                        <p>
-                            <a href="/customer?actionFurama=showCreateNewCustomer"><h3>Create New Customer</h3></a>
-                        </p>
+                        <a href="#addCustomerModal" style="margin-left: 0" id="onlickAddModal" class="btn btn-success"
+                           data-toggle="modal">
+                            <i class="material-icons">&#xE147;</i>
+                            <span>Add New Customer</span></a>
                     </div>
                     <div class="col-sm-4">
                         <form action="/customer">
@@ -231,6 +239,7 @@
                     </div>
                 </div>
             </div>
+            <h3 class="message" th:text="${message}" style="text-align: center"></h3>
             <table id="tableCustomer" class="table table-striped table-hover table-bordered" style="width: 100%">
                 <thead>
                 <tr>
@@ -266,11 +275,44 @@
                 </tbody>
             </table>
 
-            <a th:if="${customerList.hasPrevious()}"
-               th:href="@{/customer(page = ${customerList.number - 1}, keyword = ${keywordOld})}">Previous</a>
-            <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
-            <a th:if="${customerList.hasNext()}"
-               th:href="@{/customer(page = ${customerList.number + 1}, keyword = ${keywordOld})}">Next</a>
+            <!--            <a th:if="${customerList.hasPrevious()}"-->
+            <!--               th:href="@{/customer(page = ${customerList.number - 1}, keyword = ${keywordOld})}">Previous</a>-->
+            <!--            <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>-->
+            <!--            <a th:if="${customerList.hasNext()}"-->
+            <!--               th:href="@{/customer(page = ${customerList.number + 1}, keyword = ${keywordOld})}">Next</a>-->
+
+            <div class="clearfix">
+                <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
+                <ul class="pagination">
+                    <li class="page-item active"><a class="page-link" th:if="${customerList.hasPrevious()}"
+                                                    th:href="@{/customer(page = ${customerList.number - 1}, keyword = ${keywordOld})}">Previous</a>
+                    </li>
+                    <li class="page-item disabled"><a class="page-link" th:unless="${customerList.hasPrevious()}"
+                                                      th:href="@{/customer(page = ${customerList.number - 1}, keyword = ${keywordOld})}">Previous</a>
+                    </li>
+                    <th:block th:each="i:${#numbers.sequence(0,(customerList.totalPages)-1)}">
+                        <li class="page-item disabled">
+                            <a th:if="${customerList.number == i}" class="page-link"
+                               th:href="@{/customer(page = ${i}, keyword = ${keywordOld})}"
+                               th:text="${i+1}">
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a th:unless="${customerList.number == i}" class="page-link"
+                               th:href="@{/customer(page = ${i}, keyword = ${keywordOld})}"
+                               th:text="${i+1}">
+                            </a>
+                        </li>
+
+                    </th:block>
+                    <li class="page-item active"><a class="page-link" th:if="${customerList.hasNext()}"
+                                                    th:href="@{/customer(page = ${customerList.number + 1}, keyword = ${keywordOld})}">Next</a>
+                    </li>
+                    <li class="page-item disabled"><a class="page-link" th:unless="${customerList.hasNext()}"
+                                                      th:href="@{/customer(page = ${customerList.number + 1}, keyword = ${keywordOld})}">Next</a>
+                    </li>
+                </ul>
+            </div>
 
             <div id="deleteCustomerModal" class="modal fade">
                 <div class="modal-dialog">
@@ -283,7 +325,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to delete these Records?</p>
+                                <input id="warning" style="color: red; width: 100%"/>
                                 <p class="text-warning"><small style="color: blue">This action cannot be
                                     undone.</small>
                                 </p>
@@ -295,6 +337,85 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addCustomerModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/customer/createNew" method="post" th:object="${newCustomer}"
+                      style="background-color: snow">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: blue">Add New Customer</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+
+                    <div class="form-group has-success">
+                        <label for="id">ID :</label>
+                        <input type="text" class="form-control" id="id" th:field="${newCustomer.id}" required/>
+                        <p th:text="${messageID}"></p>
+                    </div>
+
+                    <div class="form-group has-success">
+                        <label for="name">Name :</label>
+                        <input type="text" class="form-control" id="name" th:field="${newCustomer.name}" required/>
+                        <p th:text="${messageName}"></p>
+                    </div>
+
+                    <div class="form-group has-warning">
+                        <label for="birthDay">Birth Day :</label>
+                        <input type="date" class="form-control" id="birthDay" th:field="${newCustomer.birthDay}"
+                               required/>
+                        <p th:text="${messageBirthDay}"></p>
+                    </div>
+
+                    <div class="form-group has-error">
+                        <label for="gender">Gender :</label>
+                        <select id="gender" th:field="${newCustomer.gender}" required>
+                            <option th:value="Male">Male</option>
+                            <option th:value="Female">FeMale</option>
+                            <option th:value="Unknow">UnKnow</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group has-error">
+                        <label for="idCard">ID Card :</label>
+                        <input type="text" class="form-control" id="idCard" th:field="${newCustomer.idCard}" required/>
+                        <p th:text="${messageIdCard}"></p>
+                    </div>
+
+                    <div class="form-group has-error">
+                        <label for="phoneNumber">Phone Number :</label>
+                        <input type="text" class="form-control" id="phoneNumber" th:field="${newCustomer.phoneNumber}"
+                               required/>
+                        <p th:text="${messagePhoneNumber}"></p>
+                    </div>
+
+                    <div class="form-group has-error">
+                        <label for="email">Email :</label>
+                        <input type="text" class="form-control" id="email" th:field="${newCustomer.email}" required/>
+                        <p th:text="${messageEmail}"></p>
+                    </div>
+
+                    <div class="form-group has-error">
+                        <label for="address">Address :</label>
+                        <input type="text" class="form-control" id="address" th:field="${newCustomer.address}"
+                               required/>
+                    </div>
+
+                    <div class="form-group has-error">
+                        <label for="customerType">Customer Type :</label>
+                        <select id="customerType" th:field="${newCustomer.customerType}" required>
+                            <th:block th:each="customerType : ${customerTypeList}">
+                                <option th:value="${customerType.id}" th:text="${customerType.name}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-info" value="Create New"/><span>
+            <a href="/customer" class="btn btn-info back">Back</a></span>
+                </form>
             </div>
         </div>
     </div>
@@ -313,6 +434,7 @@
 <script>
     $(".delete").click(function () {
         $("#deleteCustomerModal input[id='deleteId']").val($(this).data("id"));
+        $("#deleteCustomerModal input[id='warning']").val("Are you sure you want to delete Customer have ID is " + $(this).data("id") + " ?");
     })
 </script>
 

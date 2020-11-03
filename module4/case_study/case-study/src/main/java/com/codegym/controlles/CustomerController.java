@@ -1,5 +1,6 @@
 package com.codegym.controlles;
 
+import com.codegym.entity.customer.Customer;
 import com.codegym.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +20,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 2) Pageable pageable,
+    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 5) Pageable pageable,
                        @RequestParam Optional<String> keyword) {
         redirectAttributes.addFlashAttribute("message", "");
 
@@ -31,6 +32,8 @@ public class CustomerController {
             model.addAttribute("customerList", this.customerService.findAll(pageable));
         }
         model.addAttribute("keywordOld", keywordOld);
+        model.addAttribute("newCustomer", new Customer());
+        model.addAttribute("customerTypeList", this.customerService.allCustomerType());
 
         return "customer/customer-home";
     }
@@ -39,6 +42,13 @@ public class CustomerController {
     public String deleteCustomer(@RequestParam String deleteId, RedirectAttributes redirectAttributes) {
         this.customerService.deleteCustomer(deleteId);
         redirectAttributes.addFlashAttribute("message", "Delete Customer Complete !");
+        return "redirect:/customer";
+    }
+
+    @PostMapping("/createNew")
+    public String createNewCustomer(@ModelAttribute Customer newCustomer, RedirectAttributes redirectAttributes) {
+        this.customerService.save(newCustomer);
+        redirectAttributes.addFlashAttribute("message", "Create Complete !");
         return "redirect:/customer";
     }
 }

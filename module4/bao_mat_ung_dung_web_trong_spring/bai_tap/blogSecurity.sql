@@ -1,6 +1,6 @@
 use blog;
 
-create table APP_USER ( USER_ID BIGINT not null, USER_NAME VARCHAR(36) not null, ENCRYTED_PASSWORD VARCHAR(128) not null, ENABLED BIT not null ) ;
+create table APP_USER ( USER_ID BIGINT not null , USER_NAME VARCHAR(36) not null, ENCRYTED_PASSWORD VARCHAR(128) not null, ENABLED BIT not null ) ;
 alter table APP_USER add constraint APP_USER_PK primary key (USER_ID);
 alter table APP_USER add constraint APP_USER_UK unique (USER_NAME);
 

@@ -1,6 +1,7 @@
 package com.codegym.service.customer;
 
 import com.codegym.entity.customer.Customer;
+import com.codegym.entity.customer.CustomerType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,4 +16,8 @@ public interface CustomerService {
     Page<Customer> findByNameContaining(Pageable pageable, String name);
 
     void deleteCustomer (String id);
+
+    void save(Customer customer);
+
+    List<CustomerType> allCustomerType();
 }

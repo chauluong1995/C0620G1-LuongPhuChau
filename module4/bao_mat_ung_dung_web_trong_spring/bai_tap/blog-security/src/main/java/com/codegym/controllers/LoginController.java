@@ -1,11 +1,8 @@
 package com.codegym.controllers;
 
-import com.codegym.entity.AppRole;
 import com.codegym.entity.AppUser;
 import com.codegym.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +45,8 @@ public class LoginController {
             }
         }
         if (check) {
-            appUser.setEncrytedPassword(bCryptPasswordEncoder.encode(appUser.getEncrytedPassword()));
+            appUser.setEncrytedPassword(this.bCryptPasswordEncoder.encode(appUser.getEncrytedPassword()));
+            appUser.setUserId((long) (Math.random()*1000));
             this.userDetailsService.saveNewUser(appUser);
             for (Long element : appRole) {
                 this.userDetailsService.saveUserRole(appUser, element);

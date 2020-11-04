@@ -1,12 +1,12 @@
 package com.codegym.entity.employee;
 
 public class Employee {
-    private String id;
+    private Integer id;
     private String name;
-    private String birthDay;
+    private String birthday;
     private String idCard;
     private String salary;
-    private String phone;
+    private String phoneNumber;
     private String email;
     private String address;
     private String idPosition;
@@ -17,56 +17,11 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String id, String name, String salary, String phone, String email, String address) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-    }
-
-    public Employee(String name, String birthDay, String idCard, String salary, String phone, String email,
-                    String address, String idPosition, String idEducationDegree, String idDivision, String userName) {
-        this.name = name;
-        this.birthDay = birthDay;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.idPosition = idPosition;
-        this.idEducationDegree = idEducationDegree;
-        this.idDivision = idDivision;
-        this.userName = userName;
-    }
-
-    public Employee(String id, String name, String birthDay, String idCard, String salary, String phone, String email,
-                    String address, String idPosition, String idEducationDegree, String idDivision, String userName) {
-        this.id = id;
-        this.name = name;
-        this.birthDay = birthDay;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.idPosition = idPosition;
-        this.idEducationDegree = idEducationDegree;
-        this.idDivision = idDivision;
-        this.userName = userName;
-    }
-
-    public Employee(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -79,11 +34,11 @@ public class Employee {
     }
 
     public String getBirthDay() {
-        return birthDay;
+        return birthday;
     }
 
     public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
+        this.birthday = birthDay;
     }
 
     public String getIdCard() {
@@ -103,11 +58,11 @@ public class Employee {
     }
 
     public String getPhone() {
-        return phone;
+        return phoneNumber;
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phoneNumber = phone;
     }
 
     public String getEmail() {

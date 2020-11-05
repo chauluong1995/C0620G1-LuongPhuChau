@@ -64,8 +64,10 @@
             </div>
 
             <div class="col-sm-4" style="margin-top: 50px">
-<!--                <h2>Welcome, <span sec:authentication="principal.username"></span></h2>-->
-                <h1>LUONG PHU CHAU</h1>
+                <th:block sec:authorize="hasAnyRole('ADMIN', 'MEMBER')">
+                    <h2>Welcome, <span sec:authentication="principal.username"></span></h2>
+                </th:block>
+<!--                <h1>LUONG PHU CHAU</h1>-->
             </div>
         </div>
 
@@ -84,10 +86,12 @@
                     <a th:href="@{/contractDetail}"
                        class="btn btn-outline-success my-2 my-sm-0">
                         Contract Detail</a>
-                    <!--                    <form class="form-inline my-2 my-lg-0">-->
-                    <!--                        <input class="form-control mr-sm-2 searchBox" type="search" placeholder="Search" aria-label="Search" />-->
-                    <!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-                    <!--                    </form>-->
+                    <a th:href="@{/login}" style="margin-left: 29%; background-color: darkviolet"
+                       class="btn btn-outline-success my-2 my-sm-0">
+                        Sign In</a>
+                    <a th:href="@{/logout}" style="background-color: pink"
+                       class="btn btn-outline-success my-2 my-sm-0">
+                        Log Out</a>
                 </nav>
             </div>
         </div>

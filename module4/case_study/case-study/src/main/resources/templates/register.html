@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Register User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -12,7 +12,7 @@
     <style>
         body {
             color: #fff;
-            background: deeppink;
+            background: greenyellow;
         }
 
         .form-control {
@@ -82,35 +82,37 @@
 </head>
 <body>
 <div class="login-form" style="background-color: yellow">
+    <h2 style="color: red; text-align: center" th:text="${messageWrong}"></h2>
     <h3 style="color: red; text-align: center" th:text="${message}"></h3>
 
-    <h2 style="color: red; text-align: center" th:text="${messageWrong}"></h2>
-    <h3 style="color: red; text-align: center">Sign in to confirm what you want to do !</h3>
-
-    <form action="/checkLogin" method="post">
-        <h2 class="text-center" style="color: darkviolet">Login</h2>
-        <div class="form-group has-error">
-            <input type="text" class="form-control" name="userName" placeholder="Input User Name" required/>
+    <form action="/login/registerNew" method="post" th:object="${newUser}">
+        <h2 class="text-center" style="color: darkviolet">New User</h2>
+        <div class="form-group">
+            <select class="form-control" th:field="*{userName}" required>
+                <th:block th:each="employeeName : ${employeeNameList}">
+                    <option th:value="${employeeName}" th:text="${employeeName}"></option>
+                </th:block>
+            </select>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Input Your Password" required/>
+            <select class="form-control" name="appRoleId" required>
+                <th:block th:each="appRole : ${appRoleList}">
+                    <option th:value="${appRole.roleId}" th:text="${appRole.roleName}"></option>
+                </th:block>
+            </select>
         </div>
-
-        <p>
-            <label>
-                <input type="checkbox" name="rememberMe"/>
-            </label>
-            Remember me
-        </p>
-
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            <input type="password" class="form-control" th:field="*{encrytedPassword}" placeholder="Input Your Password"
+                   required/>
         </div>
-        <p><a href="/home" style="color: blue; font-weight: bold">Welcome to Customer !</a></p>
+        <div class="form-group">
+            <input type="password" class="form-control" name="verification" placeholder="Input Your Verification Code"
+                   required/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Register New</button>
+        </div>
     </form>
-
-    <p class="text-center" style="color: red; font-weight: bold">Don't have an account ?
-        <a th:href="@{/login/register}" style="color: red"> Sign up here!</a></p>
 </div>
 </body>
 </html>

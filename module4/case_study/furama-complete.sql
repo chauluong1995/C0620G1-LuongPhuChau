@@ -28,7 +28,7 @@ CREATE TABLE Persistent_Logins (
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) values (1, 'LUONG PHU CHAU', '$2y$11$tngL5fyeWbtaSh8m5ngKcOS2b4PIs7.brx2xOD63y2UC/Nc7TwEq6', 1);
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) values (2, 'Member', '$2y$12$yyPZBpFFjUDrmWl2CHMJc.ezoUAAzG5.b4dqIudTBQUsPYJ3Q0plK', 1);
 insert into app_role (ROLE_ID, ROLE_NAME) values (1, 'ROLE_ADMIN');
-insert into app_role (ROLE_ID, ROLE_NAME) values (2, 'ROLE_USER');
+insert into app_role (ROLE_ID, ROLE_NAME) values (2, 'ROLE_MEMBER');
 insert into user_role (ID, USER_ID, ROLE_ID) values (1, 1, 1);
 insert into user_role (ID, USER_ID, ROLE_ID) values (2, 2, 2);
 insert into user_role (ID, USER_ID, ROLE_ID) values (3, 1, 2);

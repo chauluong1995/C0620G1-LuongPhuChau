@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Fragment</title>
@@ -63,6 +64,7 @@
             </div>
 
             <div class="col-sm-4" style="margin-top: 50px">
+<!--                <h2>Welcome, <span sec:authentication="principal.username"></span></h2>-->
                 <h1>LUONG PHU CHAU</h1>
             </div>
         </div>
@@ -70,7 +72,7 @@
         <div class="row" style="background-color: powderblue">
             <div class="col-sm-12 icon">
                 <nav class="nav nav-tabs row">
-                    <a th:href="@{/}" class="btn btn-outline-success my-2 my-sm-0">Home</a>
+                    <a th:href="@{/home}" class="btn btn-outline-success my-2 my-sm-0">Home</a>
                     <a th:href="@{/employee}"
                        class="btn btn-outline-success my-2 my-sm-0">Employee</a>
                     <a th:href="@{/customer}"
@@ -82,10 +84,10 @@
                     <a th:href="@{/contractDetail}"
                        class="btn btn-outline-success my-2 my-sm-0">
                         Contract Detail</a>
-<!--                    <form class="form-inline my-2 my-lg-0">-->
-<!--                        <input class="form-control mr-sm-2 searchBox" type="search" placeholder="Search" aria-label="Search" />-->
-<!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--                    </form>-->
+                    <!--                    <form class="form-inline my-2 my-lg-0">-->
+                    <!--                        <input class="form-control mr-sm-2 searchBox" type="search" placeholder="Search" aria-label="Search" />-->
+                    <!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                    <!--                    </form>-->
                 </nav>
             </div>
         </div>

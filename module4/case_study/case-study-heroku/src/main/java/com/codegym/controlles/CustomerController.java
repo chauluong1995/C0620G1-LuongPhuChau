@@ -22,7 +22,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 3) Pageable pageable,
+    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 2) Pageable pageable,
                        @RequestParam Optional<String> keyword) {
         redirectAttributes.addFlashAttribute("message", "");
 

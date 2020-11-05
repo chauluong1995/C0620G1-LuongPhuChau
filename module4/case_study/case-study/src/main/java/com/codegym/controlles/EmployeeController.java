@@ -32,6 +32,10 @@ public class EmployeeController {
         }
         model.addAttribute("keywordOld", keywordOld);
         model.addAttribute("newEmployee", new Employee());
+        model.addAttribute("positionList", this.employeeService.allPosition());
+        model.addAttribute("divisionList", this.employeeService.allDivision());
+        model.addAttribute("educationDegreeList", this.employeeService.allEducationDegree());
+        model.addAttribute("userList", this.employeeService.allUser());
 
         return "employee/employee-home";
     }

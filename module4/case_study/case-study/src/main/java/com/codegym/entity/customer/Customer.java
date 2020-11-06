@@ -1,11 +1,17 @@
 package com.codegym.entity.customer;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
+//public class Customer implements Validator {
 public class Customer {
     @Id
     private String id;
@@ -14,6 +20,9 @@ public class Customer {
     private String gender;
     private String idCard;
     private String phoneNumber;
+
+    @NotBlank(message = "Please enter your email !")
+    @Email(message = "Please enter your email abc!")
     private String email;
     private String address;
 
@@ -95,4 +104,14 @@ public class Customer {
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
     }
+
+//    @Override
+//    public boolean supports(Class<?> clazz) {
+//        return false;
+//    }
+//
+//    @Override
+//    public void validate(Object target, Errors errors) {
+//
+//    }
 }

@@ -279,8 +279,8 @@
                                   th:data-address="${employee.address}"
                                   th:data-position="${employee.position.name}"
                                   th:data-division="${employee.division.name}"
-                                  th:data-educationdegree="${employee.educationDegree.name}"
-                                  th:data-appUser="${employee.appUser.userName}">
+                                  th:data-educationdegree="${employee.educationDegree.name}">
+<!--                                  th:data-appUser="${employee.appUser.userName}">-->
                                  <a href="#viewEmployeeModal" id="viewDetail" data-toggle="modal"
                                     class="material-icons"
                                     role="button" onclick="getEditModal()">
@@ -299,8 +299,8 @@
                                       th:data-address="${employee.address}"
                                       th:data-position="${employee.position.id}"
                                       th:data-division="${employee.division.id}"
-                                      th:data-educationdegree="${employee.educationDegree.id}"
-                                      th:data-appUser="${employee.appUser.userId}">
+                                      th:data-educationdegree="${employee.educationDegree.id}">
+<!--                                      th:data-appUser="${employee.appUser.userId}">-->
                                  <a href="#editEmployeeModal" id="update" data-toggle="modal"
                                     class="material-icons"
                                     role="button" onclick="getEditModal()">
@@ -461,14 +461,14 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label for="appUser">User :</label>
-                            <select class="form-control" id="appUser" th:field="*{appUser}" required>
-                                <th:block th:each="appUser : ${userList}">
-                                    <option th:value="${appUser.userId}" th:text="${appUser.userName}"></option>
-                                </th:block>
-                            </select>
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label for="appUser">User :</label>-->
+<!--                            <select class="form-control" id="appUser" th:field="*{appUser}" required>-->
+<!--                                <th:block th:each="appUser : ${userList}">-->
+<!--                                    <option th:value="${appUser.userId}" th:text="${appUser.userName}"></option>-->
+<!--                                </th:block>-->
+<!--                            </select>-->
+<!--                        </div>-->
 
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -546,13 +546,13 @@
                                         th:value="${educationDegree.id}" th:text="${educationDegree.name}"></option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="userEdit">User</label>
-                            <select class="custom-select" id="userEdit" th:field="*{appUser}">
-                                <option th:each="appUser : ${userList}"
-                                        th:value="${appUser.userId}" th:text="${appUser.userName}"></option>
-                            </select>
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label for="userEdit">User</label>-->
+<!--                            <select class="custom-select" id="userEdit" th:field="*{appUser}">-->
+<!--                                <option th:each="appUser : ${userList}"-->
+<!--                                        th:value="${appUser.userId}" th:text="${appUser.userName}"></option>-->
+<!--                            </select>-->
+<!--                        </div>-->
                     </div>
                     <div class="modal-footer">
                         <input style="color: yellow" type="button" class="btn btn-default" data-dismiss="modal"
@@ -619,10 +619,10 @@
                             <label for="educationDegreeView">Education Degree</label>
                             <input type="text" class="form-control" id="educationDegreeView" readonly/>
                         </div>
-                        <div class="form-group">
-                            <label for="userView">User Name</label>
-                            <input type="text" class="form-control" id="userView" readonly/>
-                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label for="userView">User Name</label>-->
+<!--                            <input type="text" class="form-control" id="userView" readonly/>-->
+<!--                        </div>-->
                     </div>
                     <div class="modal-footer">
                         <input style="color: darkred" type="button" class="btn btn-default" data-dismiss="modal"

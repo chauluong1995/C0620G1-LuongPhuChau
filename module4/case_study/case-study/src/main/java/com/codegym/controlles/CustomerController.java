@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -22,26 +24,10 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public String home(Model model, RedirectAttributes redirectAttributes, @PageableDefault(size = 2) Pageable pageable,
+    public String home(Model model, @PageableDefault(size = 2) Pageable pageable,
                        @RequestParam Optional<String> keyword) {
-        redirectAttributes.addFlashAttribute("message", "");
-
-        String keywordOld = "";
-        if (keyword.isPresent()) {
-            keywordOld = keyword.get();
-            model.addAttribute("customerList", this.customerService.findByNameContaining(pageable, keywordOld));
-        } else {
-            model.addAttribute("customerList", this.customerService.findAll(pageable));
-        }
-        model.addAttribute("keywordOld", keywordOld);
-        model.addAttribute("newCustomer", new Customer());
-        model.addAttribute("customerTypeList", this.customerService.allCustomerType());
-        List<String> genderList = new ArrayList<>();
-        genderList.add("Male");
-        genderList.add("Female");
-        genderList.add("Unknow");
-        model.addAttribute("genderList", genderList);
-
+        loadList(model, pageable, keyword);
+        model.addAttribute("customer", new Customer());
         return "customer/customer-home";
     }
 
@@ -53,16 +39,45 @@ public class CustomerController {
     }
 
     @PostMapping("/createNew")
-    public String createNewCustomer(@ModelAttribute Customer newCustomer, RedirectAttributes redirectAttributes) {
-        this.customerService.save(newCustomer);
+    public String createNewCustomer(RedirectAttributes redirectAttributes,
+                                    @Validated @ModelAttribute Customer customer, BindingResult bindingResult
+            , @PageableDefault(size = 2) Pageable pageable, @RequestParam Optional<String> keyword, Model model) {
+        if (bindingResult.hasFieldErrors()) {
+//            return home(model, redirectAttributes, pageable, keyword);
+        }
+        this.customerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Create Complete !");
         return "redirect:/customer";
     }
 
     @PostMapping("/update")
-    public String updateCustomer(@ModelAttribute Customer newCustomer, RedirectAttributes redirectAttributes) {
-        this.customerService.update(newCustomer);
+    public String updateCustomer(RedirectAttributes redirectAttributes,
+                                 @Validated @ModelAttribute Customer customer, BindingResult bindingResult,
+                                 @PageableDefault(size = 2) Pageable pageable, Model model,
+                                 @RequestParam Optional<String> keyword) {
+        if (bindingResult.hasErrors()) {
+            loadList(model, pageable, keyword);
+            return "customer/customer-home";
+        }
+        this.customerService.update(customer);
         redirectAttributes.addFlashAttribute("message", "Update Complete !");
         return "redirect:/customer";
+    }
+
+    private void loadList(Model model, @PageableDefault(size = 2) Pageable pageable, @RequestParam Optional<String> keyword) {
+        String keywordOld = "";
+        if (keyword.isPresent()) {
+            keywordOld = keyword.get();
+            model.addAttribute("customerList", this.customerService.findByNameContaining(pageable, keywordOld));
+        } else {
+            model.addAttribute("customerList", this.customerService.findAll(pageable));
+        }
+        model.addAttribute("keywordOld", keywordOld);
+        model.addAttribute("customerTypeList", this.customerService.allCustomerType());
+        List<String> genderList = new ArrayList<>();
+        genderList.add("Male");
+        genderList.add("Female");
+        genderList.add("Unknow");
+        model.addAttribute("genderList", genderList);
     }
 }

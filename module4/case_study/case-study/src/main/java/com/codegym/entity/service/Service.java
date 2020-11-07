@@ -1,6 +1,15 @@
 package com.codegym.entity.service;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+@Entity
 public class Service {
+    @Id
+    @NotBlank(message = "Please enter ID of service !")
+    @Pattern(regexp = "^(DV-)\\d{4}$", message = "Invalid ID ! Format ID is DV-XXXX with X is number from 0 to 9 !")
     private String id;
     private String name;
     private String area;

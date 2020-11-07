@@ -1,18 +1,40 @@
 package com.codegym.entity.employee;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotBlank(message = "Please enter name !")
     private String name;
+
     private String birthday;
+
+    @NotBlank(message = "Please enter ID card !")
+    @Pattern(regexp = "^(\\d{9})|(\\d{12})$", message = "Invalid ID card ! Format ID Card is " +
+            "XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !")
     private String idCard;
-    private String salary;
+
+    @NotBlank(message = "Please enter salary !")
+    private Double salary;
+
+    @NotBlank(message = "Please enter phone number !")
+    @Pattern(regexp = "^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$", message = "Invalid phone number ! Format phone " +
+            "number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
+            "(84)+91xxxxxxx with x is number from 0 to 9 !")
     private String phoneNumber;
+
+    @NotBlank(message = "Please enter email !")
+    @Email(message = "Invalid email ! Format email is abc@abc.abc !")
     private String email;
+
+    @NotBlank(message = "Please enter address !")
     private String address;
 
     @ManyToOne
@@ -27,9 +49,9 @@ public class Employee {
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private AppUser appUser;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+//    private AppUser appUser;
 
     public Employee() {
     }
@@ -66,11 +88,11 @@ public class Employee {
         this.idCard = idCard;
     }
 
-    public String getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -122,11 +144,11 @@ public class Employee {
         this.division = division;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
-    }
-
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
-    }
+//    public AppUser getAppUser() {
+//        return appUser;
+//    }
+//
+//    public void setAppUser(AppUser appUser) {
+//        this.appUser = appUser;
+//    }
 }

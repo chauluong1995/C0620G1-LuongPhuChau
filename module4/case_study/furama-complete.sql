@@ -25,13 +25,14 @@ CREATE TABLE Persistent_Logins (
     PRIMARY KEY (series)
 );
 
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) values (1, 'LUONG PHU CHAU', '$2y$11$tngL5fyeWbtaSh8m5ngKcOS2b4PIs7.brx2xOD63y2UC/Nc7TwEq6', 1);
-insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) values (2, 'Member', '$2y$12$yyPZBpFFjUDrmWl2CHMJc.ezoUAAzG5.b4dqIudTBQUsPYJ3Q0plK', 1);
 insert into app_role (ROLE_ID, ROLE_NAME) values (1, 'ROLE_ADMIN');
 insert into app_role (ROLE_ID, ROLE_NAME) values (2, 'ROLE_MEMBER');
-insert into user_role (ID, USER_ID, ROLE_ID) values (1, 1, 1);
-insert into user_role (ID, USER_ID, ROLE_ID) values (2, 2, 2);
-insert into user_role (ID, USER_ID, ROLE_ID) values (3, 1, 2);
+
+-- insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) values (1, 'LUONG PHU CHAU', '$2y$11$tngL5fyeWbtaSh8m5ngKcOS2b4PIs7.brx2xOD63y2UC/Nc7TwEq6', 1);
+-- insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) values (2, 'Member', '$2y$12$yyPZBpFFjUDrmWl2CHMJc.ezoUAAzG5.b4dqIudTBQUsPYJ3Q0plK', 1);
+-- insert into user_role (ID, USER_ID, ROLE_ID) values (1, 1, 1);
+-- insert into user_role (ID, USER_ID, ROLE_ID) values (2, 2, 2);
+-- insert into user_role (ID, USER_ID, ROLE_ID) values (3, 1, 2);
 
 create table `position` (
 	id int primary key auto_increment,
@@ -169,7 +170,7 @@ create table employee (
     `name` varchar(45),
     birthday date,
     id_card varchar(45),
-    salary varchar(25),
+    salary double,
     phone_number varchar(45),
     email varchar(45),
     address varchar(45),
@@ -181,20 +182,20 @@ create table employee (
     foreign key(education_degree_id) references education_degree(id) on delete cascade on update cascade,
     
     division_id int,
-    foreign key(division_id) references division(id) on delete cascade on update cascade,
+    foreign key(division_id) references division(id) on delete cascade on update cascade
     
-    user_id bigint,
-    foreign key(user_id) references app_user(user_id) on delete cascade on update cascade
+-- 	   user_id bigint,
+--     foreign key(user_id) references app_user(user_id) on delete cascade on update cascade
 );
 
 insert into employee
 values
-	('1', 'Chau Luong', '1995-05-27', '205052795', '5000 $', '0905052795', 'chauluong@codegym.com', 'Quang Nam', 6, 4, 4, 1),
-	('2', 'Mai Ho', '1995-05-15', '205051595', '4500 $', '0905051595', 'maiho@codegym.com', 'Da Nang', 5, 4, 4, 1),
-	('3', 'Lanh Nguyen', '1997-02-22', '205220297', '3000 $', '0905220297', 'lanhnguyen@codegym.com', 'Da Nang', 4, 3, 3, 2),
-	('4', 'Din Luong', '1996-02-17', '205170296', '3000 $', '0905170296', 'dinluong@codegym.com', 'Quang Ngai', 3, 3, 3, 2),
-	('5', 'Khanh Nguyen', '1994-09-02', '205020994', '2500 $', '0905020994', 'khanh@codegym.com', 'Da Nang', 2, 2, 2, 2),
-	('6', 'Vu Nguyen', '1997-07-07', '205070797', '1000 $', '0905070797', 'vunguyen@codegym.com', 'Ha Tinh', 1, 1, 1, 2);
+	('1', 'Chau Luong', '1995-05-27', '205052795', 5000, '0905052795', 'chauluong@codegym.com', 'Quang Nam', 6, 4, 4),
+	('2', 'Mai Ho', '1995-05-15', '205051595', 4500 , '0905051595', 'maiho@codegym.com', 'Da Nang', 5, 4, 4),
+	('3', 'Lanh Nguyen', '1997-02-22', '205220297', 3000 , '0905220297', 'lanhnguyen@codegym.com', 'Da Nang', 4, 3, 3),
+	('4', 'Din Luong', '1996-02-17', '205170296', 3000 , '0905170296', 'dinluong@codegym.com', 'Quang Ngai', 3, 3, 3),
+	('5', 'Khanh Nguyen', '1994-09-02', '205020994', 2500 , '0905020994', 'khanh@codegym.com', 'Da Nang', 2, 2, 2),
+	('6', 'Vu Nguyen', '1997-07-07', '205070797', 1000 , '0905070797', 'vunguyen@codegym.com', 'Ha Tinh', 1, 1, 1);
 
 create table contract (
 	id int primary key auto_increment,

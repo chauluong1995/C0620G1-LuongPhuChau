@@ -40,10 +40,13 @@ public class CustomerController {
 
     @PostMapping("/createNew")
     public String createNewCustomer(RedirectAttributes redirectAttributes,
-                                    @Validated @ModelAttribute Customer customer, BindingResult bindingResult
-            , @PageableDefault(size = 2) Pageable pageable, @RequestParam Optional<String> keyword, Model model) {
+                                    @Validated @ModelAttribute Customer customer, BindingResult bindingResult,
+                                    @PageableDefault(size = 2) Pageable pageable, Model model,
+                                    @RequestParam Optional<String> keyword) {
         if (bindingResult.hasFieldErrors()) {
-//            return home(model, redirectAttributes, pageable, keyword);
+            loadList(model, pageable, keyword);
+            model.addAttribute("wrongCreate", "errorCreate");
+            return "customer/customer-home";
         }
         this.customerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Create Complete !");
@@ -57,6 +60,7 @@ public class CustomerController {
                                  @RequestParam Optional<String> keyword) {
         if (bindingResult.hasErrors()) {
             loadList(model, pageable, keyword);
+            model.addAttribute("wrongEdit", "errorEdit");
             return "customer/customer-home";
         }
         this.customerService.update(customer);

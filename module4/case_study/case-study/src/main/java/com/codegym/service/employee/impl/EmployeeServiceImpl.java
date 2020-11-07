@@ -133,7 +133,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String saveUser(AppUser appUser, Long id, String verification) {
-        if (verification.equals(appUser.getUserName().concat("verified"))) {
+        if (verification.equals("ok".concat(appUser.getEncrytedPassword()))) {
             appUser.setEncrytedPassword(this.bCryptPasswordEncoder.encode(appUser.getEncrytedPassword()));
             appUser.setUserId((long) (Math.random() * 1000));
             appUser.setEnabled(true);

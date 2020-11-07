@@ -1,12 +1,15 @@
 package com.codegym.entity.employee;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Entity
-public class Employee {
+public class Employee implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -21,7 +24,6 @@ public class Employee {
             "XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !")
     private String idCard;
 
-    @NotBlank(message = "Please enter salary !")
     private Double salary;
 
     @NotBlank(message = "Please enter phone number !")
@@ -34,7 +36,7 @@ public class Employee {
     @Email(message = "Invalid email ! Format email is abc@abc.abc !")
     private String email;
 
-    @NotBlank(message = "Please enter address !")
+    //    @NotBlank(message = "Please enter address !")
     private String address;
 
     @ManyToOne
@@ -144,11 +146,22 @@ public class Employee {
         this.division = division;
     }
 
-//    public AppUser getAppUser() {
-//        return appUser;
-//    }
-//
-//    public void setAppUser(AppUser appUser) {
-//        this.appUser = appUser;
-//    }
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Employee employee = (Employee) target;
+        if (employee.salary == null) {
+            errors.rejectValue("salary", "salary.empty");
+        } else if (employee.salary <= 0) {
+            errors.rejectValue("salary", "salary.format");
+        }
+
+        if (employee.address.equals("")) {
+            errors.rejectValue("address", "address.empty");
+        }
+    }
 }

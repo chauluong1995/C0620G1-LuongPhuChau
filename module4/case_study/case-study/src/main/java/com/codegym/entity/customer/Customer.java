@@ -1,8 +1,5 @@
 package com.codegym.entity.customer;
 
-import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -10,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.*;
 
 @Entity
-public class Customer implements Validator {
+public class Customer {
     @Id
     @NotBlank(message = "Please enter ID !")
     @Pattern(regexp = "^(KH-)\\d{4}$", message = "Invalid ID ! Format ID is KH-XXXX with X is number from 0 to 9 !")
@@ -117,15 +114,5 @@ public class Customer implements Validator {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
-    }
-
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
-    }
-
-    @Override
-    public void validate(Object target, Errors errors) {
-
     }
 }

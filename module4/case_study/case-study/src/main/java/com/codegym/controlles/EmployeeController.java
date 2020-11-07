@@ -40,12 +40,12 @@ public class EmployeeController {
                                     @Validated @ModelAttribute Employee employee, BindingResult bindingResult,
                                     @PageableDefault(size = 2) Pageable pageable, Model model,
                                     @RequestParam Optional<String> keyword) {
+        new Employee().validate(employee, bindingResult);
         if (bindingResult.hasFieldErrors()) {
             loadList(pageable, model, keyword);
             model.addAttribute("wrongCreate", "errorCreate");
             return "employee/employee-home";
         }
-
         this.employeeService.save(employee);
         redirectAttributes.addFlashAttribute("message", "Create Complete !");
         return "redirect:/employee";
@@ -56,12 +56,12 @@ public class EmployeeController {
                                  @Validated @ModelAttribute Employee employee, BindingResult bindingResult,
                                  @PageableDefault(size = 2) Pageable pageable, Model model,
                                  @RequestParam Optional<String> keyword) {
+        new Employee().validate(employee, bindingResult);
         if (bindingResult.hasFieldErrors()) {
             loadList(pageable, model, keyword);
             model.addAttribute("wrongEdit", "errorEdit");
             return "employee/employee-home";
         }
-
         this.employeeService.update(employee);
         redirectAttributes.addFlashAttribute("message", "Update Complete !");
         return "redirect:/employee";

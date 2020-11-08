@@ -28,7 +28,7 @@ public class CustomerController {
                        @RequestParam Optional<String> keyword) {
         loadList(model, pageable, keyword);
         model.addAttribute("customer", new Customer());
-        return "customer/customer-home";
+        return "customer-home";
     }
 
     @PostMapping("/deleteCustomer")
@@ -43,11 +43,25 @@ public class CustomerController {
                                     @Validated @ModelAttribute Customer customer, BindingResult bindingResult,
                                     @PageableDefault(size = 2) Pageable pageable, Model model,
                                     @RequestParam Optional<String> keyword) {
-        if (bindingResult.hasFieldErrors()) {
+        boolean check = false;
+        List<Customer> customerList = this.customerService.findAll();
+        for (Customer element : customerList) {
+            if (element.getId().equals(customer.getId())) {
+                check = true;
+                break;
+            }
+        }
+
+        if (bindingResult.hasFieldErrors() || check) {
             loadList(model, pageable, keyword);
             model.addAttribute("wrongCreate", "errorCreate");
-            return "customer/customer-home";
+            if (!bindingResult.hasFieldErrors()) {
+                model.addAttribute("idExist", "idExist");
+                model.addAttribute("messageIdExist", "ID is exist ! Please input ID other !");
+            }
+            return "customer-home";
         }
+
         this.customerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Create Complete !");
         return "redirect:/customer";
@@ -61,7 +75,7 @@ public class CustomerController {
         if (bindingResult.hasErrors()) {
             loadList(model, pageable, keyword);
             model.addAttribute("wrongEdit", "errorEdit");
-            return "customer/customer-home";
+            return "customer-home";
         }
         this.customerService.update(customer);
         redirectAttributes.addFlashAttribute("message", "Update Complete !");

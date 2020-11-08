@@ -1,5 +1,7 @@
 package com.codegym.entity.employee;
 
+import com.codegym.entity.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -7,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 public class Employee implements Validator {
@@ -14,9 +17,10 @@ public class Employee implements Validator {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "Please enter name !")
+    @NotBlank(message = "Please input name !")
     private String name;
 
+    @NotBlank(message = "Please input birth day !")
     private String birthday;
 
     @NotBlank(message = "Please enter ID card !")
@@ -26,13 +30,13 @@ public class Employee implements Validator {
 
     private Double salary;
 
-    @NotBlank(message = "Please enter phone number !")
+    @NotBlank(message = "Please input phone number !")
     @Pattern(regexp = "^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$", message = "Invalid phone number ! Format phone " +
             "number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
             "(84)+91xxxxxxx with x is number from 0 to 9 !")
     private String phoneNumber;
 
-    @NotBlank(message = "Please enter email !")
+    @NotBlank(message = "Please input email !")
     @Email(message = "Invalid email ! Format email is abc@abc.abc !")
     private String email;
 
@@ -54,6 +58,10 @@ public class Employee implements Validator {
 //    @ManyToOne
 //    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
 //    private AppUser appUser;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Contract> contractList;
 
     public Employee() {
     }
@@ -144,6 +152,14 @@ public class Employee implements Validator {
 
     public void setDivision(Division division) {
         this.division = division;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 
     @Override

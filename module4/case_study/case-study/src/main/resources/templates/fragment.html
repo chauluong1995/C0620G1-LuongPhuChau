@@ -60,11 +60,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8">
-                <img th:src="@{furama-icon.png}" alt="furama-icon"/>
+                <img src="furama-icon.png" alt="furama-icon" />
             </div>
 
             <div class="col-sm-4" style="margin-top: 35px">
-                <th:block sec:authorize="hasAnyRole('ADMIN', 'MEMBER')">
+                <th:block sec:authorize="hasRole('MEMBER') || hasRole('ADMIN')">
                     <h2>Welcome, <span style="color: red" sec:authentication="principal.username"></span></h2>
                     <h3 style="color: blue">What do you want ?!</h3>
                 </th:block>
@@ -79,7 +79,7 @@
                        class="btn btn-outline-success my-2 my-sm-0">Employee</a>
                     <a th:href="@{/customer}"
                        class="btn btn-outline-success my-2 my-sm-0">Customer</a>
-                    <a th:href="@{/service}"
+                    <a th:href="@{/serviceFurama}"
                        class="btn btn-outline-success my-2 my-sm-0">Service</a>
                     <a th:href="@{/contract}"
                        class="btn btn-outline-success my-2 my-sm-0">Contract</a>

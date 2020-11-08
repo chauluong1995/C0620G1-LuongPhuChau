@@ -25,7 +25,7 @@ public class EmployeeController {
                        @RequestParam Optional<String> keyword) {
         loadList(pageable, model, keyword);
         model.addAttribute("employee", new Employee());
-        return "employee/employee-home";
+        return "employee-home";
     }
 
     @PostMapping("/deleteEmployee")
@@ -44,7 +44,7 @@ public class EmployeeController {
         if (bindingResult.hasFieldErrors()) {
             loadList(pageable, model, keyword);
             model.addAttribute("wrongCreate", "errorCreate");
-            return "employee/employee-home";
+            return "employee-home";
         }
         this.employeeService.save(employee);
         redirectAttributes.addFlashAttribute("message", "Create Complete !");
@@ -60,7 +60,7 @@ public class EmployeeController {
         if (bindingResult.hasFieldErrors()) {
             loadList(pageable, model, keyword);
             model.addAttribute("wrongEdit", "errorEdit");
-            return "employee/employee-home";
+            return "employee-home";
         }
         this.employeeService.update(employee);
         redirectAttributes.addFlashAttribute("message", "Update Complete !");

@@ -127,7 +127,7 @@ values
 create table customer (
 	id varchar(25) primary key,
     `name` varchar(45),
-    birthday date,
+    birth_day date,
     gender varchar(45),
     id_card varchar(45),
     phone_number varchar(45),
@@ -147,7 +147,7 @@ values
 	('KH-9999', 'Zanis', '1999-09-09', 'Male', '999999999', '0905999999', 'zanis@gmail.com', 'China', 1);
 	
 
-create table service (
+create table service_furama (
 	id varchar(25) primary key,
     `name` varchar(45),
     area int,
@@ -201,7 +201,7 @@ create table contract (
 	id int primary key auto_increment,
     start_date datetime,
     end_date datetime,
-    deposite double,
+    deposit double,
     total_money double,
     
     employee_id int,
@@ -211,7 +211,7 @@ create table contract (
     constraint fk_customer foreign key(customer_id) references customer(id) on delete cascade on update cascade,
     
     service_id varchar(25),
-    constraint fk_service foreign key(service_id) references service(id) on delete cascade on update cascade
+    constraint fk_service foreign key(service_id) references service_furama(id) on delete cascade on update cascade
 );
 
 create table contract_detail (

@@ -1,45 +1,52 @@
 package com.codegym.entity.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.codegym.entity.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Entity
 public class Customer {
     @Id
-    @NotBlank(message = "Please enter ID !")
+    @NotBlank(message = "Please input ID !")
     @Pattern(regexp = "^(KH-)\\d{4}$", message = "Invalid ID ! Format ID is KH-XXXX with X is number from 0 to 9 !")
     private String id;
 
-    @NotBlank(message = "Please enter name !")
+    @NotBlank(message = "Please input name !")
     private String name;
 
-    private String birthday;
+    @NotBlank(message = "Please input birth day !")
+    private String birthDay;
+
     private String gender;
 
-    @NotBlank(message = "Please enter ID card !")
+    @NotBlank(message = "Please input ID card !")
     @Pattern(regexp = "^(\\d{9})|(\\d{12})$", message = "Invalid ID card ! Format ID Card is " +
             "XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !")
     private String idCard;
 
-    @NotBlank(message = "Please enter phone number !")
+    @NotBlank(message = "Please input phone number !")
     @Pattern(regexp = "^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$", message = "Invalid phone number ! Format phone " +
             "number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
             "(84)+91xxxxxxx with x is number from 0 to 9 !")
     private String phoneNumber;
 
-    @NotBlank(message = "Please enter email !")
+    @NotBlank(message = "Please input email !")
     @Email(message = "Invalid email ! Format email is abc@abc.abc !")
     private String email;
 
-    @NotBlank(message = "Please enter address !")
+    @NotBlank(message = "Please input address !")
     private String address;
 
     @ManyToOne
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Contract> contractList;
 
     public Customer() {
     }
@@ -61,11 +68,11 @@ public class Customer {
     }
 
     public String getBirthDay() {
-        return birthday;
+        return birthDay;
     }
 
     public void setBirthDay(String birthDay) {
-        this.birthday = birthDay;
+        this.birthDay = birthDay;
     }
 
     public String getGender() {
@@ -114,5 +121,13 @@ public class Customer {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }

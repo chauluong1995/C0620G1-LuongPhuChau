@@ -1,4 +1,4 @@
-package com.codegym.service.serviceFurama;
+package com.codegym.service.service_furama;
 
 import com.codegym.entity.serviceFurama.RentType;
 import com.codegym.entity.serviceFurama.ServiceFurama;

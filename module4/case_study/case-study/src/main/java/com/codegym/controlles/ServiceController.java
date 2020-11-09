@@ -1,7 +1,7 @@
 package com.codegym.controlles;
 
 import com.codegym.entity.serviceFurama.ServiceFurama;
-import com.codegym.service.serviceFurama.ServiceFuramaService;
+import com.codegym.service.service_furama.ServiceFuramaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

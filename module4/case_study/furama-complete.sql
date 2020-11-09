@@ -116,7 +116,7 @@ create table attach_service (
     `status` varchar(45)
 );
 
-insert into attach_service (id, `name`, status)
+insert into attach_service (id, `name`, `status`)
 values
 	(1, 'Massage', 'Available'),
 	(2, 'Karaoke', 'Available'),

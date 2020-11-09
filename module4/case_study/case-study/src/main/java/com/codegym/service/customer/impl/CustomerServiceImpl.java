@@ -32,6 +32,21 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Page<Customer> findAllAndSortByID(Pageable pageable) {
+        return this.customerRepository.findAllAndSortByID(pageable);
+    }
+
+    @Override
+    public Page<Customer> findAllAndSortByName(Pageable pageable) {
+        return this.customerRepository.findAllAndSortByName(pageable);
+    }
+
+    @Override
+    public Page<Customer> findAllAndSortByBirthDay(Pageable pageable) {
+        return this.customerRepository.findAllAndSortByBirthDay(pageable);
+    }
+
+    @Override
     public Page<Customer> findByNameContaining(Pageable pageable, String name) {
         return this.customerRepository.findByNameContaining(pageable, name);
     }

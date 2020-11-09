@@ -1,7 +1,7 @@
 package com.codegym.service.contract.impl;
 
 import com.codegym.entity.contract.Contract;
-import com.codegym.repository.ContractRepository;
+import com.codegym.repository.contract_furama.ContractRepository;
 import com.codegym.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

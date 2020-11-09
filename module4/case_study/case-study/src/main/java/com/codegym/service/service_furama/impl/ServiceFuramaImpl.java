@@ -1,12 +1,12 @@
-package com.codegym.service.serviceFurama.impl;
+package com.codegym.service.service_furama.impl;
 
 import com.codegym.entity.serviceFurama.RentType;
 import com.codegym.entity.serviceFurama.ServiceFurama;
 import com.codegym.entity.serviceFurama.ServiceType;
-import com.codegym.repository.serviceFurama.RentTypeRepository;
-import com.codegym.repository.serviceFurama.ServiceRepository;
-import com.codegym.repository.serviceFurama.ServiceTypeRepository;
-import com.codegym.service.serviceFurama.ServiceFuramaService;
+import com.codegym.repository.service_furama.RentTypeRepository;
+import com.codegym.repository.service_furama.ServiceRepository;
+import com.codegym.repository.service_furama.ServiceTypeRepository;
+import com.codegym.service.service_furama.ServiceFuramaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

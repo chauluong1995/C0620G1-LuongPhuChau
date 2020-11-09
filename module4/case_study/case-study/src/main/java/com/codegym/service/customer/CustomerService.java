@@ -12,6 +12,12 @@ public interface CustomerService {
 
     Page<Customer> findAll(Pageable pageable);
 
+    Page<Customer> findAllAndSortByID(Pageable pageable);
+
+    Page<Customer> findAllAndSortByName(Pageable pageable);
+
+    Page<Customer> findAllAndSortByBirthDay(Pageable pageable);
+
     Page<Customer> findByNameContaining(Pageable pageable, String name);
 
     void deleteCustomer (String id);

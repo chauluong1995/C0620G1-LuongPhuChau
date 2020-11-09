@@ -1,5 +1,6 @@
 package com.codegym.entity.contract;
 
+import com.codegym.entity.contract_detail.ContractDetail;
 import com.codegym.entity.customer.Customer;
 import com.codegym.entity.employee.Employee;
 import com.codegym.entity.serviceFurama.ServiceFurama;
@@ -30,6 +31,9 @@ public class Contract implements Validator {
     @ManyToOne
     @JoinColumn(name = "service_id", referencedColumnName = "id")
     private ServiceFurama serviceFurama;
+
+    @OneToOne(mappedBy = "contract")
+    private ContractDetail contractDetail;
 
     public Contract() {
     }
@@ -96,6 +100,14 @@ public class Contract implements Validator {
 
     public void setServiceFurama(ServiceFurama serviceFurama) {
         this.serviceFurama = serviceFurama;
+    }
+
+    public ContractDetail getContractDetail() {
+        return contractDetail;
+    }
+
+    public void setContractDetail(ContractDetail contractDetail) {
+        this.contractDetail = contractDetail;
     }
 
     @Override

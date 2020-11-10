@@ -1,7 +1,7 @@
-package com.codegym.controllers;
+package com.codegym.controllers.customer;
 
-import com.codegym.entity.Customer;
-import com.codegym.service.CustomerService;
+import com.codegym.entity.customer.Customer;
+import com.codegym.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -153,5 +153,50 @@ public class CustomerController {
         model.addAttribute("keywordTwoOld", keywordTwoOld);
         model.addAttribute("keywordAllOld", keywordAllOld);
         model.addAttribute("informationSort", informationSort);
+    }
+
+    @GetMapping("/showCreateNewForPage")
+    public String showCreateNewForPage(Model model) {
+        model.addAttribute("customer", new Customer());
+        model.addAttribute("customerTypeList", this.customerService.allCustomerType());
+        List<String> genderList = new ArrayList<>();
+        genderList.add("Male");
+        genderList.add("Female");
+        genderList.add("Unknow");
+        model.addAttribute("genderList", genderList);
+        return "create-new-customer";
+    }
+
+    @PostMapping("/createNewForPage")
+    public String createNewCustomer(RedirectAttributes redirectAttributes,
+                                    @Validated @ModelAttribute Customer customer, BindingResult bindingResult,
+                                    Model model) {
+        boolean check = false;
+        List<Customer> customerList = this.customerService.findAll();
+        for (Customer element : customerList) {
+            if (element.getId().equals(customer.getId())) {
+                check = true;
+                break;
+            }
+        }
+
+        new Customer().validate(customer, bindingResult);
+        if (bindingResult.hasFieldErrors() || check) {
+            if (!bindingResult.hasFieldErrors()) {
+                model.addAttribute("idExist", "idExist");
+                model.addAttribute("messageIdExist", "ID is exist ! Please input ID other !");
+            }
+            model.addAttribute("customerTypeList", this.customerService.allCustomerType());
+            List<String> genderList = new ArrayList<>();
+            genderList.add("Male");
+            genderList.add("Female");
+            genderList.add("Unknow");
+            model.addAttribute("genderList", genderList);
+            return "create-new-customer";
+        }
+
+        this.customerService.save(customer);
+        redirectAttributes.addFlashAttribute("message", "Create Complete !");
+        return "redirect:/customer";
     }
 }

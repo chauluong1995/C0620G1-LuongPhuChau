@@ -7,7 +7,7 @@
     <title>List Employee</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -271,25 +271,25 @@
 
                         <th:block sec:authorize="hasRole('ADMIN')">
                             <td>
-                            <span class="view" th:data-id="${employee.id}"
-                                  th:data-name="${employee.name}"
-                                  th:data-birthday="${employee.birthday}"
-                                  th:data-idcard="${employee.idCard}"
-                                  th:data-salary="${employee.salary}"
-                                  th:data-phonenumber="${employee.phoneNumber}"
-                                  th:data-email="${employee.email}"
-                                  th:data-address="${employee.address}"
-                                  th:data-position="${employee.position.name}"
-                                  th:data-division="${employee.division.name}"
-                                  th:data-educationdegree="${employee.educationDegree.name}">
+                                <span class="view" th:data-id="${employee.id}"
+                                      th:data-name="${employee.name}"
+                                      th:data-birthday="${employee.birthday}"
+                                      th:data-idcard="${employee.idCard}"
+                                      th:data-salary="${employee.salary}"
+                                      th:data-phonenumber="${employee.phoneNumber}"
+                                      th:data-email="${employee.email}"
+                                      th:data-address="${employee.address}"
+                                      th:data-position="${employee.position.name}"
+                                      th:data-division="${employee.division.name}"
+                                      th:data-educationdegree="${employee.educationDegree.name}">
 <!--                                  th:data-appUser="${employee.appUser.userName}">-->
-                                 <a href="#viewEmployeeModal" id="viewDetail" data-toggle="modal"
-                                    class="material-icons"
-                                    role="button" onclick="getEditModal()">
-                                    <i style="color: darkviolet" class="material-icons" data-toggle="tooltip"
-                                       title="Edit">visibility</i>
-                                 </a>
-                             </span>
+                                      <a href="#viewEmployeeModal" id="viewDetail" data-toggle="modal"
+                                         class="material-icons"
+                                         role="button" onclick="getEditModal()">
+                                      <i style="color: darkviolet" class="material-icons" data-toggle="tooltip"
+                                         title="Edit">visibility</i>
+                                      </a>
+                                </span>
 
                                 <span class="update" th:data-id="${employee.id}"
                                       th:data-name="${employee.name}"
@@ -303,13 +303,13 @@
                                       th:data-division="${employee.division.id}"
                                       th:data-educationdegree="${employee.educationDegree.id}">
 <!--                                      th:data-appUser="${employee.appUser.userId}">-->
-                                 <a href="#editEmployeeModal" id="update" data-toggle="modal"
-                                    class="material-icons"
-                                    role="button" onclick="getEditModal()">
-                                    <i style="color: blue" class="material-icons" data-toggle="tooltip"
-                                       title="Edit">&#xE254;</i>
-                                 </a>
-                             </span>
+                                      <a href="#editEmployeeModal" id="update" data-toggle="modal"
+                                         class="material-icons"
+                                         role="button" onclick="getEditModal()">
+                                      <i style="color: blue" class="material-icons" data-toggle="tooltip"
+                                         title="Edit">&#xE254;</i>
+                                      </a>
+                                </span>
 
                                 <a data-toggle="modal" data-target="#deleteEmployeeModal" href="#"
                                    th:data-id="${employee.id}" class="delete" title="Delete"

@@ -1,9 +1,9 @@
-package com.codegym.service;
+package com.codegym.service.customer;
 
-import com.codegym.entity.Customer;
-import com.codegym.entity.CustomerType;
-import com.codegym.repository.CustomerRepository;
-import com.codegym.repository.CustomerTypeRepository;
+import com.codegym.entity.customer.Customer;
+import com.codegym.entity.customer.CustomerType;
+import com.codegym.repository.customer.CustomerRepository;
+import com.codegym.repository.customer.CustomerTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -51,6 +51,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public List<Customer> findByNameContainingAjax(String name) {
+        return this.customerRepository.findByNameContaining(name);
+    }
+
+    @Override
     public Page<Customer> findByAddressContaining(Pageable pageable, String address) {
         return this.customerRepository.findByAddressContaining(pageable, address);
     }
@@ -83,5 +88,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void update(Customer customer) {
         this.customerRepository.save(customer);
+    }
+
+    @Override
+    public List<Customer> findAllScroll(int start, int limit) {
+        return this.customerRepository.findAllScroll(start, limit);
     }
 }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Customer</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <style>
+        h3 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Birth Day</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Type Customer</th>
+        </tr>
+        </thead>
+        <tbody id="tableList">
+        </tbody>
+    </table>
+</div>
+<br>
+<input type="button" id="loadMore" value="Load More"><br><br>
+<div style="color: red" id="endInformation"></div>
+<br>
+<label>
+    <input type="text" id="keyword" placeholder="Search by Name"/>
+</label>
+<input id="searchCustomer" type="button" value="Search"/><br>
+
+<div id="searchResult"></div>
+
+<script src="../static/js/jquery-3.5.1.min.js"></script>
+
+<script>
+    // $(document).ready(function () {
+    //     let data = '';
+    //     $.ajax({
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         type: "GET",
+    //         url: "http://localhost:8080/restCustomerController/list",
+    //         success: function (listCustomer) {
+    //             for (let i = 0; i < listCustomer.length; i++) {
+    //                 data += '<tr>\n' +
+    //                     '<td>' + listCustomer[i].name + '</td>\n' +
+    //                     '<td>' + listCustomer[i].birthDay + '</td>\n' +
+    //                     '<td>' + listCustomer[i].phoneNumber + '</td>\n' +
+    //                     '<td>' + listCustomer[i].email + '</td>\n' +
+    //                     '<td>' + listCustomer[i].customerType.name + '</td>\n' +
+    //                     '</tr>';
+    //             }
+    //             $("#tableList").html(data);
+    //         },
+    //         error: function (content) {
+    //             console.log(content);
+    //         }
+    //     });
+    // });
+
+    $(document).ready(function () {
+        let data = '';
+        $("#searchCustomer").click(function () {
+            let keyword = $("#keyword").val();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                url: "http://localhost:8080/restCustomerController/search/" + keyword,
+                success: function (listCustomer) {
+                    for (let i = 0; i < listCustomer.length; i++) {
+                        data += '<br><br>' + '<h3>Name : ' + listCustomer[i].name + '</h3>' + '<h3>Birth Day : ' +
+                            listCustomer[i].birthDay + '</h3>' + '<h3>Phone Number : ' + listCustomer[i].phoneNumber
+                            + '</h3>' + '<h3>Email : ' + listCustomer[i].email + '</h3>' +
+                            '<h3>Type Customer : ' + listCustomer[i].customerType.name + '</h3>';
+                        $("#searchResult").html(data);
+                    }
+                },
+                error: function (content) {
+                    console.log(content);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        let limit = 3;
+        let start = 0;
+        let data = '';
+        let endInformation = '';
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/restCustomerController/scroll?start=" + start + "&limit=" + limit,
+            success: function (listCustomer) {
+                for (let i = 0; i < listCustomer.length; i++) {
+                    data += '<tr>\n' +
+                        '<td>' + listCustomer[i].name + '</td>\n' +
+                        '<td>' + listCustomer[i].birthDay + '</td>\n' +
+                        '<td>' + listCustomer[i].phoneNumber + '</td>\n' +
+                        '<td>' + listCustomer[i].email + '</td>\n' +
+                        '<td>' + listCustomer[i].customerType.name + '</td>\n' +
+                        '</tr>';
+                }
+                $("#tableList").html(data);
+            },
+            error: function (content) {
+                console.log(content);
+            }
+        });
+
+        $('#loadMore').click(function () {
+            start += 3;
+            let dataEmpty = "";
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                url: "http://localhost:8080/restCustomerController/scroll?start=" + start + "&limit=" + limit,
+                success: function (listCustomer) {
+                    for (let i = 0; i < listCustomer.length; i++) {
+                        data += '<tr>\n' +
+                            '<td>' + listCustomer[i].name + '</td>\n' +
+                            '<td>' + listCustomer[i].birthDay + '</td>\n' +
+                            '<td>' + listCustomer[i].phoneNumber + '</td>\n' +
+                            '<td>' + listCustomer[i].email + '</td>\n' +
+                            '<td>' + listCustomer[i].customerType.name + '</td>\n' +
+                            '</tr>';
+                        dataEmpty += listCustomer[i].name;
+                    }
+                    $("#tableList").html(data);
+                    if (dataEmpty === '') {
+                        endInformation += 'Nothing ! Please do not press me anymore !' + '<br>';
+                    }
+                    $("#endInformation").html(endInformation);
+                },
+                error: function (content) {
+                    console.log(content);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

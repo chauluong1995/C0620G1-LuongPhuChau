@@ -1,4 +1,4 @@
-package com.codegym.entity;
+package com.codegym.entity.customer;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

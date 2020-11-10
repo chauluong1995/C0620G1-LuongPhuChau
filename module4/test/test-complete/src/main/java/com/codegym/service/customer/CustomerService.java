@@ -1,7 +1,7 @@
-package com.codegym.service;
+package com.codegym.service.customer;
 
-import com.codegym.entity.Customer;
-import com.codegym.entity.CustomerType;
+import com.codegym.entity.customer.Customer;
+import com.codegym.entity.customer.CustomerType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -20,6 +20,8 @@ public interface CustomerService {
 
     Page<Customer> findByNameContaining(Pageable pageable, String name);
 
+    List<Customer> findByNameContainingAjax(String name);
+
     Page<Customer> findByAddressContaining(Pageable pageable, String address);
 
     Page<Customer> findByNameAndAddressContaining(Pageable pageable, String name, String address);
@@ -33,4 +35,6 @@ public interface CustomerService {
     List<CustomerType> allCustomerType();
 
     void update(Customer customer);
+
+    List<Customer> findAllScroll(int start, int limit);
 }

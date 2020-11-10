@@ -1,15 +1,19 @@
-package com.codegym.repository;
+package com.codegym.repository.customer;
 
-import com.codegym.entity.Customer;
+import com.codegym.entity.customer.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, String> {
     Page<Customer> findByNameContaining(Pageable pageable, String name);
+
+    List<Customer> findByNameContaining(String name);
 
     Page<Customer> findByAddressContaining(Pageable pageable, String address);
 
@@ -29,4 +33,7 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
 
     @Query(value = "select * from customer group by id order by birth_day desc", nativeQuery = true)
     Page<Customer> findAllAndSortByBirthDay(Pageable pageable);
+
+    @Query(value = "select * from customer limit  ?1, ?2", nativeQuery = true)
+    List<Customer> findAllScroll(int start, int limit);
 }

@@ -94,9 +94,11 @@
                                class="btn btn-outline-success my-2 my-sm-0">
                                 Sign In</a>
                         </th:block>
-                        <a th:href="@{/logout}" style="font-weight: bold"
-                           class="btn btn-outline-success my-2 my-sm-0">
-                            Log Out</a>
+                        <th:block sec:authorize="hasRole('MEMBER') || hasRole('ADMIN')">
+                            <a th:href="@{/logout}" style="font-weight: bold"
+                               class="btn btn-outline-success my-2 my-sm-0">
+                                Log Out</a>
+                        </th:block>
                     </div>
                 </nav>
             </div>

@@ -1,4 +1,4 @@
-package com.codegym.entity;
+package com.codegym.entity.customer;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

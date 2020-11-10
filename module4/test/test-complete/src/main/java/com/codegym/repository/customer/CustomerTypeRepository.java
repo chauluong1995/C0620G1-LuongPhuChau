@@ -1,6 +1,6 @@
-package com.codegym.repository;
+package com.codegym.repository.customer;
 
-import com.codegym.entity.CustomerType;
+import com.codegym.entity.customer.CustomerType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

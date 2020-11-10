@@ -1,8 +1,8 @@
-package com.codegym.controlles;
+package com.codegym.controllers.login;
 
-import com.codegym.entity.employee.AppUser;
-import com.codegym.service.UserDetailsServiceImpl;
-import com.codegym.service.employee.impl.EmployeeServiceImpl;
+import com.codegym.entity.login.AppUser;
+import com.codegym.service.login.UserDetailsServiceImpl;
+import com.codegym.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +15,6 @@ public class LoginController {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
-    private EmployeeServiceImpl employeeService;
-
     @GetMapping({"", "/login"})
     public String goLogin() {
         return "login";
@@ -26,32 +23,22 @@ public class LoginController {
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("appRoleList", this.userDetailsService.allAppRole());
-        model.addAttribute("employeeNameList", this.employeeService.allNameEmployee());
         model.addAttribute("newUser", new AppUser());
         return "register";
     }
 
     @PostMapping("/registerNew")
     public String registerNew(@ModelAttribute AppUser appUser, @RequestParam Long appRoleId,
-                              @RequestParam String verification, RedirectAttributes redirectAttributes) {
-        if (this.employeeService.testRole(appUser, appRoleId)) {
-            redirectAttributes.addFlashAttribute("messageWrong", "You are not brave " +
-                    "enough to do ADMIN !");
-            return "redirect:/login/register";
-        } else {
-            String message = this.employeeService.saveUser(appUser, appRoleId, verification);
-            redirectAttributes.addFlashAttribute("message", message);
-            if (message.contains("wrong")) {
-                return "redirect:/login/register";
-            }
-            return "redirect:/login/";
-        }
+                              RedirectAttributes redirectAttributes) {
+        String message = this.userDetailsService.saveUser(appUser, appRoleId);
+        redirectAttributes.addFlashAttribute("message", message);
+        return "redirect:/login/";
     }
 
     @GetMapping("/no-accessing")
     public String goNoAccessing(RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("message", "Sorry ! You do not have access !");
-        return "redirect:/home";
+        return "redirect:/customer";
     }
 
     @GetMapping("/wrong-password")

@@ -1,18 +1,46 @@
 package com.codegym.entity.employee;
 
+import com.codegym.entity.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
-public class Employee {
+public class Employee implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotBlank(message = "Please input name !")
     private String name;
+
+    @NotBlank(message = "Please input birth day !")
     private String birthday;
+
+    @NotBlank(message = "Please enter ID card !")
+    @Pattern(regexp = "^(\\d{9})|(\\d{12})$", message = "Invalid ID card ! Format ID Card is " +
+            "XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !")
     private String idCard;
-    private String salary;
+
+    private Double salary;
+
+    @NotBlank(message = "Please input phone number !")
+    @Pattern(regexp = "^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$", message = "Invalid phone number ! Format phone " +
+            "number is 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or " +
+            "(84)+91xxxxxxx with x is number from 0 to 9 !")
     private String phoneNumber;
+
+    @NotBlank(message = "Please input email !")
+    @Email(message = "Invalid email ! Format email is abc@abc.abc !")
     private String email;
+
+    //    @NotBlank(message = "Please enter address !")
     private String address;
 
     @ManyToOne
@@ -27,9 +55,13 @@ public class Employee {
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private AppUser appUser;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+//    private AppUser appUser;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Contract> contractList;
 
     public Employee() {
     }
@@ -66,11 +98,11 @@ public class Employee {
         this.idCard = idCard;
     }
 
-    public String getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -122,11 +154,30 @@ public class Employee {
         this.division = division;
     }
 
-    public AppUser getAppUser() {
-        return appUser;
+    public List<Contract> getContractList() {
+        return contractList;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Employee employee = (Employee) target;
+        if (employee.salary == null) {
+            errors.rejectValue("salary", "salary.empty");
+        } else if (employee.salary <= 0) {
+            errors.rejectValue("salary", "salary.format");
+        }
+
+        if (employee.address.equals("")) {
+            errors.rejectValue("address", "address.empty");
+        }
     }
 }

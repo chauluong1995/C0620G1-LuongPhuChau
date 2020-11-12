@@ -57,14 +57,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //        http.authorizeRequests().antMatchers("/", "/student", "/student/detail").hasRole("USER");
         //        http.authorizeRequests().antMatchers("/", "/student", "/student/detail")
         //                .access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')");
-//        http.authorizeRequests().antMatchers("/employee")
-//                .hasAnyAuthority("Admin");
+        //        http.authorizeRequests().antMatchers("/employee")
+        //                .hasAnyAuthority("Admin");
 
-        http.authorizeRequests().antMatchers("/employee").hasRole("ADMIN");
-        http.authorizeRequests().antMatchers("/customer", "/service", "/contract", "/contractDetail").hasRole("USER");
+        http.authorizeRequests().antMatchers("/employee", "/customer", "/serviceFurama",
+                "/contract", "/contractDetail").hasAnyRole("ADMIN", "MEMBER");
 
-//        http.authorizeRequests().antMatchers("/customer", "/service", "/contract", "/contractDetail")
-//                .hasAnyAuthority("Member");
+        //        http.authorizeRequests().antMatchers("/customer", "/service", "/contract", "/contractDetail")
+        //                .hasAnyAuthority("Member");
 
         // no permission
         http.exceptionHandling().accessDeniedPage("/login/no-accessing");
@@ -73,6 +73,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.rememberMe()
                 .rememberMeParameter("rememberMe")
                 .rememberMeCookieName("rememberMeCookie")
-                .tokenValiditySeconds(27);
+                .tokenValiditySeconds(60 * 60 * 24 * 365 * 25);
     }
 }

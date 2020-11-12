@@ -1,33 +1,33 @@
 package com.codegym.entity.contract_detail;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
 public class AttachService {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     private String name;
-    private String cost;
-    private String unit;
+    private Double cost;
+    private Integer unit;
     private String status;
+
+    @ManyToMany(mappedBy = "attachServiceSet")
+    @JsonBackReference
+    private Set<ContractDetail> contractDetail;
 
     public AttachService() {
     }
 
-    public AttachService(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public AttachService(String id, String name, String cost, String unit, String status) {
-        this.id = id;
-        this.name = name;
-        this.cost = cost;
-        this.unit = unit;
-        this.status = status;
-    }
-
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -39,19 +39,19 @@ public class AttachService {
         this.name = name;
     }
 
-    public String getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
-    public String getUnit() {
+    public Integer getUnit() {
         return unit;
     }
 
-    public void setUnit(String unit) {
+    public void setUnit(Integer unit) {
         this.unit = unit;
     }
 
@@ -61,5 +61,13 @@ public class AttachService {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Set<ContractDetail> getContractDetail() {
+        return contractDetail;
+    }
+
+    public void setContractDetail(Set<ContractDetail> contractDetail) {
+        this.contractDetail = contractDetail;
     }
 }

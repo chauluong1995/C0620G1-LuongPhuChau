@@ -17,6 +17,10 @@ public interface EmployeeService {
 
     void update(Employee employee);
 
+    List<Employee> allEmployee();
+
+    List<String> allNameEmployee();
+
     List<Position> allPosition();
 
     List<Division> allDivision();
@@ -24,4 +28,8 @@ public interface EmployeeService {
     List<EducationDegree> allEducationDegree();
 
     List<AppUser> allUser();
+
+    boolean testRole(AppUser appUser, Long id);
+
+    String saveUser(AppUser appUser, Long id, String verification);
 }

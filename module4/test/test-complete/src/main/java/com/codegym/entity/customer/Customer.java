@@ -19,6 +19,8 @@ public class Customer implements Validator {
     private String name;
 
     @NotBlank(message = "Please input birth day !")
+//    @Pattern(regexp = "^((0[1-9])|([1-2]\\\\d)|(3[0-1]))[/]((0[1-9])|(1[0-2]))[/]((19\\\\d{2})|(200[0-2]))$",
+//            message = "Invalid format !")
     private String birthDay;
 
     private String gender;

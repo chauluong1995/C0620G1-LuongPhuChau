@@ -1,12 +1,12 @@
-let count = 50;
+var count = 50;
 if (count > 0) {
     count--;
-} else {
+}
+else {
     count = 0;
 }
 // console.log(count);
 console.log(count);
-
 // console.log("for loop");
 //
 // const keys = "abcde";

@@ -1,0 +1,12 @@
+<h3>Student Information</h3>
+<div class="card" style="width:400px">
+  <img class="card-img-top" [src]="studentInfor.image" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">Name: <span style="color: red">{{studentInfor.name}}</span></h4>
+    <p class="card-text">Age: {{studentInfor.age}}</p>
+    <p class="card-text">Điểm: {{studentInfor.mark}}</p>
+    <p>Chấm điểm</p> <input class="form-control"
+                            [value]="studentInfor.mark"
+                            type="number" max="10" min="0">
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<app-header></app-header>
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a><br><br>
+  <app-likes></app-likes>
+  <br><br><hr>
+</div>
+<app-footer></app-footer>

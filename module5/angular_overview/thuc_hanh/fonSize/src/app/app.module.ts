@@ -15,6 +15,12 @@ import {FooterComponent} from './footer/footer.component';
 import {CreateComponent} from './create/create.component';
 import { NameCardComponent } from './name-card/name-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
+import { CountdownTimerOnchangesComponent } from './countdown-timer-onchanges/countdown-timer-onchanges.component';
+import { CountdownTimerGetSetComponent } from './countdown-timer-get-set/countdown-timer-get-set.component';
+import { CountdownTimerEventComponent } from './countdown-timer-event/countdown-timer-event.component';
+import { CountdownTimerEventAliasComponent } from './countdown-timer-event-alias/countdown-timer-event-alias.component';
+import { CountdownTimerAliasComponent } from './countdown-timer-alias/countdown-timer-alias.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     FooterComponent,
     CreateComponent,
     NameCardComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    CountdownTimerComponent,
+    CountdownTimerOnchangesComponent,
+    CountdownTimerGetSetComponent,
+    CountdownTimerEventComponent,
+    CountdownTimerEventAliasComponent,
+    CountdownTimerAliasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-7">
+      <h3 style="color: red; text-align: center; text-shadow: 2px 2px 7px darkblue">Student Information</h3>
+      <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Mark</th>
+          <th class="ok">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of studentList">
+          <td>{{student.id}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.age}}</td>
+          <td>{{student.mark}}</td>
+          <td>
+            <input type="button" (click)="setDetail(student)" value="Detail">
+            <input type="button" (click)="create()" value="Create" style="margin-left: 17px">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h1 *ngIf="check">{{markChild}}</h1>
+    </div>
+
+    <div class="col-sm-5">
+      <app-student-detail *ngIf="test" [studentParent]="studentParent" (changeMarkParent)="getMarkChild($event)">
+      </app-student-detail>
+      <app-create *ngIf="!test" [studentCreate]="studentCreate"></app-create>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+</div>

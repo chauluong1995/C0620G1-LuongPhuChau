@@ -1,0 +1,16 @@
+<h3 style="text-align: center; width:90%; ; text-shadow: 2px 2px 7px darkmagenta" *ngIf="studentCreate && testCreate">
+  Create New Student</h3>
+<div class="card" style="width:90%" *ngIf="studentCreate && testCreate">
+  <div class="card-body">
+<!--    <h5>ID : <span><input class="form-control" type="text" placeholder="Input ID ! Please !"-->
+<!--                            #idCreate></span></h5>-->
+    <h5>Name : <span><input class="form-control" type="text" placeholder="Input name ! Please !"
+                            #nameCreate></span></h5>
+    <h5>Age : <span><input class="form-control" type="text" placeholder="Input age ! Please !"
+                           #ageCreate></span></h5>
+    <h5>Input Mark : </h5> <input class="form-control" [value]="studentCreate.mark" #markCreate
+                                type="number" max="10" min="0"><br>
+    <input type="button" (click)="createNewStudent(nameCreate.value, ageCreate.value, markCreate.value)"
+           value="Create New">
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<h3 style="text-align: center; width:90%; ; text-shadow: 2px 2px 7px darkmagenta" *ngIf="studentParent">
+  Student Information Detail</h3>
+<div class="card" style="width:90%" *ngIf="studentParent">
+  <img class="card-img-top" [src]="studentParent.image" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">Name : <span style="color: red">{{studentParent.name}}</span></h4>
+    <p class="card-text">Age : {{studentParent.age}}</p>
+    <p class="card-text">Mark : {{studentParent.mark}}</p>
+    <p>Input Mark : </p> <input class="form-control" [value]="studentParent.mark"
+                            (change)="changeMark($event.target.value)"
+                            type="number" max="10" min="0">
+  </div>
+</div>

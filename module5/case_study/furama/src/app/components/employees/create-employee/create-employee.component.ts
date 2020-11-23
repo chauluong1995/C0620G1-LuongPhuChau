@@ -20,16 +20,16 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.formCreateNewEmployee = this.formBuilder.group({
-      name: [''],
-      birthDay: [''],
-      idCard: [''],
-      salary: [''],
-      phoneNumber: [''],
-      email: [''],
-      address: [''],
-      position: [''],
-      educationDegree: [''],
-      division: ['']
+      name: ['',[Validators.required, Validators.minLength(5)]],
+      birthDay: ['',[Validators.required]],
+      idCard: ['',[Validators.required]],
+      salary: ['',[Validators.required]],
+      phoneNumber: ['',[Validators.required]],
+      email: ['',[Validators.required]],
+      address: ['',[Validators.required]],
+      position: ['',[Validators.required]],
+      educationDegree: ['',[Validators.required]],
+      division: ['',[Validators.required]]
     })
   }
 

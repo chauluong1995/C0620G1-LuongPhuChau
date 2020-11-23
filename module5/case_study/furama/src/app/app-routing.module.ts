@@ -10,7 +10,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {CreateEmployeeComponent} from './components/employees/create-employee/create-employee.component';
 import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
 import { CreateCustomerComponent } from './components/customer/create-customer/create-customer.component';
-
+import { DeleteDialogComponent } from './components/employees/delete-dialog/delete-dialog.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +28,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), FormsModule, CommonModule, Ng2SearchPipeModule, NgxPaginationModule,
     ReactiveFormsModule],
   exports: [RouterModule],
-  declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent, CustomerListComponent, CreateCustomerComponent]
+  declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent,
+    CustomerListComponent, CreateCustomerComponent, DeleteDialogComponent]
 })
 export class AppRoutingModule {
 }

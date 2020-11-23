@@ -41,7 +41,8 @@
         <td>{{employee.educationDegree}}</td>
         <td style="width: 190px">
           <input type="button" class="btn btn-sm btn-warning" value="Edit">
-          <input type="button" class="btn btn-sm btn-danger" value="Delete" style="margin-left: 10px">
+          <input type="button" class="btn btn-sm btn-danger" value="Delete" style="margin-left: 10px"
+          (click)="openDialogDelete()">
         </td>
       </tr>
       </tbody>

@@ -59,9 +59,9 @@ public class Employee implements Validator {
 //    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
 //    private AppUser appUser;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    @JsonBackReference
-    private List<Contract> contractList;
+//    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+//    @JsonBackReference
+//    private List<Contract> contractList;
 
     public Employee() {
     }
@@ -154,13 +154,13 @@ public class Employee implements Validator {
         this.division = division;
     }
 
-    public List<Contract> getContractList() {
-        return contractList;
-    }
-
-    public void setContractList(List<Contract> contractList) {
-        this.contractList = contractList;
-    }
+//    public List<Contract> getContractList() {
+//        return contractList;
+//    }
+//
+//    public void setContractList(List<Contract> contractList) {
+//        this.contractList = contractList;
+//    }
 
     @Override
     public boolean supports(Class<?> clazz) {

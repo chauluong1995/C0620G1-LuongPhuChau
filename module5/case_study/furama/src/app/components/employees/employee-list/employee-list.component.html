@@ -1,0 +1,70 @@
+<div class="row px-0 mx-0" style="margin-top: 5px">
+  <h2 class="d-flex" style="color: red">Employee List</h2>
+  <div class="d-flex" style="margin-left: 52%">
+    <input class="form-control" type="text" style="width: 100%" placeholder="Search by Name"
+    [(ngModel)]="term">
+    <button class="btn btn-outline-success" style="margin-left: 5%">Search</button>
+  </div>
+
+  <div class="row" style="margin-left: 3px; margin-right: 3px">
+    <button class="btn btn-success" [routerLink]="['/create-employee']">Add New Employee</button>
+    <table class="table mt-3 table-striped" style="font-size: 17px">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Division</th>
+        <th>Education Degree</th>
+        <th>Position</th>
+        <th>Birth Day</th>
+        <th>ID Card</th>
+        <th>Salary</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let employee of employeeList |filter: term |paginate: { itemsPerPage: 2, currentPage: p}">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.division.name}}</td>
+        <td>{{employee.educationDegree.name}}</td>
+        <td>{{employee.position.name}}</td>
+        <td>{{employee.birthday}}</td>
+        <td>{{employee.idCard}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.address}}</td>
+        <td>
+          <input type="button" class="btn btn-sm btn-warning" value="Edit">
+          <input type="button" class="btn btn-sm btn-danger" value="Delete">
+        </td>
+      </tr>
+
+<!--      <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>Chau Luong</td>-->
+<!--        <td>Giam Doc</td>-->
+<!--        <td>After University</td>-->
+<!--        <td>Manager</td>-->
+<!--        <td>05/27/1995</td>-->
+<!--        <td>205052795</td>-->
+<!--        <td>5000 $</td>-->
+<!--        <td>0905052795</td>-->
+<!--        <td>supea@gmail.com</td>-->
+<!--        <td>Quang Nam</td>-->
+<!--        <td>-->
+<!--          <button class="btn btn-sm btn-warning">Edit</button>-->
+<!--          <button class="btn btn-sm btn-danger" style="margin-left: 1%">Delete</button>-->
+<!--        </td>-->
+<!--      </tr>-->
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p = $event" style="margin-left: 70%"></pagination-controls>
+  </div>
+</div>

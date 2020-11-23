@@ -11,7 +11,6 @@ export class CreateComponent implements OnInit {
   @Input() studentCreate: IStudent;
   studentList = studentDao;
   studentCreateNew: IStudent;
-  testCreate = true;
 
   constructor() { }
 
@@ -27,6 +26,5 @@ export class CreateComponent implements OnInit {
       name: name
     };
     this.studentList.push(this.studentCreateNew)
-    this.testCreate = false;
   }
 }

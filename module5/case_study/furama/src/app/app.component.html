@@ -1,35 +1,45 @@
 <div class="container-fluid px-0" style="height: 100vh">
   <div class="row px-0 mx-0">
-    <nav class="navbar navbar-expand-sm bg-info navbar-dark" style="width: 100%">
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark" style="width: 100%; position: fixed; z-index: 1">
       <!-- Brand -->
-      <a class="navbar-brand" href="#" style="color: darkblue; font-weight: bold">Furama Da Nang</a>
+      <a class="navbar-brand" href="#" style="color: darkblue; font-weight: bold; font-size: 50px">
+        Furama Da Nang</a>
 
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="['']">Home</a>
+          <a class="nav-link" href="#" [routerLink]="['']" style="color: yellow; font-size: 33px">Home</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="['customer-list']">Customer</a>
+          <a class="nav-link" href="#" [routerLink]="['customer-list']" style="color: yellow; font-size: 33px">
+            Customer</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="['employee-list']">Employee</a>
+          <a class="nav-link" href="#" [routerLink]="['employee-list']" style="color: yellow; font-size: 33px">
+            Employee</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="['contract-list']">Contract</a>
+          <a class="nav-link" href="#" [routerLink]="['serviceFurama']" style="color: yellow; font-size: 33px">
+            Service</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="['contract-detail-list']">Contract Detail</a>
+          <a class="nav-link" href="#" [routerLink]="['contract-list']" style="color: yellow; font-size: 33px">
+            Contract</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['contract-detail-list']" style="color: yellow; font-size: 33px">
+            Contract Detail</a>
         </li>
       </ul>
     </nav>
   </div>
 
-  <div class="row px-0 mx-0">
+  <div class="row px-0 mx-0" style="margin-top: 110px">
     <div class="col-sm-12">
       <router-outlet></router-outlet>
     </div>

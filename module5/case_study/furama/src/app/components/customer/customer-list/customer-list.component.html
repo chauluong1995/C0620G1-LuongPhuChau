@@ -1,44 +1,40 @@
 <div class="row px-0 mx-0" style="margin-top: 5px">
-  <h2 class="d-flex" style="color: red">Employee List</h2>
+  <h2 class="d-flex" style="color: red">Customer List</h2>
   <div class="d-flex" style="margin-left: 52%">
     <input class="form-control" type="text" style="width: 100%" placeholder="Search by Name"
-    [(ngModel)]="term">
+           [(ngModel)]="term">
     <button class="btn btn-outline-success" style="margin-left: 5%">Search</button>
   </div>
 
   <div class="row" style="margin-left: 3px; margin-right: 3px; overflow-x: auto">
-    <button class="btn btn-success" [routerLink]="['/create-employee']">Add New Employee</button>
+    <button class="btn btn-success" [routerLink]="['/create-customer']">Add New Customer</button>
     <table class="table mt-3 table-striped" style="font-size: 17px">
       <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Birth Day</th>
+        <th>Gender</th>
         <th>ID Card</th>
-        <th>Salary</th>
         <th>Phone Number</th>
         <th>Email</th>
         <th>Address</th>
-        <th>Position</th>
-        <th>Division</th>
-        <th>Education Degree</th>
+        <th>Customer Type</th>
         <th>Action</th>
       </tr>
       </thead>
 
       <tbody>
-      <tr *ngFor="let employee of employeeList |filter: term |paginate: { itemsPerPage: 3, currentPage: p}">
-        <td>{{employee.id}}</td>
-        <td>{{employee.name}}</td>
-        <td>{{employee.birthDay}}</td>
-        <td>{{employee.idCard}}</td>
-        <td>{{employee.salary}}</td>
-        <td>{{employee.phoneNumber}}</td>
-        <td>{{employee.email}}</td>
-        <td>{{employee.address}}</td>
-        <td>{{employee.position}}</td>
-        <td>{{employee.division}}</td>
-        <td>{{employee.educationDegree}}</td>
+      <tr *ngFor="let customer of customerList |filter: term |paginate: { itemsPerPage: 3, currentPage: p}">
+        <td>{{customer.idFormat}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.birthDay}}</td>
+        <td>{{customer.gender}}</td>
+        <td>{{customer.idCard}}</td>
+        <td>{{customer.phoneNumber}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.address}}</td>
+        <td>{{customer.type}}</td>
         <td style="width: 190px">
           <input type="button" class="btn btn-sm btn-warning" value="Edit">
           <input type="button" class="btn btn-sm btn-danger" value="Delete" style="margin-left: 10px">

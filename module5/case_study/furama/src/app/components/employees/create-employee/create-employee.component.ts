@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {EmployeeService} from "../../../services/employee.service";
+import {EmployeeService} from "../../../services/employee/employee.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -27,17 +27,15 @@ export class CreateEmployeeComponent implements OnInit {
       phoneNumber: [''],
       email: [''],
       address: [''],
-      position: 1,
-      educationDegree: 1,
-      division: 1
+      position: [''],
+      educationDegree: [''],
+      division: ['']
     })
   }
 
   createNewEmployee() {
-    console.log(this.formCreateNewEmployee.value);
     this.employeeService.createNewEmployeeService(this.formCreateNewEmployee.value).subscribe(data => {
-      // this.router.navigateByUrl('employee-list').then(_ => { });
-      console.log(data)
+      this.router.navigateByUrl('employee-list').then(_ => { });
     })
   }
 }

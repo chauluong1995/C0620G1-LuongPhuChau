@@ -6,8 +6,9 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class EmployeeService {
-  public API: string = 'http://localhost:8080/employeeListRest';
-  public APICreate: string = 'http://localhost:8080/employeeListRest/create';
+  // public API: string = 'http://localhost:8080/employeeListRest';
+  // public APICreate: string = 'http://localhost:8080/employeeListRest/create';
+  public API: string = 'http://localhost:3000/employees';
 
   constructor(
     public http: HttpClient
@@ -18,6 +19,6 @@ export class EmployeeService {
   }
 
   createNewEmployeeService(employee): Observable<any> {
-    return this.http.post(this.APICreate, employee)
+    return this.http.post(this.API, employee)
   }
 }

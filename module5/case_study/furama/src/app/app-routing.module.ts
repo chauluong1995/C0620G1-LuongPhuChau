@@ -8,12 +8,18 @@ import {CommonModule} from "@angular/common";
 import {NgxPaginationModule} from "ngx-pagination";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {CreateEmployeeComponent} from './components/employees/create-employee/create-employee.component';
+import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
+import { CreateCustomerComponent } from './components/customer/create-customer/create-customer.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+
   {path: 'employee-list', component: EmployeeListComponent},
   {path: 'create-employee', component: CreateEmployeeComponent},
+
+  {path: 'customer-list', component: CustomerListComponent},
+  {path: 'create-customer', component: CreateCustomerComponent},
 
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -22,7 +28,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), FormsModule, CommonModule, Ng2SearchPipeModule, NgxPaginationModule,
     ReactiveFormsModule],
   exports: [RouterModule],
-  declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent]
+  declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent, CustomerListComponent, CreateCustomerComponent]
 })
 export class AppRoutingModule {
 }

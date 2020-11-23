@@ -8,7 +8,7 @@ import {PetComponent} from './pet/pet.component';
 import {AwesomeCalculatorComponent} from './awesome-calculator/awesome-calculator.component';
 import {ColorPickerComponent} from './color-picker/color-picker.component';
 import {HackernewsComponent} from './hackernews/hackernews.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LikesComponent} from './likes/likes.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
@@ -21,6 +21,7 @@ import { CountdownTimerGetSetComponent } from './countdown-timer-get-set/countdo
 import { CountdownTimerEventComponent } from './countdown-timer-event/countdown-timer-event.component';
 import { CountdownTimerEventAliasComponent } from './countdown-timer-event-alias/countdown-timer-event-alias.component';
 import { CountdownTimerAliasComponent } from './countdown-timer-alias/countdown-timer-alias.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,14 @@ import { CountdownTimerAliasComponent } from './countdown-timer-alias/countdown-
     CountdownTimerGetSetComponent,
     CountdownTimerEventComponent,
     CountdownTimerEventAliasComponent,
-    CountdownTimerAliasComponent
+    CountdownTimerAliasComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -163,6 +163,40 @@
       "address": "Italia",
       "type": "Member",
       "id": 7
+    },
+    {
+      "idFormat": "KH-4567",
+      "name": "a",
+      "birthDay": "11/11/1991",
+      "gender": "Nam",
+      "idCard": "205111111",
+      "phoneNumber": "0905111111",
+      "email": "abc@codegym.com",
+      "address": "Da Nang",
+      "type": "Member",
+      "id": 8
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
     }
   ]
 }

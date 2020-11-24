@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EmployeeService} from "../../../services/employee/employee.service";
 import {MatDialogModule} from "@angular/material/dialog";
 
@@ -9,11 +9,13 @@ import {MatDialogModule} from "@angular/material/dialog";
 })
 export class EmployeeListComponent implements OnInit {
   public employeeList;
+  term: any;
+  p: any;
 
   constructor(
-    public employeeService: EmployeeService,
-    public dialog: MatDialogModule
-  ) { }
+    public employeeService: EmployeeService
+  ) {
+  }
 
   ngOnInit() {
     this.employeeService.getAllEmployees().subscribe(data => {
@@ -22,6 +24,10 @@ export class EmployeeListComponent implements OnInit {
   }
 
   openDialogDelete() {
+    console.log('ok');
+  }
 
+  resetSearch() {
+    this.term = ""
   }
 }

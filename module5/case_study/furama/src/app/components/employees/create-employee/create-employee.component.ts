@@ -20,12 +20,14 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.formCreateNewEmployee = this.formBuilder.group({
-      name: ['',[Validators.required, Validators.minLength(5)]],
-      birthDay: ['',[Validators.required]],
-      idCard: ['',[Validators.required]],
-      salary: ['',[Validators.required]],
-      phoneNumber: ['',[Validators.required]],
-      email: ['',[Validators.required]],
+      name: ['',[Validators.required]],
+      birthDay: ['',[Validators.required, Validators.pattern(
+        "^((0[1-9])|([1-2][0-9])|(3[0-1]))[/]((0[1-9])|(1[0-2]))[/]((19[0-9]{2})|(200[0-2]))$")]],
+      idCard: ['',[Validators.required, Validators.pattern('^(([0-9]{12})|([0-9]{9}))$')]],
+      salary: ['',[Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
+      phoneNumber: ['',[Validators.required,
+        Validators.pattern('^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$')]],
+      email: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$')]],
       address: ['',[Validators.required]],
       position: ['',[Validators.required]],
       educationDegree: ['',[Validators.required]],

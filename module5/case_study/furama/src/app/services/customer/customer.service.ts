@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 })
 export class CustomerService {
   public API: string = 'http://localhost:3000/customers';
+  public APICustomerType: string = 'http://localhost:3000/customerType';
 
   constructor(
     public http: HttpClient
@@ -14,6 +15,10 @@ export class CustomerService {
 
   getAllCustomers(): Observable<any> {
     return this.http.get(this.API);
+  }
+
+  getAllCustomerType(): Observable<any> {
+    return this.http.get(this.APICustomerType);
   }
 
   createNewCustomerService(customer): Observable<any> {

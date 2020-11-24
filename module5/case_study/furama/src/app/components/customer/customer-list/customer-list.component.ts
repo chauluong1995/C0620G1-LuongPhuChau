@@ -8,6 +8,8 @@ import {CustomerService} from "../../../services/customer/customer.service";
 })
 export class CustomerListComponent implements OnInit {
   public customerList;
+  term: any;
+  p: any;
 
   constructor(
     public customerService: CustomerService
@@ -17,5 +19,9 @@ export class CustomerListComponent implements OnInit {
     this.customerService.getAllCustomers().subscribe(data => {
       this.customerList = data;
     })
+  }
+
+  resetSearch() {
+    this.term = ""
   }
 }

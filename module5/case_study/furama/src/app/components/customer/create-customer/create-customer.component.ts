@@ -10,6 +10,7 @@ import {CustomerService} from "../../../services/customer/customer.service";
 })
 export class CreateCustomerComponent implements OnInit {
   public formCreateNewCustomer: FormGroup;
+  public customerTypeList;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -19,15 +20,20 @@ export class CreateCustomerComponent implements OnInit {
 
   ngOnInit() {
     this.formCreateNewCustomer = this.formBuilder.group({
-      idFormat: [''],
-      name: [''],
-      birthDay: [''],
+      idFormat: ['',[Validators.required, Validators.pattern('^(KH-)[0-9]{4}$')]],
+      name: ['', Validators.required],
+      birthDay: ['',[Validators.required, Validators.pattern(
+        "^((0[1-9])|([1-2][0-9])|(3[0-1]))[/]((0[1-9])|(1[0-2]))[/]((19[0-9]{2})|(200[0-2]))$")]],
       gender: [''],
-      idCard: [''],
-      phoneNumber: [''],
-      email: [''],
+      idCard: ['',[Validators.required, Validators.pattern('^(([0-9]{12})|([0-9]{9}))$')]],
+      phoneNumber: ['',[Validators.required,
+        Validators.pattern('^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$')]],
+      email: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$')]],
       address: [''],
       type: ['']
+    });
+    this.customerService.getAllCustomerType().subscribe(dataType => {
+      this.customerTypeList = dataType;
     })
   }
 

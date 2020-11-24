@@ -1,9 +1,9 @@
 <div class="row px-0 mx-0" style="margin-top: 5px">
   <h2 class="d-flex" style="color: red">Employee List</h2>
   <div class="d-flex" style="margin-left: 52%">
-    <input class="form-control" type="text" style="width: 100%" placeholder="Search by Name"
+    <input class="form-control" type="text" style="width: 100%; height: 50px" placeholder="Search by all property"
     [(ngModel)]="term">
-    <button class="btn btn-outline-success" style="margin-left: 5%">Search</button>
+    <button class="btn btn-outline-success" style="margin-left: 5%; height: 50px" (click)="resetSearch()">Reset</button>
   </div>
 
   <div class="row" style="margin-left: 3px; margin-right: 3px; overflow-x: auto">

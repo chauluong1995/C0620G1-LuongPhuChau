@@ -65,7 +65,7 @@
 
                 @NgModule({
                     imports: [RouterModule.forRoot(routes), FormsModule, CommonModule, Ng2SearchPipeModule,
-                                NgxPaginationModule, ReactiveFormsModule],
+                                NgxPaginationModule, ReactiveFormsModule, MaterialModule],
                     exports: [RouterModule],
                     declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent,
                                 CustomerListComponent, CreateCustomerComponent]
@@ -121,10 +121,10 @@
                     <input type="button" class="btn btn-sm btn-danger" value="Delete" (click)="openDialogDelete()">
                     Trong employee-list.ts :
                         constructor(
-                            public dialog: MatDialogModule
+                            public dialog: MatDialog
                         ) { }
                     Trong material.ts :
-                        providers: [ MatDatepickerModule ],
+                        providers: [MatDatepickerModule],
                         entryComponents: [DeleteDialogComponent]
 </body>
 </html>

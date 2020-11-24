@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
     <form [formGroup]="formCreateNewEmployee">
       <div class="text-center">
         <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: #8b3021"
@@ -84,33 +84,23 @@
 
         <div class="form-group">
           <label>Position :</label>
-          <input type="text" class="form-control" formControlName="position"/>
-          <p class="text-danger"
-             *ngIf="formCreateNewEmployee.controls.position?.invalid && (formCreateNewEmployee.controls.position?.dirty
-            || formCreateNewEmployee.controls.position?.touched)">
-            Position is not valid ! Position must not be left blank !
-          </p>
+          <select class="form-control" formControlName="position">
+            <option *ngFor="let positionOfList of positionList">{{positionOfList.name}}</option>
+          </select>
         </div>
 
         <div class="form-group">
           <label>Division :</label>
-          <input type="text" class="form-control" formControlName="division"/>
-          <p class="text-danger"
-             *ngIf="formCreateNewEmployee.controls.division?.invalid && (formCreateNewEmployee.controls.division?.dirty
-            || formCreateNewEmployee.controls.division?.touched)">
-            Division is not valid ! Division must not be left blank !
-          </p>
+          <select class="form-control" formControlName="division">
+            <option *ngFor="let divisionOfList of divisionList">{{divisionOfList.name}}</option>
+          </select>
         </div>
 
         <div class="form-group">
           <label>Education Degree :</label>
-          <input type="text" class="form-control" formControlName="educationDegree"/>
-          <p class="text-danger"
-             *ngIf="formCreateNewEmployee.controls.educationDegree?.invalid
-             && (formCreateNewEmployee.controls.educationDegree?.dirty
-            || formCreateNewEmployee.controls.educationDegree?.touched)">
-            Education Degree is not valid ! Education Degree must not be left blank !
-          </p>
+          <select class="form-control" formControlName="educationDegree">
+            <option *ngFor="let educationDegreeOfList of educationDegreeList">{{educationDegreeOfList.name}}</option>
+          </select>
         </div>
       </div>
     </form>
@@ -120,10 +110,12 @@
       </h5>
     </div>
     <div class="row justify-content-center">
+      <button mat-dialog-close class="btn btn-warning mr-3" style="width: 100px">Cancel</button>
+<!--      <button [routerLink]="['/employee-list']" class="btn btn-warning mr-3" style="width: 100px">Cancel</button>-->
       <button class="btn btn-success" [disabled]="formCreateNewEmployee.invalid" (click)="createNewEmployee()">
         Create New
       </button>
     </div>
   </div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-1"></div>
 </div>

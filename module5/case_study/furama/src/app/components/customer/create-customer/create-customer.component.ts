@@ -28,7 +28,8 @@ export class CreateCustomerComponent implements OnInit {
       idCard: ['',[Validators.required, Validators.pattern('^(([0-9]{12})|([0-9]{9}))$')]],
       phoneNumber: ['',[Validators.required,
         Validators.pattern('^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$')]],
-      email: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$')]],
+      email: ['',[Validators.required, Validators.email]],
+      // Validators.pattern('^[a-zA-Z]+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$')
       address: [''],
       type: ['']
     });

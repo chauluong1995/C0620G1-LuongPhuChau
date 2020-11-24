@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <form [formGroup]="formEditEmployee">
+      <div class="text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: #8b3021"
+            id="add">
+          <strong>Edit Information Employee</strong></h3>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label>Name :</label>
+          <input type="text" class="form-control" formControlName="name"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.name?.invalid && (formEditEmployee.controls.name?.dirty
+            || formEditEmployee.controls.name?.touched)">
+            Name is not valid ! Name must not be left blank !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Birth Day :</label>
+          <input type="text" class="form-control" formControlName="birthDay"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.birthDay?.invalid && (formEditEmployee.controls.birthDay?.dirty
+            || formEditEmployee.controls.birthDay?.touched)">
+            Birth Day is not valid ! Birth day valid is format 01/01/2001 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>ID Card :</label>
+          <input type="text" class="form-control" formControlName="idCard"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.idCard?.invalid && (formEditEmployee.controls.idCard?.dirty
+            || formEditEmployee.controls.idCard?.touched)">
+            Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !
+          </p>
+        </div>
+
+
+        <div class="form-group">
+          <label>Salary :</label>
+          <input type="text" class="form-control" formControlName="salary"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.salary?.invalid && (formEditEmployee.controls.salary?.dirty
+            || formEditEmployee.controls.salary?.touched)">
+            Salary is not valid ! Salary must be a positive number !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number :</label>
+          <input type="text" class="form-control" formControlName="phoneNumber"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.phoneNumber?.invalid &&
+             (formEditEmployee.controls.phoneNumber?.dirty
+             || formEditEmployee.controls.phoneNumber?.touched)">
+            Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or
+            (84)+90xxxxxxx or (84)+91xxxxxxx with x is number from 0 to 9 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Email :</label>
+          <input type="text" class="form-control" formControlName="email"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.email?.invalid && (formEditEmployee.controls.email?.dirty
+            || formEditEmployee.controls.email?.touched)">
+            Invalid email ! Format email is abc@abc.abc !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Address :</label>
+          <input type="text" class="form-control" formControlName="address"/>
+          <p class="text-danger"
+             *ngIf="formEditEmployee.controls.address?.invalid && (formEditEmployee.controls.address?.dirty
+            || formEditEmployee.controls.address?.touched)">
+            Address is not valid ! Address must not be left blank !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Position :</label>
+          <select class="form-control" formControlName="position">
+            <option *ngFor="let positionOfList of positionList">{{positionOfList.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Division :</label>
+          <select class="form-control" formControlName="division">
+            <option *ngFor="let divisionOfList of divisionList">{{divisionOfList.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Education Degree :</label>
+          <select class="form-control" formControlName="educationDegree">
+            <option *ngFor="let educationDegreeOfList of educationDegreeList">{{educationDegreeOfList.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <h5 class="text-danger" [hidden]="formEditEmployee.valid">Please enter all of the above fields correctly !
+      </h5>
+    </div>
+    <div class="row justify-content-center">
+      <button mat-dialog-close class="btn btn-warning mr-3" style="width: 100px">Cancel</button>
+      <!--      <button [routerLink]="['/employee-list']" class="btn btn-warning mr-3" style="width: 100px">Cancel</button>-->
+      <button class="btn btn-success" [disabled]="formEditEmployee.invalid" (click)="editEmployee()">
+        Edit Information
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>

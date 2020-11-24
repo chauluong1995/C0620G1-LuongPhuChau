@@ -11,6 +11,8 @@ import {CreateEmployeeComponent} from './components/employees/create-employee/cr
 import { CustomerListComponent } from './components/customer/customer-list/customer-list.component';
 import { CreateCustomerComponent } from './components/customer/create-customer/create-customer.component';
 import { DeleteDialogComponent } from './components/employees/delete-dialog/delete-dialog.component';
+import {MaterialModule} from "./material.module";
+import { EditEmployeeComponent } from './components/employees/edit-employee/edit-employee.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,10 +28,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), FormsModule, CommonModule, Ng2SearchPipeModule, NgxPaginationModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule, MaterialModule],
   exports: [RouterModule],
   declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent,
-    CustomerListComponent, CreateCustomerComponent, DeleteDialogComponent]
+    CustomerListComponent, CreateCustomerComponent, DeleteDialogComponent, EditEmployeeComponent]
 })
 export class AppRoutingModule {
 }

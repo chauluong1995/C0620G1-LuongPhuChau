@@ -14,21 +14,20 @@
       "educationDegree": "After University"
     },
     {
-      "id": 2,
       "name": "Mai Ho",
       "birthDay": "15/05/1995",
-      "idCard": "205051595",
+      "idCard": "201675713",
       "salary": "4500",
-      "phoneNumber": "0905051595",
+      "phoneNumber": "0901171603",
       "email": "maiho@gmail.com",
       "address": "Da Nang",
       "position": "Manager",
+      "educationDegree": "University",
       "division": "Manage",
-      "educationDegree": "University"
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Lanh Nguyen",
+      "name": "Lanh",
       "birthDay": "22/02/1997",
       "idCard": "205220297",
       "salary": "3500",
@@ -36,8 +35,9 @@
       "email": "lanhnguyen@gmail.com",
       "address": "Da Nang",
       "position": "Monitoring",
+      "educationDegree": "University",
       "division": "Serve",
-      "educationDegree": "University"
+      "id": 3
     },
     {
       "id": 4,
@@ -66,17 +66,17 @@
       "educationDegree": "College"
     },
     {
-      "id": 6,
-      "name": "Zanis",
-      "birthDay": "09/09/1999",
-      "idCard": "205090999",
-      "salary": "1500",
-      "phoneNumber": "0905090999",
-      "email": "zanis@gmail.com",
-      "address": "China",
-      "position": "Receptionist",
-      "division": "Sale – Marketing",
-      "educationDegree": "Intermediate"
+      "name": "Hồ Trúc Mai",
+      "birthDay": "08/10/1996",
+      "idCard": "205081096",
+      "salary": "10000",
+      "phoneNumber": "0905081096",
+      "email": "tomorrow@gmail.com",
+      "address": "Nhà Bà Ánh",
+      "position": "Manage",
+      "educationDegree": "University",
+      "division": "Serve",
+      "id": 6
     }
   ],
   "customers": [
@@ -197,6 +197,68 @@
     {
       "id": 5,
       "name": "Member"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Receptionist"
+    },
+    {
+      "id": 2,
+      "name": "Serve"
+    },
+    {
+      "id": 3,
+      "name": "Expert"
+    },
+    {
+      "id": 4,
+      "name": "Monitoring"
+    },
+    {
+      "id": 5,
+      "name": "Manage"
+    },
+    {
+      "id": 6,
+      "name": "Director"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Sale – Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Administration"
+    },
+    {
+      "id": 3,
+      "name": "Serve"
+    },
+    {
+      "id": 4,
+      "name": "Manage"
+    }
+  ],
+  "educationDegree": [
+    {
+      "id": 1,
+      "name": "Intermediate"
+    },
+    {
+      "id": 2,
+      "name": "College"
+    },
+    {
+      "id": 3,
+      "name": "University"
+    },
+    {
+      "id": 4,
+      "name": "After University"
     }
   ]
 }

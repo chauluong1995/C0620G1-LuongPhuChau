@@ -16,12 +16,12 @@
             || formCreateNewCustomer.controls.idFormat?.touched)">
             Invalid ID ! Format ID is KH-XXXX with X is number from 0 to 9 !
           </p>
-          <p class="text-danger"
-             *ngIf="formCreateNewCustomer.get('idFormat').hasError('idExists')
-             && (formCreateNewCustomer.controls.idFormat?.dirty
-            || formCreateNewCustomer.controls.idFormat?.touched)">
-            ID is exists ! Please enter ID other !
-          </p>
+<!--                    <p class="text-danger"-->
+<!--                       *ngIf="formCreateNewCustomer.get('idFormat').hasError('idExists')-->
+<!--                       && (formCreateNewCustomer.controls.idFormat?.dirty-->
+<!--                      || formCreateNewCustomer.controls.idFormat?.touched)">-->
+<!--                      ID is exists ! Please enter ID other !-->
+<!--                    </p>-->
         </div>
 
         <div class="form-group">
@@ -35,12 +35,19 @@
         </div>
 
         <div class="form-group">
-          <label>Birth Day :</label>
-          <input type="text" class="form-control" formControlName="birthDay"/>
+          <label>Birth Day :</label><br>
+          <mat-form-field style="width: 250px">
+            <input [min]="minDate" [max]="maxDate" matInput [matDatepicker]="date"
+                   formControlName="birthDay" placeholder="Please choose a date"/>
+            <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+            <mat-datepicker #date></mat-datepicker>
+          </mat-form-field>
+
           <p class="text-danger"
-             *ngIf="formCreateNewCustomer.controls.birthDay?.invalid && (formCreateNewCustomer.controls.birthDay?.dirty
-            || formCreateNewCustomer.controls.birthDay?.touched)">
-            Birth Day is not valid ! Birth day valid is format 01/01/2001 !
+             *ngIf="formCreateNewCustomer.get('birthDay').hasError('required')
+                       && (formCreateNewCustomer.controls.idFormat?.dirty
+                      || formCreateNewCustomer.controls.idFormat?.touched)">
+            Birth Day invalid ! Please enter birth day other !
           </p>
         </div>
 
@@ -110,7 +117,7 @@
       </h5>
     </div>
     <div class="row justify-content-center">
-<!--      <button [routerLink]="['/customer-list']" class="btn btn-warning mr-3" style="width: 100px">Cancel</button>-->
+      <!--      <button [routerLink]="['/customer-list']" class="btn btn-warning mr-3" style="width: 100px">Cancel</button>-->
       <button mat-dialog-close class="btn btn-warning mr-3" style="width: 100px">Cancel</button>
       <button class="btn btn-success" [disabled]="formCreateNewCustomer.invalid" (click)="createNewCustomer()">
         Create New

@@ -34,8 +34,8 @@ export class EditEmployeeComponent implements OnInit {
       salary: [this.data.dataNeed.salary, [Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
       phoneNumber: [this.data.dataNeed.phoneNumber, [Validators.required,
         Validators.pattern('^(090|091|\\(84\\)(\\+90|\\+91))(\\d{7})$')]],
-      email: [this.data.dataNeed.email, [Validators.required, Validators.email]],
-      // Validators.pattern('^[a-zA-Z]+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$')
+      email: [this.data.dataNeed.email, [Validators.required,
+        Validators.pattern('^[a-zA-Z]+[@]([a-zA-Z]{3,7})[.]([a-z]{2,3})$')]],
       address: [this.data.dataNeed.address, [Validators.required]],
       position: [this.data.dataNeed.position, [Validators.required]],
       educationDegree: [this.data.dataNeed.educationDegree, [Validators.required]],

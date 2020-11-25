@@ -4,46 +4,35 @@ import {Observable, timer} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
 import {AbstractControl, AsyncValidatorFn} from "@angular/forms";
 
-const URL = 'http://localhost:3000/customers';
+const URL = 'http://localhost:3000/products';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
-  public API: string = 'http://localhost:3000/customers';
-  public APICustomerType: string = 'http://localhost:3000/customerType';
+export class ServiceConnectService {
+  public API: string = 'http://localhost:3000/products';
+  public APIProductType: string = 'http://localhost:3000/productType';
 
   constructor(
     public http: HttpClient
   ) {
   }
 
-  getAllCustomers(): Observable<any> {
+  getAll(): Observable<any> {
     return this.http.get(this.API);
   }
 
-  getAllCustomerType(): Observable<any> {
-    return this.http.get(this.APICustomerType);
+  getAllType(): Observable<any> {
+    return this.http.get(this.APIProductType);
   }
 
-  createNewCustomerService(customer): Observable<any> {
-    return this.http.post(this.API, customer)
+  createNewService(variable): Observable<any> {
+    return this.http.post(this.API, variable)
   }
 
-  searchCus(text) {
-    // debounce
-    return timer(1000)
-      .pipe(
-        switchMap(() => {
-          // Check if id is exists :
-          return this.http.get<any>(`${URL}?idFormat=${text}`)
-        })
-      );
-  }
-
-  userValidator(): AsyncValidatorFn {
+  validateID(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<{ [key: string]: any } | null> => {
-      return this.searchCus(control.value)
+      return this.search(control.value)
         .pipe(
           map(res => {
             // if username is already taken
@@ -57,15 +46,26 @@ export class CustomerService {
     };
   }
 
+  search(text) {
+    // debounce
+    return timer(100)
+      .pipe(
+        switchMap(() => {
+          // Check if id is exists :
+          return this.http.get<any>(`${URL}?idFormat=${text}`)
+        })
+      );
+  }
+
   findByID(idNeedFind: any): Observable<any> {
     return this.http.get(this.API + '/' + idNeedFind)
   }
 
-  deleteCustomerService(idNeedDelete: any): Observable<any> {
+  deleteService(idNeedDelete: any): Observable<any> {
     return this.http.delete(this.API + '/' + idNeedDelete)
   }
 
-  editCustomerService(customer, idNeedEdit): Observable<any> {
+  editService(customer, idNeedEdit): Observable<any> {
     return this.http.put(this.API + '/' + idNeedEdit, customer)
   }
 }

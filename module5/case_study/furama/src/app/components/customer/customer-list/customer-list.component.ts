@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CustomerService} from "../../../services/customer/customer.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateCustomerComponent} from "../create-customer/create-customer.component";
+import {DeleteCustomerComponent} from "../delete-customer/delete-customer.component";
+import {EditCustomerComponent} from "../edit-customer/edit-customer.component";
 
 @Component({
   selector: 'app-customer-list',
@@ -44,5 +46,36 @@ export class CustomerListComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
+  }
+
+  openDialogDelete(id: any): void {
+    this.customerService.findByID(id).subscribe(customer => {
+      // console.log(customer);
+      const dialogRef = this.dialog.open(DeleteCustomerComponent, {
+        width: '750px',
+        data: {dataNeed: customer},
+        disableClose: true
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.ngOnInit()
+      })
+    });
+  }
+
+  openDialogEdit(id: any): void {
+    this.customerService.findByID(id).subscribe(customer => {
+      // console.log(customer);
+      const dialogRefEdit = this.dialog.open(EditCustomerComponent, {
+        width: '950px',
+        height: '1500px',
+        data: {dataNeed: customer},
+        disableClose: true
+      });
+
+      dialogRefEdit.afterClosed().subscribe(result => {
+        this.ngOnInit()
+      })
+    });
   }
 }

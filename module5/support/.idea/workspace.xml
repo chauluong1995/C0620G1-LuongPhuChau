@@ -2,78 +2,130 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ae8129-b99d-47db-ba0b-056bf2f67f92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/browserslist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/e2e/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/customer/create-customer/create-customer.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/customer/create-customer/create-customer.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/customer/create-customer/create-customer.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/customer/customer-list/customer-list.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/customer/customer-list/customer-list.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/customer/customer-list/customer-list.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/create-employee/create-employee.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/create-employee/create-employee.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/create-employee/create-employee.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/delete-dialog/delete-dialog.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/delete-dialog/delete-dialog.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/delete-dialog/delete-dialog.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/edit-employee/edit-employee.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/edit-employee/edit-employee.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/edit-employee/edit-employee.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/employee-list/employee-list.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/employee-list/employee-list.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/employees/employee-list/employee-list.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/home/home.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/home/home.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/home/home.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/home/home.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/material.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/services/customer/customer.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/services/customer/customer.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/services/employee/employee.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/app/services/employee/employee.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/assets/furama.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/json-server/database.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/debug.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/e2e/protractor.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/e2e/src/app.po.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/e2e/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/components/page-not-found/page-not-found.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/components/page-not-found/page-not-found.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/components/page-not-found/page-not-found.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/material.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/app/services/service-connect.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/assets/furama.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/assets/song.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/json-server/database.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/test/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/create-customer/create-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/create-customer/create-customer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/create-customer/create-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/create-customer/create-customer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/create-customer/validate-id.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/customer-list/customer-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/customer-list/customer-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/delete-customer/delete-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/delete-customer/delete-customer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/delete-customer/delete-customer.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demo/test/src/app/components/page-not-found/page-not-found.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/delete-customer/delete-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/customer/delete-customer/delete-customer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/create-employee/create-employee.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/create-employee/create-employee.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/edit-employee/edit-employee.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/edit-employee/edit-employee.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/employee-list/employee-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/employee-list/employee-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/employee-list/employee-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/components/employees/employee-list/employee-list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/material.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/services/customer/customer.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/services/customer/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/app/services/customer/customer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/app/services/employee/employee.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study/furama/src/json-server/database.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study/furama/src/json-server/database.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.html" beforeDir="false" afterPath="$PROJECT_DIR$/code-support/code.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/customer/create-customer/create-customer.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/customer/create-customer/create-customer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/customer/create-customer/create-customer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/customer/customer-list/customer-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/customer/customer-list/customer-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/customer/customer-list/customer-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/create-employee/create-employee.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/create-employee/create-employee.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/create-employee/create-employee.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/delete-dialog/delete-dialog.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/delete-dialog/delete-dialog.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/delete-dialog/delete-dialog.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/edit-employee/edit-employee.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/edit-employee/edit-employee.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/edit-employee/edit-employee.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/employee-list/employee-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/employee-list/employee-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/employees/employee-list/employee-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/home/home.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/components/page-not-found/page-not-found.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/material.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/services/customer/customer.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/services/customer/customer.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/services/employee/employee.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/app/services/employee/employee.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/assets/furama.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/json-server/database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/tslint.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,14 +155,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../case_study" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="ts.external.directory.path" value="E:\C0620G1\module5\support\demo\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\C0620G1\module5\support\demo\test\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -133,6 +185,7 @@
       <workItem from="1606223484093" duration="2134000" />
       <workItem from="1606232067849" duration="1588000" />
       <workItem from="1606265674745" duration="1782000" />
+      <workItem from="1606316798299" duration="13154000" />
     </task>
     <servers />
   </component>
@@ -140,9 +193,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1606181260399">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1606329113320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606181260399" />
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606329113320" />
   </component>
 </project>

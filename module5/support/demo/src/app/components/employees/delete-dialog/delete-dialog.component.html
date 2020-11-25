@@ -1,0 +1,10 @@
+<h3 style="color: red">Confirm delete Employee !</h3>
+<hr>
+<h5 class="my-3">Are you sure you want to delete the employee has name is
+  <span class="text-danger font-weight-bold">{{employee.name}}</span> ?</h5>
+<p style="color: deeppink">This action cannot be undone !</p>
+<div class="row d-flex justify-content-end">
+  <input type="hidden" [value]="employee.id" #id>
+  <button mat-dialog-close class="btn btn-warning mr-3" style="width: 100px">Cancel</button>
+  <button class="btn btn-danger mr-3" style="width: 100px" (click)="deleteEmployee(id.value)">Delete</button>
+</div>

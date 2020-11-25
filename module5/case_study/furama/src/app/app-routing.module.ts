@@ -13,6 +13,7 @@ import { CreateCustomerComponent } from './components/customer/create-customer/c
 import { DeleteDialogComponent } from './components/employees/delete-dialog/delete-dialog.component';
 import {MaterialModule} from "./material.module";
 import { EditEmployeeComponent } from './components/employees/edit-employee/edit-employee.component';
+import { DeleteCustomerComponent } from './components/customer/delete-customer/delete-customer.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,7 +32,7 @@ const routes: Routes = [
     ReactiveFormsModule, MaterialModule],
   exports: [RouterModule],
   declarations: [HomeComponent, PageNotFoundComponent, EmployeeListComponent, CreateEmployeeComponent,
-    CustomerListComponent, CreateCustomerComponent, DeleteDialogComponent, EditEmployeeComponent]
+    CustomerListComponent, CreateCustomerComponent, DeleteDialogComponent, EditEmployeeComponent, DeleteCustomerComponent]
 })
 export class AppRoutingModule {
 }

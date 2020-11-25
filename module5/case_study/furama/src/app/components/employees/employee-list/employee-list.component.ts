@@ -48,7 +48,7 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  createNew() {
+  createNewDialog() {
     const dialogRefCreate = this.dialog.open(CreateEmployeeComponent, {
       width: '950px',
       height: '1500px',

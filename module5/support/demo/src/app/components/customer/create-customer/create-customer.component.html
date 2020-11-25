@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <form [formGroup]="formCreateNewCustomer">
+      <div class="text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: #8b3021"
+            id="add">
+          <strong>Create New Customer</strong></h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>ID :</label>
+          <input type="text" class="form-control" formControlName="idFormat"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.idFormat?.invalid && (formCreateNewCustomer.controls.idFormat?.dirty
+            || formCreateNewCustomer.controls.idFormat?.touched)">
+            Invalid ID ! Format ID is KH-XXXX with X is number from 0 to 9 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Name :</label>
+          <input type="text" class="form-control" formControlName="name"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.name?.invalid && (formCreateNewCustomer.controls.name?.dirty
+            || formCreateNewCustomer.controls.name?.touched)">
+            Invalid name ! Name must not be left blank !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Birth Day :</label>
+          <input type="text" class="form-control" formControlName="birthDay"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.birthDay?.invalid && (formCreateNewCustomer.controls.birthDay?.dirty
+            || formCreateNewCustomer.controls.birthDay?.touched)">
+            Birth Day is not valid ! Birth day valid is format 01/01/2001 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Gender :</label>
+          <input type="text" class="form-control" formControlName="gender"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.gender?.invalid && (formCreateNewCustomer.controls.gender?.dirty
+            || formCreateNewCustomer.controls.gender?.touched)">
+            Invalid gender ! Gender must not be left blank !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>ID Card :</label>
+          <input type="text" class="form-control" formControlName="idCard"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.idCard?.invalid && (formCreateNewCustomer.controls.idCard?.dirty
+            || formCreateNewCustomer.controls.idCard?.touched)">
+            Invalid ID card ! Format ID Card is XXXXXXXXX or XXXXXXXXXXXX with X is number from 0 to 9 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number :</label>
+          <input type="text" class="form-control" formControlName="phoneNumber"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.phoneNumber?.invalid &&
+             (formCreateNewCustomer.controls.phoneNumber?.dirty
+             || formCreateNewCustomer.controls.phoneNumber?.touched)">
+            Invalid phone number ! Format phone number is 090xxxxxxx or 091xxxxxxx or
+            (84)+90xxxxxxx or (84)+91xxxxxxx with x is number from 0 to 9 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Email :</label>
+          <input type="text" class="form-control" formControlName="email"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.email?.invalid && (formCreateNewCustomer.controls.email?.dirty
+            || formCreateNewCustomer.controls.email?.touched)">
+            Invalid email ! Format email is abc@abc.abc !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Address :</label>
+          <input type="text" class="form-control" formControlName="address"/>
+          <p class="text-danger"
+             *ngIf="formCreateNewCustomer.controls.address?.invalid && (formCreateNewCustomer.controls.address?.dirty
+            || formCreateNewCustomer.controls.address?.touched)">
+            Address is not valid ! Address must not be left blank !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Customer Type : </label>
+          <select style="margin-left: 15px" formControlName="type">
+            <option *ngFor="let typeOfList of customerTypeList">{{typeOfList.name}}</option>
+          </select>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <h5 class="text-danger" [hidden]="formCreateNewCustomer.valid">Please enter all of the above fields correctly !
+      </h5>
+    </div>
+    <div class="row justify-content-center">
+      <button class="btn btn-success" [disabled]="formCreateNewCustomer.invalid" (click)="createNewCustomer()">
+        Create New
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

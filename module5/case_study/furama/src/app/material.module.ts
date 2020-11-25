@@ -4,6 +4,7 @@ import {DeleteDialogComponent} from "./components/employees/delete-dialog/delete
 import {MatDialogModule} from "@angular/material/dialog";
 import {CreateEmployeeComponent} from "./components/employees/create-employee/create-employee.component";
 import {EditEmployeeComponent} from "./components/employees/edit-employee/edit-employee.component";
+import {CreateCustomerComponent} from "./components/customer/create-customer/create-customer.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import {EditEmployeeComponent} from "./components/employees/edit-employee/edit-e
     MatDialogModule
   ],
   providers: [],
-  entryComponents: [DeleteDialogComponent, CreateEmployeeComponent, EditEmployeeComponent]
+  entryComponents: [DeleteDialogComponent, CreateEmployeeComponent, EditEmployeeComponent, CreateCustomerComponent]
 })
 
 export class MaterialModule {

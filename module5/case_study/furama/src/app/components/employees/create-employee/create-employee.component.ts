@@ -53,8 +53,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   createNewEmployee() {
     this.employeeService.createNewEmployeeService(this.formCreateNewEmployee.value).subscribe(data => {
-      // this.router.navigateByUrl('employee-list').then(_ => {
-      // });
+      // this.router.navigateByUrl('employee-list').then(_ => {});
       this.dialogRef.close();
     })
   }

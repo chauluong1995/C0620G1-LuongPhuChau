@@ -17,8 +17,8 @@ export class CreateComponent implements OnInit {
     private serviceConnectService: ServiceConnectService,
 
     // ----- OFF Dialog -----
-    // public dialogRef: MatDialogRef<CreateComponent>,
-    // @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<CreateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
 
     public formBuilder: FormBuilder,
 
@@ -39,23 +39,23 @@ export class CreateComponent implements OnInit {
       name: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
       status: ['', Validators.required],
-      type: ['']
+      type: ['', Validators.required]
     });
   }
 
   createNew() {
     for (let element of this.typeList) {
-      if (element.name === this.formCreateNew.value.type) {
+      if (element.name == this.formCreateNew.value.type) {
         this.formCreateNew.value.type = element;
         break;
       }
     }
 
     this.serviceConnectService.createNewService(this.formCreateNew.value).subscribe(data => {
-      this.router.navigateByUrl('list').then(_ => { });
+      // this.router.navigateByUrl('list').then(_ => { });
 
       // ----- OFF Dialog -----
-      // this.dialogRef.close();
+      this.dialogRef.close();
     })
   }
 }

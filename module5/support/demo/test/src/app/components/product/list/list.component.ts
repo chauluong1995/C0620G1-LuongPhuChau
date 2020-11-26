@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ServiceConnectService} from "../../../services/service-connect.service";
 import {CreateComponent} from "../create/create.component";
@@ -13,15 +13,18 @@ import {DetailComponent} from "../detail/detail.component";
 })
 export class ListComponent implements OnInit {
   public list;
+  public listChoose: Array<any> = [];
   term: any;
   p: any;
   private create;
-
+  keyName: any;
+  keyPrice: any;
 
   constructor(
     public serviceConnectService: ServiceConnectService,
     public dialog: MatDialog
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.serviceConnectService.getAll().subscribe(data => {
@@ -30,7 +33,11 @@ export class ListComponent implements OnInit {
   }
 
   resetSearch() {
-    this.term = ""
+    this.term = "";
+    this.keyName = "";
+    this.keyPrice = "";
+    this.listChoose = [];
+    this.searchOfMe("", "");
   }
 
   createNewDialog() {
@@ -78,7 +85,7 @@ export class ListComponent implements OnInit {
 
   openDialogView(id: any) {
     this.serviceConnectService.findByID(id).subscribe(varialble => {
-      // console.log(customer);
+      // console.log(varialble);
       const dialogRefEdit = this.dialog.open(DetailComponent, {
         width: '950px',
         height: '750px',
@@ -90,5 +97,91 @@ export class ListComponent implements OnInit {
         this.ngOnInit()
       })
     });
+  }
+
+  searchOfMe(keyName: string, keyPrice: string) {
+    if (keyPrice !== "" && keyName !== "") {
+      // this.serviceConnectService.findByNameAndPrice(keyName, keyPrice).subscribe(data => {
+      this.serviceConnectService.findByNameAndType(keyName, keyPrice).subscribe(data => {
+        // console.log(data);
+        this.list = data;
+      });
+    } else {
+      if (keyName === "") {
+        // this.serviceConnectService.findByPrice(keyPrice).subscribe(data => {
+        this.serviceConnectService.findByType(keyPrice).subscribe(data => {
+          // console.log(data);
+          this.list = data;
+        });
+      } else if (keyPrice === "") {
+        this.serviceConnectService.findByName(keyName).subscribe(data => {
+          // console.log(data);
+          this.list = data;
+        });
+      }
+    }
+  }
+
+  sort(attribute: any, arrange: any) {
+    if (arrange === "asc" && attribute === "price") {
+      this.serviceConnectService.sortByPriceASC().subscribe(data => {
+        this.list = data;
+      });
+    }
+    if (arrange === "desc" && attribute === "price") {
+      this.serviceConnectService.sortByPriceDESC().subscribe(data => {
+        this.list = data;
+      });
+    }
+
+    if (arrange === "asc" && attribute === "name") {
+      this.serviceConnectService.sortByNameASC().subscribe(data => {
+        this.list = data;
+      });
+    }
+    if (arrange === "desc" && attribute === "name") {
+      this.serviceConnectService.sortByNameDESC().subscribe(data => {
+        this.list = data;
+      });
+    }
+
+    if (arrange === "asc" && attribute === "id") {
+      this.serviceConnectService.sortByIDASC().subscribe(data => {
+        this.list = data;
+      });
+    }
+    if (arrange === "desc" && attribute === "id") {
+      this.serviceConnectService.sortByIDDESC().subscribe(data => {
+        this.list = data;
+      });
+    }
+  }
+
+  chooseDelete(value: any) {
+    let test = 'true';
+    if (this.listChoose.length === 0) {
+      this.listChoose.push(value);
+    } else {
+      for (let element of this.listChoose) {
+        if (element == value) {
+          test = 'false'
+        }
+      }
+      if (test === 'true') {
+        this.listChoose.push(value);
+      }
+    }
+    console.log(this.listChoose)
+  }
+
+  deleteAllChoosed() {
+    if (this.listChoose.length !== 0) {
+      this.serviceConnectService.deleteService(this.listChoose.shift()).subscribe(data => {
+        this.deleteAllChoosed()
+      })
+    }
+    if (this.serviceConnectService.getAll().subscribe()) {
+      this.ngOnInit()
+    }
   }
 }

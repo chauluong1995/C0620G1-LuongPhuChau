@@ -5,6 +5,7 @@ import {map, switchMap} from "rxjs/operators";
 import {AbstractControl, AsyncValidatorFn} from "@angular/forms";
 
 const URL = 'http://localhost:3000/products';
+const URLType = 'http://localhost:3000/productType';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,7 @@ export class ServiceConnectService {
       return this.search(control.value)
         .pipe(
           map(res => {
-            // if username is already taken
-            console.log(res);
             if (res.length) {
-              // return error
               return {'idExists': true};
             }
           })
@@ -47,11 +45,9 @@ export class ServiceConnectService {
   }
 
   search(text) {
-    // debounce
     return timer(100)
       .pipe(
         switchMap(() => {
-          // Check if id is exists :
           return this.http.get<any>(`${URL}?idFormat=${text}`)
         })
       );
@@ -59,6 +55,50 @@ export class ServiceConnectService {
 
   findByID(idNeedFind: any): Observable<any> {
     return this.http.get(this.API + '/' + idNeedFind)
+  }
+
+  findByName(key: string): Observable<any> {
+    return this.http.get(`${URL}?name_like=${key}`)
+  }
+
+  findByPrice(key: string): Observable<any> {
+    return this.http.get(`${URL}?price_like=${key}`)
+  }
+
+  findByType(key: string): Observable<any> {
+    return this.http.get(`${URL}?type.name_like=${key}`)
+  }
+
+  findByNameAndPrice(name: string, price: string): Observable<any> {
+    return this.http.get(`${URL}?name_like=${name}&price_like=${price}`)
+  }
+
+  findByNameAndType(name: string, price: string): Observable<any> {
+    return this.http.get(`${URL}?name_like=${name}&type.name_like=${price}&_sort=price&_order=asc`)
+  }
+
+  sortByPriceASC(): Observable<any> {
+    return this.http.get(`${URL}?_sort=price&_order=asc`)
+  }
+
+  sortByPriceDESC(): Observable<any> {
+    return this.http.get(`${URL}?_sort=price&_order=desc`)
+  }
+
+  sortByNameASC(): Observable<any> {
+    return this.http.get(`${URL}?_sort=name&_order=asc`)
+  }
+
+  sortByNameDESC(): Observable<any> {
+    return this.http.get(`${URL}?_sort=name&_order=desc`)
+  }
+
+  sortByIDASC(): Observable<any> {
+    return this.http.get(`${URL}?_sort=idFormat&_order=asc`)
+  }
+
+  sortByIDDESC(): Observable<any> {
+    return this.http.get(`${URL}?_sort=idFormat&_order=desc`)
   }
 
   deleteService(idNeedDelete: any): Observable<any> {

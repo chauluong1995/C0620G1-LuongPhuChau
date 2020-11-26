@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ServiceConnectService} from "../../../services/service-connect.service";
+import {MatDatepicker} from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-edit',
@@ -13,6 +14,10 @@ export class EditComponent implements OnInit {
   public formEdit: FormGroup;
   public typeListEdit;
   public idNeed;
+  public startDateTS = new Date('yyyy/MM/dd');
+  public endDateTS = new Date('yyyy/MM/dd');
+  public testStartDate = 'true';
+  public testEndDate = 'true';
 
   constructor(
 
@@ -38,7 +43,8 @@ export class EditComponent implements OnInit {
       idFormat: [this.data.dataNeed.idFormat],
       name: [this.data.dataNeed.name, Validators.required],
       price: [this.data.dataNeed.price, [Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
-      status: [this.data.dataNeed.status, Validators.required],
+      startDate: [this.data.dataNeed.startDate, Validators.required],
+      endDate: [this.data.dataNeed.endDate, Validators.required],
       type: [this.data.dataNeed.type.name]
     });
 
@@ -69,6 +75,9 @@ export class EditComponent implements OnInit {
   edit() {
     this.idNeed = this.data.dataNeed.id;
 
+    this.formEdit.value.startDate.setDate(this.startDateTS.getDate() - 7);
+    this.formEdit.value.endDate.setDate(this.endDateTS.getDate() + 7);
+
     for (let element of this.typeListEdit) {
       if (element.name === this.formEdit.value.type) {
         this.formEdit.value.type = element;
@@ -80,6 +89,22 @@ export class EditComponent implements OnInit {
       // this.router.navigateByUrl('list').then(_ => {});
       this.dialogRef.close();
     })
+  }
+
+  changeStartDate(startDate: MatDatepicker<any>, endDate: MatDatepicker<any>) {
+    if (this.testStartDate === 'true') {
+      this.startDateTS = startDate._datepickerInput.value;
+      this.startDateTS.setDate(this.startDateTS.getDate() + 7);
+      this.testEndDate = 'false'
+    }
+  }
+
+  changeEndDate(endDate: MatDatepicker<any>, startDate: MatDatepicker<any>) {
+    if (this.testEndDate === 'true') {
+      this.testStartDate = 'false';
+      this.endDateTS = endDate._datepickerInput.value;
+      this.endDateTS.setDate(this.endDateTS.getDate() - 7);
+    }
   }
 }
 

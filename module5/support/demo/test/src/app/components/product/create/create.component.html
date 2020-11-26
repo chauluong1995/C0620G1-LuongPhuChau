@@ -62,12 +62,38 @@
         </div>
 
         <div class="form-group">
-          <label>Status :</label>
-          <input type="text" class="form-control" formControlName="status"/>
+          <label>Start Date :</label>
+
+          <mat-form-field style="width: 250px; margin-left: 25px">
+            <input (dateChange)="changeStartDate(startDate)"
+                   matInput [matDatepicker]="startDate"
+                   formControlName="startDate" placeholder="Please choose a date"/>
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+          </mat-form-field>
+
           <p class="text-danger"
-             *ngIf="formCreateNew.controls.status?.invalid && (formCreateNew.controls.status?.dirty
-            || formCreateNew.controls.status?.touched)">
-            Invalid status ! Status must not be left blank !
+             *ngIf="formCreateNew.controls.startDate?.invalid && (formCreateNew.controls.startDate?.dirty
+            || formCreateNew.controls.startDate?.touched)">
+            Invalid start date ! Start date must not be left blank !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>End Date :</label>
+
+          <mat-form-field style="width: 250px; margin-left: 25px">
+            <input [min]="startDateTS" matInput [matDatepicker]="endDate"
+                   formControlName="endDate" placeholder="Please choose a date"/>
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+          </mat-form-field>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('endDate').hasError('required')
+                       && (formCreateNew.controls.endDate?.dirty
+                      || formCreateNew.controls.endDate?.touched)">
+            End date invalid ! Please enter end date other !
           </p>
         </div>
 

@@ -11,8 +11,8 @@ const URLType = 'http://localhost:3000/productType';
   providedIn: 'root'
 })
 export class ServiceConnectService {
-  public API: string = 'http://localhost:3000/products';
-  public APIProductType: string = 'http://localhost:3000/productType';
+  public readonly API: string = 'http://localhost:3000/products';
+  public readonly APIProductType: string = 'http://localhost:3000/productType';
 
   constructor(
     public http: HttpClient

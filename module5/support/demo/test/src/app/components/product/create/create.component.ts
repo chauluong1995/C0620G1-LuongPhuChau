@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {ServiceConnectService} from "../../../services/service-connect.service";
+import {MatDatepicker} from "@angular/material/datepicker";
+import DateTimeFormat = Intl.DateTimeFormat;
 
 @Component({
   selector: 'app-create',
@@ -12,6 +14,7 @@ import {ServiceConnectService} from "../../../services/service-connect.service";
 export class CreateComponent implements OnInit {
   public formCreateNew: FormGroup;
   public typeList;
+  public startDateTS = new Date('yyyy/MM/dd');
 
   constructor(
     private serviceConnectService: ServiceConnectService,
@@ -38,12 +41,15 @@ export class CreateComponent implements OnInit {
 
       name: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
-      status: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
       type: ['', Validators.required]
     });
   }
 
   createNew() {
+    this.formCreateNew.value.startDate.setDate(this.formCreateNew.value.startDate.getDate() - 7);
+
     for (let element of this.typeList) {
       if (element.name == this.formCreateNew.value.type) {
         this.formCreateNew.value.type = element;
@@ -57,5 +63,10 @@ export class CreateComponent implements OnInit {
       // ----- OFF Dialog -----
       this.dialogRef.close();
     })
+  }
+
+  changeStartDate(startDate: MatDatepicker<any>) {
+    this.startDateTS = startDate._datepickerInput.value;
+    this.startDateTS.setDate(this.startDateTS.getDate() + 7);
   }
 }

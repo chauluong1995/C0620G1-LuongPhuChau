@@ -45,8 +45,8 @@
 
           <p class="text-danger"
              *ngIf="formCreateNewCustomer.get('birthDay').hasError('required')
-                       && (formCreateNewCustomer.controls.idFormat?.dirty
-                      || formCreateNewCustomer.controls.idFormat?.touched)">
+                       && (formCreateNewCustomer.controls.birthDay?.dirty
+                      || formCreateNewCustomer.controls.birthDay?.touched)">
             Birth Day invalid ! Please enter birth day other !
           </p>
         </div>

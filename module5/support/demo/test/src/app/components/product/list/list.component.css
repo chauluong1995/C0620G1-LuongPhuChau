@@ -1,4 +1,7 @@
 td {
   font-weight: bold;
-  color: deeppink;
+}
+
+th {
+  color: blue;
 }

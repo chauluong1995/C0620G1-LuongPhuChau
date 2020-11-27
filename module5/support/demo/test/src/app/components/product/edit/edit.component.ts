@@ -55,7 +55,7 @@ export class EditComponent implements OnInit {
     //   status: ['', Validators.required],
     //   type: ['']
     // });
-
+    //
     // this.activedRouter.params.subscribe(data => {
     //   this.idNeed = data.id;
     //   this.serviceConnectService.findByID(this.idNeed).subscribe(data => {
@@ -75,8 +75,13 @@ export class EditComponent implements OnInit {
   edit() {
     this.idNeed = this.data.dataNeed.id;
 
-    this.formEdit.value.startDate.setDate(this.startDateTS.getDate() - 7);
-    this.formEdit.value.endDate.setDate(this.endDateTS.getDate() + 7);
+    if (this.testEndDate === 'false') {
+      this.formEdit.value.startDate.setDate(this.startDateTS.getDate() - 7);
+    }
+
+    if (this.testStartDate === 'false') {
+      this.formEdit.value.endDate.setDate(this.endDateTS.getDate() + 7);
+    }
 
     for (let element of this.typeListEdit) {
       if (element.name === this.formEdit.value.type) {
@@ -92,18 +97,22 @@ export class EditComponent implements OnInit {
   }
 
   changeStartDate(startDate: MatDatepicker<any>, endDate: MatDatepicker<any>) {
+    this.startDateTS = startDate._datepickerInput.value;
+    this.endDateTS = endDate._datepickerInput.value;
     if (this.testStartDate === 'true') {
-      this.startDateTS = startDate._datepickerInput.value;
+      console.log('change start date !');
       this.startDateTS.setDate(this.startDateTS.getDate() + 7);
       this.testEndDate = 'false'
     }
   }
 
   changeEndDate(endDate: MatDatepicker<any>, startDate: MatDatepicker<any>) {
+    this.startDateTS = startDate._datepickerInput.value;
+    this.endDateTS = endDate._datepickerInput.value;
     if (this.testEndDate === 'true') {
-      this.testStartDate = 'false';
-      this.endDateTS = endDate._datepickerInput.value;
+      console.log('change end date !');
       this.endDateTS.setDate(this.endDateTS.getDate() - 7);
+      this.testStartDate = 'false';
     }
   }
 }

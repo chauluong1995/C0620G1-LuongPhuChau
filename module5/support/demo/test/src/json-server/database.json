@@ -4,11 +4,11 @@
       "idFormat": "SP-0527",
       "name": "Sony XZ Premium",
       "price": 5000,
-      "startDate": "05/11/2019",
-      "endDate": "05/14/2019",
+      "startDate": "2020-10-31T17:00:00.000Z",
+      "endDate": "2020-11-24T17:00:00.000Z",
       "type": {
-        "id": 1,
-        "name": "Phone"
+        "id": 3,
+        "name": "Laptop"
       },
       "id": 1
     },
@@ -16,10 +16,10 @@
       "idFormat": "SP-3698",
       "name": "Realme C1",
       "price": 3000,
-      "startDate": "05/11/2019",
-      "endDate": "05/14/2019",
+      "startDate": "2020-11-15T17:00:00.000Z",
+      "endDate": "2020-11-26T17:00:00.000Z",
       "type": {
-        "id": 1,
+        "id": 5,
         "name": "Phone"
       },
       "id": 2
@@ -28,8 +28,8 @@
       "idFormat": "SP-1234",
       "name": "TV LCD Smart",
       "price": 3500,
-      "startDate": "2020-11-09T17:00:00.000Z",
-      "endDate": "2020-11-16T17:00:00.000Z",
+      "startDate": "2020-11-08T17:00:00.000Z",
+      "endDate": "2020-11-29T17:00:00.000Z",
       "type": {
         "id": 2,
         "name": "Television"
@@ -37,28 +37,40 @@
       "id": 3
     },
     {
-      "id": 4,
       "idFormat": "SP-9654",
       "name": "Kawasaki Z1000",
       "price": 10000,
-      "startDate": "05/11/2019",
-      "endDate": "05/14/2019",
+      "startDate": "2020-11-03T17:00:00.000Z",
+      "endDate": "2020-11-10T17:00:00.000Z",
       "type": {
         "id": 4,
         "name": "Other"
-      }
+      },
+      "id": 4
     },
     {
       "idFormat": "SP-8541",
       "name": "Acer Nitro 5",
       "price": 5500,
-      "startDate": "05/11/2019",
-      "endDate": "05/14/2019",
+      "startDate": "2020-11-06T17:00:00.000Z",
+      "endDate": "2020-11-13T17:00:00.000Z",
       "type": {
         "id": 3,
         "name": "Laptop"
       },
       "id": 5
+    },
+    {
+      "idFormat": "SP-2365",
+      "name": "ok",
+      "price": "1",
+      "startDate": "2020-10-01T17:00:00.000Z",
+      "endDate": "2020-10-01T17:00:00.000Z",
+      "type": {
+        "id": 5,
+        "name": "Phone"
+      },
+      "id": 6
     }
   ],
   "productType": [

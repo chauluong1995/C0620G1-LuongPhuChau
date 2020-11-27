@@ -171,7 +171,6 @@ export class ListComponent implements OnInit {
         this.listChoose.push(value);
       }
     }
-    console.log(this.listChoose)
   }
 
   deleteAllChoosed() {

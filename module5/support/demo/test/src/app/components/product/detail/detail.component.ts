@@ -1,5 +1,4 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 
@@ -14,7 +13,6 @@ export class DetailComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public formBuilder: FormBuilder,
     public router: Router
   ) {
   }
@@ -24,7 +22,9 @@ export class DetailComponent implements OnInit {
       idFormat: this.data.dataNeed.idFormat,
       name: this.data.dataNeed.name,
       price: this.data.dataNeed.price,
-      status: this.data.dataNeed.status,
+      startDate: this.data.dataNeed.startDate,
+      endDate: this.data.dataNeed.endDate,
+      birthDay: this.data.dataNeed.birthDay,
       type: this.data.dataNeed.type.name
     }
   }

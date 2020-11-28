@@ -5,7 +5,6 @@ import {map, switchMap} from "rxjs/operators";
 import {AbstractControl, AsyncValidatorFn} from "@angular/forms";
 
 const URL = 'http://localhost:3000/products';
-const URLType = 'http://localhost:3000/productType';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +30,14 @@ export class ServiceConnectService {
     return this.http.post(this.API, variable)
   }
 
+  deleteService(idNeedDelete: any): Observable<any> {
+    return this.http.delete(this.API + '/' + idNeedDelete)
+  }
+
+  editService(customer, idNeedEdit): Observable<any> {
+    return this.http.put(this.API + '/' + idNeedEdit, customer)
+  }
+
   validateID(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<{ [key: string]: any } | null> => {
       return this.search(control.value)
@@ -45,7 +52,7 @@ export class ServiceConnectService {
   }
 
   search(text) {
-    return timer(100)
+    return timer(50)
       .pipe(
         switchMap(() => {
           return this.http.get<any>(`${URL}?idFormat=${text}`)
@@ -99,13 +106,5 @@ export class ServiceConnectService {
 
   sortByIDDESC(): Observable<any> {
     return this.http.get(`${URL}?_sort=idFormat&_order=desc`)
-  }
-
-  deleteService(idNeedDelete: any): Observable<any> {
-    return this.http.delete(this.API + '/' + idNeedDelete)
-  }
-
-  editService(customer, idNeedEdit): Observable<any> {
-    return this.http.put(this.API + '/' + idNeedEdit, customer)
   }
 }

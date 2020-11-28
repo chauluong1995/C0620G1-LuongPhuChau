@@ -11,6 +11,7 @@ import {CreateComponent} from './components/product/create/create.component';
 import {DeleteComponent} from './components/product/delete/delete.component';
 import {EditComponent} from './components/product/edit/edit.component';
 import {DetailComponent} from './components/product/detail/detail.component';
+import {OrderModule} from "ngx-order-pipe";
 
 const routes: Routes = [
   {path: '', component: ListComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), FormsModule, CommonModule, Ng2SearchPipeModule, NgxPaginationModule,
-    ReactiveFormsModule, MaterialModule],
+    ReactiveFormsModule, MaterialModule, OrderModule],
   exports: [RouterModule],
   declarations: [PageNotFoundComponent, ListComponent, CreateComponent, DeleteComponent, EditComponent, DetailComponent]
 })

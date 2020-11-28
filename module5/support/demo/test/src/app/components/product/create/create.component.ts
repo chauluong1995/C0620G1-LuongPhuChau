@@ -4,7 +4,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {ServiceConnectService} from "../../../services/service-connect.service";
 import {MatDatepicker} from "@angular/material/datepicker";
-import DateTimeFormat = Intl.DateTimeFormat;
 
 @Component({
   selector: 'app-create',
@@ -15,16 +14,14 @@ export class CreateComponent implements OnInit {
   public formCreateNew: FormGroup;
   public typeList;
   public startDateTS = new Date('yyyy/MM/dd');
+  public maxBirthDay = new Date('yyyy/MM/dd');
 
   constructor(
     private serviceConnectService: ServiceConnectService,
-
     // ----- OFF Dialog -----
     public dialogRef: MatDialogRef<CreateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-
     public formBuilder: FormBuilder,
-
     public router: Router
   ) {
   }
@@ -33,36 +30,46 @@ export class CreateComponent implements OnInit {
     this.serviceConnectService.getAllType().subscribe(dataType => {
       this.typeList = dataType;
     });
+
+    this.maxBirthDay.setDate(new Date().getDate() - 18*365 - 5);
+
     this.formCreateNew = this.formBuilder.group({
-      idFormat: ['',
-        [Validators.required, Validators.pattern('^(SP-)[0-9]{4}$')],
-        [this.serviceConnectService.validateID()], { updateOn: 'blur' }
-      ],
+      idFormat: ['', {
+        validators: [Validators.required, Validators.pattern('^(SP-)[0-9]{4}$')],
+        asyncValidators: [this.serviceConnectService.validateID()],
+        updateOn: 'blur'
+      }],
 
       name: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
+      price: ['', [Validators.required,
+        Validators.pattern('^([0-9]+([.][0-9]+)?)$'), Validators.min(1000)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
+      birthDay: ['', Validators.required],
       type: ['', Validators.required]
     });
   }
 
   createNew() {
-    this.formCreateNew.value.startDate.setDate(this.formCreateNew.value.startDate.getDate() - 7);
+    if (this.formCreateNew.valid) {
+      this.formCreateNew.value.startDate.setDate(this.formCreateNew.value.startDate.getDate() - 7);
 
-    for (let element of this.typeList) {
-      if (element.name == this.formCreateNew.value.type) {
-        this.formCreateNew.value.type = element;
-        break;
+      for (let element of this.typeList) {
+        if (element.name == this.formCreateNew.value.type) {
+          this.formCreateNew.value.type = element;
+          break;
+        }
       }
+
+      this.formCreateNew.value.hiddenIcon = true;
+
+      this.serviceConnectService.createNewService(this.formCreateNew.value).subscribe(data => {
+        // this.router.navigateByUrl('list').then(_ => { });
+
+        // ----- OFF Dialog -----
+        this.dialogRef.close();
+      })
     }
-
-    this.serviceConnectService.createNewService(this.formCreateNew.value).subscribe(data => {
-      // this.router.navigateByUrl('list').then(_ => { });
-
-      // ----- OFF Dialog -----
-      this.dialogRef.close();
-    })
   }
 
   changeStartDate(startDate: MatDatepicker<any>) {

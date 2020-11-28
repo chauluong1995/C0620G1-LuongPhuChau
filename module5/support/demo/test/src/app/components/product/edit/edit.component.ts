@@ -18,18 +18,15 @@ export class EditComponent implements OnInit {
   public endDateTS = new Date('yyyy/MM/dd');
   public testStartDate = 'true';
   public testEndDate = 'true';
+  public maxBirthDay = new Date('yyyy/MM/dd');
 
   constructor(
-
     // ----- ON Dialog -----
     public dialogRef: MatDialogRef<EditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-
     public formBuilder: FormBuilder,
-
     public serviceConnectService: ServiceConnectService,
     public router: Router,
-
     private activedRouter: ActivatedRoute
   ) {
   }
@@ -39,12 +36,16 @@ export class EditComponent implements OnInit {
       this.typeListEdit = dataType;
     });
 
+    this.maxBirthDay.setDate(new Date().getDate() - 18*365 - 5);
+
     this.formEdit = this.formBuilder.group({
       idFormat: [this.data.dataNeed.idFormat],
       name: [this.data.dataNeed.name, Validators.required],
-      price: [this.data.dataNeed.price, [Validators.required, Validators.pattern('^([0-9]+([.][0-9]+)?)$')]],
+      price: [this.data.dataNeed.price, [Validators.required,
+        Validators.pattern('^([0-9]+([.][0-9]+)?)$'), Validators.min(1000)]],
       startDate: [this.data.dataNeed.startDate, Validators.required],
       endDate: [this.data.dataNeed.endDate, Validators.required],
+      birthDay: [this.data.dataNeed.birthDay, Validators.required],
       type: [this.data.dataNeed.type.name]
     });
 
@@ -73,27 +74,31 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
-    this.idNeed = this.data.dataNeed.id;
+    if (this.formEdit.valid) {
+      this.idNeed = this.data.dataNeed.id;
 
-    if (this.testEndDate === 'false') {
-      this.formEdit.value.startDate.setDate(this.startDateTS.getDate() - 7);
-    }
-
-    if (this.testStartDate === 'false') {
-      this.formEdit.value.endDate.setDate(this.endDateTS.getDate() + 7);
-    }
-
-    for (let element of this.typeListEdit) {
-      if (element.name === this.formEdit.value.type) {
-        this.formEdit.value.type = element;
-        break;
+      if (this.testEndDate === 'false') {
+        this.formEdit.value.startDate.setDate(this.startDateTS.getDate() - 7);
       }
-    }
 
-    this.serviceConnectService.editService(this.formEdit.value, this.idNeed).subscribe(data => {
-      // this.router.navigateByUrl('list').then(_ => {});
-      this.dialogRef.close();
-    })
+      if (this.testStartDate === 'false') {
+        this.formEdit.value.endDate.setDate(this.endDateTS.getDate() + 7);
+      }
+
+      for (let element of this.typeListEdit) {
+        if (element.name === this.formEdit.value.type) {
+          this.formEdit.value.type = element;
+          break;
+        }
+      }
+
+      this.formEdit.value.hiddenIcon = true;
+
+      this.serviceConnectService.editService(this.formEdit.value, this.idNeed).subscribe(data => {
+        // this.router.navigateByUrl('list').then(_ => {});
+        this.dialogRef.close();
+      })
+    }
   }
 
   changeStartDate(startDate: MatDatepicker<any>, endDate: MatDatepicker<any>) {

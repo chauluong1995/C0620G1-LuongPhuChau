@@ -13,6 +13,9 @@ import {DetailComponent} from "../detail/detail.component";
 })
 export class ListComponent implements OnInit {
   public list;
+  public objectNeed = null;
+  public key = 'id';
+  public reverse = false;
   public listChoose: Array<any> = [];
   term: any;
   p: any;
@@ -38,6 +41,9 @@ export class ListComponent implements OnInit {
     this.keyPrice = "";
     this.listChoose = [];
     this.searchOfMe("", "");
+    this.reverse = false;
+    this.key = 'id';
+    this.objectNeed = null;
   }
 
   createNewDialog() {
@@ -69,7 +75,6 @@ export class ListComponent implements OnInit {
 
   openDialogEdit(id: any): void {
     this.serviceConnectService.findByID(id).subscribe(varialble => {
-      // console.log(customer);
       const dialogRefEdit = this.dialog.open(EditComponent, {
         width: '950px',
         height: '1500px',
@@ -85,7 +90,6 @@ export class ListComponent implements OnInit {
 
   openDialogView(id: any) {
     this.serviceConnectService.findByID(id).subscribe(varialble => {
-      // console.log(varialble);
       const dialogRefEdit = this.dialog.open(DetailComponent, {
         width: '950px',
         height: '750px',
@@ -103,57 +107,19 @@ export class ListComponent implements OnInit {
     if (keyPrice !== "" && keyName !== "") {
       // this.serviceConnectService.findByNameAndPrice(keyName, keyPrice).subscribe(data => {
       this.serviceConnectService.findByNameAndType(keyName, keyPrice).subscribe(data => {
-        // console.log(data);
         this.list = data;
       });
     } else {
       if (keyName === "") {
         // this.serviceConnectService.findByPrice(keyPrice).subscribe(data => {
         this.serviceConnectService.findByType(keyPrice).subscribe(data => {
-          // console.log(data);
           this.list = data;
         });
       } else if (keyPrice === "") {
         this.serviceConnectService.findByName(keyName).subscribe(data => {
-          // console.log(data);
           this.list = data;
         });
       }
-    }
-  }
-
-  sort(attribute: any, arrange: any) {
-    if (arrange === "asc" && attribute === "price") {
-      this.serviceConnectService.sortByPriceASC().subscribe(data => {
-        this.list = data;
-      });
-    }
-    if (arrange === "desc" && attribute === "price") {
-      this.serviceConnectService.sortByPriceDESC().subscribe(data => {
-        this.list = data;
-      });
-    }
-
-    if (arrange === "asc" && attribute === "name") {
-      this.serviceConnectService.sortByNameASC().subscribe(data => {
-        this.list = data;
-      });
-    }
-    if (arrange === "desc" && attribute === "name") {
-      this.serviceConnectService.sortByNameDESC().subscribe(data => {
-        this.list = data;
-      });
-    }
-
-    if (arrange === "asc" && attribute === "id") {
-      this.serviceConnectService.sortByIDASC().subscribe(data => {
-        this.list = data;
-      });
-    }
-    if (arrange === "desc" && attribute === "id") {
-      this.serviceConnectService.sortByIDDESC().subscribe(data => {
-        this.list = data;
-      });
     }
   }
 
@@ -183,4 +149,61 @@ export class ListComponent implements OnInit {
       this.ngOnInit()
     }
   }
+
+  sortInTable(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
+  setDetail(element: any) {
+    element.hiddenIcon = false;
+    this.objectNeed = element;
+  }
+
+  setProperty(value: string) {
+    this.objectNeed.name = value;
+    this.objectNeed.hiddenIcon = true;
+    this.serviceConnectService.editService(this.objectNeed, this.objectNeed.id).subscribe(data => {
+      if (this.serviceConnectService.getAll().subscribe()) {
+        this.ngOnInit()
+      }
+    })
+  }
+
+  // sort(attribute: any, arrange: any) {
+  //   console.log('có vô');
+  //   if (arrange === "asc" && attribute === "price") {
+  //     console.log('price asc');
+  //     this.serviceConnectService.sortByPriceASC().subscribe(data => {
+  //       this.list = data;
+  //     });
+  //   }
+  //   if (arrange === "desc" && attribute === "price") {
+  //     this.serviceConnectService.sortByPriceDESC().subscribe(data => {
+  //       this.list = data;
+  //     });
+  //   }
+  //
+  //   if (arrange === "asc" && attribute === "name") {
+  //     this.serviceConnectService.sortByNameASC().subscribe(data => {
+  //       this.list = data;
+  //     });
+  //   }
+  //   if (arrange === "desc" && attribute === "name") {
+  //     this.serviceConnectService.sortByNameDESC().subscribe(data => {
+  //       this.list = data;
+  //     });
+  //   }
+  //
+  //   if (arrange === "asc" && attribute === "id") {
+  //     this.serviceConnectService.sortByIDASC().subscribe(data => {
+  //       this.list = data;
+  //     });
+  //   }
+  //   if (arrange === "desc" && attribute === "id") {
+  //     this.serviceConnectService.sortByIDDESC().subscribe(data => {
+  //       this.list = data;
+  //     });
+  //   }
+  // }
 }

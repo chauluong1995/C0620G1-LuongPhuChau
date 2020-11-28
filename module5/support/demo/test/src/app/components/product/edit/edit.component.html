@@ -20,11 +20,26 @@
 
         <div class="form-group">
           <label>Price :</label><br>
-          <input type="text" class="form-control" formControlName="price"/>
+          <input type="number" class="form-control" formControlName="price"/>
           <p class="text-danger"
-             *ngIf="formEdit.controls.price?.invalid && (formEdit.controls.price?.dirty
+             *ngIf="formEdit.get('price').hasError('pattern')
+             && (formEdit.controls.price?.dirty
             || formEdit.controls.price?.touched)">
-            Price is not valid ! Price must be a positive number !
+            Invalid price ! Price must be a positive number !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formEdit.get('price').hasError('min')
+             && (formEdit.controls.price?.dirty
+            || formEdit.controls.price?.touched)">
+            Invalid price ! Price must be greater than 1000 VND !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formEdit.get('price').hasError('required')
+             && (formEdit.controls.price?.dirty
+            || formEdit.controls.price?.touched)">
+            Invalid price ! Price must not be left blank !
           </p>
         </div>
 
@@ -43,7 +58,7 @@
              *ngIf="formEdit.controls.startDate?.invalid
              && (formEdit.controls.startDate?.dirty
             || formEdit.controls.startDate?.touched)">
-            Invalid start date ! Start date must not be left blank and must be less than date end 7 days !
+            Invalid start date ! Start date cannot be left blank and must be less than date end 7 days !
           </p>
 
 <!--          <p class="text-danger"-->
@@ -75,7 +90,7 @@
              *ngIf="formEdit.controls.endDate?.invalid
              && (formEdit.controls.endDate?.dirty
             || formEdit.controls.endDate?.touched)">
-            Invalid end date ! End dates cannot be left blank and must be 7 days after the start date
+            Invalid end date ! End date cannot be left blank and must be 7 days after the start date !
           </p>
 
 <!--          <p class="text-danger"-->
@@ -91,6 +106,24 @@
 <!--            || formEdit.controls.endDate?.touched)">-->
 <!--            Invalid start date ! End date must to than date start 7 days !-->
 <!--          </p>-->
+        </div>
+
+        <div class="form-group">
+          <label>Birth Day :</label>
+
+          <mat-form-field style="width: 250px; margin-left: 25px">
+            <input [max]="maxBirthDay" matInput [matDatepicker]="birthDay"
+                   formControlName="birthDay" placeholder="Please choose a date"/>
+            <mat-datepicker-toggle matSuffix [for]="birthDay"></mat-datepicker-toggle>
+            <mat-datepicker #birthDay></mat-datepicker>
+          </mat-form-field>
+
+          <p class="text-danger"
+             *ngIf="formEdit.controls.birthDay?.invalid
+             && (formEdit.controls.birthDay?.dirty
+            || formEdit.controls.birthDay?.touched)">
+            Invalid birth day ! The year of birth must be 18 years less than the current year !
+          </p>
         </div>
 
         <div class="form-group">

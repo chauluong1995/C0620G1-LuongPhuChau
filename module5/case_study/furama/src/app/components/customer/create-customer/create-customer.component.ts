@@ -77,5 +77,13 @@ export class CreateCustomerComponent implements OnInit {
       this.dialogRef.close();
     })
   }
+
+  // validateIDFormat(control: AbstractControl) {
+  //   const regex = RegExp('^(KH-)[0-9]{4}$');
+  //   if (!regex.test(control.value)) {
+  //     return {ok: true};
+  //   }
+  //   return null;
+  // }
 }
 

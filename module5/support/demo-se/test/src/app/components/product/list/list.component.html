@@ -1,0 +1,107 @@
+<div class="container-fluid">
+  <h2 style="color: red; text-align: center">Danh Sach Mat Bang</h2>
+
+  <div class="row" style="margin-top: 35px">
+    <div class="col-sm-1"></div>
+
+    <div class="col-sm-1">
+      <button style="height: 50px" class="btn btn-success" (click)="createNewDialog()">Them Moi</button>
+    </div>
+
+    <div class="col-sm-8">
+    </div>
+
+    <div class="col-sm-1">
+      <button style="height: 50px; width: 120px" class="btn btn-success" (click)="resetSearch()">Lam Moi</button>
+    </div>
+
+    <div class="col-sm-1"></div>
+  </div>
+
+  <div class="row" style="margin-top: 50px; margin-left: 235px">
+    <input class="form-control" type="text" style="width: 250px; height: 50px; margin-left: 2%"
+           placeholder="Tim kiem theo tang" #floorLike [(ngModel)]="keyName">
+
+    <input class="form-control" type="text" style="width: 250px; height: 50px; margin-left: 2%"
+           placeholder="Tim Kiem theo gia" #priceLike [(ngModel)]="keyPrice">
+
+    <input class="form-control" type="text" style="width: 290px; height: 50px; margin-left: 2%"
+           placeholder="Tim kiem theo dien tich" #areaLike [(ngModel)]="keyArea">
+
+    <button class="btn btn-outline-success" style="height: 50px; margin-left: 2%"
+            (click)="searchOfMe(floorLike.value, priceLike.value, areaLike.value)">Tim Kiem
+    </button>
+  </div>
+
+  <div class="row justify-content-center" style="margin-top: 45px">
+    <input class="form-control" type="text" style="width: 250px; height: 50px; margin-right: 15px"
+           placeholder="Cac muc da chon" [(ngModel)]="listChoose" [value]="listChoose.toString()">
+    <button class="btn btn-danger" style="height: 50px" (click)="deleteAllChoosed()">Xoa tat ca</button>
+  </div>
+
+  <div class="row" style="margin-top: 25px; margin-left: 50px; margin-right: 50px; overflow-x: auto">
+    <table class="table mt-3 table-striped table-bordered" style="font-size: 17px">
+      <thead>
+      <tr>
+        <th style="width: 11px">Chon</th>
+
+        <th style="width: 90px" (click)="sortInTable('id')">STT <span [hidden]="!reverse">▲
+        </span><span [hidden]="reverse">▼</span>
+        </th>
+
+        <th (click)="sortInTable('idFormat')">ID <span>▲▼</span></th>
+
+        <th (click)="sortInTable('area')">Dien Tich <span [hidden]="!reverse">▲</span><span [hidden]="reverse">▼
+        </span></th>
+
+        <th (click)="sortInTable('floors')">So Tang <span [hidden]="!reverse">▲</span><span [hidden]="reverse">▼
+        </span></th>
+
+        <th (click)="sortInTable('rentPrice')">Gia Thue <span [hidden]="!reverse">▲
+        </span><span [hidden]="reverse">▼</span></th>
+
+        <th (click)="sortInTable('startDate')">Ngay Bat Dau <span [hidden]="!reverse">▲</span><span
+          [hidden]="reverse">▼</span></th>
+
+        <th (click)="sortInTable('endDate')">Ngay Ket Thuc <span [hidden]="!reverse">▲</span>
+          <span [hidden]="reverse">▼</span></th>
+
+        <th>Loai Mat Bang</th>
+        <th>Trang Thai</th>
+
+        <th>Chuc nang</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let element of list |orderBy: key : reverse |filter: term
+                                      |paginate: { itemsPerPage: 3, currentPage: p}">
+        <td><input type="checkbox" style="width: 3vh; height: 3vh" value="{{element.id}}" #idChoose
+                   (click)="chooseDelete(idChoose.value)"></td>
+        <td>{{element.id}}</td>
+        <td style="width: 135px">{{element.idFormat}}</td>
+        <td>{{element.area}}</td>
+        <td>{{element.floors}}</td>
+        <td>{{element.rentPrice}}</td>
+        <td>{{element.startDate | date: 'dd / MM / yyyy'}}</td>
+        <td>{{element.endDate | date: 'dd / MM / yyyy'}}</td>
+        <td style="width: 200px">{{element.type.name}}</td>
+        <td>{{element.status.name}}</td>
+        <td style="width: 150px">
+          <span class="material-icons icon-image-preview" style="color: blue; margin-right: 5%"
+                (click)="openDialogView(element.id)">visibility</span>
+
+          <span (click)="openDialogEdit(element.id)">
+            <span class="material-icons" style="color: darkviolet">create</span></span>
+
+          <span class="material-icons icon-image-preview" style="color: red; margin-left: 3%"
+                (click)="openDialogDelete(element.id)">delete</span>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p = $event" style="margin-left: 55%"></pagination-controls>
+  </div>
+</div>

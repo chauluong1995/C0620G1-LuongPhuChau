@@ -1,0 +1,117 @@
+{
+  "products": [
+    {
+      "idFormat": "LAD-11-AB",
+      "area": 50,
+      "floors": 10,
+      "rentPrice": 5500000,
+      "startDate": "2020-12-24T17:00:00.000Z",
+      "endDate": "2021-08-31T17:00:00.000Z",
+      "type": {
+        "id": 1,
+        "name": "Van Phong"
+      },
+      "status": {
+        "id": 1,
+        "name": "Trong"
+      },
+      "id": 1
+    },
+    {
+      "idFormat": "LAD-12-BC",
+      "area": 65,
+      "floors": 9,
+      "rentPrice": 7500000,
+      "startDate": "2020-12-24T17:00:00.000Z",
+      "endDate": "2021-08-31T17:00:00.000Z",
+      "type": {
+        "id": 2,
+        "name": "Van Phong Chia Se"
+      },
+      "status": {
+        "id": 2,
+        "name": "Ha Tang"
+      },
+      "id": 2
+    },
+    {
+      "idFormat": "LAD-15-XY",
+      "area": 75,
+      "floors": 5,
+      "rentPrice": 9500000,
+      "startDate": "2020-12-24T17:00:00.000Z",
+      "endDate": "2021-08-31T17:00:00.000Z",
+      "type": {
+        "id": 3,
+        "name": "Van Phong Tron Goi"
+      },
+      "status": {
+        "id": 3,
+        "name": "Day Du"
+      },
+      "id": 3
+    },
+    {
+      "idFormat": "LAD-19-PZ",
+      "area": 75,
+      "floors": 7,
+      "rentPrice": 9500000,
+      "startDate": "2020-12-24T17:00:00.000Z",
+      "endDate": "2021-08-31T17:00:00.000Z",
+      "type": {
+        "id": 3,
+        "name": "Van Phong Tron Goi"
+      },
+      "status": {
+        "id": 3,
+        "name": "Day Du"
+      },
+      "id": 4
+    },
+    {
+      "idFormat": "LAD-27-OK",
+      "area": 75,
+      "floors": 5,
+      "rentPrice": 10500000,
+      "startDate": "2020-12-24T17:00:00.000Z",
+      "endDate": "2021-08-31T17:00:00.000Z",
+      "type": {
+        "id": 3,
+        "name": "Van Phong Tron Goi"
+      },
+      "status": {
+        "id": 3,
+        "name": "Day Du"
+      },
+      "id": 5
+    }
+  ],
+  "productType": [
+    {
+      "id": 1,
+      "name": "Van Phong"
+    },
+    {
+      "id": 2,
+      "name": "Van Phong Chia Se"
+    },
+    {
+      "id": 3,
+      "name": "Van Phong Tron Goi"
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "name": "Trong"
+    },
+    {
+      "id": 2,
+      "name": "Ha Tang"
+    },
+    {
+      "id": 3,
+      "name": "Day Du"
+    }
+  ]
+}

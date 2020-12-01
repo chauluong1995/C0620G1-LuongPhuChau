@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <h2 style="color: blue; text-align: center">Danh sach cac xe dang ky o ben xe CodeGym Da Nang</h2>
+
+  <div class="row" style="margin-top: 35px">
+      <button style="height: 50px; width: 150px; margin-left: 65px" class="btn btn-success">Them Moi</button>
+  </div>
+
+  <div class="row" style="margin-top: 25px; margin-left: 50px; margin-right: 50px; overflow-x: auto">
+    <table class="table mt-3 table-striped table-bordered" style="font-size: 17px">
+      <thead>
+      <tr>
+        <th>So xe</th>
+        <th>Loai Xe</th>
+        <th>Ten Nha Xe</th>
+        <th>Diem Di</th>
+        <th>Diem Den</th>
+        <th>So Dien Thoai</th>
+        <th>Email</th>
+        <th>Gio di</th>
+        <th>Gio Den</th>
+        <th>Chuc nang</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let element of list |orderBy: key : reverse |filter: term
+                                      |paginate: { itemsPerPage: 25, currentPage: p}">
+        <td>{{element.numberCar}}</td>
+        <td>{{element.type}}</td>
+        <td>{{element.nameCar}}</td>
+        <td>{{element.startPlace.name}}</td>
+        <td>{{element.endPlace.name}}</td>
+        <td>{{element.phone}}</td>
+        <td>{{element.email}}</td>
+        <td>{{element.startHours}}</td>
+        <td>{{element.endHours}}</td>
+        <td style="width: 135px">
+
+          <span (click)="openDialogEdit(element.id)">
+            <span class="material-icons" style="color: darkviolet">create</span></span>
+
+          <span class="material-icons icon-image-preview" style="color: red; margin-left: 3%"
+                (click)="openDialogDelete(element.id)">delete</span>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <form [formGroup]="formEdit">
+      <div class="text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: #8b3021"
+            id="add">
+          <strong>Chinh sua thong tin xe khach co so xe {{numberCarNeed}}</strong></h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>So xe :</label>
+          <input class="form-control" value="{{numberCarNeed}}" disabled/>
+        </div>
+
+        <div class="form-group">
+          <label>Loai xe :</label>
+          <input type="text" class="form-control" formControlName="type"/>
+          <p class="text-danger"
+             *ngIf="formEdit.controls.type?.invalid && (formEdit.controls.type?.dirty
+            || formEdit.controls.type?.touched)">
+            Loai xe khong duoc de trong !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Ten nha xe :</label><br>
+          <input type="text" class="form-control" formControlName="nameCar"/>
+          <p class="text-danger"
+             *ngIf="formEdit.controls.nameCar?.invalid && (formEdit.controls.nameCar?.dirty
+            || formEdit.controls.nameCar?.touched)">
+            Ten nha xe khong duoc de trong !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Diem den : </label>
+          <select style="margin-left: 15px" formControlName="startPlace">
+            <option *ngFor="let element of startPlaceEdit" [value]="element.name">
+              {{element.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Diem den : </label>
+          <select style="margin-left: 15px" formControlName="endPlace">
+            <option *ngFor="let element of endPlaceEdit" [value]="element.name">
+              {{element.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>So dien thoai :</label><br>
+          <input type="text" class="form-control" formControlName="phone"/>
+          <p class="text-danger"
+             *ngIf="formEdit.get('phone').hasError('required')
+             && (formEdit.controls.phone?.dirty
+            || formEdit.controls.phone?.touched)">
+            So dien thoai khong duoc de trong !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formEdit.get('phone').hasError('pattern')
+             && (formEdit.controls.phone?.dirty
+            || formEdit.controls.phone?.touched)">
+            So dien thoai phai bat dau bang 090 hoac 093 hoac 097 va co 10 so !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Email :</label><br>
+          <input type="text" class="form-control" formControlName="email"/>
+          <p class="text-danger"
+             *ngIf="formEdit.get('email').hasError('required')
+             && (formEdit.controls.email?.dirty
+            || formEdit.controls.email?.touched)">
+            Email khong duoc de trong !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formEdit.get('email').hasError('pattern')
+             && (formEdit.controls.email?.dirty
+            || formEdit.controls.email?.touched)">
+            Email phai dung dinh dang email tieu chuan ! Vi du : abc@abc.abc !
+          </p>
+        </div>
+
+
+
+
+        <div class="form-group">
+          <label>Gio di :</label>
+          <input type="text" class="form-control" formControlName="startHours"/>
+          <p class="text-danger"
+             *ngIf="formEdit.controls.startHours?.invalid && (formEdit.controls.startHours?.dirty
+            || formEdit.controls.startHours?.touched)">
+            Gio di khong duoc de trong !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Gio den :</label>
+          <input type="text" class="form-control" formControlName="endHours"/>
+          <p class="text-danger"
+             *ngIf="formEdit.controls.endHours?.invalid && (formEdit.controls.endHours?.dirty
+            || formEdit.controls.endHours?.touched)">
+            Gio den khong duoc de trong !
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <h5 class="text-danger" [hidden]="formEdit.valid">Vui long nhap chinh xac tat ca ca thong tin tren !
+      </h5>
+    </div>
+    <div class="row justify-content-center">
+
+      <button mat-dialog-close class="btn btn-warning mr-3" style="width: 120px; height: 50px">
+        Quay Ve
+      </button>
+
+      <button class="btn btn-success" [disabled]="formEdit.invalid" (click)="edit()">
+        Sua
+      </button>
+
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>

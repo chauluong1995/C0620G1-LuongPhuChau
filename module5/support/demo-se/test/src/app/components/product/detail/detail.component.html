@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <form [ngModel]="formView">
+      <div class="text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: #8b3021"
+            id="add">
+          <strong>Thong Tin Chi Tiet</strong></h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>ID :</label>
+          <h5>{{formView.idFormat}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>Dien Tich :</label>
+          <h5>{{formView.area}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>So Tang :</label>
+          <h5>{{formView.floors}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>Gia Thue :</label>
+          <h5>{{formView.rentPrice}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>Ngay Bat Dau :</label>
+          <h5>{{formView.startDate | date: 'dd / MM / yyyy'}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>Ngay Ket Thuc :</label>
+          <h5>{{formView.endDate | date: 'dd / MM / yyyy'}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>Loai Mat Bang :</label>
+          <h5>{{formView.type}}</h5>
+        </div>
+
+        <div class="form-group">
+          <label>Trang Thai :</label>
+          <h5>{{formView.status}}</h5>
+        </div>
+
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <!--      <button [routerLink]="['/list']" class="btn btn-warning mr-3" style="width: 100px">Close</button>-->
+      <button mat-dialog-close class="btn btn-warning mr-3" style="width: 100px" (click)="closeDialog()">Dong</button>
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>

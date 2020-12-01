@@ -1,0 +1,167 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="formCreateNew">
+      <div class="text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-2" style="color: #8b3021"
+            id="add">
+          <strong>Them Moi Mat Bang</strong></h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>ID :</label>
+          <input type="text" class="form-control" formControlName="idFormat"
+                 placeholder="Dinh dang dung cua Ma mat bang la XXX-XX-XX voi X la so hoac chu cai viet hoa !"/>
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('idFormat').hasError('pattern')
+             && (formCreateNew.controls.idFormat?.dirty
+            || formCreateNew.controls.idFormat?.touched)">
+            Ma mat bang khong hop le ! Dinh dang dung cua Ma mat bang la XXX-XX-XX voi X la so hoac chu cai viet hoa !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('idFormat').hasError('required')
+             && (formCreateNew.controls.idFormat?.dirty
+            || formCreateNew.controls.idFormat?.touched)">
+            ID khong dc de trong !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('idFormat').hasError('idExists')
+                                 && (formCreateNew.controls.idFormat?.dirty
+                                || formCreateNew.controls.idFormat?.touched)">
+            ID da ton tai ! Vui long nhap ID khac !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Dien Tich :</label>
+          <input type="number" class="form-control" formControlName="area"/>
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('area').hasError('required') && (formCreateNew.controls.area?.dirty
+            || formCreateNew.controls.area?.touched)">
+            Dien tich khong duoc de trong !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('area').hasError('min') && (formCreateNew.controls.area?.dirty
+            || formCreateNew.controls.area?.touched)">
+            Dien tich phai lon hon 30 met vuong !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>So Tang :</label>
+          <input type="number" class="form-control" formControlName="floors"/>
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('floors').hasError('required') && (formCreateNew.controls.floors?.dirty
+            || formCreateNew.controls.floors?.touched)">
+            So tang khong duoc de trong !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('floors').hasError('min') && (formCreateNew.controls.floors?.dirty
+            || formCreateNew.controls.floors?.touched)">
+            So tang phai lon hon 0 !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('floors').hasError('max') && (formCreateNew.controls.floors?.dirty
+            || formCreateNew.controls.floors?.touched)">
+            So tang phai nho hon hoac bang 15 !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Gia Thue :</label><br>
+          <input type="number" class="form-control" formControlName="rentPrice"/>
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('rentPrice').hasError('required')
+             && (formCreateNew.controls.rentPrice?.dirty
+            || formCreateNew.controls.rentPrice?.touched)">
+            Gia thue khong duoc de trong !
+          </p>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.get('rentPrice').hasError('min')
+             && (formCreateNew.controls.rentPrice?.dirty
+            || formCreateNew.controls.rentPrice?.touched)">
+            Gia thue phai lon hon 5000000 VND !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Ngay Bat Dau :</label>
+
+          <mat-form-field style="width: 250px; margin-left: 25px">
+            <input (dateChange)="changeStartDate(startDate)"
+                   matInput [matDatepicker]="startDate" [min]="minDate"
+                   formControlName="startDate" placeholder="Vui long chon ngay"/>
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+          </mat-form-field>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.controls.startDate?.invalid
+                      && (formCreateNew.controls.startDate?.dirty || formCreateNew.controls.startDate?.touched)">
+            Ngay bat dau khong hop le ! Ngay bat dau khong duoc nho hon ngay hien tai va phai nho hon ngay ket thuc
+            it nhat 6 thang !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Ngay Ket Thuc :</label>
+
+          <mat-form-field style="width: 250px; margin-left: 25px">
+            <input [min]="startDateTS" matInput [matDatepicker]="endDate"
+                   formControlName="endDate" placeholder="Vui long chon ngay"/>
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+          </mat-form-field>
+
+          <p class="text-danger"
+             *ngIf="formCreateNew.controls.endDate?.invalid
+                       && (formCreateNew.controls.endDate?.dirty || formCreateNew.controls.endDate?.touched)">
+            Ngay ket thuc khong hop le ! Ngay ket thuc phai lon hon ngay bat dau it nhat 6 thang !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Loai Mat Bang : </label>
+          <select style="margin-left: 15px; width: 415px" formControlName="type">
+            <option value="">Chon 1 trong cac loai mat bang sau :</option>
+            <option *ngFor="let typeOfList of typeList">{{typeOfList.name}}</option>
+          </select>
+          <p class="text-danger"
+             *ngIf="formCreateNew.controls.type?.invalid && (formCreateNew.controls.type?.dirty
+            || formCreateNew.controls.type?.touched)">
+            Loai mat bang khong hop le !
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Trang thai : </label>
+          <select style="margin-left: 15px; width: 415px" formControlName="status">
+            <option value="">Chon 1 trong cac loai trang thai sau :</option>
+            <option *ngFor="let typeOfList of statusList">{{typeOfList.name}}</option>
+          </select>
+          <p class="text-danger"
+             *ngIf="formCreateNew.controls.status?.invalid && (formCreateNew.controls.status?.dirty
+            || formCreateNew.controls.status?.touched)">
+            Loai trang thai khong hop le !
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <h5 class="text-danger" [hidden]="formCreateNew.valid">De nghi nhap du cac thong tin tren !</h5>
+    </div>
+    <div class="row justify-content-center">
+      <!--      <button [routerLink]="['/list']" class="btn btn-warning mr-3" style="width: 100px">Cancel</button>-->
+
+      <button mat-dialog-close class="btn btn-warning mr-3">Huy Bo</button>
+
+      <button class="btn btn-success" [disabled]="formCreateNew.invalid" (click)="createNew()">Tao Moi</button>
+    </div>
+  </div>
+</div>

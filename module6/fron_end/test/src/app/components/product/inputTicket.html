@@ -1,10 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập Vé Bán</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    * {
+      margin: 0 0;
+      padding: 0 0;
+      font-size: 15px;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .inputTicket h5 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    fieldset.scheduler-border {
+      border: 2px groove black !important;
+      padding: 0 0.4em 1.4em 0.4em !important;
+      margin: 0 0 1.5em 0 !important;
+      -webkit-box-shadow: 0 0 0 0 #000;
+      box-shadow: 0 0 0 0 #000;
+      min-width: 30em;
+    }
+
+    legend.scheduler-border {
+      font-size: 1.2em !important;
+      font-weight: bold !important;
+      text-align: left !important;
+      width: auto;
+      padding: 0 10px;
+      border-bottom: none;
+    }
+
+    .container-fluid {
+      border: 2px solid;
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
+
+    .justify-content-center {
+      margin-top: 15px;
+    }
+
+    form {
+      width: 95%
+    }
+
+    div.col-sm-3 h5 {
+      text-align: right;
+      margin-top: 1%;
+    }
+
+    div.col-sm-2 h5 {
+      text-align: right;
+      margin-top: 1%;
+    }
+
+    div.form-row {
+      margin-top: 2%;
+    }
+
+    .testEmail {
+      margin-left: 37%;
+    }
+
+    .printTicket {
+      margin-left: 30%;
+    }
+
+    .endRow {
+      margin-bottom: 35px;
+    }
+
+    .button {
+      width: 100px;
+    }
+
+    .back {
+      margin-left: 3%;
+    }
+
+    textarea {
+      height: 69px;
+    }
+
+  </style>
+</head>
+<body>
+
 <div class="container-fluid">
   <div class="row justify-content-center"><h3>QUẢN LÝ BÁN VÉ</h3></div>
   <div class="row justify-content-center inputTicket"><h5>NHẬP VÉ BÁN</h5></div>
 
   <div class="row justify-content-center">
-    <form [formGroup]="">
-
+    <form>
       <fieldset class="scheduler-border">
         <legend class="scheduler-border">Thông tin chung</legend>
         <div class="form-row">
@@ -19,13 +116,13 @@
           </div>
           <div class="col-sm-3">
             <input class="form-control" value="Vietnam Airlines" disabled>
-<!--            <select>-->
-<!--              <option class="form-control">Vietnam Airlines</option>-->
-<!--              <option class="form-control">Bamboo Airways</option>-->
-<!--              <option class="form-control">Vietjet Air</option>-->
-<!--              <option class="form-control">Jetstar Pacific Airlines</option>-->
-<!--              <option class="form-control">Japan Airlines</option>-->
-<!--            </select>-->
+            <!--            <select>-->
+            <!--              <option class="form-control">Vietnam Airlines</option>-->
+            <!--              <option class="form-control">Bamboo Airways</option>-->
+            <!--              <option class="form-control">Vietjet Air</option>-->
+            <!--              <option class="form-control">Jetstar Pacific Airlines</option>-->
+            <!--              <option class="form-control">Japan Airlines</option>-->
+            <!--            </select>-->
           </div>
         </div>
 
@@ -246,8 +343,7 @@
           <div class="col-sm-5">
           </div>
           <div class="col-sm-2">
-            <button style="width: 100px; margin-right: 2px" class="form-control testEmail"
-                    (click)="testEmail(emailInput.value)">
+            <button style="width: 100px; margin-right: 2px" class="form-control testEmail">
               Kiểm tra
             </button>
           </div>
@@ -261,12 +357,15 @@
         </div>
         <div class="col-sm-2"></div>
         <div class="col-sm-2">
-          <button class="form-control button printTicket" (click)="saveChange()">Lưu</button>
+          <button class="form-control button printTicket">Lưu</button>
         </div>
         <div class="col-sm-2">
-          <button class="form-control button printTicket" [routerLink]="'/print'">In vé</button>
+          <button class="form-control button printTicket">In vé</button>
         </div>
       </div>
     </form>
   </div>
 </div>
+
+</body>
+</html>

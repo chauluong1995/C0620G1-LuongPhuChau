@@ -1,7 +1,17 @@
 * {
   margin: 0 0;
   padding: 0 0;
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.inputTicket h5 {
   font-size: 22px;
+  font-weight: bold;
 }
 
 fieldset.scheduler-border {
@@ -38,7 +48,7 @@ form {
 
 div.col-sm-3 h5 {
   text-align: right;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 div.col-sm-2 h5 {
@@ -68,4 +78,8 @@ div.form-row {
 
 .back {
   margin-left: 3%;
+}
+
+textarea {
+  height: 69px;
 }

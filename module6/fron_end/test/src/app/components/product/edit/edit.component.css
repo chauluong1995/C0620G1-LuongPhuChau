@@ -1,22 +1,16 @@
 .form-control {
-  width: 41%;
+  width: 75%;
 }
 
 .button {
-  width: 133px;
-  margin-left: 41%;
+  margin-left: 17%;
   margin-top: 9%;
 }
 
 .hasInput h5 {
-  margin-top: 2%;
+  margin-top: 3%;
 }
 
-.col-sm-7 input {
-  width: 375px;
-  margin-left: 5%;
-}
-
-.col-sm-7 h5 {
-  margin-left: 5%;
+.bottom-input {
+  margin-top: 1%;
 }

@@ -1,12 +1,17 @@
-h5 {
-  margin-left: 250px;
+h3 {
+  text-align: center;
 }
 
-.nameCustomer {
-  margin-left: 0;
+h5 {
+  margin-left: 20%;
+}
+
+.serial {
+  float: left;
+  margin-right: 3%
 }
 
 .button {
   width: 135px;
-  margin-left: 27%;
+  margin-top: 5px;
 }

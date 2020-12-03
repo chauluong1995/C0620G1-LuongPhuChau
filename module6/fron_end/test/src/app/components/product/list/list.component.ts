@@ -22,40 +22,33 @@ export class ListComponent implements OnInit {
 
   }
 
-  // openDialogDelete(id: any): void {
-  //   this.serviceConnectService.findByID(id).subscribe(varialble => {
-  //     const dialogRef = this.dialog.open(DeleteComponent, {
-  //       width: '950px',
-  //       data: {dataNeed: varialble},
-  //       disableClose: true
-  //     });
-  //
-  //     dialogRef.afterClosed().subscribe(result => {
-  //       this.ngOnInit()
-  //     })
-  //   });
-  // }
+  openDialogDelete(id: any): void {
+    // this.serviceConnectService.findByID(id).subscribe(varialble => {
+      const dialogRef = this.dialog.open(DeleteComponent, {
+        width: '750px',
+        height: '320px',
+        // data: {dataNeed: varialble},
+        disableClose: true
+      });
 
-  // openDialogEdit(id: any): void {
-  //   this.serviceConnectService.findByID(id).subscribe(dataCar => {
-  //     const dialogRefEdit = this.dialog.open(EditComponent, {
-  //       width: '1050px',
-  //       height: '1500px',
-  //       data: {dataNeed: dataCar},
-  //       disableClose: true
-  //     });
-  //
-  //     dialogRefEdit.afterClosed().subscribe(result => {
-  //       this.ngOnInit()
-  //     })
-  //   });
-  // }
-
-  testEmail(value: string) {
-
+      dialogRef.afterClosed().subscribe(result => {
+        this.ngOnInit()
+      })
+    // });
   }
 
-  saveChange() {
+  openDialogEdit(id: any): void {
+    // this.serviceConnectService.findByID(id).subscribe(dataCar => {
+      const dialogRefEdit = this.dialog.open(EditComponent, {
+        width: '750px',
+        height: '390px',
+        // data: {dataNeed: dataCar},
+        disableClose: true
+      });
 
+      dialogRefEdit.afterClosed().subscribe(result => {
+        this.ngOnInit()
+      })
+    // });
   }
 }

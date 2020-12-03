@@ -11,10 +11,11 @@ import {EditComponent} from './components/product/edit/edit.component';
 import {OrderModule} from "ngx-order-pipe";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PrintComponent} from './components/product/print/print.component';
+import {InputTicketComponent} from './components/product/input-ticket/input-ticket.component';
 
 const routes: Routes = [
   {path: '', component: ListComponent},
-  {path: 'list', component: ListComponent},
+  {path: 'inputTicket', component: InputTicketComponent},
   {path: 'delete', component: DeleteComponent},
   {path: 'print', component: PrintComponent},
   {path: 'edit', component: EditComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), FormsModule, CommonModule, Ng2SearchPipeModule, NgxPaginationModule,
     ReactiveFormsModule, MaterialModule, OrderModule],
   exports: [RouterModule],
-  declarations: [PageNotFoundComponent, ListComponent, DeleteComponent, EditComponent, PrintComponent]
+  declarations: [PageNotFoundComponent, ListComponent,
+    DeleteComponent, EditComponent, PrintComponent, InputTicketComponent]
 })
 export class AppRoutingModule {
 }

@@ -1,89 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nhập Vé Bán</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <style>
-    * {
-      margin: 0 0;
-      padding: 0 0;
-      font-size: 15px;
-    }
-
-    h3 {
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .inputTicket h5 {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    fieldset.scheduler-border {
-      border: 2px groove black !important;
-      padding: 0 0.4em 1.4em 0.4em !important;
-      margin: 0 0 1.5em 0 !important;
-      -webkit-box-shadow: 0 0 0 0 #000;
-      box-shadow: 0 0 0 0 #000;
-    }
-
-    legend.scheduler-border {
-      font-size: 1.2em !important;
-      font-weight: bold !important;
-      text-align: left !important;
-      width: auto;
-      padding: 0 10px;
-      border-bottom: none;
-    }
-
-    .container-fluid {
-      border: 2px solid;
-      margin-top: 25px;
-      margin-bottom: 25px;
-    }
-
-    .justify-content-center {
-      margin-top: 15px;
-    }
-
-    form {
-      width: 95%
-    }
-
-    div.col-sm-3 h5 {
-      text-align: right;
-      margin-top: 1%;
-    }
-
-    div.col-sm-2 h5 {
-      text-align: right;
-      margin-top: 1%;
-    }
-
-    div.form-row {
-      margin-top: 2%;
-    }
-
-    .button {
-      width: 100px;
-      margin-bottom: 3%;
-    }
-
-    textarea {
-      height: 69px;
-    }
-
-    .printTicker {
-      margin-left: 41%
-    }
-
-  </style>
-</head>
-<body>
-
 <div class="container-fluid">
   <div class="row justify-content-center"><h3>QUẢN LÝ BÁN VÉ</h3></div>
   <div class="row justify-content-center inputTicket"><h5>NHẬP VÉ BÁN</h5></div>
@@ -119,13 +33,13 @@
             <h5>Nơi đi</h5>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-            <input class="form-control" value="Đà Nẵng" disabled>
+            <input class="form-control" value="Nhà Bà Ánh" disabled>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
             <h5>Nơi đến</h5>
           </div>
           <div class="col-sm-3">
-            <input class="form-control" value="Sài Gòn" disabled>
+            <input class="form-control" value="Nhà Ông Nhân" disabled>
           </div>
         </div>
 
@@ -137,7 +51,7 @@
             <input class="form-control" value="01/12/2020" disabled>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-            <h5>Ngày về</h5>
+            <h5>Nơi đến</h5>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
             <input class="form-control" value="15/12/2020" disabled>
@@ -179,7 +93,7 @@
             <h5>Mã chuyến bay đi</h5>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-            <input class="form-control" value="SPJ527 Vietnam Airline" disabled>
+            <input class="form-control" value="SPJ527 Bamboo Airline" disabled>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
             <h5>Giờ đi</h5>
@@ -245,7 +159,7 @@
             <h5>Mã chuyến bay về</h5>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-            <input class="form-control" value="HQM515 Vietnam Airline" disabled>
+            <input class="form-control" value="HQM515 Bamboo Airline" disabled>
           </div>
           <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
             <h5>Giờ đi</h5>
@@ -331,7 +245,7 @@
           <div class="col-sm-5 col-xs-5 col-md-5 col-lg-5">
           </div>
           <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
-            <button style="width: 100px; margin-right: 2px" class="form-control">
+            <button style="width: 100px; margin-right: 2px" class="form-control" (click)="testEmail('')">
               Kiểm tra
             </button>
           </div>
@@ -341,19 +255,18 @@
       <div class="form-row">
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"></div>
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-          <button class="form-control button">Quay lại</button>
+          <button class="form-control button" [routerLink]="''">Quay lại</button>
         </div>
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"></div>
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
           <div class="form-row">
-            <button class="form-control button">Lưu</button>
-            <button class="form-control button printTicker">In vé</button>
+            <button class="form-control button" (click)="saveChange()">Lưu</button>
+            <button class="form-control button printTicker">
+              <a href="http://localhost:4200/print" target="_blank">In vé</a>
+            </button>
           </div>
         </div>
       </div>
     </form>
   </div>
 </div>
-
-</body>
-</html>

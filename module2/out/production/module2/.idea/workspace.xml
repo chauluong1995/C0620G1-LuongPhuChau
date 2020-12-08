@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e565f0f6-a10a-4473-86e7-9249ad4ca283" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/DemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/controllers/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/controllers/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/controllers/RestBlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/entity/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/repository/BlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/repository/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/service/impl/BlogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/java/com/codegym/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/blog-of-category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/blog/sort-blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/category/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/category/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/category/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/category/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/main/resources/templates/common/common.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/demo/src/test/java/com/codegym/DemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/java/com/codegym/DemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/java/com/codegym/controllers/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/java/com/codegym/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/java/com/codegym/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/java/com/codegym/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/java/com/codegym/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/bai_tap/reDemo/src/test/java/com/codegym/DemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/thuc_hanh/restful/src/main/java/com/codegym/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session_va_cookie_trong_spring/bai_tap/product-list/src/main/resources/templates/product-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session_va_cookie_trong_spring/bai_tap/product-list/src/main/resources/templates/product-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/web_service_and_restful/thuc_hanh/c06g-spring-webservice-restful/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/thuc_hanh/c06g-spring-webservice-restful/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/web_service_and_restful/thuc_hanh/restful/src/main/java/com/codegym/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/web_service_and_restful/thuc_hanh/restful/src/main/java/com/codegym/service/impl/CustomerServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1iEkJECv542dH17kJ5vU07Kdsfl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module4/jquery_and_ajax/thuc_hanh/c06g-jquery-ajax" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e565f0f6-a10a-4473-86e7-9249ad4ca283" name="Default Changelist" comment="" />
+      <created>1601480064907</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601480064907</updated>
+      <workItem from="1601480066057" duration="111000" />
+      <workItem from="1602318429141" duration="125000" />
+      <workItem from="1603943395935" duration="21000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1603943415008">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603943415008" />
+  </component>
+</project>

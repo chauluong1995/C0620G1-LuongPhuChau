@@ -1,23 +1,18 @@
 <div class="container-fluid">
-  <form>
-    <h3>Xac Nhan !</h3>
-    <hr>
-    <h5>Bạn có chắc chắn muốn xóa vé có :</h5>
-    <h5 class="serial">Mã đặt chỗ : SPJ52795</h5>
-    <h5>Họ tên : Hồ Quỳnh Mai</h5>
-    <h5>Chuyến bay : Nhà Bà Ánh - Nhà Ông Nhân</h5>
-    <h5>Ngày : 15/12/2020</h5>
-    <h5>Giá : 9.500.000</h5>
-
-    <div class="form-row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <button class="form-control button" mat-dialog-close>Hủy</button>
-      </div>
-      <div class="col-sm-3">
-        <button class="form-control button">Xác Nhận</button>
-      </div>
-      <div class="col-sm-3"></div>
+  <div class="row">
+      <form>
+        <h3 style="color: red">Xác Nhận !</h3>
+        <hr>
+        <h5>Bạn có chắc chắn muốn xóa vé có thông tin :</h5>
+        <h5>Mã đặt chỗ : <span>SPJ51595</span></h5>
+        <h5>Chuyến bay :<span> Đà Nẵng - Sài Gòn</span></h5>
+        <h5>Ngày đi : <span>15/12/2020</span></h5>
+        <hr>
+        <p style="color: red">Lưu ý : Hành động này không thể hoàn tác !</p>
+        <div class="row">
+          <button mat-dialog-close class="back">Hủy</button>
+          <button class="accept" (click)="delete()">Xác Nhận</button>
+        </div>
+      </form>
     </div>
-  </form>
 </div>

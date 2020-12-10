@@ -1,77 +1,47 @@
 <div class="container-fluid">
-  <form>
-    <h3 style="text-align: center">Sửa thông tin vé :</h3>
-    <hr>
-
-    <div class="form-row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <h5>Mã đặt chỗ :</h5>
+  <div class="row">
+    <form>
+      <h3>Sửa thông tin vé có mã đặt chỗ SPJ52795</h3>
+      <hr>
+      <div class="row smallRow">
+        <div class="col-sm-5">
+          <h5 class="first">Chuyến bay :</h5>
+        </div>
+        <div class="col-sm-7">
+          <input class="form-control" value="Đà Nẵng - Sài Gòn" readonly>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <h5>SPJ52795</h5>
+      <div class="row smallRow">
+        <div class="col-sm-5">
+          <h5>Ngày đi :</h5>
+        </div>
+        <div class="col-sm-7">
+          <input class="form-control" value="22/12/2020" readonly>
+        </div>
       </div>
-    </div>
-
-    <div class="form-row hasInput">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <h5>Tên người đi :</h5>
+      <div class="row smallRow">
+        <div class="col-sm-5">
+          <h5>Tên người đi :<span> (*)</span></h5>
+        </div>
+        <div class="col-sm-7">
+          <input class="form-control" type="text">
+          <p hidden>Sorry</p>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <input class="form-control">
+      <div class="row smallRow">
+        <div class="col-sm-5">
+          <h5>Email thanh toán :<span> (*)</span></h5>
+        </div>
+        <div class="col-sm-7">
+          <input class="form-control" type="text">
+          <p hidden>Sorry</p>
+        </div>
       </div>
-    </div>
-
-    <div class="form-row bottom-input">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <h5>Chuyến bay :</h5>
+      <hr>
+      <div class="row smallRow">
+        <button mat-dialog-close class="back">Hủy</button>
+        <button class="accept">Xác Nhận</button>
       </div>
-      <div class="col-sm-6">
-        <h5>Nhà Bà Ánh - Nhà Ông Nhân</h5>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <h5>Ngày :</h5>
-      </div>
-      <div class="col-sm-6">
-        <h5>15/12/2020</h5>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <h5>Giá :</h5>
-      </div>
-      <div class="col-sm-6">
-        <h5>9.500.000</h5>
-      </div>
-    </div>
-
-    <div class="form-row hasInput">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <h5>Email thanh toán:</h5>
-      </div>
-      <div class="col-sm-6">
-        <input class="form-control">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <button class="form-control button" mat-dialog-close >Hủy</button>
-      </div>
-      <div class="col-sm-3">
-        <button class="form-control button">Xác Nhận</button>
-      </div>
-      <div class="col-sm-3"></div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>

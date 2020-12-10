@@ -10,7 +10,6 @@ import {EditComponent} from "../edit/edit.component";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  protected list;
 
   constructor(
     public serviceConnectService: ServiceConnectService,
@@ -25,8 +24,8 @@ export class ListComponent implements OnInit {
   openDialogDelete(id: any): void {
     // this.serviceConnectService.findByID(id).subscribe(varialble => {
       const dialogRef = this.dialog.open(DeleteComponent, {
-        width: '750px',
-        height: '320px',
+        width: '650px',
+        height: '370px',
         // data: {dataNeed: varialble},
         disableClose: true
       });
@@ -40,8 +39,8 @@ export class ListComponent implements OnInit {
   openDialogEdit(id: any): void {
     // this.serviceConnectService.findByID(id).subscribe(dataCar => {
       const dialogRefEdit = this.dialog.open(EditComponent, {
-        width: '750px',
-        height: '390px',
+        width: '790px',
+        height: '510px',
         // data: {dataNeed: dataCar},
         disableClose: true
       });

@@ -1,0 +1,41 @@
+.ticket {
+  border: 2px solid;
+}
+
+.logo {
+  text-align: right;
+}
+
+.passengerName {
+  margin: 2% 0;
+  font-weight: bold;
+}
+
+h3 {
+  margin: 0 0;
+  padding: 0 0;
+  color: orange;
+}
+
+h5 {
+  color: #00ac00;
+  margin: 0 0;
+}
+
+img {
+  width: 77%;
+  height: 50%;
+}
+
+hr {
+  margin: 2% 0;
+}
+
+p {
+  margin: 0 0;
+}
+
+span {
+  font-weight: bold;
+  margin: 0 0;
+}

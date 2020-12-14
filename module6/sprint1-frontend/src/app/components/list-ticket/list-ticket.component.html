@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-9">
+      <table class="table mt-3 table-striped table-bordered">
+        <thead>
+        <tr>
+          <th>Mã vé</th>
+          <th>Tên người đi</th>
+          <th>Giá đi</th>
+          <th>Giá về</th>
+          <th>Hãng bay</th>
+          <th>Chức năng</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let element of ticketList">
+          <td>{{element.ticketCode}}</td>
+          <td>{{element.passengerName}}</td>
+          <td>{{element.priceDeparture}}</td>
+          <td>{{element.priceArrival}}</td>
+          <td>{{element.flightInformation.airline}}</td>
+          <td>
+          <span (click)="openDialogEdit(element.id)">
+            <span class="material-icons" style="color: darkviolet">create</span></span>
+
+            <span class="material-icons icon-image-preview"
+                  (click)="openDialogDelete(element.id)">delete</span>
+
+            <span class="material-icons icon-image-preview"
+                  [routerLink]="['/printTicket', element.id]">print</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

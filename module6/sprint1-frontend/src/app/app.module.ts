@@ -12,10 +12,10 @@ import {FooterComponent} from './components/footer/footer.component';
 import {InputTicketSellComponent} from './components/input-ticket-sell/input-ticket-sell.component';
 import {DeleteTicketComponent} from './components/delete-ticket/delete-ticket.component';
 import {PrintTicketComponent} from './components/print-ticket/print-ticket.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 import {ListTicketComponent} from './components/list-ticket/list-ticket.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from '@angular/material/dialog';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,16 +23,16 @@ import {FormsModule} from "@angular/forms";
     // Quân
     HomeComponent, LoginComponent, RegisterComponent, NavBarComponent, FooterComponent,
     // Châu
-    InputTicketSellComponent, DeleteTicketComponent, PrintTicketComponent, ListTicketComponent
+    DeleteTicketComponent, PrintTicketComponent, ListTicketComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MaterialModule,
-        HttpClientModule,
-        MatDialogModule,
-        FormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MaterialModule,
+    HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -52,7 +52,6 @@ public class FlightInformation {
     @Column(name = "price", columnDefinition = "DOUBLE")
     private Double price;
 
-//-------
     @OneToMany(mappedBy = "flightInformation", cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Ticket> ticketList;

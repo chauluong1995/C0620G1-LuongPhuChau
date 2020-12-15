@@ -1,7 +1,5 @@
 package com.sprint1backend.common;
 
-import java.util.regex.Pattern;
-
 public class AppUtils {
 //    status payment
     public static final String CANCEL = "Cancel";

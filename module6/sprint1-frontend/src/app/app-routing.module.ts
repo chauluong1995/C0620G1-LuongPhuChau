@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MaterialModule} from './material.module';
 import {InputTicketSellComponent} from './components/input-ticket-sell/input-ticket-sell.component';
 import {PrintTicketComponent} from './components/print-ticket/print-ticket.component';
+import { PrintTicketTwoWayComponent } from './components/print-ticket-two-way/print-ticket-two-way.component';
 
 const routes: Routes = [
   // Quân :
@@ -19,14 +20,16 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   // Châu :
   {path: 'listTicket', component: ListTicketComponent},
-  {path: 'inputTicket', component: InputTicketSellComponent},
+  {path: 'inputTicketSell', component: InputTicketSellComponent},
   {path: 'printTicket/:id', component: PrintTicketComponent},
+  {path: 'printTicketTwoWay/:bookingCode/:passengerList/:flightDeparture/:flightArrival',
+    component: PrintTicketTwoWayComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), ReactiveFormsModule, MatDialogModule, MatInputModule, MaterialModule],
   exports: [RouterModule],
-  declarations: [EditTicketComponent]
+  declarations: [EditTicketComponent, InputTicketSellComponent, PrintTicketTwoWayComponent]
 })
 export class AppRoutingModule {
 }

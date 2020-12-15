@@ -1,9 +1,7 @@
 package com.sprint1backend.controller;
 
-import com.sprint1backend.entity.AppUser;
-import com.sprint1backend.entity.FlightInformation;
-import com.sprint1backend.entity.Passenger;
-import com.sprint1backend.entity.Ticket;
+import com.sprint1backend.entity.*;
+import com.sprint1backend.model.TicketDTO;
 import com.sprint1backend.service.ticket.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static com.sprint1backend.common.AppUtils.PENDING;
 
@@ -64,7 +63,7 @@ public class TicketRestController {
         return new ResponseEntity<>(appUserList, HttpStatus.OK);
     }
 
-    @PostMapping("/edit/{ticket}/{passengerEdit}/{appUserID}")
+    @PutMapping("/edit/{ticket}/{passengerEdit}/{appUserID}")
     public ResponseEntity<Ticket> editTicket(@PathVariable Ticket ticket,
                                              @PathVariable String passengerEdit,
                                              @PathVariable Long appUserID) {
@@ -76,6 +75,88 @@ public class TicketRestController {
             }
         }
         this.ticketService.editTicket(ticket);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/save/{idFlightInformationDeparture}/{idFlightInformationArrival}")
+    public ResponseEntity<Ticket> saveTicket(@PathVariable Long idFlightInformationDeparture,
+                                             @PathVariable Long idFlightInformationArrival,
+                                             @RequestBody TicketDTO ticketDTO) {
+        // Customer list analysis
+        String passengers = ticketDTO.getPassengerName();
+        String[] passengerList;
+        passengerList = passengers.split(",");
+
+        // Find flightInformationDeparture
+        FlightInformation flightInformationDeparture;
+        flightInformationDeparture = this.ticketService.findFlightInformationByID(idFlightInformationDeparture);
+
+        // Find AppUser
+        String email = ticketDTO.getAppUser();
+        AppUser appUserCreate = null;
+        List<AppUser> appUserList = this.ticketService.findAllAppUser();
+        for (AppUser appUser : appUserList) {
+            if (appUser.getEmail().equals(email)) {
+                appUserCreate = appUser;
+                break;
+            }
+        }
+
+        // Find Employee
+        Employee employeeCreate = null;
+        List<Employee> employeeList = this.ticketService.findAllEmployee();
+        for (Employee employee : employeeList) {
+            if (employee.getId().equals(ticketDTO.getEmployee())) {
+                employeeCreate = employee;
+                break;
+            }
+        }
+
+        // Create Booking
+        Booking booking = new Booking();
+        booking.setBookingCode(ticketDTO.getBooking());
+        booking.setAppUser(appUserCreate);
+        this.ticketService.saveBooking(booking);
+
+        // Create Ticket Departure
+        for (String passengerName : passengerList) {
+            Ticket ticketDeparture = new Ticket();
+            ticketDeparture.setPassengerName(passengerName);
+            ticketDeparture.setStatusCheckin(false);
+            String ticketCode = UUID.randomUUID().toString();
+            ticketDeparture.setTicketCode(ticketCode);
+            ticketDeparture.setPriceDeparture(ticketDTO.getPriceDeparture() / passengerList.length);
+            ticketDeparture.setAppUser(appUserCreate);
+            Booking bookingCreate = this.ticketService.findBookingByBookingCode(ticketDTO.getBooking());
+            ticketDeparture.setBooking(bookingCreate);
+            ticketDeparture.setEmployee(employeeCreate);
+            ticketDeparture.setFlightInformation(flightInformationDeparture);
+            this.ticketService.saveTicket(ticketDeparture);
+        }
+
+        // Create Ticket Arrival
+        if (!idFlightInformationArrival.equals(0L)) {
+
+            // Find flightInformationArrival
+            FlightInformation flightInformationArrival;
+            flightInformationArrival = this.ticketService.findFlightInformationByID(idFlightInformationArrival);
+
+            for (String passengerName : passengerList) {
+                Ticket ticketArrival = new Ticket();
+                ticketArrival.setPassengerName(passengerName);
+                ticketArrival.setStatusCheckin(false);
+                String ticketCode = UUID.randomUUID().toString();
+                ticketArrival.setPriceDeparture(ticketDTO.getPriceArrival() / passengerList.length);
+                ticketArrival.setTicketCode(ticketCode);
+                ticketArrival.setAppUser(appUserCreate);
+                Booking bookingCreate = this.ticketService.findBookingByBookingCode(ticketDTO.getBooking());
+                ticketArrival.setBooking(bookingCreate);
+                ticketArrival.setEmployee(employeeCreate);
+                ticketArrival.setFlightInformation(flightInformationArrival);
+                this.ticketService.saveTicket(ticketArrival);
+            }
+        }
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

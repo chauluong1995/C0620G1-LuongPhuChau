@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TicketService} from '../../service/ticket/ticket.service';
 
@@ -27,8 +27,6 @@ export class PrintTicketComponent implements OnInit {
       this.bookingCode = data.booking.bookingCode;
       this.flightInformationDisplay = data.flightInformation;
       this.ticket = data;
-      console.log(this.ticket);
     });
   }
-
 }

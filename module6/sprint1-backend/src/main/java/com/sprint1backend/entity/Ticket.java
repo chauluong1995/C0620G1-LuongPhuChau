@@ -1,7 +1,5 @@
 package com.sprint1backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,35 +32,28 @@ public class Ticket {
 
     @Column(name = "status_checkin", columnDefinition = "BIT")
     private Boolean statusCheckin;
-//--------------
+
     @ManyToOne
     @JoinColumn(name = "flight_information_id", referencedColumnName = "id", columnDefinition = "BIGINT")
     private FlightInformation flightInformation;
 
-//
     @ManyToOne
     @JoinColumn(name = "status_payment_id", referencedColumnName = "id", columnDefinition = "BIGINT")
     private StatusPayment statusPayment;
-//
-//
+
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id", columnDefinition = "BIGINT")
     private Employee employee;
 
-//
     @ManyToOne
     @JoinColumn(name = "invoice_id", referencedColumnName = "id", columnDefinition = "BIGINT")
     private Invoice invoice;
 
-//
     @ManyToOne
     @JoinColumn(name = "booking_id", referencedColumnName = "id", columnDefinition = "BIGINT")
     private Booking booking;
 
-//
     @ManyToOne
     @JoinColumn(name = "app_user_id", referencedColumnName = "id", columnDefinition = "BIGINT")
     private AppUser appUser;
-
-
 }

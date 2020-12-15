@@ -2,92 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ae8129-b99d-47db-ba0b-056bf2f67f92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../module6/demo_front_end/test/src/assets/C06Airline.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/Sprint1TicketAgencyBackendApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/controllers/FlightRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/controllers/TicketRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/entity/FlightInformation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/entity/Ticket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/repository/FlightRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/repository/TicketRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/service/flight/FlightService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/service/flight/impl/FlightServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/service/ticket/TicketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/java/comsprint1_ticket_agency_backend/service/ticket/impl/TicketServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/back-end/src/test/java/comsprint1_ticket_agency_backend/Sprint1TicketAgencyBackendApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/.idea/fron_end.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/browserslist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/debug.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/e2e/protractor.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/e2e/src/app.e2e-spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/e2e/src/app.po.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/e2e/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/karma.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/app-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/app.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/page-not-found/page-not-found.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/page-not-found/page-not-found.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/page-not-found/page-not-found.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/delete/delete.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/delete/delete.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/delete/delete.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/deleteTicket.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/edit/edit.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/edit/edit.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/edit/edit.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/editTicket.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/input-ticket/input-ticket.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/input-ticket/input-ticket.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/input-ticket/input-ticket.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/inputTicket.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/list/list.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/list/list.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/list/list.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/print/print.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/print/print.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/print/print.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/components/product/printTicket.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/material.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/app/services/service-connect.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/assets/codegym.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/assets/furama.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/assets/song.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/environments/environment.prod.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/environments/environment.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/polyfills.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/src/test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/fron_end/test/tsconfig.spec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/plane_ticket_management.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +84,7 @@
       <workItem from="1607958445817" duration="401000" />
       <workItem from="1607962000743" duration="76000" />
       <workItem from="1607962275089" duration="955000" />
+      <workItem from="1608013864049" duration="265000" />
     </task>
     <servers />
   </component>

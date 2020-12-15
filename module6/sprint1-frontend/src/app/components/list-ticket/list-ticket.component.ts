@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {TicketService} from '../../service/ticket/ticket.service';
 import {DeleteTicketComponent} from '../delete-ticket/delete-ticket.component';
@@ -11,11 +11,13 @@ import {EditTicketComponent} from '../edit-ticket/edit-ticket.component';
 })
 export class ListTicketComponent implements OnInit {
   protected ticketList;
+  protected nativeWindow;
 
   constructor(
     protected ticketService: TicketService,
     protected dialog: MatDialog
   ) {
+    this.nativeWindow = ticketService.openNewWindow();
   }
 
   ngOnInit() {
@@ -43,7 +45,7 @@ export class ListTicketComponent implements OnInit {
     this.ticketService.findTicketByIDService(id).subscribe(ticket => {
       const dialogRefEdit = this.dialog.open(EditTicketComponent, {
         width: '750px',
-        height: '500px',
+        height: '450px',
         data: {dataTicket: ticket},
         disableClose: true
       });
@@ -52,5 +54,10 @@ export class ListTicketComponent implements OnInit {
         this.ngOnInit();
       });
     });
+  }
+
+  openWindowPrint(idTicket: number): void {
+    const newWindow = this.nativeWindow.open('printTicket');
+    newWindow.location = 'printTicket/' + idTicket;
   }
 }

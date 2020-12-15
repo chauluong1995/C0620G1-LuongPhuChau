@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable, timer} from 'rxjs';
 import {AbstractControl, AsyncValidatorFn} from '@angular/forms';
 import {map, switchMap} from 'rxjs/operators';
@@ -11,6 +11,7 @@ const API = 'http://localhost:8080/ticket';
 })
 export class TicketService {
   public readonly API: string = 'http://localhost:8080/ticket';
+
   constructor(
     public http: HttpClient
   ) {
@@ -37,7 +38,12 @@ export class TicketService {
   }
 
   editTicketService(idEdit, passengerEdit, appUserEdit, ticketEdit): Observable<any> {
-    return this.http.post(this.API + '/edit/' + idEdit + '/' + passengerEdit + '/' + appUserEdit, ticketEdit);
+    return this.http.put(this.API + '/edit/' + idEdit + '/' + passengerEdit + '/' + appUserEdit, ticketEdit);
+  }
+
+  saveTicketService(idFlightInformationDeparture, idFlightInformationArrival, ticket): Observable<any> {
+    return this.http.post(this.API + '/save/' + idFlightInformationDeparture + '/' +
+      idFlightInformationArrival, ticket);
   }
 
   validateEmailUser(): AsyncValidatorFn {
@@ -60,5 +66,9 @@ export class TicketService {
           return this.http.get<any>(API + '/app-user/' + emailUser);
         })
       );
+  }
+
+  openNewWindow() {
+    return window;
   }
 }

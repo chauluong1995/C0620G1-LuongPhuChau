@@ -37,7 +37,8 @@ export class EditTicketComponent implements OnInit {
       employee: [this.data.dataTicket.employee],
       flightInformation: [this.data.dataTicket.flightInformation],
       invoice: [this.data.dataTicket.invoice],
-      passenger: [this.data.dataTicket.passenger, [Validators.required, Validators.maxLength(50)]],
+      passengerName: [this.data.dataTicket.passenger,
+        [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],
       statusPayment: [this.data.dataTicket.statusPayment],
       appUser: ['', {
         validators:
@@ -52,9 +53,9 @@ export class EditTicketComponent implements OnInit {
   }
 
   edit() {
+    this.formEdit.markAllAsTouched();
     if (this.formEdit.valid) {
-      this.passengerEdit = this.formEdit.value.passenger;
-      console.log(this.passengerEdit);
+      this.passengerEdit = this.formEdit.value.passengerName;
       for (const element of this.appUserList) {
         if (element.email === this.formEdit.value.appUser) {
           this.appUserEdit = element.id;
@@ -64,8 +65,8 @@ export class EditTicketComponent implements OnInit {
       const idEdit = this.data.dataTicket.id;
       this.ticketService.editTicketService(idEdit, this.passengerEdit, this.appUserEdit, this.formEdit.value)
         .subscribe(data => {
-        this.dialogRef.close();
-      });
+          this.dialogRef.close();
+        });
     }
   }
 }

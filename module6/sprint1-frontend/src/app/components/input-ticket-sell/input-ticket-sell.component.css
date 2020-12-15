@@ -8,17 +8,22 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
   sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   width: 99%;
-  margin: -5.5% 0 0 0;
+  margin: -6% 0 0 0;
   padding: 0 0 0 0;
 }
 
 h3 {
   font-size: 25px;
   font-weight: bold;
+  color: orange;
+}
+
+.header {
+  color: orange;
 }
 
 .inputTicket h5 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -64,27 +69,4 @@ div.col-sm-2 h5 {
 
 div.form-row {
   margin-top: 2%;
-}
-
-textarea {
-  height: 69px;
-}
-
-.price {
-  width: 75%;
-  float: left;
-  margin-right: 3%;
-}
-
-.unit {
-  margin-top: 3%;
-  color: blue;
-}
-
-h5 {
-  color: orange;
-}
-
-span {
-  color: red;
 }

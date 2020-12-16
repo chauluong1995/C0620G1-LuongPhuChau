@@ -100,6 +100,4 @@ insert into ticket (id, price_departure, ticket_code, passenger_name, flight_inf
 values
 	(1, 550000, 'abcde', 'Ho Quynh Mai', 1, 1, 1),
 	(2, 150000, 'olkjb', 'Nguyen Nhat Lanh', 2, 2, 2),
-	(3, 650000, 'pokmn', 'Luong Quang Din', 3, 3, 3),
-	(4, 750000, 'frwes', 'Trieu Tu Long', 4, 4, 1),
-	(5, 950000, 'pobcd', 'Gia Cat Luong', 5, 5, 2);
+	(3, 650000, 'pokmn', 'Luong Quang Din', 3, 3, 3);

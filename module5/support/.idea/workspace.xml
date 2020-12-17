@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9ae8129-b99d-47db-ba0b-056bf2f67f92" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/write_black_box/6.6.1.9. input-delete-edit-print-ticket.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/write_black_box/6.6.1.9. input-delete-edit-print-ticket.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +86,8 @@
       <workItem from="1607962000743" duration="76000" />
       <workItem from="1607962275089" duration="955000" />
       <workItem from="1608013864049" duration="265000" />
+      <workItem from="1608188283708" duration="1179000" />
+      <workItem from="1608191091752" duration="515000" />
     </task>
     <servers />
   </component>

@@ -1,11 +1,12 @@
-package com.sprint1backend.service.flightInformation;
+package com.sprint1backend.service.flight_information;
 
-import com.sprint1backend.entity.FlightInformation;
-import com.sprint1backend.repository.FlightInformationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import com.sprint1backend.entity.FlightInformation;
+import com.sprint1backend.repository.FlightInformationRepository;
 
 @Service
 public class FlightInformationServiceImpl implements FlightInformationService {

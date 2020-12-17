@@ -1,13 +1,14 @@
 package com.sprint1backend.controller;
 
-import com.sprint1backend.entity.FlightInformation;
-import com.sprint1backend.service.flightInformation.FlightInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import com.sprint1backend.entity.FlightInformation;
+import com.sprint1backend.service.flight_information.FlightInformationService;
 
 @RestController
 @RequestMapping("/flight-information")

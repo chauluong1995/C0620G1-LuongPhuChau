@@ -1,16 +1,25 @@
 package com.sprint1backend.controller;
 
-import com.sprint1backend.entity.*;
-import com.sprint1backend.model.TicketDTO;
-import com.sprint1backend.service.ticket.TicketService;
+import com.sprint1backend.service.app_user.AppUserService;
+import com.sprint1backend.service.booking.BookingService;
+import com.sprint1backend.service.flight_information.FlightInformationService;
+import com.sprint1backend.service.invoice.InvoiceService;
+import com.sprint1backend.service.status_payment.StatusPaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import com.sprint1backend.entity.*;
+import com.sprint1backend.model.TicketDTO;
+import com.sprint1backend.service.ticket.TicketService;
+import com.sprint1backend.service.email.EmailService;
+import com.sprint1backend.service.employee.EmployeeService;
 
 import static com.sprint1backend.common.AppUtils.PENDING;
 
@@ -20,6 +29,27 @@ import static com.sprint1backend.common.AppUtils.PENDING;
 public class TicketRestController {
     @Autowired
     private TicketService ticketService;
+
+    @Autowired
+    private FlightInformationService flightInformationService;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @Autowired
+    private InvoiceService invoiceService;
+
+    @Autowired
+    private BookingService bookingService;
+
+    @Autowired
+    private AppUserService appUserService;
+
+    @Autowired
+    private StatusPaymentService statusPaymentService;
 
     @GetMapping("/list")
     public ResponseEntity<List<Ticket>> getListTicket() {
@@ -35,7 +65,7 @@ public class TicketRestController {
 
     @GetMapping("/find-flight-information-by-id/{id}")
     public ResponseEntity<FlightInformation> getFlightInformationByID(@PathVariable Long id) {
-        FlightInformation flightInformation = this.ticketService.findFlightInformationByID(id);
+        FlightInformation flightInformation = this.flightInformationService.findFlightInformationByID(id);
         return new ResponseEntity<>(flightInformation, HttpStatus.OK);
     }
 
@@ -47,7 +77,7 @@ public class TicketRestController {
 
     @GetMapping("/app-user/{emailInput}")
     public ResponseEntity<List<AppUser>> searchAppUserByEmail(@PathVariable String emailInput) {
-        List<AppUser> appUserListExists = this.ticketService.findAllAppUser();
+        List<AppUser> appUserListExists = this.appUserService.findAllAppUser();
         List<AppUser> appUserListResult = new ArrayList<>();
         for (AppUser appUserExist : appUserListExists) {
             if (appUserExist.getEmail().equals(emailInput)) {
@@ -59,7 +89,7 @@ public class TicketRestController {
 
     @GetMapping("/app-user-list")
     public ResponseEntity<List<AppUser>> getAllAppUser() {
-        List<AppUser> appUserList = this.ticketService.findAllAppUser();
+        List<AppUser> appUserList = this.appUserService.findAllAppUser();
         return new ResponseEntity<>(appUserList, HttpStatus.OK);
     }
 
@@ -68,7 +98,7 @@ public class TicketRestController {
                                              @PathVariable String passengerEdit,
                                              @PathVariable Long appUserID) {
         ticket.setPassengerName(passengerEdit);
-        List<AppUser> appUserList = this.ticketService.findAllAppUser();
+        List<AppUser> appUserList = this.appUserService.findAllAppUser();
         for (AppUser appUser : appUserList) {
             if (appUser.getId().equals(appUserID)) {
                 ticket.setAppUser(appUser);
@@ -89,75 +119,92 @@ public class TicketRestController {
 
         // Find flightInformationDeparture
         FlightInformation flightInformationDeparture;
-        flightInformationDeparture = this.ticketService.findFlightInformationByID(idFlightInformationDeparture);
-
-        // Find AppUser
-        String email = ticketDTO.getAppUser();
-        AppUser appUserCreate = null;
-        List<AppUser> appUserList = this.ticketService.findAllAppUser();
-        for (AppUser appUser : appUserList) {
-            if (appUser.getEmail().equals(email)) {
-                appUserCreate = appUser;
-                break;
-            }
-        }
-
-        // Find Employee
-        Employee employeeCreate = null;
-        List<Employee> employeeList = this.ticketService.findAllEmployee();
-        for (Employee employee : employeeList) {
-            if (employee.getId().equals(ticketDTO.getEmployee())) {
-                employeeCreate = employee;
-                break;
-            }
-        }
+        flightInformationDeparture =
+                this.flightInformationService.findFlightInformationByID(idFlightInformationDeparture);
 
         // Create Booking
-        Booking booking = new Booking();
-        booking.setBookingCode(ticketDTO.getBooking());
-        booking.setAppUser(appUserCreate);
-        this.ticketService.saveBooking(booking);
+        Booking bookingCreate = createBooking(ticketDTO);
 
         // Create Ticket Departure
-        for (String passengerName : passengerList) {
-            Ticket ticketDeparture = new Ticket();
-            ticketDeparture.setPassengerName(passengerName);
-            ticketDeparture.setStatusCheckin(false);
-            String ticketCode = UUID.randomUUID().toString();
-            ticketDeparture.setTicketCode(ticketCode);
-            ticketDeparture.setPriceDeparture(ticketDTO.getPriceDeparture() / passengerList.length);
-            ticketDeparture.setAppUser(appUserCreate);
-            Booking bookingCreate = this.ticketService.findBookingByBookingCode(ticketDTO.getBooking());
-            ticketDeparture.setBooking(bookingCreate);
-            ticketDeparture.setEmployee(employeeCreate);
-            ticketDeparture.setFlightInformation(flightInformationDeparture);
-            this.ticketService.saveTicket(ticketDeparture);
-        }
+        createTicketDeparture(ticketDTO, passengerList, flightInformationDeparture,
+                bookingCreate, ticketDTO.getPriceDeparture());
 
         // Create Ticket Arrival
+        createTicketArrival(idFlightInformationArrival, ticketDTO, passengerList, bookingCreate);
+
+        // Send Email for Customer
+        sendEmail(ticketDTO, flightInformationDeparture);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    private Booking createBooking(@RequestBody TicketDTO ticketDTO) {
+        Booking booking = new Booking();
+        booking.setBookingCode(ticketDTO.getBooking());
+        booking.setAppUser(this.appUserService.findAppUserByEmail(ticketDTO.getAppUser()));
+        this.bookingService.saveBooking(booking);
+        return this.bookingService.findBookingByBookingCode(ticketDTO.getBooking());
+    }
+
+    private void createTicketDeparture(@RequestBody TicketDTO ticketDTO, String[] passengerList,
+                                       FlightInformation flightInformationDeparture, Booking bookingCreate,
+                                       Double priceDeparture) {
+        for (String passengerName : passengerList) {
+            Ticket ticketDeparture = new Ticket();
+            ticketDeparture.setFlightInformation(flightInformationDeparture);
+            ticketDeparture.setPriceDeparture(priceDeparture / passengerList.length);
+            setPropertiesOfTicket(ticketDTO, bookingCreate, passengerName, ticketDeparture);
+        }
+    }
+
+    private void createTicketArrival(@PathVariable Long idFlightInformationArrival,
+                                     @RequestBody TicketDTO ticketDTO, String[] passengerList,
+                                     Booking bookingCreate) {
         if (!idFlightInformationArrival.equals(0L)) {
 
             // Find flightInformationArrival
             FlightInformation flightInformationArrival;
-            flightInformationArrival = this.ticketService.findFlightInformationByID(idFlightInformationArrival);
+            flightInformationArrival =
+                    this.flightInformationService.findFlightInformationByID(idFlightInformationArrival);
 
             for (String passengerName : passengerList) {
                 Ticket ticketArrival = new Ticket();
-                ticketArrival.setPassengerName(passengerName);
-                ticketArrival.setStatusCheckin(false);
-                String ticketCode = UUID.randomUUID().toString();
-                ticketArrival.setPriceDeparture(ticketDTO.getPriceArrival() / passengerList.length);
-                ticketArrival.setTicketCode(ticketCode);
-                ticketArrival.setAppUser(appUserCreate);
-                Booking bookingCreate = this.ticketService.findBookingByBookingCode(ticketDTO.getBooking());
-                ticketArrival.setBooking(bookingCreate);
-                ticketArrival.setEmployee(employeeCreate);
                 ticketArrival.setFlightInformation(flightInformationArrival);
-                this.ticketService.saveTicket(ticketArrival);
+                ticketArrival.setPriceDeparture(ticketDTO.getPriceArrival() / passengerList.length);
+                setPropertiesOfTicket(ticketDTO, bookingCreate, passengerName, ticketArrival);
             }
         }
+    }
 
-        return new ResponseEntity<>(HttpStatus.OK);
+    private void setPropertiesOfTicket(@RequestBody TicketDTO ticketDTO, Booking bookingCreate,
+                                       String passengerName, Ticket ticketDeparture) {
+        ticketDeparture.setPassengerName(passengerName);
+        ticketDeparture.setStatusCheckin(false);
+        String ticketCode = UUID.randomUUID().toString();
+        ticketDeparture.setTicketCode(ticketCode);
+        ticketDeparture.setBooking(bookingCreate);
+        ticketDeparture.setAppUser(this.appUserService.findAppUserByEmail(ticketDTO.getAppUser()));
+        ticketDeparture.setEmployee(this.employeeService.findEmployeeByID(ticketDTO.getEmployee()));
+        ticketDeparture.setInvoice(this.invoiceService.findInvoiceByID(1L));
+        ticketDeparture.setStatusPayment(this.statusPaymentService.findStatusPaymentByID(1L));
+        this.ticketService.saveTicket(ticketDeparture);
+    }
+
+    private void sendEmail(@RequestBody TicketDTO ticketDTO, FlightInformation flightInformationDeparture) {
+        SimpleMailMessage sendEmailForCustomer = new SimpleMailMessage();
+        sendEmailForCustomer.setFrom("C06AirLine");
+        sendEmailForCustomer.setTo(ticketDTO.getAppUser());
+        sendEmailForCustomer.setSubject("C06AirLine cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi! " +
+                "Yêu cầu đặt vé của quý khách đã được thực hiện thành công.");
+        sendEmailForCustomer.setText("Sau đây là thông tin của vé: ");
+        sendEmailForCustomer.setText("Mã đặt chỗ: " + ticketDTO.getBooking()
+                + "\nDanh sách hành khách: " + ticketDTO.getPassengerName()
+                + "\nHãng bay: " + flightInformationDeparture.getAirline()
+                + "\nNgày đi: " + flightInformationDeparture.getDepartureDate()
+                + "\nGiờ khởi hành : " + flightInformationDeparture.getDepartureTime()
+                + "\nQuý khách vui lòng đến sân bay trước 2 tiếng để làm thủ tục. "
+                + "\nC06AirLine chúc quý khách thượng lộ bình an!");
+        emailService.sendEmail(sendEmailForCustomer);
     }
 
     @GetMapping("/list-pending")

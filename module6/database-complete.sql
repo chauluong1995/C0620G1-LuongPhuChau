@@ -90,11 +90,45 @@ values
 	('frwes'),
 	('pobcd');
     
+insert into app_role (`name`)
+values
+	('abcde'),
+	('olkjb'),
+	('pokmn'),
+	('frwes'),
+	('pobcd');
+    
+insert into app_account (username, app_role_id)
+values
+	('abcde', 1),
+	('olkjb', 2),
+	('pokmn', 3),
+	('frwes', 4),
+	('pobcd', 5);
+    
+insert into employee (full_name, app_account_id, gender)
+values
+	('abcde', 1, 0),
+	('olkjb', 2, 0),
+	('pokmn', 3, 0),
+	('frwes', 4, 0),
+	('pobcd', 5, 0);
+    
 insert into app_user (email, gender)
 values
-	('nguyena@gmail.com', 0),
-	('tranb@gmail.com', 0),
-	('phanc@gmail.com', 0);
+	('hoquynhmai1505@gmail.com', 0),
+	('nhatlanh2202@gmail.com', 0),
+	('hoquynhmai150595@gmail.com', 0);    
+    
+insert into invoice (invoice_code, user_id)
+values
+	('abcde', 1),
+	('olkjb', 2),
+	('pokmn', 3);
+    
+insert into status_payment (`name`)
+values
+	('pending');
 
 insert into ticket (id, price_departure, ticket_code, passenger_name, flight_information_id, booking_id, app_user_id)
 values

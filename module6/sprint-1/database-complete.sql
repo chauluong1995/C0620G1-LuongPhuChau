@@ -84,54 +84,37 @@ values('VietJet','Đà Nẵng (DAD)','TP Hồ Chí Minh (SGN)','2020-12-16','202
 
 insert into booking (booking_code)
 values
-	('abcde'),
-	('olkjb'),
-	('pokmn'),
-	('frwes'),
-	('pobcd');
+	('abcde');
     
 insert into app_role (`name`)
 values
-	('abcde'),
-	('olkjb'),
-	('pokmn'),
-	('frwes'),
-	('pobcd');
-    
-insert into app_account (username, app_role_id)
-values
-	('abcde', 1),
-	('olkjb', 2),
-	('pokmn', 3),
-	('frwes', 4),
-	('pobcd', 5);
-    
-insert into employee (full_name, app_account_id, gender)
-values
-	('abcde', 1, 0),
-	('olkjb', 2, 0),
-	('pokmn', 3, 0),
-	('frwes', 4, 0),
-	('pobcd', 5, 0);
+	('Admin'),
+	('Employee'),
+	('User');
     
 insert into app_user (email, gender)
 values
 	('hoquynhmai1505@gmail.com', 0),
-	('nhatlanh2202@gmail.com', 0),
-	('hoquynhmai150595@gmail.com', 0);    
+	('supea52795@gmail.com', 0);
+    
+insert into app_account (username, `password`, app_role_id, enabled)
+values
+	('hoquynhmai1505@gmail.com', '$2y$12$WmNKlmviKBkAAIRPyZ5CUuyfu9oEOIASu5NgT2JX0kEK6VMya/B3u', 1, 1);
+    
+insert into employee (full_name, employee_code, gender, email, app_account_id)
+values
+	('Ho Quynh Mai', 'HQM51595', 0, 'hoquynhmai1505@gmail.com', 1);    
     
 insert into invoice (invoice_code, user_id)
 values
-	('abcde', 1),
-	('olkjb', 2),
-	('pokmn', 3);
+	('ok', 1);
     
 insert into status_payment (`name`)
 values
-	('pending');
+	('Cancel'),
+	('Pending'),
+	('Paid');
 
 insert into ticket (id, price_departure, ticket_code, passenger_name, flight_information_id, booking_id, app_user_id)
 values
-	(1, 550000, 'abcde', 'Ho Quynh Mai', 1, 1, 1),
-	(2, 150000, 'olkjb', 'Nguyen Nhat Lanh', 2, 2, 2),
-	(3, 650000, 'pokmn', 'Luong Quang Din', 3, 3, 3);
+	(1, 550000, 'abcde', 'Ho Quynh Mai', 1, 1, 1);

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6bfcfd80-fb0a-4a2b-bd47-c06b0062e148" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/notice-page/notice-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/list-ticket/list-ticket.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/list-ticket/list-ticket.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/notice-page/notice-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/notice-page/notice-page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/notice-page/notice-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/notice-page/notice-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/notice-page/notice-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/notice-page/notice-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/delete-ticket/delete-ticket.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/delete-ticket/delete-ticket.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/edit-ticket/edit-ticket.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/edit-ticket/edit-ticket.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/input-ticket-sell/input-ticket-sell.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/input-ticket-sell/input-ticket-sell.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/input-ticket-sell/input-ticket-sell.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/input-ticket-sell/input-ticket-sell.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/input-ticket-sell/input-ticket-sell.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/input-ticket-sell/input-ticket-sell.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket-two-way/print-ticket-two-way.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket-two-way/print-ticket-two-way.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket-two-way/print-ticket-two-way.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket-two-way/print-ticket-two-way.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket/print-ticket.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket/print-ticket.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket/print-ticket.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/components/ticket/print-ticket/print-ticket.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint1-frontend/src/app/service/ticket/ticket.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/sprint1-frontend/src/app/service/ticket/ticket.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/sprint1-frontend" value="chau_lp" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/sprint1-frontend" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/gigawave07/sprint1-frontend.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lTAHH2swNcdJDoXVAeFZkhhEwl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="E:/C0620G1/module5/support" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="E:\project-1\front-end\sprint1-frontend\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project-1\front-end\sprint1-frontend\src\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project-1\front-end\sprint1-frontend\src\app\components\ticket" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6bfcfd80-fb0a-4a2b-bd47-c06b0062e148" name="Default Changelist" comment="" />
+      <created>1607610617866</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607610617866</updated>
+      <workItem from="1607610620063" duration="4957000" />
+      <workItem from="1607619284287" duration="70000" />
+      <workItem from="1607648201246" duration="9696000" />
+      <workItem from="1607766494073" duration="9189000" />
+      <workItem from="1607823234491" duration="32939000" />
+      <workItem from="1607907900270" duration="23663000" />
+      <workItem from="1607946305741" duration="13699000" />
+      <workItem from="1607968886877" duration="47000" />
+      <workItem from="1607994235905" duration="24953000" />
+      <workItem from="1608023287512" duration="1892000" />
+      <workItem from="1608035036822" duration="12515000" />
+      <workItem from="1608081907960" duration="3872000" />
+      <workItem from="1608087385609" duration="2643000" />
+      <workItem from="1608100687074" duration="5127000" />
+      <workItem from="1608124655418" duration="7962000" />
+      <workItem from="1608167160806" duration="21405000" />
+      <workItem from="1608214055432" duration="10432000" />
+      <workItem from="1608253271374" duration="10062000" />
+      <workItem from="1608292575677" duration="10666000" />
+      <workItem from="1608427527555" duration="16062000" />
+    </task>
+    <task id="LOCAL-00001" summary="chau_lp 11/12/2020 tao cac component lien quan ticket">
+      <created>1607679467208</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607679467208</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chau_lp 16/12/2020 up full ticket">
+      <created>1608053659685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608053659685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chau_lp 16/12/2020 up before review code">
+      <created>1608085325668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608085325668</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chau_lp 16/12/2020 up full ticket">
+      <created>1608176162893</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608176162893</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chau_lp 16/12/2020 hoan thien front end">
+      <created>1608222455936</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608222455936</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chau_lp 16/12/2020 hoan thien front end">
+      <created>1608225204179</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608225204179</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chau_lp 16/12/2020 hoan thien front end">
+      <created>1608271260144</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608271260144</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chau_lp 16/12/2020 hoan thien front end">
+      <created>1608284831679</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608284831679</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chau_lp 16/12/2020 hoan thien front end">
+      <created>1608285164361</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608285164361</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chau_lp 18/12/2020 tao package rieng cho ticket va hoan thien code">
+      <created>1608303854482</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608303854482</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chau_lp 11/12/2020 tao cac component lien quan ticket" />
+    <MESSAGE value="chau_lp 16/12/2020 up before review code" />
+    <MESSAGE value="chau_lp 16/12/2020 up full ticket" />
+    <MESSAGE value="chau_lp 16/12/2020 hoan thien front end" />
+    <MESSAGE value="chau_lp 18/12/2020 tao package rieng cho ticket va hoan thien code" />
+    <option name="LAST_COMMIT_MESSAGE" value="chau_lp 18/12/2020 tao package rieng cho ticket va hoan thien code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="72" key="#TSLint" timestamp="1608299808686">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="72" key="#TSLint/0.0.1536.824@0.0.1536.824" timestamp="1608299808686" />
+    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1608303853742">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1608303853742" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1608191089664">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608191089664" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1608308999712">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608308999712" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1608308999712">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608308999712" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1608308999712">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608308999712" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1608308999712">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608308999712" />
+    <state x="147" y="71" key="MergeDialog" timestamp="1608292967047">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="71" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1608292967047" />
+    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1608292967063">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1608292967062" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1607825494917">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607825494917" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1608303931682">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1608303931682" />
+    <state x="473" y="205" key="git4idea.merge.GitPullDialog" timestamp="1608292901951">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="473" y="205" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1608292901951" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1607928239599">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1607928239599" />
+  </component>
+</project>

@@ -115,6 +115,6 @@ values
 	('Pending'),
 	('Paid');
 
-insert into ticket (id, price_departure, ticket_code, passenger_name, flight_information_id, booking_id, app_user_id)
+insert into ticket
 values
-	(1, 550000, 'abcde', 'Ho Quynh Mai', 1, 1, 1);
+	(1, 'Ho Quynh Mai', 0, 550000, 0, 'abcde', 1, 1, 1, 1, 1, 2);

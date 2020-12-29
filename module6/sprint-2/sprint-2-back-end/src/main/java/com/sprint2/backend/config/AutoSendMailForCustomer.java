@@ -27,7 +27,7 @@ import com.sprint2.backend.entity.MemberCard;
 @EnableScheduling
 public class AutoSendMailForCustomer {
     @Autowired
-    public JavaMailSender emailSender;
+    private JavaMailSender emailSender;
 
     @Autowired
     private MemberCardService memberCardService;
@@ -40,7 +40,7 @@ public class AutoSendMailForCustomer {
     }
 
     @Scheduled(fixedDelay = 1000 * 60 * 60 * 24)
-    public void scheduleFixedDelayTask() throws MessagingException {
+    private void scheduleFixedDelayTask() throws MessagingException {
         List<MemberCard> allMemberCard = this.memberCardService.findAll();
         List<MemberCard> listMemberCardNearExpired = new ArrayList<>();
         HashSet<String> mailList = new HashSet<>();

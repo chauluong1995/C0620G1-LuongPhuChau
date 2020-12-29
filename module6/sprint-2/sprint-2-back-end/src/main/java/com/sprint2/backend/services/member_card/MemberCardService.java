@@ -1,8 +1,8 @@
 package com.sprint2.backend.services.member_card;
 
-import com.sprint2.backend.entity.MemberCard;
-
 import java.util.List;
+
+import com.sprint2.backend.entity.MemberCard;
 
 public interface MemberCardService {
     List<MemberCard> findAll();

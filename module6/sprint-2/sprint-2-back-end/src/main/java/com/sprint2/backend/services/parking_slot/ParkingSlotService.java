@@ -1,8 +1,8 @@
 package com.sprint2.backend.services.parking_slot;
 
-import com.sprint2.backend.entity.ParkingSlot;
-
 import java.util.List;
+
+import com.sprint2.backend.entity.ParkingSlot;
 
 public interface ParkingSlotService {
     List<ParkingSlot> findAll();

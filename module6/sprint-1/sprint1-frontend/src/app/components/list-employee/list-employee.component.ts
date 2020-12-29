@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {EmployeeService} from '../../service/employee/employee.service';
+import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
+import {EmployeeService} from '../../service/employee/employee.service';
 import {DeleteEmployeeComponent} from '../delete-employee/delete-employee.component';
+import {LoginService} from '../../service/login.service';
 
 @Component({
   selector: 'app-list-employee',
@@ -9,21 +11,34 @@ import {DeleteEmployeeComponent} from '../delete-employee/delete-employee.compon
   styleUrls: ['./list-employee.component.css']
 })
 export class ListEmployeeComponent implements OnInit {
-  private list;
+  private list = [];
   private checkList = 'true';
-  key: string;
+  keywordSearch: '';
   p: number;
+  private accountId;
+  private role;
 
   constructor(
-    public employeeService: EmployeeService,
-    public dialog: MatDialog
+    private employeeService: EmployeeService,
+    private dialog: MatDialog,
+    private router: Router,
+    private loginService: LoginService
   ) {
   }
 
   ngOnInit() {
+    this.accountId = this.loginService.currentUserValue.id;
+    this.employeeService.getRole(this.accountId).subscribe(data => {
+      this.role = data.name;
+    });
     this.employeeService.getAllEmployeeService().subscribe(data => {
       this.list = data;
-    });
+    }, () => {
+        const NOTICE = 'Không tìm thấy trang ';
+        this.router.navigate(['message-notice-employee', {message: NOTICE}]).then(r => {});
+      },
+      () => {
+      });
   }
 
   openDialogDelete(id: any): void {
@@ -40,44 +55,48 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
-  searchEmployee(key: string, attribute: any) {
-    if (attribute === 'fullName' && key !== '') {
-      this.employeeService.searchEmployeeFullNameService(key).subscribe(data => {
+  searchEmployee(attribute: any) {
+    if (attribute === 'fullName' && this.keywordSearch != '') {
+      this.employeeService.searchEmployeeFullNameService(this.keywordSearch).subscribe(data => {
         this.list = data;
         if (this.list.length === 0) {
           this.checkList = 'false';
         }
       });
-    } else if (attribute === 'email' && key !== '') {
-      this.employeeService.searchEmployeeEmailService(key).subscribe(data => {
+    } else if (attribute === 'email' && this.keywordSearch != '') {
+      this.employeeService.searchEmployeeEmailService(this.keywordSearch).subscribe(data => {
         this.list = data;
         if (this.list.length === 0) {
           this.checkList = 'false';
         }
       });
-    } else if (attribute === 'phoneNumber' && key !== '') {
-      this.employeeService.searchEmployeePhoneNumberService(key).subscribe(data => {
+    } else if (attribute === 'phoneNumber' && this.keywordSearch != '') {
+      this.employeeService.searchEmployeePhoneNumberService(this.keywordSearch).subscribe(data => {
         this.list = data;
         if (this.list.length === 0) {
           this.checkList = 'false';
         }
       });
-    } else if (attribute === 'choose' || this.key === '') {
+    } else if (attribute == 'choose' && this.keywordSearch != '') {
+      alert('Vui lòng chọn thuộc tính cần tìm!');
       this.employeeService.getAllEmployeeService().subscribe(data => {
         this.ngOnInit();
         if (this.list.length === 0) {
           this.checkList = 'false';
         }
       });
-    } else if (attribute !== 'choose' && key === '') {
+    } else if (attribute != 'choose' && this.keywordSearch == '') {
+      alert('Vui lòng nhập từ khóa cần tìm!');
       this.employeeService.getAllEmployeeService().subscribe(data => {
         this.ngOnInit();
       });
+    } else {
+      alert('Vui lòng chọn thuộc tính và nhập từ khóa tìm kiếm');
     }
   }
 
-  resetFind() {
-    this.key = '';
+  resetSearch() {
+    this.keywordSearch = '';
     this.checkList = 'true';
     this.ngOnInit();
   }

@@ -4,9 +4,9 @@ import {LoginService} from '../../service/login.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EditUserComponent} from '../edit-user/edit-user.component';
 import {MatDialog} from '@angular/material';
-
-
-
+import {datepickerAnimation} from 'ngx-bootstrap/datepicker/datepicker-animations';
+import {getDate} from 'ngx-bootstrap/chronos/utils/date-getters';
+import {createUTCDate} from 'ngx-bootstrap/chronos/create/date-from-array';
 
 
 @Component({
@@ -15,36 +15,33 @@ import {MatDialog} from '@angular/material';
   styleUrls: ['./detail-user.component.css']
 })
 export class DetailUserComponent implements OnInit {
+
+  constructor(
+    private dialog: MatDialog,
+    private userService: UserService,
+    private loginService: LoginService ) {
+  }
+
   public users;
   public idUser;
   infoFormUser: FormGroup;
-  constructor(
-    public dialog: MatDialog,
-    public userService: UserService,
-    public loginService: LoginService,
-    public formBuilder: FormBuilder) {
-     }
+  // Trần  Đạt - Dialog chỉnh sửa thông tin.;
 
+  // Trần  Đạt -  Form hiển thị thông tin khách hàng.
   ngOnInit(): void {
     this.idUser = this.loginService.currentUserValue.id;
     this.userService.getUserById(this.idUser).subscribe(data => {
-      console.log(this.idUser);
-      console.log(data);
-      this.users = data;
-    }, error => {
-      console.log('a');
-    }, () => {
-      this.infoFormUser.patchValue(this.users);
-    });
-    this.infoFormUser = this.formBuilder.group({
-      address: ['', [Validators.required]],
-      birthday: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      fullName: ['', [Validators.required, Validators.maxLength(30)]],
-      gender: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required]],
-      userRank: ['', [Validators.required]],
-    });
+        console.log(this.idUser);
+        console.log(data);
+        this.users = data;
+        if (this.users.gender === false) {
+          this.users.gender = 'Nữ';
+        } else {
+          this.users.gender = 'Nam';
+        }
+      }
+    );
+
   }
 
   openDialogEdit() {
@@ -52,14 +49,13 @@ export class DetailUserComponent implements OnInit {
     console.log(this.idUser);
     this.userService.getUserById(this.idUser).subscribe(dataEdit => {
       const dialogRef = this.dialog.open(EditUserComponent, {
-      width: '900px',
-      height: '600px',
-      data: {dataE: dataEdit.id}
-    });
+        width: '900px',
+        data: {dataE: dataEdit.id}
+      });
       dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.ngOnInit();
+        console.log('The dialog was closed');
+        this.ngOnInit();
+      });
     });
-  });
   }
 }

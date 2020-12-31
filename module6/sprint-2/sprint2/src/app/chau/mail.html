@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mail</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .bodyMail {
+      margin-top: 1%;
+    }
+
+    h5 {
+      color: white;
+      background-color: green;
+      text-align: center
+    }
+
+    p {
+      margin: 1% 0;
+    }
+
+    table {
+      border: 1px solid;
+      border-collapse: separate;
+      width: 90%
+    }
+
+    td, th {
+      border: 1px solid;
+      text-align: center;
+    }
+
+    span {
+      color: blue;
+    }
+
+    .autoMail {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 bodyMail">
+      <h5>
+        Công ty TNHH C06Parking thông báo vé xe sắp hết hạn
+      </h5>
+      <p>Kính gửi quý khách: <span>Hồ Thị Quỳnh Mai</span></p>
+      <p>Sau đây là danh sách vé xe sắp hết hạn của quý khách : </p>
+      <div class="row">
+        <div class="container-xl">
+          <div class="table-responsive">
+            <div class="table-wrapper">
+              <table>
+                <tr>
+                  <th>Mã vé</th>
+                  <th>Biển số xe</th>
+                  <th>Loại vé</th>
+                  <th>Ngày hết hạn</th>
+                  <th>Giá (VNĐ)</th>
+                </tr>
+                <tr>
+                  <td>V1</td>
+                  <td>43A1-56789</td>
+                  <td>Vip (Năm)</td>
+                  <td>13/01/2020</td>
+                  <td>10,000,000</td>
+                </tr>
+                <tr>
+                  <td>V2</td>
+                  <td>43A1-12345</td>
+                  <td>Vip (Tháng)</td>
+                  <td>10/01/2020</td>
+                  <td>1,000,000</td>
+                </tr>
+                <tr>
+                  <td>V3</td>
+                  <td>43A1-34567</td>
+                  <td>Vip (Năm)</td>
+                  <td>13/01/2020</td>
+                  <td>10,000,000</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Quý khách vui lòng thanh toán trước khi thời hạn vé kết thúc! Nếu không thanh toán vé sẽ được hủy
+        theo quy định của công ty.</p>
+      <p>Click vào <a style="color: green" href="http://localhost:4200/pay">đây</a> để đăng nhập hệ thống.</p>
+      <p class="autoMail">P/s : Đây là thư thông báo tự động. Quý khách vui lòng không trả lời thư này!</p>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+</body>
+</html>

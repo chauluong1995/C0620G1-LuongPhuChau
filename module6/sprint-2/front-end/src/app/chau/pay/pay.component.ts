@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MemberCardService} from '../service/member-card.service';
+import {PayService} from '../service/pay.service';
 import {MatDialog} from '@angular/material/dialog';
-import {SuccessfyllyPayComponent} from '../successfylly-pay/successfylly-pay.component';
+import {SuccessfullyPayComponent} from '../successfully-pay/successfully-pay.component';
 
 @Component({
   selector: 'app-pay',
@@ -14,11 +14,12 @@ export class PayComponent implements OnInit {
   public memberCardListPay = [];
   @ViewChild('paypalRef', {static: true}) private paypalRef: ElementRef;
   public checked = [];
-  public totalMoney = 0;
+  public totalMoneyPayPal = 0;
+  public totalMoneyMoMo = 0;
   public isChecked: boolean;
 
   constructor(
-    private memberCardService: MemberCardService,
+    private payService: PayService,
     private dialog: MatDialog
   ) {
   }
@@ -29,7 +30,7 @@ export class PayComponent implements OnInit {
   }
 
   getListMemberCard() {
-    this.memberCardService.getListMemberCardByIDCustomer(2).subscribe(
+    this.payService.getListMemberCardByIDCustomer(2).subscribe(
       (data) => {
         this.memberCardList = data;
       },
@@ -56,7 +57,7 @@ export class PayComponent implements OnInit {
             purchase_units: [
               {
                 amount: {
-                  value: this.totalMoney,
+                  value: this.totalMoneyPayPal,
                   currency_code: 'USD'
                 }
               }
@@ -89,19 +90,17 @@ export class PayComponent implements OnInit {
     // @ts-ignore
     this.isChecked = $event.target.checked;
     if (this.isChecked) {
-      this.totalMoney = Math.ceil(this.totalMoney + memberCard.price / 23000);
-      console.log(this.totalMoney);
+      this.totalMoneyPayPal = Math.ceil(this.totalMoneyPayPal + memberCard.price / 23000);
+      this.totalMoneyMoMo = this.totalMoneyMoMo + memberCard.price;
       this.memberCardListPay.push(memberCard.id);
-      console.log(this.memberCardListPay);
     } else {
-      this.totalMoney = Math.ceil(this.totalMoney - memberCard.price / 23000 - 1);
-      console.log(this.totalMoney);
+      this.totalMoneyPayPal = Math.ceil(this.totalMoneyPayPal - memberCard.price / 23000 - 1);
+      this.totalMoneyMoMo = this.totalMoneyMoMo - memberCard.price;
       for (let i = 0; i < this.memberCardListPay.length; i++) {
         if (this.memberCardListPay[i] === memberCard.id) {
           this.memberCardListPay.splice(i, i + 1);
         }
       }
-      console.log(this.memberCardListPay);
     }
   }
 
@@ -110,32 +109,38 @@ export class PayComponent implements OnInit {
   }
 
   refresh() {
-    this.getListMemberCard();
-    this.totalMoney = 0;
     this.memberCardListPay.splice(0, this.memberCardListPay.length);
+    this.totalMoneyPayPal = 0;
+    this.totalMoneyMoMo = 0;
+    this.getListMemberCard();
   }
 
   updateMemberCard() {
-    this.memberCardService.updateMemberCardAfterPay(this.totalMoney, this.memberCardListPay)
+    this.payService.updateMemberCardAfterPay(this.totalMoneyMoMo, this.memberCardListPay)
       .subscribe(
-      (data) => {
-      },
-      () => {
-      },
-      () => {
-        this.openSuccessfullyPay();
-      });
+        (data) => {
+        },
+        () => {
+          this.openSuccessfullyPay('failed');
+        },
+        () => {
+          this.openSuccessfullyPay('complete');
+        });
   }
 
-  openSuccessfullyPay(): void {
-    const dialogRef = this.dialog.open(SuccessfyllyPayComponent, {
+  openSuccessfullyPay(message): void {
+    const dialogRef = this.dialog.open(SuccessfullyPayComponent, {
       width: '500px',
+      data: {notification: message},
       disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.refresh();
-      console.log('Thành công.');
     });
+  }
+
+  payByMoMo() {
+    this.payService.payByMoMoService(this.totalMoneyMoMo);
   }
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import com.sprint2.backend.services.member_card.MemberCardService;
+import com.sprint2.backend.services.pay.PaySerVice;
 import com.sprint2.backend.entity.MemberCard;
 
 @RestController
@@ -15,7 +15,7 @@ import com.sprint2.backend.entity.MemberCard;
 @CrossOrigin
 public class PayRestController {
     @Autowired
-    private MemberCardService memberCardService;
+    private PaySerVice paySerVice;
 
     /*
      * get all member card of customer currently logged in database
@@ -24,7 +24,7 @@ public class PayRestController {
      * */
     @GetMapping("/list/{id}")
     public ResponseEntity<List<MemberCard>> getListMemberCardByIDCustomer(@PathVariable Long id) {
-        List<MemberCard> memberCardList = this.memberCardService.findByCustomerID(id);
+        List<MemberCard> memberCardList = this.paySerVice.findByCustomerID(id);
         return new ResponseEntity<>(memberCardList, HttpStatus.OK);
     }
 
@@ -34,8 +34,7 @@ public class PayRestController {
      * void
      * */
     @GetMapping("/pay/{money}/{memberCardList}")
-    public void updateMemberCardAfterPay(@PathVariable Double money, @PathVariable List<Integer> memberCardList) {
-        System.out.println(money);
-        System.out.println(memberCardList);
+    public void updateMemberCardAfterPay(@PathVariable Double money, @PathVariable List<Long> memberCardList) {
+        this.paySerVice.updateMemberCardAfterPay(money, memberCardList);
     }
 }

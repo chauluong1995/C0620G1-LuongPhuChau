@@ -27,7 +27,7 @@ INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number,
 INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) VALUES (3, 'Mercedes Benz', null, '43A1-02222', null, 3);
 INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) VALUES (4, 'Bugatti', null, '43A1-52795', null, 2);
 # MemberCard
-INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (3, '2021-01-02 17:30:00', 9000000, '2020-12-22 17:30:00', 3, 3);
-INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (2, '2021-01-02 17:30:00', 7000000, '2020-12-21 17:30:00', 2, 2);
-INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (1, '2021-01-02 17:30:00', 5000000, '2020-12-20 17:30:00', 1, 1);
-INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (4, '2021-01-02 17:30:00', 7000000, '2020-12-21 17:30:00', 4, 2);
+INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (3, '2021-01-05 17:30:00', 9000000, '2020-12-22 17:30:00', 3, 3);
+INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (2, '2021-01-05 17:30:00', 7000000, '2020-12-21 17:30:00', 2, 2);
+INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (1, '2021-01-05 17:30:00', 5000000, '2020-12-20 17:30:00', 1, 1);
+INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (4, '2021-01-05 17:30:00', 7000000, '2020-12-21 17:30:00', 4, 2);

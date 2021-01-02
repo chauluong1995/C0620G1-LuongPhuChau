@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './material.module';
-import {SuccessfyllyPayComponent} from './chau/successfylly-pay/successfylly-pay.component';
 
 @NgModule({
   declarations: [

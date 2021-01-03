@@ -22,9 +22,8 @@ export class PayService {
     return this.http.get(this.API + '/list/' + idFind);
   }
 
-  payByMoMoService(money): void {
-    // const signature = HmacSHA256(data, secretkey);
-    window.location.href = 'https://test-payment.momo.vn/qr/index.php';
+  payByMoMoService(money, requestID): Observable<any> {
+    return this.http.get(this.API + '/create-signature/' + money + '/' + requestID);
   }
 
   updateMemberCardAfterPay(money, memberCardList): Observable<any> {

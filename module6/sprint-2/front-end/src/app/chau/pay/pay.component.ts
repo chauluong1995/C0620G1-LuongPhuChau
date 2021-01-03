@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {PayService} from '../service/pay.service';
 import {MatDialog} from '@angular/material/dialog';
 import {SuccessfullyPayComponent} from '../successfully-pay/successfully-pay.component';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-pay',
@@ -17,6 +18,7 @@ export class PayComponent implements OnInit {
   public totalMoneyPayPal = 0;
   public totalMoneyMoMo = 0;
   public isChecked: boolean;
+  public signature;
 
   constructor(
     private payService: PayService,
@@ -141,6 +143,19 @@ export class PayComponent implements OnInit {
   }
 
   payByMoMo() {
-    this.payService.payByMoMoService(this.totalMoneyMoMo);
+    const requestID = Math.ceil(Math.random() * 10000000000);
+    this.payService.payByMoMoService(this.totalMoneyMoMo, requestID)
+      .subscribe(
+        (data) => {
+          this.signature = data.message;
+        },
+        (data) => {
+        },
+        () => {
+          window.location.href = 'https://test-payment.momo.vn/gw_payment/payment/qr?partnerCode=MOMOBKUN20180529' +
+            '&accessKey=klm05TvNBzhg7h7j&requestId=' + requestID +
+            '&amount=' + this.totalMoneyMoMo + '&orderId=' + requestID +
+            '&signature=' + this.signature + '&requestType=captureMoMoWallet';
+        });
   }
 }

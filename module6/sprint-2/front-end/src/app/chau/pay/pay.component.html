@@ -146,7 +146,7 @@
           <div class="col-sm-8"></div>
           <div class="col-sm-4">
             <div class="row">
-              <p class="choose">Vui lòng chọn hình thức thanh toán : </p>
+              <h5 class="choose">Vui lòng chọn hình thức thanh toán : </h5>
             </div>
             <div class="row">
               <img class="momo" (click)="payNothing()" [hidden]="totalMoneyPayPal > 0"
@@ -157,9 +157,13 @@
                    alt="momo">
             </div>
             <div class="row">
-              <img [hidden]="totalMoneyMoMo > 0" (click)="payNothing()"
-                   src="../../../assets/paypal.PNG" class="paypalIcon" alt="icon"/>
-              <p [hidden]="totalMoneyMoMo <= 0" #paypalRef></p>
+              <div [hidden]="totalMoneyMoMo > 0">
+                <img (click)="payNothing()" class="paypalIcon"
+                     src="../../../assets/paypal.PNG" alt="icon"/>
+              </div>
+              <div class="paypal" [hidden]="totalMoneyMoMo <= 0">
+                <p #paypalRef></p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-body {
-  font-family: 'Open Sans', sans-serif;
+.container-fluid {
+  font-family: "Varela Round";
 }
 
 .form-control {
@@ -331,13 +331,17 @@ table.table td i {
   color: blue;
 }
 
-.paypal {
-  width: 45%;
+.momo {
+  width: 55%;
+  margin-bottom: 3%;
 }
 
-.momo {
-  width: 35%;
-  margin: -2.5% 0 2.5% 0;
+.paypalIcon {
+  width: 80%;
+}
+
+.paypal {
+  width: 55%;
 }
 
 .warning {
@@ -352,8 +356,4 @@ table.table td i {
 
 .tick {
   width: 60px;
-}
-
-.paypalIcon {
-  width: 36%;
 }

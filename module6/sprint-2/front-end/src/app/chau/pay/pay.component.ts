@@ -3,6 +3,7 @@ import {PayService} from '../service/pay.service';
 import {MatDialog} from '@angular/material/dialog';
 import {SuccessfullyPayComponent} from '../successfully-pay/successfully-pay.component';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-pay',
@@ -22,7 +23,8 @@ export class PayComponent implements OnInit {
 
   constructor(
     private payService: PayService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    protected http: HttpClient,
   ) {
   }
 
@@ -51,7 +53,7 @@ export class PayComponent implements OnInit {
           color: 'gold',
           layout: 'horizontal',
           label: 'paypal',
-          height: 45
+          height: 45,
         },
 
         createOrder: (data, actions) => {
@@ -152,10 +154,35 @@ export class PayComponent implements OnInit {
         (data) => {
         },
         () => {
-          window.location.href = 'https://test-payment.momo.vn/gw_payment/payment/qr?partnerCode=MOMOBKUN20180529' +
-            '&accessKey=klm05TvNBzhg7h7j&requestId=' + requestID +
-            '&amount=' + this.totalMoneyMoMo + '&orderId=' + requestID +
-            '&signature=' + this.signature + '&requestType=captureMoMoWallet';
+          // this.http.post<any>('https://test-payment.momo.vn/gw_payment/payment/qr?partnerCode=MOMOBKUN20180529' +
+          //   '&accessKey=klm05TvNBzhg7h7j&requestId=' + requestID +
+          //   '&amount=' + this.totalMoneyMoMo + '&orderId=' + requestID +
+          //   '&signature=' + this.signature + '&requestType=captureMoMoWallet/post',
+          //   {
+          //     'accessKey': 'klm05TvNBzhg7h7j',
+          //     'partnerCode': 'MOMOBKUN20180529',
+          //     'requestType': 'captureMoMoWallet',
+          //     'notifyUrl': 'https://momo.vn',
+          //     'returnUrl': 'https://momo.vn',
+          //     'orderId': requestID,
+          //     'amount': this.totalMoneyMoMo,
+          //     'orderInfo': 'SDK team.',
+          //     'requestId': requestID,
+          //     'extraData': 'email=abc@gmail.com',
+          //     'signature': this.signature
+          //   })
+          //   .subscribe(data => {
+          //     console.log(data);
+          //   });dd
+          alert('Sign: ' + this.signature + '\nSign : ' + '1169c7217e88697565077a9007a7a326de9fd956ee03b27b44f080dffa2591cd');
+          window.location.href = 'https://test-payment.momo.vn/gw_payment/payment/qr?' +
+            'partnerCode=MOMOBKUN20180529' +
+            '&accessKey=klm05TvNBzhg7h7j' +
+            '&requestId=1609727781' +
+            '&amount=7000000' +
+            '&orderId=1609727781' +
+            '&signature=' + 'baa58d47b16f65b29f89f03de00791db335b96bb6e01f434f74fd75691024d1a' +
+            '&requestType=captureMoMoWallet';
         });
   }
 }

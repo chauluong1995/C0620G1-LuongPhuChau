@@ -79,6 +79,9 @@ public class AutoSendMailForCustomer {
                                 "  <meta charset=\"UTF-8\">\n" +
                                 "  <title>Mail</title>\n" +
                                 "  <style>\n" +
+                                "    * {\n" +
+                                "      font-family: \"Varela Round\";\n" +
+                                "    }" +
                                 "    .bodyMail {\n" +
                                 "      margin-top: 1%;\n" +
                                 "    }\n" +
@@ -105,7 +108,7 @@ public class AutoSendMailForCustomer {
                                 "    }\n" +
                                 "\n" +
                                 "    span {\n" +
-                                "      color: red;\n" +
+                                "      color: blue;\n" +
                                 "    }\n" +
                                 "\n" +
                                 "    .autoMail {\n" +
@@ -118,9 +121,13 @@ public class AutoSendMailForCustomer {
                                 "  <div class=\"row\">\n" +
                                 "    <div class=\"col-sm-3\"></div>\n" +
                                 "    <div class=\"col-sm-6 bodyMail\">\n" +
-                                "      <h5>\n" +
+                                "      <h5 style=\"width: 90%\">\n" +
                                 "        Công ty TNHH C06Parking thông báo vé xe sắp hết hạn\n" +
                                 "      </h5>\n" +
+                                "<div>\n" +
+                                "        <img src=\"https://bkaii.com.vn/images/bai-do-xe-tai-duc.jpg" +
+                                "\" style=\"width: 90%; height: 425px\">\n" +
+                                "      </div>" +
                                 "      <p>Kính gửi quý khách: <span>" + nameCustomer + "</span></p>\n" +
                                 "      <p>Sau đây là danh sách vé xe sắp hết hạn của quý khách : </p>\n" +
                                 "      <div class=\"row\">\n" +
@@ -169,6 +176,24 @@ public class AutoSendMailForCustomer {
                                 "của chúng tôi.</p>\n" +
                                 "      <p class=\"autoMail\">P/s : Đây là thư thông báo tự động. " +
                                 "Quý khách vui lòng không trả lời thư này!</p>\n" +
+                                "      <div class=\"navbar-light bg-light mt-5 rounded\">\n" +
+                                "        <div class=\"row p-4  mx-0 p-0\">\n" +
+                                "          <div class=\"col-sm-3 col-xl-3\">\n" +
+                                "            <h4 class=\"justify-content-center\">LIÊN HỆ</h4>\n" +
+                                "            <ul class=\"list-unstyled\">\n" +
+                                "              <li>295 Nguyễn Tất Thành, DN</li>\n" +
+                                "              <li>0236 6517 021</li>\n" +
+                                "            </ul>\n" +
+                                "          </div>\n" +
+                                "          <div class=\"col-sm-5 col-xl-5 \">\n" +
+                                "            <h4 class=\"justify-content-center\">GIỚI THIỆU</h4>\n" +
+                                "            <p>Công ty chúng tôi hân hạnh mang đến những dịch vụ đậu xe hiện đại " +
+                                "và an toàn nhất.\n" +
+                                "              Chúng tôi tự hào là 1 trong những hệ thống đặt chỗ đậu xe</p>" +
+                                "<p>hàng đầu Việt Nam.</p>\n" +
+                                "          </div>\n" +
+                                "        </div>\n" +
+                                "      </div>" +
                                 "    </div>\n" +
                                 "    <div class=\"col-sm-3\"></div>\n" +
                                 "  </div>\n" +

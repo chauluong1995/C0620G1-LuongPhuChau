@@ -26,6 +26,7 @@ INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number,
 INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) VALUES (2, 'Lamborghini', null, '43A1-56789', null, 2);
 INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) VALUES (3, 'Mercedes Benz', null, '43A1-02222', null, 3);
 INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) VALUES (4, 'Bugatti', null, '43A1-52795', null, 2);
+INSERT INTO project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) VALUES (5, 'Ferrari', null, '43A1-15595', null, 1);
 # MemberCard
 INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (3, '2021-01-05 17:30:00', 9000000, '2020-12-22 17:30:00', 3, 3);
 INSERT INTO project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) VALUES (2, '2021-01-05 17:30:00', 7000000, '2020-12-21 17:30:00', 2, 2);

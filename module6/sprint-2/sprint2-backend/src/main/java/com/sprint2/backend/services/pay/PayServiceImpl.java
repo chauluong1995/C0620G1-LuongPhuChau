@@ -214,7 +214,8 @@ public class PayServiceImpl implements PaySerVice {
      * @return Signature
      * */
     @Override
-    public String createSignature(String money, String requestID) {
+    public String createSignature(String money) {
+        String requestID = String.valueOf(System.currentTimeMillis()).substring(0, 10);
         String signature;
         String data = "partnerCode=MOMOBKUN20180529&accessKey=klm05TvNBzhg7h7j&requestId=" + requestID
                 + "&amount=" + money +
@@ -237,10 +238,10 @@ public class PayServiceImpl implements PaySerVice {
                 hexChars[j * 2 + 1] = hexArray[v & 0x0F];
             }
             signature = new String(hexChars);
+            signature = signature + "," + requestID;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
-        System.out.println(signature);
         return signature;
     }
 }

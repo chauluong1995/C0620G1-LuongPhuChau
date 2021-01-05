@@ -9,5 +9,5 @@ public interface PaySerVice {
 
     void updateMemberCardAfterPay(Double money, List<Long> memberCardList);
 
-    String createSignature(String money, String requestID);
+    String createSignature(String money);
 }

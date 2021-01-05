@@ -22,8 +22,8 @@ export class PayService {
     return this.http.get(this.API + '/list/' + idFind);
   }
 
-  payByMoMoService(money, requestID): Observable<any> {
-    return this.http.get(this.API + '/create-signature/' + money + '/' + requestID);
+  payByMoMoService(money): Observable<any> {
+    return this.http.get(this.API + '/create-signature/' + money);
   }
 
   updateMemberCardAfterPay(money, memberCardList): Observable<any> {

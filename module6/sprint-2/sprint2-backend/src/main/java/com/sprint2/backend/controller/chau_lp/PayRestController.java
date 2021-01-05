@@ -44,9 +44,9 @@ public class PayRestController {
      * @param money, requestID
      * @return MessageDTO
      * */
-    @GetMapping("/create-signature/{money}/{requestID}")
-    public ResponseEntity<MessageDTO> createSignatureForMoMo(@PathVariable String money, @PathVariable String requestID) {
-        MessageDTO messageDTO = new MessageDTO(this.paySerVice.createSignature(money, requestID));
+    @GetMapping("/create-signature/{money}")
+    public ResponseEntity<MessageDTO> createSignatureForMoMo(@PathVariable String money) {
+        MessageDTO messageDTO = new MessageDTO(this.paySerVice.createSignature(money));
         return new ResponseEntity<>(messageDTO, HttpStatus.OK);
     }
 }

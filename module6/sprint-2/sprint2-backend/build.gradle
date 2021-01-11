@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.sprint2'
+group = 'com.codegym'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -23,6 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    compile group: 'net.sf.javaanpr', name: 'javaanpr', version: '1.2.4'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'mysql:mysql-connector-java'

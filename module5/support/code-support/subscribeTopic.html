@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Đăng ký đề tài</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .table-wrapper {
+            padding: 1% 1%;
+        }
+
+        .table-title {
+            color: #fff;
+            background: #40b2cd;
+            padding: 1% 1%;
+        }
+
+        th, td {
+            border-left: 1px solid;
+            border-right: 1px solid;
+            text-align: right;
+        }
+
+        table.table td a.view {
+            color: rgba(0, 0, 255, 0.55);
+        }
+
+        table.table td a.choose {
+            color: rgba(0, 109, 0, 0.73);
+        }
+
+        table.table td a.delete {
+            color: rgba(238, 20, 92, 0.67);
+        }
+
+        table.table th {
+            text-align: center;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .topicName {
+            width: 50%;
+            text-align: left;
+        }
+
+        table {
+            margin: 1% 0 0 0;
+            border: 1px solid;
+        }
+
+        .deleteIcon {
+            text-align: center;
+        }
+
+        .number {
+            text-align: center;
+        }
+
+        form {
+            padding: 2% 2%;
+        }
+
+        .first {
+            margin: 1% 0 0 5%;
+            font-weight: bold;
+        }
+
+        .second {
+            margin: 10% 0 0 5%;
+            font-weight: bold;
+        }
+
+        .secondInput {
+            margin: 1.5% 0 0 0;
+            width: 95px;
+        }
+
+        .thirdInput {
+            margin: 1.5% 0 0 0;
+        }
+
+        .submit {
+            margin: 9.5% 0 0 55%;
+            background-color: rgba(0, 109, 0, 0.73);
+            color: white;
+            border-radius: 5px;
+        }
+
+        .signUp {
+            margin: 3% 0 10% 5%;
+            background-color: rgba(0, 109, 0, 0.73);
+            color: white;
+            border-radius: 5px;
+        }
+
+        .status {
+            text-align: left;
+        }
+
+        .amount {
+            width: 15%;
+        }
+
+        .pagination {
+            float: right;
+            margin: 0 0 5px;
+        }
+        .pagination li a {
+            border: none;
+            font-size: 15px;
+            min-width: 30px;
+            min-height: 30px;
+            color: #999;
+            margin: 0 2px;
+            line-height: 30px;
+            border-radius: 2px !important;
+            text-align: center;
+            padding: 0 6px;
+        }
+        .pagination li a:hover {
+            color: #666;
+        }
+        .pagination li.active a, .pagination li.active a.page-link {
+            background: #03A9F4;
+        }
+        .pagination li.active a:hover {
+            background: #0397d6;
+        }
+        .pagination li.disabled i {
+            color: #ccc;
+        }
+        .pagination li i {
+            font-size: 16px;
+            padding-top: 6px
+        }
+        .clearfix {
+            margin-right: 1%;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+
+            <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <input type="button" class="signUp" value="Hủy đăng ký">
+                    <input type="button" class="signUp" value="Đăng ký">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3>Đề tài đăng ký</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Tên đề tài</th>
+                                <th class="amount">Số lượng SVTH</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="topicName">Quản lý phòng bán vé máy bay</td>
+                                <td>15</td>
+                                <td class="status">Chưa đăng ký</td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3>Danh sách đề tài của giáo viên</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên đề tài</th>
+                                <th class="amount">Số lượng SVTH</th>
+                                <th>Xem</th>
+                                <th>Chọn</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="number">1</td>
+                                <td class="topicName">Quản lý thực hiện đề tài tốt nghiệp</td>
+                                <td>15</td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="view" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">visibility</i></a>
+                                </td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="choose" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">done</i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="number">2</td>
+                                <td class="topicName">Quản lý bãi đỗ xe tăng</td>
+                                <td>15</td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="view" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">visibility</i></a>
+                                </td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="choose" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">done</i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="number">3</td>
+                                <td class="topicName">Quản lý bán vé rạp chiếu phim Galaxy</td>
+                                <td>15</td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="view" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">visibility</i></a>
+                                </td>
+                                <td class="deleteIcon">
+                                    <a href="#" class="choose" title="Delete" data-toggle="tooltip"><i
+                                            class="material-icons">done</i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix">
+                            <ul class="pagination">
+                                <li class="page-item disabled"><a href="#">Trước</a></li>
+                                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                <li class="page-item"><a href="#" class="page-link">Sau</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3>Đề tài sinh viên yêu cầu</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="nameTopic" class="first">Nhập tên đề tài <sup class="text-danger">*</sup></label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input id="nameTopic" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="amount" class="second">Số sinh viên thực hiện <sup class="text-danger">*</sup></label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input id="amount" class="form-control secondInput"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="description" class="second">Mô tả <sup class="text-danger">*</sup></label>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea id="description" class="form-control thirdInput"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10"></div>
+                    <div class="col-sm-2">
+                        <input type="button" class="submit" value="Chọn">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -91,11 +91,11 @@ insert into project2_parking_management.car (id, brand_name, image_plate_number,
 insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (38, 'Mazda', null, 'SV8HU8GK', 4, null);
 insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (39, 'Mazda', null, 'FK5G8DHS', 4, null);
 insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (40, 'Mazda', null, 'ER7USYXC', 4, null);
-insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (41, 'Lamborghini', null, 'QPZZXV88', 5, 15);
-insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (42, 'Lamborghini', null, 'YG9LIKKM', 5, 15);
-insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (43, 'Lamborghini', null, 'QSUCPOX0', 5, 15);
-insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (44, 'Lamborghini', null, '098TEZZ4', 5, 15);
-insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (45, 'Lamborghini', null, '53POOP3H', 5, 15);
+insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (41, 'Lamborghini', null, 'QPZZXV88', 5, 1);
+insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (42, 'Lamborghini', null, 'YG9LIKKM', 5, 1);
+insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (43, 'Lamborghini', null, '43A55555', 5, 15);
+insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (44, 'Lamborghini', null, '43A52795', 5, 15);
+insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (45, 'Lamborghini', null, '43A51595', 5, 15);
 insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (46, 'Porsche', null, 'TGP6JVOE', 5, null);
 insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (47, 'Porsche', null, 'DSFXGSUX', 5, null);
 insert into project2_parking_management.car (id, brand_name, image_plate_number, plate_number, car_type_id, customer_id) values (48, 'Porsche', null, '3N6W6OZZ', 5, null);
@@ -533,9 +533,9 @@ insert into project2_parking_management.member_card (id, end_date, price, start_
 insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (13, '2022-02-01 19:12:00', 30000000, '2021-01-01 19:12:22', 32, 3);
 insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (14, '2021-01-11 19:12:28', 30000000, '2021-01-09 19:12:23', 41, 3);
 insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (15, '2021-01-11 19:11:41', 30000000, '2021-01-09 19:12:23', 42, 3);
-insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (20, '2021-01-11 19:11:56', 30000000, '2021-01-09 19:12:24', 43, 3);
-insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (21, '2021-01-11 19:12:00', 30000000, '2021-01-09 19:12:25', 44, 3);
-insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (22, '2021-01-11 19:43:55', 30000000, '2019-01-09 19:44:09', 45, 3);
+insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (20, '2021-01-14 17:30:00', 1000000, '2021-01-08 17:30:00', 43, 1);
+insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (21, '2021-01-14 17:30:00', 3000000, '2020-12-15 17:30:00', 44, 2);
+insert into project2_parking_management.member_card (id, end_date, price, start_date, car_id, member_card_id) values (22, '2021-01-14 17:30:00', 9000000, '2020-01-15 17:30:00', 45, 3);
 # Entry Log
 insert into project2_parking_management.entry_log (id, enter_date, exit_date, member_card_id) values (1, '2021-01-05 20:17:56', '2021-01-07 22:28:57', 1);
 insert into project2_parking_management.entry_log (id, enter_date, exit_date, member_card_id) values (2, '2021-01-07 03:47:00', '2021-01-07 22:35:41', 1);

@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {SubscribeThesisService} from '../service/subscribe-thesis.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ViewThesisComponent} from '../view-thesis/view-thesis.component';
 import {NotificationComponent} from '../notification/notification.component';
 import {ActivatedRoute} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-subscribe',
@@ -11,24 +12,31 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./subscribe.component.css']
 })
 export class SubscribeThesisComponent implements OnInit {
+  protected thesisOfStudentCurrent = [];
   protected thesisListUnsubscribed = [];
   protected thesisListSubscribed = [];
-  protected thesisListSubscribedByOtherGroup = [];
-  protected subscribedThesisOfStudentCurrent = [];
+  protected thesisOfOtherGroup = [];
   protected newSubscribeThesis = [];
-  protected message = 'nothing';
-  protected checkChoose = true;
+  protected checkStatement = true;
+  protected checkTeacher = true;
   protected hiddenTable = true;
+  protected checkChoose = true;
+  protected checkGroup = true;
   protected approved = false;
-  protected thesisType = 'unknown';
   protected p = 1;
-  protected idStudent;
   protected student;
+  protected position;
+  protected idStudent;
+  protected type = 'Unknown';
+  protected message = 'Nothing';
+  protected formCreate: FormGroup;
 
   constructor(
     private subscribeThesisService: SubscribeThesisService,
     private dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
+    protected formBuilder: FormBuilder,
+    private el: ElementRef
   ) {
   }
 
@@ -36,42 +44,57 @@ export class SubscribeThesisComponent implements OnInit {
     this.activatedRoute.params.subscribe(data => {
       this.idStudent = data.idStudent;
     });
-    this.getStudentCurrentlyLoggingById();
-    this.filterThesisSubscribed();
-    this.getListThesisUnsubscribed();
+    this.getStudent();
   }
 
-  getStudentCurrentlyLoggingById() {
-    this.subscribeThesisService.findStudentCurrentlyLoggingById(this.idStudent).subscribe(
+  getStudent() {
+    this.subscribeThesisService.findStudent(this.idStudent).subscribe(
       (data) => {
         this.student = data;
       },
       () => {
-        this.message = 'error';
+        this.openNotification('Error');
       },
       () => {
+        if (this.student.studentGroup != null) {
+          if (this.student.studentGroup.teacher != null) {
+            this.position = this.student.position;
+            this.filterThesisSubscribed();
+            this.getListThesisUnsubscribed();
+            // create new Thesis :
+            this.formCreate = this.formBuilder.group({
+              statement: ['', [Validators.required, Validators.maxLength(50)]],
+              amount: ['', [Validators.required, Validators.pattern('^(([1-9])|([1][0-5]))$')]],
+              description: ['', [Validators.required, Validators.maxLength(50)]],
+            });
+          } else {
+            this.checkTeacher = false;
+          }
+        } else {
+          this.checkGroup = false;
+        }
       });
   }
 
   getListThesisUnsubscribed() {
-    this.subscribeThesisService.getListThesisUnsubscribeService(this.idStudent).subscribe(
+    this.subscribeThesisService.findThesisUnsubscribe(this.idStudent).subscribe(
       (data) => {
         this.thesisListUnsubscribed = data;
       },
       () => {
-        this.message = 'error';
+        this.openNotification('Error');
       },
       () => {
       });
   }
 
   filterThesisSubscribed() {
-    this.subscribeThesisService.getListThesisSubscribeService(this.idStudent).subscribe(
+    this.subscribeThesisService.findThesisSubscribe(this.idStudent).subscribe(
       (data) => {
         this.thesisListSubscribed = data;
       },
       () => {
-        this.message = 'error';
+        this.openNotification('Error');
       },
       () => {
         for (let i = 0; i < this.thesisListSubscribed.length; i++) {
@@ -79,7 +102,7 @@ export class SubscribeThesisComponent implements OnInit {
             if (this.thesisListSubscribed[i].studentGroup.id === this.student.studentGroup.id) {
               this.checkChoose = false;
               this.hiddenTable = false;
-              this.subscribedThesisOfStudentCurrent.push(this.thesisListSubscribed[i]);
+              this.thesisOfStudentCurrent.push(this.thesisListSubscribed[i]);
               if (this.thesisListSubscribed[i].status === true) {
                 this.approved = true;
               }
@@ -88,12 +111,12 @@ export class SubscribeThesisComponent implements OnInit {
             }
           }
         }
-        this.thesisListSubscribedByOtherGroup = this.thesisListSubscribed;
+        this.thesisOfOtherGroup = this.thesisListSubscribed;
       });
   }
 
   chooseThesisOfTeacher(id) {
-    this.thesisType = 'teacher';
+    this.type = 'Teacher';
     this.hiddenTable = false;
     for (let i = 0; i < this.thesisListUnsubscribed.length; i++) {
       if (this.thesisListUnsubscribed[i].id === id) {
@@ -103,6 +126,7 @@ export class SubscribeThesisComponent implements OnInit {
       }
     }
     this.checkChoose = false;
+    this.p = 1;
   }
 
   deleteThesis() {
@@ -113,15 +137,32 @@ export class SubscribeThesisComponent implements OnInit {
 
   subscribeThesis() {
     if (this.checkChoose) {
-      this.openNotification('no choose');
+      this.openNotification('No Choose');
     } else {
-      if (this.thesisType === 'teacher') {
+      if (this.type === 'Teacher') {
         const idThesis = this.newSubscribeThesis.shift().id;
         this.subscribeThesisService.subscribeThesisOfTeacher(idThesis, this.idStudent).subscribe(
           (data) => {
+            this.message = data.message;
+            switch (this.message) {
+              case 'Complete':
+                this.openNotification('Subscribe Complete');
+                break;
+              case 'Subscribed':
+                this.openNotification('Subscribed');
+                break;
+              case 'Duplicate':
+                this.openNotification('Duplicate');
+                break;
+              case 'Not found':
+                this.openNotification('Not found');
+                break;
+              default:
+                this.openNotification('Error');
+            }
           },
           () => {
-            this.message = 'error';
+            this.openNotification('Error');
           },
           () => {
             this.ngOnInit();
@@ -142,12 +183,19 @@ export class SubscribeThesisComponent implements OnInit {
   }
 
   openNotification(message): void {
-    this.dialog.open(NotificationComponent, {
+    const dialogRef = this.dialog.open(NotificationComponent, {
       width: '555px',
-      height: '190px',
+      height: '175px',
       data: {notification: message},
       disableClose: true
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.checkStatement = true;
+      if (this.message === 'Subscribed') {
+        this.hiddenTable = true;
+        this.checkChoose = true;
+      }
+    })
   }
 
   unsubscribeThesis() {
@@ -155,20 +203,103 @@ export class SubscribeThesisComponent implements OnInit {
     this.checkChoose = true;
     if (this.newSubscribeThesis.length !== 0) {
       this.thesisListUnsubscribed.unshift(this.newSubscribeThesis.shift());
+      this.ngOnInit();
     }
-    if (this.subscribedThesisOfStudentCurrent.length !== 0) {
-      const checkThesis = this.subscribedThesisOfStudentCurrent.pop();
+    if (this.thesisOfStudentCurrent.length !== 0) {
+      const checkThesis = this.thesisOfStudentCurrent.pop();
       if (checkThesis.status === false) {
         const idCheckThesis = checkThesis.id;
         this.subscribeThesisService.unsubscribeThesis(idCheckThesis).subscribe(
           (data) => {
+            this.message = data.message;
+            switch (this.message) {
+              case 'Complete':
+                this.openNotification('Unsubscribe Complete');
+                break;
+              case 'Approved':
+                this.openNotification('Cannot Cancel');
+                break;
+              case 'Not found':
+                this.openNotification('Not found');
+                break;
+              default:
+                this.openNotification('Error');
+            }
           },
           () => {
-            this.message = 'error';
+            this.openNotification('Error');
           },
           () => {
             this.ngOnInit();
           });
+      }
+    }
+  }
+
+  keyDownFunction(event) {
+    if (event.keyCode === 13) {
+      this.createThesis();
+    }
+  }
+
+  createThesis() {
+    this.formCreate.markAllAsTouched();
+    if (this.formCreate.valid) {
+      this.formCreate.value.statement = this.formCreate.value.statement.trim();
+      this.formCreate.value.description = this.formCreate.value.description.trim();
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.thesisOfOtherGroup.length; i++) {
+        if (this.thesisOfOtherGroup[i].thesis.statement === this.formCreate.value.statement) {
+          this.checkStatement = false;
+          break;
+        }
+      }
+      if (this.checkStatement) {
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.thesisListUnsubscribed.length; i++) {
+          if (this.thesisListUnsubscribed[i].statement === this.formCreate.value.statement) {
+            this.checkStatement = false;
+            break;
+          }
+        }
+      }
+      if (this.checkStatement) {
+        this.subscribeThesisService.createThesis(this.idStudent, this.formCreate.value).subscribe(
+          (data) => {
+            this.message = data.message;
+            switch (this.message) {
+              case 'Complete':
+                this.openNotification('Subscribe Complete');
+                break;
+              case 'Subscribed':
+                this.openNotification('Subscribed');
+                break;
+              case 'Duplicate':
+                this.openNotification('Duplicate');
+                break;
+              case 'Not found':
+                this.openNotification('Not found');
+                break;
+              default:
+                this.openNotification('Error');
+            }
+          },
+          () => {
+            this.openNotification('Error');
+          },
+          () => {
+            this.ngOnInit();
+          });
+      } else {
+        this.openNotification('Duplicate Statement');
+      }
+    } else {
+      for (const KEY of Object.keys(this.formCreate.controls)) {
+        if (this.formCreate.controls[KEY].invalid) {
+          const INVALID_CONTROL = this.el.nativeElement.querySelector('[formControlName="' + KEY + '"]');
+          INVALID_CONTROL.focus();
+          break;
+        }
       }
     }
   }

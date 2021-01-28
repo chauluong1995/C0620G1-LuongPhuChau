@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ae8129-b99d-47db-ba0b-056bf2f67f92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/entity/PeriodOfTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-support/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/code-support/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/src/case_study/furama_resort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/src/case_study/furama_resort/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/config/AutoSendMailForStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/config/AutoSendMailForStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/controllers/SubscribeThesisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/controllers/SubscribeThesisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/entity/Thesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/entity/Thesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/model/SubscribeThesisDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/model/SubscribeThesisDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/SubscribeThesisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/SubscribeThesisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/impl/SubscribeThesisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/impl/SubscribeThesisServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/app-routing-student.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/app-routing-student.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/service/subscribe-thesis.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/service/subscribe-thesis.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe-thesis.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe-thesis.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +106,7 @@
       <workItem from="1611278353045" duration="1168000" />
       <workItem from="1611300942108" duration="1843000" />
       <workItem from="1611304311118" duration="241000" />
+      <workItem from="1611730515882" duration="177000" />
     </task>
     <servers />
   </component>

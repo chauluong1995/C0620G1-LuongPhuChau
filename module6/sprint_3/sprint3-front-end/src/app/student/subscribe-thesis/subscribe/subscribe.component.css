@@ -23,8 +23,9 @@ table.table td a.view {
   margin: 0 10% 0 0;
 }
 
-table.table td a.viewSubscribe {
-  color: rgba(0, 0, 255, 0.55);
+.material-icons {
+  background: none;
+  border: none;
 }
 
 table.table td a.choose {
@@ -101,7 +102,7 @@ form {
 }
 
 .amount {
-  width: 16%;
+  width: 14.7%;
 }
 
 .amountTeacher {
@@ -156,7 +157,7 @@ form {
 }
 
 .work {
-  width: 11%;
+  width: 10%;
 }
 
 .paginationItem {
@@ -170,4 +171,8 @@ form {
 
 h1 {
   margin: 0.3% 0 0 0;
+}
+
+.text-danger {
+  margin: 1% 0 0 0;
 }

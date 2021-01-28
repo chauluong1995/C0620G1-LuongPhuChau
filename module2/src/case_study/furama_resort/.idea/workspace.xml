@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66790d28-5ea6-4687-8ab8-d3eb541d9a4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/furama_resort.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/artifacts/user_update_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/libraries/mysql_connector_java_8_0_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/libraries/taglibs_standard_impl_1_2_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/src/config/CharsetFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/src/model/SortByNameUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/user-update.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/jdbc_va_crud/bai_tap/user-update/web/user/view.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../module3/tong_quan_ung_dung_web/thuc_hanh/c06g-web-overview/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/tong_quan_ung_dung_web/thuc_hanh/c06g-web-overview/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/tong_quan_ung_dung_web/thuc_hanh/c06g-web-overview/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +23,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../module3/case_study/furrama" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -55,6 +37,7 @@
       <updated>1601347991042</updated>
       <workItem from="1601347992199" duration="442000" />
       <workItem from="1601357847524" duration="17000" />
+      <workItem from="1611581780536" duration="95000" />
     </task>
     <servers />
   </component>

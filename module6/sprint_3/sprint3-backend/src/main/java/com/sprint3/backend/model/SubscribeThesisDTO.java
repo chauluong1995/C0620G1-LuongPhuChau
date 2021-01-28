@@ -13,7 +13,4 @@ public class SubscribeThesisDTO {
     String statement;
     Long amount;
     String description;
-    Long idTeacher;
-    Long idThesis;
-    Long idStudent;
 }

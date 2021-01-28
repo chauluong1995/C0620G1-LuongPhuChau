@@ -12,9 +12,10 @@ import com.sprint3.backend.model.MessageDTO;
 import com.sprint3.backend.entity.Thesis;
 import com.sprint3.backend.services.SubscribeThesisService;
 import com.sprint3.backend.entity.Student;
+import com.sprint3.backend.model.SubscribeThesisDTO;
 
 @RestController
-@RequestMapping("/subscribe")
+@RequestMapping("/subscribe-thesis")
 @CrossOrigin
 public class SubscribeThesisController {
     @Autowired
@@ -25,9 +26,9 @@ public class SubscribeThesisController {
      * @param idStudent
      * @return ResponseEntity<Student>
      * */
-    @GetMapping("/student-currently-logging/{idStudent}")
-    public ResponseEntity<Student> findStudentCurrentlyLoggingById(@PathVariable Long idStudent) {
-        Student student = this.subscribeThesisService.findStudentCurrentlyLoggingById(idStudent);
+    @GetMapping("/student/{idStudent}")
+    public ResponseEntity<Student> findStudentById(@PathVariable Long idStudent) {
+        Student student = this.subscribeThesisService.findStudentById(idStudent);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
@@ -36,9 +37,9 @@ public class SubscribeThesisController {
      * @param idStudent
      * @return ResponseEntity<List<Thesis>>
      * */
-    @GetMapping("/list-thesis-unsubscribed/{idStudent}")
-    public ResponseEntity<List<Thesis>> getListThesisUnSubscribedByIdStudent(@PathVariable Long idStudent) {
-        List<Thesis> thesisList = this.subscribeThesisService.findAllThesisUnSubscribedByIdStudent(idStudent);
+    @GetMapping("/thesis-unsubscribed/{idStudent}")
+    public ResponseEntity<List<Thesis>> getListThesisUnSubscribed(@PathVariable Long idStudent) {
+        List<Thesis> thesisList = this.subscribeThesisService.findAllThesisUnSubscribed(idStudent);
         return new ResponseEntity<>(thesisList, HttpStatus.OK);
     }
 
@@ -47,9 +48,9 @@ public class SubscribeThesisController {
      * @param idStudent
      * @return ResponseEntity<List<Thesis>>
      * */
-    @GetMapping("/list-thesis-subscribed/{idStudent}")
-    public ResponseEntity<List<CheckThesis>> getListThesisSubscribedByIdStudent(@PathVariable Long idStudent) {
-        List<CheckThesis> thesisList = this.subscribeThesisService.findAllThesisSubscribedByIdStudent(idStudent);
+    @GetMapping("/thesis-subscribed/{idStudent}")
+    public ResponseEntity<List<CheckThesis>> getListThesisSubscribed(@PathVariable Long idStudent) {
+        List<CheckThesis> thesisList = this.subscribeThesisService.findAllThesisSubscribed(idStudent);
         return new ResponseEntity<>(thesisList, HttpStatus.OK);
     }
 
@@ -69,7 +70,7 @@ public class SubscribeThesisController {
      * @param idThesis, idStudent
      * @return MessageDTO
      * */
-    @GetMapping("/subscribe-thesis-teacher/{idThesis}/{idStudent}")
+    @GetMapping("/thesis-teacher/{idThesis}/{idStudent}")
     public ResponseEntity<MessageDTO> subscribeThesisOfTeacher(@PathVariable Long idThesis,
                                                                @PathVariable Long idStudent) {
         MessageDTO messageDTO = this.subscribeThesisService.subscribeThesisOfTeacher(idThesis, idStudent);
@@ -81,9 +82,21 @@ public class SubscribeThesisController {
      * @param idCheckThesis
      * @return MessageDTO
      * */
-    @GetMapping("/unsubscribe/{idCheckThesis}")
+    @GetMapping("/unsubscribe-thesis/{idCheckThesis}")
     public ResponseEntity<MessageDTO> unsubscribeThesis(@PathVariable Long idCheckThesis) {
         MessageDTO messageDTO = this.subscribeThesisService.unsubscribeThesis(idCheckThesis);
+        return new ResponseEntity<>(messageDTO, HttpStatus.OK);
+    }
+
+    /*
+     * create thesis
+     * @param idStudent, subscribeThesisDTO
+     * @return MessageDTO
+     * */
+    @PostMapping("/create/{idStudent}")
+    public ResponseEntity<MessageDTO> createThesis(@PathVariable Long idStudent,
+                                                   @RequestBody SubscribeThesisDTO subscribeThesisDTO) {
+        MessageDTO messageDTO = this.subscribeThesisService.createThesis(idStudent, subscribeThesisDTO);
         return new ResponseEntity<>(messageDTO, HttpStatus.OK);
     }
 }

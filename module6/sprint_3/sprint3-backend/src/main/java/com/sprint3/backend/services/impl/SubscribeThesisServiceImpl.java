@@ -3,18 +3,17 @@ package com.sprint3.backend.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.sprint3.backend.model.MessageDTO;
-import com.sprint3.backend.entity.Student;
 import com.sprint3.backend.repository.StudentRepository;
 import com.sprint3.backend.services.SubscribeThesisService;
-import com.sprint3.backend.entity.Thesis;
 import com.sprint3.backend.repository.CheckThesisRepository;
 import com.sprint3.backend.repository.ThesisRepository;
-import com.sprint3.backend.entity.CheckThesis;
-import com.sprint3.backend.entity.StudentGroup;
+import com.sprint3.backend.entity.*;
+import com.sprint3.backend.model.SubscribeThesisDTO;
 
 @Service
 public class SubscribeThesisServiceImpl implements SubscribeThesisService {
@@ -33,10 +32,15 @@ public class SubscribeThesisServiceImpl implements SubscribeThesisService {
      * @return Student
      * */
     @Override
-    public Student findStudentCurrentlyLoggingById(Long idStudent) {
+    public Student findStudentById(Long idStudent) {
         return this.studentRepository.findById(idStudent).orElse(null);
     }
 
+    /*
+     * find all thesis
+     * @param nothing
+     * @return List<CheckThesis>
+     * */
     @Override
     public List<CheckThesis> findAllCheckThesisForMail() {
         return this.checkThesisRepository.findAll();
@@ -48,10 +52,10 @@ public class SubscribeThesisServiceImpl implements SubscribeThesisService {
      * @return List<Thesis>
      * */
     @Override
-    public List<Thesis> findAllThesisUnSubscribedByIdStudent(Long idStudent) {
+    public List<Thesis> findAllThesisUnSubscribed(Long idStudent) {
         boolean check;
         List<Thesis> thesisListResult = new ArrayList<>();
-        List<Thesis> thesisListOfTeacher = getThesisOfTeacherCorresponding(idStudent);
+        List<Thesis> thesisListOfTeacher = getThesisOfTeacher(idStudent);
         List<CheckThesis> checkThesisList = this.checkThesisRepository.findAll();
         for (Thesis thesis : thesisListOfTeacher) {
             check = true;
@@ -79,10 +83,10 @@ public class SubscribeThesisServiceImpl implements SubscribeThesisService {
      * @return List<Thesis>
      * */
     @Override
-    public List<CheckThesis> findAllThesisSubscribedByIdStudent(Long idStudent) {
+    public List<CheckThesis> findAllThesisSubscribed(Long idStudent) {
         boolean check;
         List<CheckThesis> checkThesisListResult = new ArrayList<>();
-        List<Thesis> thesisListOfTeacher = getThesisOfTeacherCorresponding(idStudent);
+        List<Thesis> thesisListOfTeacher = getThesisOfTeacher(idStudent);
         List<CheckThesis> checkThesisList = this.checkThesisRepository.findAll();
         for (CheckThesis checkThesis : checkThesisList) {
             check = false;
@@ -99,6 +103,24 @@ public class SubscribeThesisServiceImpl implements SubscribeThesisService {
             }
         }
         return checkThesisListResult;
+    }
+
+    private List<Thesis> getThesisOfTeacher(Long idStudent) {
+        Long idTeacher = null;
+        Student student = this.studentRepository.findById(idStudent).orElse(null);
+        List<Thesis> thesisListOfTeacher = new ArrayList<>();
+        List<Thesis> thesisListExists = this.thesisRepository.findAll();
+        if (student != null) {
+            idTeacher = student.getStudentGroup().getTeacher().getId();
+        }
+        if (idTeacher != null) {
+            for (Thesis thesis : thesisListExists) {
+                if (thesis.getTeacher().getId().equals(idTeacher)) {
+                    thesisListOfTeacher.add(thesis);
+                }
+            }
+        }
+        return thesisListOfTeacher;
     }
 
     /*
@@ -119,36 +141,33 @@ public class SubscribeThesisServiceImpl implements SubscribeThesisService {
     @Override
     public MessageDTO subscribeThesisOfTeacher(Long idThesis, Long idStudent) {
         MessageDTO messageDTO = new MessageDTO();
+        boolean check = true;
         try {
-            CheckThesis checkThesis = new CheckThesis();
-            StudentGroup studentGroup = new StudentGroup();
-            Student student = this.studentRepository.findById(idStudent).orElse(null);
-            if (student != null) {
-                studentGroup = student.getStudentGroup();
+            List<CheckThesis> checkThesisList = this.checkThesisRepository.findAll();
+            for (CheckThesis checkThesis : checkThesisList) {
+                if (checkThesis.getThesis().getId().equals(idThesis)) {
+                    check = false;
+                    break;
+                }
             }
-            checkThesis.setStatus(false);
-            checkThesis.setThesis(thesisRepository.findById(idThesis).orElse(null));
-            checkThesis.setStudentGroup(studentGroup);
-            this.checkThesisRepository.save(checkThesis);
-            messageDTO.setMessage("Complete");
-        } catch (RuntimeException runtimeException) {
-            messageDTO.setMessage("Failed");
-        }
-        return messageDTO;
-    }
-
-    @Override
-    public MessageDTO unsubscribeThesis(Long idCheckThesis) {
-        MessageDTO messageDTO = new MessageDTO();
-        try {
-            CheckThesis checkThesis = this.checkThesisRepository.findById(idCheckThesis).orElse(null);
-            if (checkThesis != null) {
-                checkThesis.setStudentGroup(null);
-                checkThesis.setThesis(null);
-                this.checkThesisRepository.save(checkThesis);
-                messageDTO.setMessage("Complete");
+            if (check) {
+                Student student = this.studentRepository.findById(idStudent).orElse(null);
+                if (student != null) {
+                    if (student.getStudentGroup().getCheckThesis() == null) {
+                        CheckThesis checkThesis = new CheckThesis();
+                        checkThesis.setStatus(false);
+                        checkThesis.setThesis(thesisRepository.findById(idThesis).orElse(null));
+                        checkThesis.setStudentGroup(student.getStudentGroup());
+                        this.checkThesisRepository.save(checkThesis);
+                        messageDTO.setMessage("Complete");
+                    } else {
+                        messageDTO.setMessage("Duplicate");
+                    }
+                } else {
+                    messageDTO.setMessage("Not found");
+                }
             } else {
-                messageDTO.setMessage("Failed");
+                messageDTO.setMessage("Subscribed");
             }
         } catch (RuntimeException runtimeException) {
             messageDTO.setMessage("Error");
@@ -156,21 +175,78 @@ public class SubscribeThesisServiceImpl implements SubscribeThesisService {
         return messageDTO;
     }
 
-    private List<Thesis> getThesisOfTeacherCorresponding(Long idStudent) {
-        Long idTeacher = null;
-        Student student = this.studentRepository.findById(idStudent).orElse(null);
-        List<Thesis> thesisListOfTeacher = new ArrayList<>();
-        List<Thesis> thesisListExists = this.thesisRepository.findAll();
-        if (student != null) {
-            idTeacher = student.getStudentGroup().getTeacher().getId();
-        }
-        if (idTeacher != null) {
-            for (Thesis thesis : thesisListExists) {
-                if (thesis.getTeacher().getId().equals(idTeacher)) {
-                    thesisListOfTeacher.add(thesis);
+    /*
+     * create thesis
+     * @param idStudent, subscribeThesisDTO
+     * @return MessageDTO
+     * */
+    @Override
+    public MessageDTO createThesis(Long idStudent, SubscribeThesisDTO subscribeThesisDTO) {
+        MessageDTO messageDTO = new MessageDTO();
+        try {
+            Student student = this.studentRepository.findById(idStudent).orElse(null);
+            if (student != null) {
+                if (student.getStudentGroup().getCheckThesis() == null) {
+                    // create Thesis
+                    Thesis thesis = createNewThesis(subscribeThesisDTO, student);
+                    // create CheckThesis
+                    createCheckThesis(student, thesis);
+                    messageDTO.setMessage("Complete");
+                } else {
+                    messageDTO.setMessage("Duplicate");
                 }
+            } else {
+                messageDTO.setMessage("Not found");
             }
+        } catch (RuntimeException runtimeException) {
+            messageDTO.setMessage("Failed");
         }
-        return thesisListOfTeacher;
+        return messageDTO;
+    }
+
+    /*
+     * unsubscribe thesis
+     * @param idCheckThesis
+     * @return MessageDTO
+     * */
+    @Override
+    public MessageDTO unsubscribeThesis(Long idCheckThesis) {
+        MessageDTO messageDTO = new MessageDTO();
+        try {
+            CheckThesis checkThesis = this.checkThesisRepository.findById(idCheckThesis).orElse(null);
+            if (checkThesis != null) {
+                if (checkThesis.getStatus()) {
+                    messageDTO.setMessage("Approved");
+                } else {
+                    checkThesis.setStudentGroup(null);
+                    checkThesis.setThesis(null);
+                    this.checkThesisRepository.save(checkThesis);
+                    messageDTO.setMessage("Complete");
+                }
+            } else {
+                messageDTO.setMessage("Not found");
+            }
+        } catch (RuntimeException runtimeException) {
+            messageDTO.setMessage("Error");
+        }
+        return messageDTO;
+    }
+
+    private Thesis createNewThesis(SubscribeThesisDTO subscribeThesisDTO, Student student) {
+        Thesis thesis = new Thesis();
+        thesis.setStatement(subscribeThesisDTO.getStatement());
+        thesis.setAmount(subscribeThesisDTO.getAmount());
+        thesis.setDescription(subscribeThesisDTO.getDescription());
+        thesis.setTeacher(student.getStudentGroup().getTeacher());
+        thesis.setCreateDate(LocalDateTime.now());
+        this.thesisRepository.save(thesis);
+        return thesis;
+    }
+
+    private void createCheckThesis(Student student, Thesis thesis) {
+        CheckThesis checkThesis = new CheckThesis();
+        checkThesis.setThesis(thesis);
+        checkThesis.setStudentGroup(student.getStudentGroup());
+        this.checkThesisRepository.save(checkThesis);
     }
 }

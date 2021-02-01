@@ -7,21 +7,21 @@ import {ViewThesisComponent} from './subscribe-thesis/view-thesis/view-thesis.co
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {NotificationComponent} from './subscribe-thesis/notification/notification.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NotificationSubscribeComponent} from './subscribe-thesis/notification-subscribe/notification-subscribe.component';
+import {ConfirmComponent} from './subscribe-thesis/confirm/confirm.component';
 
 export const routes: Routes = [
   {
     path: 'student',
     children: [
-      // {path: 'test', component: TestStudentComponent},
       {path: 'subscribe/:idStudent', component: SubscribeThesisComponent},
     ]
   },
 ];
 
 @NgModule({
-  declarations: [SubscribeThesisComponent, ViewThesisComponent, NotificationComponent],
+  declarations: [SubscribeThesisComponent, ViewThesisComponent, NotificationSubscribeComponent, ConfirmComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
@@ -30,9 +30,11 @@ export const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatDialogModule,
+    NgxPaginationModule,
     ReactiveFormsModule
   ],
-  entryComponents: [ViewThesisComponent, NotificationComponent]
+  entryComponents: [ViewThesisComponent, NotificationSubscribeComponent]
 })
 export class AppRoutingStudentModule {
 }

@@ -2,18 +2,131 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ae8129-b99d-47db-ba0b-056bf2f67f92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../module2/src/case_study/furama_resort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/src/case_study/furama_resort/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/config/AutoSendMailForStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/config/AutoSendMailForStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/controllers/SubscribeThesisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/controllers/SubscribeThesisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/entity/Thesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/entity/Thesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/model/SubscribeThesisDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/model/SubscribeThesisDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/SubscribeThesisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/SubscribeThesisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/impl/SubscribeThesisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-backend/src/main/java/com/sprint3/backend/services/impl/SubscribeThesisServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/app-routing-student.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/app-routing-student.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/service/subscribe-thesis.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/service/subscribe-thesis.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe-thesis.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe-thesis.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/sprint3-front-end/src/app/student/subscribe-thesis/subscribe/subscribe.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-se/test/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/sprint2-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/sprint2-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_3/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/material.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/app-routing-student.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/app-student.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/notification/notification.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/notification/notification.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/notification/notification.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/service/subscribe-thesis.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/subscribe/subscribe-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/subscribe/subscribe.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/subscribe/subscribe.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/view-thesis/view-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/view-thesis/view-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/student/subscribe-thesis/view-thesis/view-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/teacher/app-routing-teacher.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/teacher/app-teacher.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/teacher/feed-back/feed-back.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/teacher/feed-back/feed-back.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/app/teacher/feed-back/feed-back.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-before-comfirm/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/material.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/app-routing-student.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/app-student.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/detail-teacher/detail-teacher.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/detail-teacher/detail-teacher.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/detail-teacher/detail-teacher.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/list-instructor/list-instructor.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/list-instructor/list-instructor.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/list-instructor/list-instructor.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/notification/notification-teacher.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/notification/notification-teacher.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/mai-htq/notification/notification-teacher.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/confirm/confirm.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/confirm/confirm.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/confirm/confirm.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/notification-subscribe/notification-subscribe.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/notification-subscribe/notification-subscribe.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/notification-subscribe/notification-subscribe.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/service-subscribe/subscribe-thesis.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/subscribe/subscribe-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/subscribe/subscribe.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/subscribe/subscribe.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/view-thesis/view-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/view-thesis/view-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/student/subscribe-thesis/view-thesis/view-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/app-routing-teacher.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/app-teacher.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/feed-back/feed-back.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/feed-back/feed-back.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/feed-back/feed-back.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/service/group-student.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/service/thesis.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/shared/page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/shared/searchThesis.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/shared/thesis.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/statistics/statistics-teacher/statistics-teacher.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/statistics/statistics-teacher/statistics-teacher.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/statistics/statistics-teacher/statistics-teacher.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/statistics/statistics-thesis/statistics-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/statistics/statistics-thesis/statistics-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/statistics/statistics-thesis/statistics-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/delete-group-student/delete-group-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/delete-group-student/delete-group-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/delete-group-student/delete-group-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/management-student-group/management-student-group.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/management-student-group/management-student-group.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/management-student-group/management-student-group.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/message-group-student/message-group-student.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/message-group-student/message-group-student.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/message-group-student/message-group-student.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/quantity-student-group/quantity-student-group.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/quantity-student-group/quantity-student-group.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/student-group-management/quantity-student-group/quantity-student-group.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/create-thesis/create-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/create-thesis/create-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/create-thesis/create-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/delete-thesis/delete-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/delete-thesis/delete-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/delete-thesis/delete-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/detail-thesis/detail-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/detail-thesis/detail-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/detail-thesis/detail-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/edit-thesis/edit-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/edit-thesis/edit-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/edit-thesis/edit-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/list-thesis/list-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/list-thesis/list-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/list-thesis/list-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/message-thesis/message-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/message-thesis/message-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/message-thesis/message-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/notification-thesis/notification-thesis.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/notification-thesis/notification-thesis.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/app/teacher/thesis/notification-thesis/notification-thesis.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/service/mai-htq.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_3/src-confirm/test.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +222,7 @@
       <workItem from="1611300942108" duration="1843000" />
       <workItem from="1611304311118" duration="241000" />
       <workItem from="1611730515882" duration="177000" />
+      <workItem from="1620696714918" duration="296000" />
     </task>
     <servers />
   </component>

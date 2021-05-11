@@ -27,7 +27,7 @@
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "firebase": "^8.2.1",
-    "highcharts": "^8.2.2",
+    "highcharts": "^9.0.0",
     "highcharts-angular": "^2.9.0",
     "html2canvas": "^1.0.0-rc.7",
     "jquery": "^3.5.1",

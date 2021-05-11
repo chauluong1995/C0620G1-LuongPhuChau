@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_parent">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+    <link rel="stylesheet"
+          href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/css/mdb.min.css">
+    <link rel="stylesheet"
+          href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-addons-4.19.2.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
+    <style></style>
+    <style type="text/css">/* Chart.js */
+    @-webkit-keyframes chartjs-render-animation {
+        from {
+            opacity: 0.99
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes chartjs-render-animation {
+        from {
+            opacity: 0.99
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    /*.chartjs-render-monitor {*/
+    /*    -webkit-animation: chartjs-render-animation 0.001s;*/
+    /*    animation: chartjs-render-animation 0.001s;*/
+    /*}*/
+    </style>
+</head>
+<body>
+<div>
+<!--<div class="select-wrapper mdb-select md-form">-->
+    <!--    <input type="text"-->
+    <!--           class="select-dropdown form-control"-->
+    <!--           readonly="true" required="false"-->
+    <!--           data-activates="select-options-990e9c78-7f2a-4dba-a40b-816cd0fe042a"-->
+    <!--           value="" role="listbox"-->
+    <!--           aria-multiselectable="true"-->
+    <!--           aria-disabled="false"-->
+    <!--           aria-required="false"-->
+    <!--           aria-haspopup="true"-->
+    <!--           aria-expanded="false">-->
+    <!--    <ul id="select-options-990e9c78-7f2a-4dba-a40b-816cd0fe042a"-->
+    <!--        class="dropdown-content select-dropdown w-100 multiple-select-dropdown"-->
+    <!--        style="display: none; max-height: 235.2px; width: 916.8px; position: absolute; top: 0px; left: 0px; opacity: 1;">-->
+    <!--        <li class="disabled  " role="option" aria-selected="false" aria-disabled="true"><span class="filtrable "><input-->
+    <!--                type="checkbox" class="form-check-input" disabled=""><label></label> Choose your country    </span></li>-->
+    <!--        <li class="select-toggle-all" role="option" aria-selected="false" aria-disabled="false"><span><input-->
+    <!--                type="checkbox"-->
+    <!--                class="form-check-input"><label>Select all</label></span>-->
+    <!--        </li>-->
+    <!--        <li class="active" role="option" aria-selected="true" aria-disabled="false"><span class="filtrable "><input-->
+    <!--                type="checkbox" class="form-check-input"><label></label> USA    </span></li>-->
+    <!--        <li class="active" role="option" aria-selected="true" aria-disabled="false"><span class="filtrable "><input-->
+    <!--                type="checkbox" class="form-check-input"><label></label> Germany    </span></li>-->
+    <!--        <li class="active" role="option" aria-selected="true" aria-disabled="false"><span class="filtrable "><input-->
+    <!--                type="checkbox" class="form-check-input"><label></label> France    </span></li>-->
+    <!--        <li class="active" role="option" aria-selected="true" aria-disabled="false"><span class="filtrable "><input-->
+    <!--                type="checkbox" class="form-check-input"><label></label> Poland    </span></li>-->
+    <!--        <li class="active" role="option" aria-selected="true" aria-disabled="false"><span class="filtrable "><input-->
+    <!--                type="checkbox" class="form-check-input"><label></label> Japan    </span></li>-->
+    <!--        <button class="btn-save btn btn-primary btn-sm waves-effect waves-light">Save</button>-->
+    <!--    </ul>-->
+    <select class="mdb-select md-form initialized" multiple="" data-stop-refresh="true">
+        <option value="" disabled="" selected="">Choose your country</option>
+        <option value="1">USA</option>
+        <option value="2">Germany</option>
+        <option value="3">France</option>
+        <option value="4">Russia</option>
+        <option value="5">Japan</option>
+    </select>
+    <button class="btn-save btn btn-primary btn-sm waves-effect waves-light">Save</button>
+</div>
+<script type="text/javascript"
+        src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/js/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/js/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/js/mdb.min.js"></script>
+<script type="text/javascript"
+        src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.2/compiled-addons.min.js"></script>
+<script type="text/javascript"
+        src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
+<script type="text/javascript">
+    {// Material Select Initialization
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
+        });
+    }
+</script>
+<div class="hiddendiv common"></div>
+</body>
+</html>

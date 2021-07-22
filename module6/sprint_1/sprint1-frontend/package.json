@@ -46,7 +46,7 @@
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.6.3",
     "tslib": "^1.10.0",
-    "xlsx": "^0.16.9",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.9.1",
     "@progress/kendo-drawing": "^1.2.0",
     "@progress/kendo-theme-default": "latest",
